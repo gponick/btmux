@@ -1,0 +1,26 @@
+Name             { RadioTower }
+Reference        { RadioTower }
+Type             { Vehicle }
+Move_Type        { None }
+Tons             { 35 }
+Comment          { Saved by: Wizard(#2) at Tue Jun 21 15:28:10 2005 }
+Mech_BV          { 554 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
+Max_Speed        { 0.00 }
+Specials         { CritProof_Tech }
+Left_Side
+  Armor            { 99 }
+  Internals        { 4 }
+Right_Side
+  Armor            { 99 }
+  Internals        { 4 }
+Front_Side
+  Armor            { 99 }
+  Internals        { 4 }
+Aft_Side
+  Armor            { 99 }
+  Internals        { 4 }
+Turret
+  Armor            { 70 }
+  Internals        { 4 }
