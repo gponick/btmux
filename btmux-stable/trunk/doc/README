@@ -8,10 +8,10 @@ be found on the BattletechMUX Wiki at:
 DIRECTORY CONTENTS
 ------------------
 hudinfo.spec		Specifications for the 'hudinfo' command and its
-			responses.
+			        responses.
 
-exilemerge.txt          The changes that were made to the 3030MUX base
-                        during the merge with the Exile tree.
+exilemerge.txt      The changes that were made to the 3030MUX base
+                    during the merge with the Exile tree.
 
 FURTHER SUPPORT
 ---------------
