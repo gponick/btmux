@@ -162,37 +162,37 @@ void gradually_load(MECH * mech, int loc, int percent)
     bzero(pile, sizeof(pile));
     t = silly_atr_get(loc, A_ECONPARTS);
     while (*t) {
-	if (*t == '[')
-	    if ((sscanf(t, "[%d,%d,%d]", &i1, &i2, &i3)) == 3) {
-		pile[i2][i1] += i3;
-		cnt++;
-	    }
-	t++;
+        if (*t == '[')
+            if ((sscanf(t, "[%d,%d,%d]", &i1, &i2, &i3)) == 3) {
+                pile[i2][i1] += i3;
+                cnt++;
+            }
+        t++;
     }
     while (nspd > ((float) spd * percent / 100) && cnt) {
-	for (j = 0; j <= BRANDCOUNT; j++) {
-	    for (i = 0; i < NUM_ITEMS; i++)
-		if (pile[j][i])
-		    break;
-	    if (i != NUM_ITEMS)
-		break;
-	}
-	if (i == NUM_ITEMS)
-	    break;
-	lastid = i;
-	lastbrand = j;
-	econ_change_items(loc, i, j, -1);
-	econ_change_items(mech->mynum, i, j, 1);
-	pile[j][i]--;
-	cnt--;
-	SetCargoWeight(mech);
-	nspd = (float) MechCargoMaxSpeed(mech, (float) spd);
+        for (j = 0; j <= BRANDCOUNT; j++) {
+            for (i = 0; i < NUM_ITEMS; i++)
+                if (pile[j][i])
+                    break;
+            if (i != NUM_ITEMS)
+                break;
+        }
+        if (i == NUM_ITEMS)
+            break;
+        lastid = i;
+        lastbrand = j;
+        econ_change_items(loc, i, j, -1);
+        econ_change_items(mech->mynum, i, j, 1);
+        pile[j][i]--;
+        cnt--;
+        SetCargoWeight(mech);
+        nspd = (float) MechCargoMaxSpeed(mech, (float) spd);
     }
     if (lastid >= 0) {
-	i = lastid;
-	j = lastbrand;
-	econ_change_items(loc, i, j, 1);
-	econ_change_items(mech->mynum, i, j, -1);
+        i = lastid;
+        j = lastbrand;
+        econ_change_items(loc, i, j, 1);
+        econ_change_items(mech->mynum, i, j, -1);
     }
     SetCargoWeight(mech);
 }
@@ -201,9 +201,9 @@ void autopilot_load_cargo(dbref player, MECH * mech, int percent)
 {
     DOCHECK(fabs(MechSpeed(mech)) > MP1, "You're moving too fast!");
     DOCHECK(Location(mech->mynum) != mech->mapindex ||
-	In_Character(Location(mech->mynum)), "You aren't inside hangar!");
+        In_Character(Location(mech->mynum)), "You aren't inside hangar!");
     if (loading_bay_whine(player, Location(mech->mynum), mech))
-	return;
+        return;
     gradually_load(mech, mech->mapindex, percent);
     SetCargoWeight(mech);
 }
