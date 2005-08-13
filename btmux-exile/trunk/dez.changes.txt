@@ -1,6 +1,12 @@
---------
+This file details most of the changes done to the codebase from the vanilla
+BTMux 1.3 it is based off of. The documentation is reasonably complete up
+until the very last months where it tapers off even though developments
+were being made. Consider this a good guide for changes even if it is not
+all-inclusive.
+
+-----------
 Pre-5/16/00
-----
+-----------
 Modified : (could be more) mech.combat.c mech.ice.c mech.sensor.functions.c mech.sensor.h pickup.c mech.update.c
 	   mech.move.c map.h map.obj.c map.los.c weapons.h mech.h mech.tech.commands.c mech.tech.do.c ds.bays.c(?)
 ----
