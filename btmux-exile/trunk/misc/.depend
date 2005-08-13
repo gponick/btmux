@@ -1,0 +1,3 @@
+# Cleaned by MakeDepCleaner Sun Jun 15 00:07:35 2003
+myfifo.o: myfifo.h
+# Original lines: 12 - New lines: 1

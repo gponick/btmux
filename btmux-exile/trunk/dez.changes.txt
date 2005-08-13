@@ -1,0 +1,3038 @@
+--------
+Pre-5/16/00
+----
+Modified : (could be more) mech.combat.c mech.ice.c mech.sensor.functions.c mech.sensor.h pickup.c mech.update.c
+	   mech.move.c map.h map.obj.c map.los.c weapons.h mech.h mech.tech.commands.c mech.tech.do.c ds.bays.c(?)
+----
+Reduced EM/Seismic 'speed 0' theshold from 0.0 to 1MP.
+Gradiated IR BTH scale (Later, changed to overheat ratio scale).
+Reduced EM BTH vs Partial by 1.  Reduced Radar BTH vs high Z by 1.
+Reduced Radar Range to 100. Rotated EM range to even 10-20 (around IR range of 15). Increased Seism to 4-12. BAP to 7.
+Lowered top end and gradiated EM BTH scale.
+Locked towing or starting a unit if it possessed Stall data.
+Balancing factors for mods : Wheeled units lose an extra total MP on Rough and Mountain. Tracks benefit by losing 1 /less/ MP 
+of rough and mountain (What they are made for after all). All other units are standard. 
+Cliffing BTH Mods lessened by one in each class (Based on total speed). May help life a little.
+Gradiated Wheeled Road mod based on tonnage. +1MP through +3MP.
+Added bridge-like wall blowing. (Limit -2 from nearest adjacent hex's elev)
+Added easy-core rules. Mech = CT Alive || 2/3 torso (Ie, functionally added Donut Mechs to be fixable)
+		       Tank = Turret + 2 Opposing sides.
+Added Relative Target Z for LoS (+/- Z 20. Affects flying shit only, functionally).
+SNOW! Added BOGDOWN critstatus to accomdate, locks out heading and moving. Enter snow hex, roll pilot
+	or bog down. Chance to roll each turn. (Add pilot BTH mods for Wheels in future). Track have
+	the 'better' MP, like mntn & rough. Snow affect leg HS's like water. Snow blocks LA LoS. Snow
+	can 'functionally' work to fool IR.
+Inferno moded for tank hits : Tanks ONLY explode /if/ the side hit with an inferno CONTAINS inferno ammo. Can
+	be dumped to avoid. Non-inferno sections hit cause speed degradation based on maxspeed.  6MP- 1MP loss a hit.
+	9MP- 2MP loss. 12MP- 3MP loss. 13MP+ 4MP loss.
+Fixed map SETCOND command to allow it's REAL max # of args.
+Dropped off units speed now set to 0 and all that jazz.
+MechMortars/Artillery :
+	Artillery uses regular BTH map, with switched exceptions to avoid terrain, etc.. various bugs squashed
+	in BTH. Currently burns surrounding hexes if Cluster/normal rounds fired, adding Incendiary soon to will
+	change that. Mortars are basically Artilelry/Normal weapon hybrids.
+SR_DFM, LR_DFM, and Thunderbolt ammos integrated. Forgot ELRM.
+Quads allowed to pickup MW's on the field.
+Caseless and Hyper AC's now have FASA specs roll effects. Like UltraAC, they react to a roll of 2. Upon a roll of 2, they will 
+dest their crits and the round inside the barrell will explode. (Causing one of the AC's rounds of damage from the inside out. 
+Like a ammo boom of that weapon type with '1' ammo.) Not the end of the world. Tweaks for this and UltraAC's for the odds on 
+these effects are in mind, but not highly likely. Will soon add the SmokeRule on HyperAC/5&10. (each shot pumps smoke out 
+their backs.)
+===Addendum to above paragraph : HyperAC's and CaselessAC's emit a cloud of smoke behind them when they fire,
+	 their propellant fuels burning, as per FASA rules (least for hypers.) Artillery emits smoke, also.
+	Smoke emanated from Hyper/Caseless/Arillery/etc.. fire now based on weapon damage rating. AC/2-types 
+	dissipate pretty stinking quick. 20's stay 2/3 of a turn or so	
+CaselessAC behaviour changed in relation to BTH rolls of 2 : TacHandbook rules were the old rules, kind unfair. Maxtech rules 
+ states roll of 2 = disabled like Ultra AC, further roll of 8+ decides if weapon is critted and dested. One problem. It's on 
+ the bottom of my list to fix current UltraAC behaviour of desting itself on roll of 2 instead of jamm'ing. So, Caseless no 
+ behaves like a UltraAC on a rolls of 2, and will explode a single round inside the location it is in if it rolsl 8+. (Hybrid 
+ of maxtech and tachandbook rules until I can fix the weapon jam behaviour to match maxtech exactly.) Hyper AC's still explode 
+ a single round w/o the roll, sorry. No HyperAC's in maxtech so Tachandbook is the definiative source on their behaviour. :)
+Water System are no logical, a tad different in one case than most sites. !Water weapons are AC's, Missiles, Artillery. No 
+ firing them in water. This inlcludes leg mounted ones while standing in lvl1 or any of them on you if submerged (glub glub). 
+ You cannot fire these weapons (except arty, allowed to damage through water.) into water either. If you fire one through the 
+ lvl0 plane at a mech you have LoS with under the water it'll go splash. :) Try it out. Water Partial is also a hair different 
+ : Firing DOWN onto a lvl-1 water partial guy is still partial, but someone shooting UP at him (lvl -2 mech or lvl-1 
+ fallen/prone mech or Submarine) will not have partial. (Lv-1 vs lv-1 mechs will ahve partial. But a +clue one will prone to 
+ fire. :)
+Artillery hits you see now emit a bearing from the target hex that the shot came from.
+Various BV rating of weapons internal to XP system fixed. DFM's, ELRM's, etc...
+Locked enterbay & enterbase from 'Stabilizing' mechs.
+LaserAMS is added. Works just liked regular AMS's, cept it's heat is equal to the # of missiles it shoots down. 
+	( times 10, for purposes of status conversions.) It's FASA specs to the detail. :) 2 crits.. 1.5 tons. 
+(Sorry. Mostly Cut n Pasts from +Bbs posts from before I got smart)
+--------
+5/16/00
+----
+Modified : mech.ice.c p.mech.ice.h glue.h mech.consistency.c mechrep.c mech.combat.c mech.tech.do.c mech.tech.commands.c
+	   weapons.h mech.h mech.advanced.c
+----
+ADDSNOW and DELSNOW added to map obj. Percentage-per-hex. Be /CAREFULL/. Only adds to clear hexes.
+Added PIERCE mode and ammo, maxtech stock rules.
+Added MaxTech RapidFire (AC and MG) modes. Use ULTRA mode. AC-type : roll 2 = boomgun 3-4 = UAC type boom.
+	MG = roll 1d6 : roll = damage. roll x 3 = ammo used. roll = heat.
+Added HALFTON_AMMO list and functionality. Tech reload command will force/unforce HALFTON_MODE on this list of items.
+(Fixed ADDSNOW/DELSNOW to be more tollerant. Adds to clear hexes and parses num-of-proper neighbors matching !water,
+	forest, and mtns.)
+Added a shoddy temp fix to mech_toggle_mode_func in mech.advanced.c to prevent setting stuff Pierce & Ultra. Need to fix.
+Fixed weight tracking in mech.consistency.c to no longer count stupid HoverEngineFix's into equation. (Note : Get Gyro next)
+More? Little things for functionality perhaps.
+--------
+5/21/00
+----
+Modified : mech.notify.c mech.move.c mech.combat.c mech.tech.do.c mech.ice.c mech.maps.c artillery.c mech.h template.c
+
+----
+Changed smoke to Highlight Black, for grey effect to be noticeable on map.
+Added Incendiary artilery rounds : Mode, techwork, and Ammo. (Ammo_Mortar_Incendiary) FIREINCEND is mode switch.
+Reduced heat effect of burning woods around cluster/normal mortar strikes.
+Incendiary auto-napalms hit-hex and neighbors for time based on damage of weap.
+HEAT mode added for CHEAT weapons to switch heat<->damage mode. CHEAT effect damage now emits a heat-point message.
+BOG_DOWN status cleared upon jumping out of snow.
+Snow and lvl1 water now disengage leg mounted jumpjets.
+Snow clearable by CHEAT weapons.
+TAG mods added. -1 BTH with TAG. SkillLvl - 3 for mod for non-TAG spotters.
+Increased odds of cleared hex goes to rough over clear.
+Added BOGGED flag to status output.
+Fixed BAP @weight listing.
+--------
+6/04/00
+----
+Modified : command.c comsys.c comsys.h externs.h p.comsys.h econ_cmds.c
+----
+Added new switches to @cset : dark and visible. dark blocks '<chanalias> who' listing' and visble unsets dark.
+Added locks to '<chanalias> last' to double-check join locks for channel before outputing 'last' info.
+Fixed Fixstuff/@restart error of missing endo/ferro.
+--------
+6/08/00
+----
+Modified : mech.tech.commands.c mech.utils.c mech.combat.c mech.lite.c mech.hitloc.c mech.sensors.c
+	   mech.move.c mech.update.c aero.move.c
+-------
+Various HALFTON_MODE fixes. Repairing dested ammo bin no longer clears halfton mode. Also, HALFTON_MODE not cleared upon
+	load/unload of special ammo modes. New mode : LARGEAMMO_MODE.
+BT:RoW rules for water added to BTH. -1 BTH is target in lvl1 water. +1 BTH if firing out of lvl1 water.
+SLWARN ON|OFF command added for slite warnings.
+Added 1/12 chance of crits on hovers for !fasacrits mode to accounts for extra critability in FASA that
+	deson't carry over in !crit code.
+Fixed obscure overlapping else in contacts that flagged 'l' on a SLITE_LIT mech with a SLITE_ON. Should now
+	flag with L if SLITE_ON before checking for flag of l.
+Added clearing on JELLIED flags to mechs who enter lvl2 water or prone in lvl1 water.
+Moved iferno mod to terrain_speed function in mech.combat.c and added JELLIED effects to tanks to allow
+	non-cumulative effects of inferno to tanks.
+Allowing VTOLs to land on SNOW.
+Locked enterbase from BOGGED mechs.
+Implemented ECCM mode for ECM's.
+Removed TEAM check on radio set to FREQ_RELAY.
+Fixed artillery hitting bad hex bug.
+Reduced Rotor hit occurences from 6/11 to 4/11.
+Reduced BAD tank crits from roll 5+ of 10 = 1-6 BAD crit to roll 5+ of 6. (1/6 for roll of 1-6 on BAD crit).
+Fixed Bugs in ECCM status code. (odd). Also fixed self-ECCM protetion problems.
+Added E and P status line to contacts for ECM and PROTECTED.
+
+6/25/00
+----
+Modified : mech.utils.c btmacros.h crits.c mech.combat.c mech.utils.c p.mech.utils.h mech.h mech.tech.commands.c
+	   mech.tech.damages.c mech.tech.repairs.c mech.hitloc.c mech.move.c artillery.c
+--------
+Fixed QUAD LEG_DESTROYED checking to remove -2BTH to pilot rolls.
+Modified engine rating formulae to accept fractional and rounded running MP's as same rating. (Must be WalkMP based, still).
+To support speeds, changed MP to 11 KPH_PER_MP.
+Added in FASA style weapon crits and tech code. 'replacepart' will work on partially dested guns.
+Removed lame 3030 'low odds' spread of TAC in mech.hitloc.h entry for crittable function.
+Added FASA weapcrit repaircode to work in with fix, repairs, and damages.
+Added FASA exact Hardeneded armor details.
+	-1 RunMP (but not walk) (mech_speed in mech.move.c)
+	TAC resilient armor (-2 to Determine Critical Hits in mech.combat.c against NON-Piercing shots)
+	Piercing rounds affect HDArmor as standard armor for damage. (no 2 damage per pt armor) No perice effects either.
+	+1 BTH to piloting rolls. (/not/ Physical rolls!)
+More artillery fixes for fire starting shots that hit map edge that are HITS and nots misses.
+
+----
+7/20/00
+----
+Modified : mech.tech.commands.c aero.move.c mech.utils.c crit.c mech.pickup.c weapons.h
+	   btechstats.c 
+--------
+Matched new VTOL core rules.
+Set Vertical Speed on VTOL takeoff to 0, opposed to 60, to fix problems with cargo abuse fools.
+Fixed error on tanks with hotloading related to new crit code.
+Added message to notify ATTACKER when a weapon is knocked out from functioning.
+Loop around for Quads with SALVAGE_TECH to tow.
+Added 'autofall' command and function.
+Raised Weapon BV of all MG and HMG.
+Set Max XP per Shot to 70 (was 100)
+Fixed SLWARN of ON error with illumination messages when own slite on.
+MRM mod removed from mortar.
+
+----
+8/29/00
+----
+Modified : mech.move.c mech.update.c mech.hitloc.c crit.c? map.conditions.c mech.advanced.c mech.combat.c mech.physical.c mech.pickup.c btmacro.s weapons.h?
+	   glue.h p.mech.hitloc.h
+--------
+Fixed QUAD hitlocations. Kicks will hit one of the two legs on the side of the kick, partials/punch won't hit legs (arms). Normal hitlocations the same,
+	except rear shots to quads replacing increased odds on arms (Front Legs) with increased odds on rear legs (real legs).
+Fixed bug involving flooding leg locations (Funny. Quads could floos 'arms', not have bug but still legged.) causing multiple rolls as it parsed
+	each actuator crit. Also added 2 lines of quad intelligent switching on Arms/Legs in same function (forget, tested it)
+Added JumpJets for tanks. Forest landings roll or damage. Rough, also, but easier roll. Blocks hovers jumping into forest and tanks jumping into water.
+Reduced stackpole damage.
+Added DFM-launcher explosions. DFM missile hit mods in. Fingon Evil DFM 2/3 roll mods removed from to-hit rolls.
+ELRM's locked from hotload.
+Fixed BogDown behaviour and BTHs.
+
+----
+9/03/00
+----
+Modified : mech.hitloc.c mech.combat.c mech.advanced.c glue.h + MANY more. sorry.
+
+--------
+
+Implemented HullDown Quad Rulles. Hooked into mech_dig and said status attribs. New command 'hulldown'. (ONLY +2BTH in partial, no mods elsewhere)
+Fixed MultiBoom DFM bug.
+Added Fallen (prone) units subject to Quad hit tables. (Maxtech : Quad/Prone Hit tables.)
+	Funny how my 'House' original rules i thought up for normal Quad Hit locs were the same as FASA. :P
+Added MuleKicks. (ack. target parse code organization.) Just a normal kick. Quads can hit it to rear. +1 BTH.
+Added to contacts : I for Inferno. d for dugin/hulldown.
+Fixed a /slew/ of MP-based and BTH mod based leg crit errors from the 3030CVS port. Changes include (but god, not limited to) :
+	- Dynamic Recalc of MP changes replace static calcs. Prevents unfair speed settings based on order of crits.
+		Calculates -1MP mods /then/ calcs 1/2 MP hip crits.
+	- Added rules into recalc to ignoar /MP/ mods (only) of leg crits in a leg with a dested hip.
+	- Added Immobile (MP0) set for a biped taking 2 HipCrits. (Need BMR rules for # of crits affecting quads in this way).
+	- Fixed BTH mods from flooding (map.conditions.c -> DestroyParts) cumulating  BTH mod /over/ a critical hit. (from crit.c)
+	- Fixed Flooded code BTH mods settings. Hip +2, rest +1 now. Was Hip +1, rest +2. Bog?
+	- Fixed error in UpperActuator crit's pulot roll (crit.c) that DIDN'T check for it being Fallen. har har har.
+	- Fixed arm weapon fire BTH mod. Shoulders would set mod to 4 to overalp act crits, but act crits cumulated after that if tken
+		after shoulder crit.
+	- Uhmm. More? I spent 6 hours overal coding this and creating every event I could to debug. Found tons of odds and ends details that I might not remember.
+Added BMR Quad rules for leg dested. Including, but not limited to? :
+	- Hip MP mods and bth are cumulative.
+	- 1st leg dest removes all BTH and MP mods of crits in that leg and replaces with -1MP mod.
+	- 2nd leg dest causes behaviour of Biped with one leg. (1MP, +5 leg mod (a given))
+	- 3rd leg dest MP0 and immobilizes.
+	- -2 MP and Lateral shifts lost on 1st leg dest. (-2MP already in). Added code to reset offset to 0 when leg dest and stop any laeral change.
+	- More? Not coded i think, but need BMR to verify more details.
+Fixed MechFloods() function to flood tanks in water. (ie, Tank-breaks-Ice-and-Lives bug).
+Fixes to Physical attack (line by line and rule by rule went through EACH physical attack type. :P) :
+	- Kicks now parse damage based on actuator's dested. (1/2 damage, cumulative, per act dested.)
+	- More BTH fixes on hatchet-rules than i can count. (Axe, Sword, Club) +2 BTH for Up/Lo actuator damage. blockout of commands with Shoulder/hand damage.
+	- Added 'BASH' command and implemented the partly-done mace code as per FASA specs.
+		+2 BTH (Base : 6) - Pilot Roll on Miss - Double Hatchet Damage
+	- Fixed Axe/Sword/Mace code of scanning arm crits. Used to allow a swing even with a dested crit in the axe. (FindObj() sucks)
+	- Added Terrain BTH mods for physicals. As per FASA, near as I can tell, attackers hex is not a factor. Only targets. FASA doesn't specifically say,
+		either, but since it is a possible effect in MUX I included the Water-Mod rules. Target in water == -1, Attacker in water == +1.
+Added 2 extra chars to 'contacts'. One char was I and d moved over to prevent overlap. 2nd is solely for heat-ratio char.
+	- for -1 BTH
+	+ for -2 BTH
+	* for -3 BTH
+
+More? I've been starting at this so much last 2 days to fix !FASA bugs I think that's it.
+----
+9/07/00
+----
+Modified : mech.sensor.functions.c mech.contacts.c mech.update.c mech.move.c mech.ecm.c mech.ecm.h p.mech.ecm.h mech.sensors.functions.c
+--------
+Added '65-like IR sensor mods.
+	- MechTotalHeat + (2 * MechOverHeat) = Factor. < 0 = +2. > 0 = +1. > 200 = +0. > 350 = -1. > 500 = -2. (i think).
+Fixed VTOL Crashes
+	- Hitlocation always FrontSide, as per VTOL Crash Rules in FASA.
+	- Crashes when going through foresthex + elev 2. FASA states 'lower than or equal to the tops of the trees (2 elev high)' so it is a crash
+		if MechElev <= (HexElev +2). (Friendly auto-Z raise when take off in forest to be 'nice')
+	- Changed auto-crash-despite-roll rule when crashing in a non-building/grass/road/etc... hex and replaced with a +2 mod. VTOL Friendly.
+Other Sensor changes :
+	- Descrested minimum speed for Seimic to detect from 1 MP to a 1/2 MP.
+	- Reduced random variance on BAP sensors.
+	- Removed random EM sensor flux.  
+	- Added +1 BTH per intervvening Building/Wall.
+	- Added -1 BTH to EM for having 1+ Engine Crits (not cumulative)
+	- Added -2 BTH to EM for targets with BAP on
+	- Added +2 BTH to EM for targets with ECM protection.
+        - Consolidated Heavy/Assault EM mods : 60t+ is -1, no -2 on scale.
+
+Rewrote ECM/ECCM code behaviour to actualy work like it should. :P
+
+Exempted MW's from BogDown in Snow.
+
+Changed armor levels to match '65 for ease of player conceptualization.
+	Armor < 33% = Red ('65 == 30, our TAC at 33.). < 60 == Yellow < 90 == Dark Green. > 90 == Light Green
+
+Added Maxtech extended hit location rules for tanks. Each hitgroup (direction hit from) has 2 of the default-side results changed.
+	FRONT : 5 == LSIDE
+		9 == RSIDE
+	BACK  : 5 == RSIDE
+		9 == LSIDE
+	RSIDE:
+	LSIDE:  5 == FSIDE
+		9 == BSIDE
+
+Internal Changes : Running out of room for Status/Critstatus and didn't like sloppily flooding uncharaterstics flags into the wrong areas
+	(BOGDOWN and ECCM_ACTIVE in Critstatus? bog.) so I added a new pointer of status2. No hcode.db rebuild ness for this due to to
+	unused expansion slots. Unfortunately, PartMods need more slots, no way to expand w/o hcode.db rebuild. Any hcode.db after this bin
+	MUST BE RELOADED. Meaning, remove /data/hcode.db and then re-apply all loadnew, loadmap, etc.. commands. (setxy, setmapindx, etc..).
+	I personally script this whole mess. Overall : added MechStataus2() and status2 pointer. expanded mode pointer size to hold 32 modes.
+	Also added tinkermode since this requires hcode.db rebuild anyhow to critical data for code plans.
+
+Caseless AC's : Added CaselesAC ammo and CASELESS command to switch between. No longer use the IS.Caseless* weapons, replacing someday.
+
+Rewrite of Halfton/Variable ammo levels code during debug of Caseless. Streamlined and far more efficient and no more dual crit crap.
+
+Pierce & Caseles Ammo : AC<caliber>_AMMO_(PIERCE|CASELESS) added to mech.h. Commod names should be Ammo_AC<caliber>_(Caseless|Pierce). Changes to tech
+	code to support the proper commod useage. Also, caseless ammo is X on mechrep and tech reload code switches.
+
+Tinker code : SETTINKER <section> <subsect> <data (1-5)> added to Mechrep command setup. SetPartTinker GetPartTinker added to btmacros.h
+	load of template defaults tinker mode value to 0. Weapons tinkerable, for now, only. Think i hit all bases for the data holding and clean
+	loading/useage, including multiple switching. No behaviour added as of yet. Also added a '(TinkMode:#)' to critstatus. Many changes for
+	this to come. This is the base outlineing so far, had to get it in clean with hcode.db rebuilding. Future mods :
+			- Only list TinkMod on critstatus if > 0.
+			- Change 1-5 data info to named info. ($define TINKER_RANGE.. TINKER_NO etc... for internal use. Switch critstatus
+				output based on said defines to 'Range' 'None' etc..)
+			- Add behaviour mods to weapons. TINK_RANGE... + X range, + Y heat. (or roll for +Y heat /or/ -Z damage) etc....
+			- Add TINKERWEAP tech commands. Bad Failures dest weapon. OK ones waste time and commods. Passes cause tinker up and commod use and time.
+			- Added TNK tech to mech.h list and went through all oldtech and added to weapons.h
+
+Various : Various supporting mods through to support all the above. SMALL_AMMO list match and SMALLAMMO_MODE added for caseless ammo.
+	Has lots of small points in code modded to support.
+
+Added feature to free all BOGDOWN mechs in a hex cleared of snow by flamer.
+
+Added some intelligent checks to stackpoles to be Started or Starting in order to boom engine at all or autoeject (redundent, but just in case.).		
+
+Added (duh) intelligence checks to some Contacts flags for the target being started.
+
+MechTurnDamage resets on falls.
+
+Commented leg destruction stackpole lines. Avoids problems with non-zero'ing stackpoles while giving the dramatic
+	smoking boots effects. Nothing like seeing the bloody stump of your target. Minimal salvage left, head still goes. Why the hell not?!
+
+Fixed some EM chances of seeing.
+
+Added BEAGLE_ACTIVE to status2 and indicators. 'A' for ActiveProbe on status.
+
+Fixed scan bug with weaponcrit code.
+
+Fixed ice hex target bug when not underwater.
+
+Added higher odds on breaking ice when running and no icebreak chance under MP1.
+       < MP1 = no break
+	Walk = Roll 1-12 > 10
+	Run  = Roll 1-12 > 8 
+
+Added Tracer ammo. (-1 dmg. Counters vis restrcits. Yes, leaving it to POSSIBLY allow -1BTH at dawn/dusk intentionally)
+
+Added SemiGuided missiles. If spotted with a TAG spotter, they ignore IDF mod and target movement.
+
+Added auto-hit feature to BSuits when swarming a target.
+
+Debugged spotting code heavily and veridied working. InLined with FASA and removed 3030 House Rules.
+	- All rules FASA except : Kept Terrain mods from Spotter->Target over FASA Attacker->Target.
+				  +1 IDF is translate to spotting skill : SpottSkill target - 3 = mod.
+
+Added new flags to LOSinfo array for Building counts and ECM affect LoS.
+	- Implemented ECM LoS passthrough effects on NARC, Artemis, and C3.
+	- Changed above EM code to add +2 BTH per building/wall hex.
+	- Opted not to block EM through LoS passthrough of ECM bubble. Should I?
+
+Added backwalk pilotrolls. Falls elev2 damage and roll difficulty is elevation change.
+
+Added crit emit messages.
+
+Fixed first-crit function error causing weapons to be 'destroyed' when not.
+
+Fixed bug with getting +0 even tho unstable or no lock when 'fire X <ID>'.
+
+Fixed bug with DHS crits.
+
+Fixed bug with stopping ammolist on status when total weaps was already displayed.
+
+---------
+Maint fixes : (Expanded into new bin list. oops.)
+--------
+Various doodoo bugs squashed.
+
+Added fractional ammo accounting.
+      - commod use and commod weight.
+
+Added FASA blocks on missile weapon->swarmtraget.
+
+Reduced BTH to no XP roll for Swarming friendies.
+
+Added check in Wall Lowering code to only count elevs of other Wall hexes.
+
+Set bsuits to recyle after thrashing to avoid immediate re-swarm.
+
+Removed any roll at all for bsuits swarming friendlies if speed uner MP1. -2 mod under MP..5?(FASA Mounting)
+
+Removed mech-like crit'ing of bsuits.
+
+Cosmetic Battlesuit Changes :
+	STATUS command lists if you are SWARMING A BATTLEMECH or SWARMED BY BATTLESUITS.
+	CONTACTS command shows a 'w' if a unit is being SWARMED.
+	STATUS command shows 'SwarmTarget: XX' between ChargeTarget and Target if suit has swarmtarget.
+
+Added BMR rules on AMS ammo useage.
+	- Fixed missile numhit oddity on messaging to target/firer while in there.
+
+Fixed quad-prone BTH rules. (No -2 for prone firing if leg intact.)
+
+Fixed ELRM min-range behaviour. Under min range = half damage.
+
+Fixed ImmobileCrittedTanks bug with recieving +2 BTH if critted (Fallen). They STILL get +2 stabilization BTH from jump.
+
+Hotload behaviour :
+	Added hotloaded launchers to explode like DFM.
+	Added hotload mode change locks if weapon is recycling.
+	Added 2 lowest of 3 rolls to hotload mode missilehittable.
+Fixed bugs in crit emits with emitting non-combat broadcasts.
+
+Cosmetic change to MechPref status line : Only shows if Mech is PKiller (Safeties off), has autofall on, OR has slwarn on. Spam reduce.
+
+Added mount limit of one suit per friendly as per FASA.
+
+Fixed some Swarmers-On-Mech handling issues with entering and leaving base.
+	- When leaving, all swarmers go with you.
+	- When entering, friendly swarmers (mounted bsuits) come with you.
+	- When entering, unfriendly swarmers are dropped of nicely' (as if they intentionally moved).
+
+Added 2 structs to econ_cmds.c for specials and cargo weight holding matched to index.
+
+Added weight listing as ... (X.Xt) .. to manifest and stores. Total weight for each item.
+
+Maint Fixes (for real)
+------------
+
+Fixed floating point issues in econ_cmds.c on weight data. (ugly.)
+
+Fixed MW Death tracking bug.
+
+Fixed stackpole tracking deaths bug.
+
+Fixed towing-drops-unit-on-leavehangar bug caused by order changing in Leave_Hangar from bsuit code.
+
+Fixed bug with BSuits in simds not desting.
+
+-----------
+9/26/00
+-----------
+Modified : mech.move.c mech.advanced.c mech.events.c mech.contacts.c mech.status.c mech.notify.c Again lost track of rest. 
+-----------
+Only HyperACs (FASA) and CaselessAC's (InHouse) and DLR/DAR (Arty, Inhouse) spew Smoke behind them when firing now.
+
+Added REAL Weapon (AC) jamming code :
+	- Jams no longer destroy crits. (Ie, UAC/Caseless(nonexploding)/RFM etc...)
+	- STATUS shows 'JAMMED' beside weapon and 'UNJAMMING WEAPON' on status list if unjamming.
+	- Contacts show 'U' for Unjamming if unit is unjamming a weapo.
+	- 'UNJAM <weapnum>' to unjam weapon.
+	- To unjam :
+		- Must be walk speed or less. Moving above walkspeed cancels jamming action.
+		- Cannot fire weapons OR physical while unjamming.
+		- Must wait for recycle of weapon that jammed from the shot that jammed it.
+		- Hitting a speed over walk WILL cancel jamming action, for open ended options.
+		- PILOT (decided for balance reason) roll at +2 to unjam weapon at end of 1 turn on Unjamming.
+		- Emits upon actions to make people aware of easier target. (Debating adding -1 BTH mod to shoot
+			an unjammer)
+		- Also, removes Unjamming even upon jumping.
+
+Commented some code to allow retro-sensor changes. Changint o same sensor due to typo/mistake/tactical situation change.
+
+Switched out crit-emits if unit is dested. :P
+
+Fixed swarms :
+	- Swarm1 only gets +2 BTH against Friendlies, not non-target.
+	- Targets 'adjacent' hexes only for new targets, as per FASA. (Lie, checked range less than 2 for leeway. 1 would be canon.)
+
+Fixed, again, some wall drop dynamics.
+
+Arillery (Mortars) :
+	Clusters do damage in 1 pt clusters and total damage per hex (1/2 for neighbors) is x 1.5.
+        Icendiary rounds slime mechs in hex with inferno jellly.
+	Radius of Incend/Smoke increased based on weapon damage.
+
+Added Maxtech Smoke Rules :
+	Light Smoke is White : and Heavy Smoke is Bold White ;. (Best I could come up with so far.)
+	Smoke and Heavy smoke terrain. FASA BTH (Vis/LA) act as Light/Heavy forest. Tweaks :
+		- V/LA blocked and BTHed as per Light/HeavyForst (FASA spec)
+	        - EM Sees through. IR Affected light Light/HForest. (Vis)
+		- EM and IR BTH calc as they do Light/HForest but at a divisor of 2 to point addition. Round up.
+	Artillery drops HSmoke, for now until a pref and dynamic system is setup for varying duration/range.
+
+Internal Map changes :
+	- Event Type terrain (Fire and Smoke from burning/arty/etc...) no longer engulf the entering hex's char data.  Of the 4 'corners'
+	  of data it will parse as such for normal hexes :
+							  __
+			'Current' or Event Terrain ----> /&&\ <---- 'Current' or Event Terrain
+			'Real' or Underlying Terrain --> \"2/ <---- Elevation or Underlying Terrain (if 0)
+	- Bear in mind Bridges (unimplemented on this map due to RS Bridge-explode issues, got a plan on that one. :) are 'road'
+		Events (Long Term, not really Timed Events, Static.) on top of Bridge terrain.
+
+Added MaxTech vehicle crit rules. (Config Param btech.fasacrit == -1)
+	- Long Story. Much more gradiated system. Sensor Crits, Weapon Dest, Weapon Jams, Crew Stuns, Turret Lock, Turret Jams.
+	- Crew Stun crit will lock crew from firing, unjamming, and flank speed for one turn. NOT cumulative. New crit cancels old, starts new.
+	- JAMMED turret can be UNJAMMED as per unjam rules with 'unjam -' command.
+	- TURRET JAMMMED and TURRET LOCKED and CREW STUNNED shown on status.
+	- 'X' on contacts for Crew Stunned.
+	- 'S' shown in 3rd char where 'AMS' or OS/Rearmount info on status shown for Stabilizer Crit on said weapon. (2x AttackerMove Mods. Not Cumulative)
+	- Engine_Hit halves maxspeed rather than immobilizes. Half is as good almost in combat anyhow. Give em a chance to limp if they manage to live.
+
+Internal Tank Crit Handling :
+	- Interesting bug. Floating TACs (cause_armordamage) handled fine, but normal internal crits (cause_internaldamage) don't appear to
+	  follow FASA odds and rolling scheme, or maybe just not as per MaxTech rules. Either way :
+		Old : Rolled 8+ for crit effects when cause internal for Critical Hit Effects roll for tanks, like mechs.
+		      THEN tank roll chart rolled and had possible NoCrit effects on that chart. Odd.
+		New : (Canon Maxtech)
+		      Any internal damage rolls cirectly on Critical Hit Effect Table (HandleCrit) so NoCrit handling is done within
+		         crit-table rolls. (ie, roll 2-5 = no crit.)
+	        Effect : This means tanks can't get ultra-fucked by double triple crits. (Thery have less capacity than mechs for them even with new rules.)
+
+VTOL hitlocations and crits :
+	- Implemented MaxTech VTOL crit/hitloc/damage rules. hitlocation charts match.
+	- Pilot, CoPilot crits : Pilot = drop 3 Z (check for crash) and +2 pilot rolls. CoPilot = +1 ToHit Rolls.
+	- Any rotor damage is 1 point.
+	- Rotor Dest and Damage crits remain same as old hitloc rules.
+	- Tail Rotor Dest : Can only go cruise speed. Heading changes slower. (Twist on Maxtech rule for not allowing to break
+		max turn rate modes. That'll NEVER be implementable.)
+
+----------
+9/28/00
+-----
+Modified : mech.lite.c mech.utils.c mech.combat.c
+----------
+
+Added CL.MicroPulseLaser and CL.ERMicroLaser 
+	- Clan ERMicro Laser: Heat 1, Damage 2, Range 1/2/3-4, 0.25 tons, 1 crit
+	- Clan MicroPulse Laser: Heat 1, Damage 3, Range 1/2/3, 0.5 tons, 1 crit PulseTech (-2 ToHit)
+
+Fixed slite passing through walls.
+
+Fixed Seismic fire hitting through walls if target was hex/building.
+
+Swarm-I's (Swarm1)  are canceled by ECM, as per FASA, and function as normal Swarms.
+
+Aded mucho internal code to handle....
+	- DFM as Ammo type (same ammo. Loaded with D and lettermode D)
+	- ATMs! Integral artemis. ATM-3/6/9/12. H for HE Ammo. E for ER Ammo. 5 pt spread. No IDF. Ammo_ATM-ER and Ammo_ATM-HE.
+	- MechRep Change : Halfton is '+' now.
+        - Part of the code overahauls include WeaponSpecs outputing 'duplicate' weapons IF the weaponmode differs.
+		- This is CURRENT SET weaponmode.
+		- Also added a intelligent checker to ONLY 'duplicate' lists ammo types that have variable loadouts! i rock.
+	- More ModeLetter changes on status (cry)
+		- Explosive Narc rd/mode = X
+		- ATMHE Rd/mode = H
+		- ATMER Rd/mode = E	
+                - Hotloaded mode = *
+        - Deadfire locked from mode switch like Hotload.
+
+Reverted tech code back to empty'ing ammobin data (rds) on changing mode to force full ammo use if they choose to no unload.
+
+Jamming Code :
+	- Added unjam locks to block unjam if any weaps are recycling or (if mech) sections recycling from phys.
+	- Jams do not expend ammo.
+	- Jams will expend ammo upon unjam.
+	- Jammed weapons crited explode.
+	- Jam-event time is equal to weap VRT.
+	- Blocked unjaming and spotting mutually from the other.  
+
+Added PPC Field inhibitor disengagement
+	- 'disable #' like gauss.
+	- No min range mods.
+	- Shots under min range roll or weap explodes doing it's damage (like DFM)
+		- range < 1 BTH 10+ .. range < 2 BTH 6+ .. range < 1 BTH 3+... to not explode.
+
+RFM-MG rolls to dest/jam removed. No FASA support for it.
+
+Bsuits :
+	- Bsuit Reloads take 1 minute each. (Ack.)
+	- Locked Trash (in case reimplemented) from Quads and hip damaged units.
+	- Removed THRASH command. FASA states mechs cannot INTENTIONALLY go prone to shake off bsuits.
+	- Fixed @magic (checklist) error causing reseting of jumpspeed.
+	- Fixed mech-punch-bsuits-on-him heading errors.
+	- Punching Swarmers made more FASA (with one concession) :
+		- Punch BTH is /now/ FASA at +4 + all other mods. (Bog. Was +3 for Axe/Hatcht and +5 for Punch!?)
+		- ONLY Punches allowed, as per FASA. No Axe/Hatcheting swarms on you. (Hell, your better off with punch)
+		- Even tho !FASA, leave the +4 BTH normal pilot roll in to AVOID punching self.
+	- Bsuits in sims should now PROPERLY die.
+
+Fixed Bogdown Towing bug.
+
+Logical StandCheckBlocking when maxspeed == 0. (FASA. Stand costs 2 MP's.)
+
+Added Smoke Terrain mods to physicals terrainmods listing.
+
+New Tech :
+	Comstar Stealth Tech (Purifier Battle Suits)
+		- BTH Mods are (MaxSpeed in MP) - (CurrentSpeed in MP). Ie, +0 at max. +<MaxspeedMP> at 0. (Creative math to match FASA
+			specs of MP0 = +3 MP1 = +2 MP2 = +1 MP3 = +0 math for a MP3 PA hardwired system.)
+	NullSignature Device (Munchy? Might tweak the offsets in future)
+		- Requires 7 crits (Possible to template all in one location, yes. But in practice ALWAYS put 1 in each location.)
+		- 1 crit dested, whole system wacked out.
+		- +10 Heat while engaged.
+		- Changes BaseRangeMods - SR +0 (same) MR +3 LR +6
+		    Technically, for DebugInfo tracking it's a BTHADD mode of +0 SR +1 MR +2 LR
+		- IR HeatRatio hardwired to -1 if Device is On. (worst BTH)
+		- No scanning of ECM Protected targets or NullSig targets over 1/2 range. (LOS Line included on ECM)
+		- 1 Turn delay event on toggling NullSig
+
+Added some ice-landing fixes.
+
+Targeting now FASA :
+	- No change on normal targets called shots on immobile targets, pure FASA rules.
+	- TC random-working mod (only workd 50/50 of the time) removed.
+	- TC targeting a unit is still making a called show with + 3, TC's just aren't blocked to ONLY immobile (uncon, shutdown, etc..) targets.
+
+Hidden Unit Rules (Bsuit applied, for now)
+	- Various emits upon occurence of losing HIDDEN flag.
+	- HIDDEN flag on status.
+	- Decrease under-range-5 to see mods furhter. (div 5 rather than div 4 to one chance mul)
+	- BAP doesn't see NulSig's who are hidden, FASA.
+	- Added definitive message to Hide command to know if you complete hide or not.
+	- HIDE_TICK is 90 now! 3 Turns, people! It's not a free ride.
+	- Incrase auto-no-see for Bsuits and MW to 2.
+
+Radio Changes :
+	- ECM block via LoS between units will block radio's, also!
+	- Analog Scans now 'cap off' instead of overflow. (MechFreqs emit on analog catching).
+	- MechFreqs emits upon setchannelfreq'ing a freq on a non-sameteam mech on the same map.
+------------------------
+Fixes during loop-crash oddity debugging
+------------------------
+Aretmis moddle_toggle WORKS now. (3030CVS sucks)
+	- Artemis also won't get bonus in fire-code if no Active Artemis crit.
+
+Hotload shouldn't be removed on mode toggle of real weapon modes now.
+
+New cargo types (Ammo_ATM-ER, Ammo_ATM-HE.. NullSignature Device already did) now have a weight.
+
+Coupla message types fixed and cleanups.
+
+SAVING A TEMPLATE NOW FUCKING SAVES THE ARTEMIS DATA. Dear Lord. :P 3030 CVS hand me downs are nasty. The REAL reason they never did newtech. :P
+
+DFM's fixed for LRM's to spread in 5pt clusters. (FASA 4th Printing, Corrected, of Tachandbook)
+
+Fixed some internals and a minor bug.
+	- Field Inhibited PPC's no longer explode on criting.
+	- GR's and LGR's explode for corrected damage.
+	- Exploding weapons must more centralized in control now.
+
+Fixed fall damage on backwalk rolls.
+
+Added (for TP and more) Heavy Gauss Rifles :
+	- Heat 2 Min : 4 Range : 6/13/20 Crits : 11 Tons : 18 AmmPT : 4 Damage : 25(SR)|20(MR)|10(LR) Boom:25
+	- If not speed 0 roll pilot or fall (Mod Light +2 Medium +1 Hvy 0 Assault -1) 
+
+Thunderbolts now do 1/2 damage as per FASA if !Hotload and under minrange.
+
+Added Rotary AC/2 and 5's
+	- ROTTWO ROTFOUR and ROTSIX are commands to change mode.
+	- Hits 2 4 or 6 possible shots.
+	- Does x2/4/6 heat.
+	- has 2-,3-,4- rolls on jams.
+	- Whee. rewrote lots of internal ammo management code.
+
+FOUND THE BUG! Wooo hooo. Was heatsinks being do_magic'ed.
+
+Remvoed 0 CF enter/leave locks on maps.
+
+Removed team-matching nice code on stacks. Total mechs, not total mechs on team, now.
+
+Added blocks to not allow startup IF one weapon TYPE's ammo that has any hotload ammo does not have ALL of that types ammo hotload.
+
+Additional Pure FASA bsuit implementation : (Pure FASA cept for thrash '65-like house rules. :P)
+	- Jump-rules still in place as before to make pilot roll and throw swarmers off.
+	- Falling-auto-damage-rules still in effect. FASA states no intentional prone'ing to use this.
+		- No 'land' command bsuit throw offs.
+		- No Prone or Autofall On or Cliffing or ForcedLand or otherise intentional droping of BSuits.
+	- Not So FASA? Hide can hide a bsuit in HForest, LForest, Water, or Snow. Exluded rough intentionally.
+	- Thrash command implemented.
+		- auto scans and hits a range .05 to .5 target that is bsuit in same hex.
+		- Modifed by limb numbers left, damagewise.
+		- 0 Limbs 0 Thrash.
+		- All sections recycle.
+		- You CAN goof up and thrash w/o a target being there.
+		- Increased Bsuit acceleration.
+
+Removed Quad heading and accell incrases.
+
+Added PPC Capacitors. Command is 'capacitate #'.
+
+
+-----------------
+Modified : mech.combat.c bsuit.c mech.tech.do.c
+-----------------
+Date : Whenever
+-----------------
+Fixed issues with not demodulating HDA/REI/COI damage levels upon transfers.
+
+Fixed ammo load issues with DFM.
+
+Bsuit stuff -
+	- Fixed swarms to do damage in 5 pt chunks.
+	- Swarms dont' check for Started targets.
+	- Swarms don't check for MechTeam of targets.
+	- Mech hit, for each cluster, determined from random pool of valid swarmtargets.
+
+---------------
+Modified : mech.status.c mech.move.c mech.update.c mech.consistency.c mech.custom.c mech.tech.h mech.h glue.h mech.los.c btmacros.h
+---------------
+Date : 10/21/00+
+--------------- 
+
+Removed Limb-Sheer crit possibility from Headhits.
+
+MASC/Superchargers -
+       - SuperChargers added.
+		- Behave as per MASC.
+		- MASC + SCHARGE means 2.5 walk speed and +1 BTH on roll to lock up. (both)
+		- SCHARGE engine crits tanks, or 0-3 engine crits CT on mechs on fail.
+		- MASC option (btech_masc config param) will allow masc to crit 1 Actuator in each leg (random) on fail.
+
+Engine Techs -
+	- Fixed repair code to use proper engine types on repairs.
+		(COMP_ENGINE, LIGHT_ENGINE, XXL_ENGINE, ICE_ENGINE in particular)
+	- Added LightEngines. (2 engine crits each torso. .75 weight.)
+	- Fixed XXL_Engine behaviour on heat
+		- Stand +2 heat. Walk +4 heat. Run +6 heat. Jump *2 heat, min 6.
+	- Fixed Large Engine (over 400 rating) to use 5t Gyro.
+
+Cockpit Techs -
+	- Small Cockpit Support added : Defined by mech with anything other than LifeSupport in slot 6 of head.
+		- +1 BTH to pilot rolls.
+		- Cockpit weighs 2 tons.
+	- Torso Mounted cockpit support :
+		- Head Cockput in CT 11. Additional Sensor (2 in head still) in CT 12. 1 LifeSupport in each side torso.
+		- +1 to all pilot rolls.
+		- No MW Damage from Headhits.
+		- Cockpit weights 4 tons.
+		- Can absorb 2nd Sensor crit with only +4 BTH's, but 2nd crit causes +4 applied to pilot rolls.
+		- All 3 Sensors dead, additional +4 to pilot rolls.
+		- If LifeSupport destroyed, MW Heat damage scale shifts to 0+ instead of 15+ and 15+ instead of 25+.
+Gyro Techs -
+	- Compact Gyros - weigh 1.5, take 2 crits. (auto set by crit nums) (Compact_Gyro)
+	- XL_Gyros - weigh .5 take +2 crits. (auto set by crit nums) (XL_Gyro)
+	- HeavyDuty Gyros - sponge 1 extra crit, which only adds +2 Pilot, but not on runs/lands. Next crit +1 (+3 total) (HeavyDuty_Gyro)
+
+Fixes -
+	Fixed old gyro miscalculation bug. Applied to same calc methods to sueprcharger weights.
+	Some more ECMLoS exclusion
+
+---------------
+Modified : mech.ecm.c mech.ecm.h mech.los.c mech.status.c mech.notify.c? mech.combat.c mech.advanced.c mech.sensors.c mech.sensors.h mech.custom.c more?
+---------------
+11/1/00
+---------------
+Added Angel brand ECM :
+	- Commod and addsp (template) name 'AngelEcm'
+	- Counts as 2 pts for ECCM/ECM counts.
+	- Negates Streak Missiles via direct of LoS and causes them to behave as normal missiles. (use ammo and not hit all missiles)
+	- Weights 2t 2 crits
+	- Same command : ECM. Status shows 'AECM' instead of 'ECM'. Type autosensed and emited.
+
+Added Bloodhound brand Active Probes :
+	- Commod and addsp (template) name of 'BloodhoundProbe'
+	- Range 8, acts as BAP for BTH and seeing, except sees ALL hidden units even if stealthed.
+	- Changes to sensors to support read of first 2 chars and of arguements and matching the first 2 of sensor names (no case sensitive)
+		so bloodhound would need a 'bl', whereas just 'b' is beagle.
+	- Beagle reduced to /FASA/ range 4.
+
+--------------
+11/4/00
+--------------
+Modified : mech.advanced.c mech.combat.c mech.status.c mech.los.c
+--------------
+Fixed ECCM bug.
+
+Fixed SCHARGE on tanks bleed error.
+
+Fixed Bsuits getting 0 XP on swarming bug.
+	- Note : Despite roll, it will hit even if roll is less than BTH for BSuit swarm.
+
+Various fixes on radar
+	- matched mech.los.c manual range check for LOSFlagBLock down to 100 to match new radar range. 
+	- Fixed csee info (Remove range based elev !see with statis within 3 Z of hex elev !see)
+
+Fixes to VTOL fuel consumption
+	- 3 levels... <MP1... <Cruise... Flank....
+	- Per cycle (level) fuel consumption tick # is based on elev.
+
+Fixed bsuit XP
+
+--------------
+11/10/00
+--------------
+Modified : crit.c mech.hitloc.c mech.move.c mech.ood.c aero.move.c mech.combat.c mech.utils.c crit.c mech.tech.events.c mech.tech.do.c mech.tech.h
+--------------
+Re-insated FASA crit threshold for hitloc based crits on tanks due to lack of mortality rate worth anything.
+
+Added MW Damage to various logical crits in crit.c
+
+Added in some AI coded fixes.
+
+Implemented FASA OOD rules
+	- No jumping while OODing.
+	- MechFalls damage is equal to MoF of pilot roll in elevations.
+	- BSuits takes 1d6 damage per trooper if roll 3. 2D6 if roll 2.
+
+Fixed mode-neutered building damage.
+
+Fixed @magic turret flag clearing.
+
+Fixed tank weaponcrit ordering randomization.
+
+Fixed jump bug by abs()ing range input.
+
+Fixed SSRM target of hex null pointer.
+
+Fixed BSUIT unload time to match reload time.
+
+Fixed unloading of ammo stores dumps to get right numbers (not shots per ton).
+
+Fixed FOR SURE the LOS bugs on shooting build/hex through walls. Also fixed a one-way-LoS abuse in case2 of FireWeaponNumber.
+
+Fixed failed gun-fix recovery bug.
+
+Fixed HDA calulation bug.
+
+Added more ECM CPU optimization to check for ECM only every 3rd event_tick.
+
+Added alias_part switches in mech.tech.h to support alias names for gyro's.
+
+AT2 Aero Changes :
+	Changed Aero Hit Locations : Nose LeftWing RightWing Aft. Center numerical on STATUS is SI.
+	Modified aero hit location rolls to match new locations.
+
+Fixed Supercharger repair bug.
+
+Fixed general damage to building from weapons bugs.
+
+----------
+1/23/01
+-------
+Modified : mech.combat.c mech.advanced.c mech.utils.c mech.scan.c mech.status.c artillery.c
+---------
+Fixed unjamming behaviour to no longer lock out with permanent recycling error on dested weapons when trying to unjam.
+
+Fixed tanks jamming and exploding causing to many crits being dested.
+
+Fixed more mortar SIGSEG bugs.
+
+Added some checks for beagle and ecm status/contacts flags for being started up.
+
+---------
+1/24/01
+---------
+Modified : mech.update.c mech.hitloc.c crit.c mech.combat.c 
+---------
+
+Removed TAC possiblity on hitlocation roll of 11 from tanks to match Maxtech canon rules.
+
+Inlined TAC chance from armor thresh for tanks to match mechs (thresh config param).
+
+Added FASA rules for LifeSupportDest  1pt damage a round if in Vacuum or Submerged. (lvl -2 or prone lvl -1)
+
+Added FASA limb blown crits back in for headhits.
+
+Added BMR rules for kicks against infantry (bsuit). +1 mod replaced by +3.
+
+Added BMR FASA startup rules when overheated. Cannot startup over 30 heat. Must make avoidance roll to startup.
+	Can startup anytime after heat under 14.
+
+Added tank crit broadcasts.
+
+Brought Punch and Kicks up to specs with BMR rules.
+	Both :
+	- +2 BTH per Low/Upper act gone/crit. +1 Per Hand/Foot.
+	- 1/2 damage cumulate per Upper/Lower, not hand or foot.
+
+Fixed HDA walk/run speed data.
+
+--------
+1/26/01
+--------
+Modified : mech.advanced.c mech.combat.c mech.ice.c maps.c mech.h mech.update.c crit.c map.conditions.c mech.move.c mech.maps.c
+	   mech.events.c mech.los.c
+--------
+
+Blocked Capacitating a weapon while crew stunned.
+
+DFM House Rules - Lowest 2 of 3 rolls for BTH also now.
+
+Bridge House Rules - Dested Bridges become Damaged Bridge Hexes.
+	- "%+~' on tactical.
+	- Major MP loss. Pilot Roll or speed 0.
+		-MP6 Hover +4 BTH
+		-MP5 Wheel +3 BTH
+		-MP4 Mech  +2 BTH 
+		-MP3 Track and Quad +1 BTH
+BMR Rules for 'no unit may enter water running'.  Autofall. 
+
+Fixed Bug with Location Dests causing some crits to emit each crit destruction. (Ie, Mace/Axe/Sword)
+
+---------
+1/29/01
+---------
+Modified : mech.combat.c
+---------
+
+Added Pierce Crit emit to !IC Pierce crits to prove Pierce ammo works to simmers.
+
+Fixed errors in Tracer ammo. BTH -1 mod applies if a sensor that SEES the unit is on Visual mode.
+
+Non-oldtech AC's can use ammo modes now. (Pierce, Caseless, Tracer, etc...)
+
+Ultra AC's can set ULTRA mode with Pierce/Caseless/Tracer.
+
+Added precision Ammunition for AC's.
+	- Half number ot shots.
+	- up to -2 BTH of targetmovementmods countered.
+
+Changed FASA run-in-water mod to +3 BTH rather than autofall.
+
+--------
+1/30/01
+--------
+Modified : econ_cmds.c weapons.h mech.combat.c mech.contacts.c mech.h 
+	   mech.update.c mech.move.c mech.status.c mech.h
+--------
+
+Added CL.LightMachineGun and CL.HeavyMachineGun.
+
+Added IS.iNarcBeacon. For now only it's base effects.
+	- 6 Damage in explosive mode.
+	- 4/9/15 range.
+	- additional -1 to BTH with Narc munitions. (normal ECM restrictions apply).
+
+Added spotting and target-lock-hex-imposing on artillery units.
+
+Added range 15.0 requirements to all TAG implementations.
+
+Fixed bug with SSRM hitting building and doing partial damage.
+
+Fixed lack of SD/Fallen mods applied to Sguided missiles.
+
+Added NARC and iNARC attached message to Status.
+
+Fixed @magic to rmove narcs and inarcs.
+
+ULTRA_MODE no longer override CASELESS_MODE odds of exploding the round.
+
+Fixed Explode mode for Narc pods and hotload mode for LRMs.
+
+Fixed TSM for real.
+
+Added maxtech expanded TargetMovement mods
+	- +5 at 14-18 MP
+	- +6 at 19-24 MP
+	- +7 over 25 MP
+
+Fixed crashbug caused by stackpoles.
+
+---------
+2/12/01
+---------
+Modified : mech.tech.commands.c mech.consistency.c mech.combat.c eject.c
+---------
+
+Partial dested guns now use weapons tech.
+
+Fixed ammo-mode speed bug.
+
+Added hardcoded death :
+	btech_xploss_assault (default 650, 35% loss)
+		     heavy   (default 700, 30% loss)
+		     medium  (default 750, 25% loss)
+		     light   (default 800, 20% loss)
+		     tankmod (default 50, 5% less loss.)
+		     executed(default 50, base 5% lost. Any MW death.)
+
+---------
+2/15/01
+---------
+Modified : mech.combat.c p.mech.combat.h mech.move.c mech.physical.c p.mech.physical.c mech.update.c bsuit.c
+	   artillery.c
+
+Added btech_glance for glancing hits (bth == roll) (weapon and physicals, other than charge/DFA)
+	- 1/2 damage
+	- -2 crit rolls 
+	- -4 missile hits table
+
+Added house rule for -1 crit odds on internal hits to Renforced internal.
+
+Fixed HalfTon ammo SpeedBug.
+
+--------
+2/18/01
+--------
+Modified : mechrep.c mech.consistency.c mech.tech.commands.c mech.tech.h
+--------
+
+Added 'O' switch to ADDWEAP command to allow OneShot loads in mech templating.
+
+Fixed some weight calcs in engine weights in @weight and added 
+	Cargo Space and PodSpace to @weight.
+
+Added mechrep commands 'SETPODSPACE' and 'SETCARGOSPACE'.
+
+Added extrapolated searching to FindArtemis. Artemis Data can now be :
+	(((Hcode Section + 1) * 12) + Hcode Crit)
+      (RightLeg(section 6) + Critical 1 (crit 0) would be 6 + 1 times 12 + 0 to get  84.
+	Right Leg Crit 2 would be 85. etc...)
+      The above number applies to TEMPLATE files and DATAREADS.  Using the 
+	addsp command you will need to increment it by one to avoid crit 
+	translation to hcode format.
+
+Added C3I to critlist. C3I tech not fully functionly, but it sets both flag registers for MASTER and SLAVE.
+
+Fixed bugs with changes to functions deciding ammo useage.
+
+--------
+3/12/01
+--------
+Modified : mech.combat.c glue.scode.c function.c template.c p.template.h
+           mech.consistency.c
+--------
+
+Removed rendundent roll attributes in SwarmHitTarget to prevent hitting rolls
+	from missing with swarm missiles.
+
+Added halfton roundups to Internals math. (Endo/Composite)
+
+Added BTTECHLIST function.
+
+-------
+4/05/01
+-------
+Modified : mudconf.h conf.c mech.consistency.c mech.los.c mech.combat.c
+----------
+
+Added btech_faccount config param. So far controls 1/2 incremented Gyro and 1/2ton
+	rounded internals.
+
+Fixed Angel ECM nostreak errors. 
+	- Streak AECMed use ammo, no failed lockon saves.
+	- AngelECM LOSFlag preservation in middle of ECM CPU optimization.
+
+Glancing blows now affect RFM MG's.
+
+--------
+4/06/01
+--------
+Modified : mech.tech.commands.c template.h mech.combat.c command.c log.c
+           functions.c 
+--------
+
+Fixed Omni PodSpace to save and load in templates.
+
+Added force for Gauss Rifles to use Laser Hardpoints in Omnicode.
+
+Changed Reattach time formulae to 1 + (Tons / 10) * 30minutes
+
+Added some fixes for emits and DestroyMech handling on inferno'ed tanks.
+
+Added @log patch and logf().
+	- @log <filename>=<text>
+	- logf(<filename>,<text>)
+	I know. My propoganda proliferated these features a year ago. sshh. ;)
+
+Prevention of Inferno being loaded in SSRM.
+
+4/09/01
+-------
+Modified : mech.tech.repairs.c
+-------
+
+Fixed reseal tech event to show on repairs.
+
+4/10/01
+-------
+Modified : mech.tech.repairs.c mech.move.c mech.update.c
+           mech.h mech.tech.commands.c mech.tech.events.c
+	   mech.status.c
+-------
+
+Added techtime to Omni mods.
+	- 5 minutes per ammomod.
+	- 5 minutes per weapon crit.
+
+Added Lateralling to VTOLs.
+
+Added block to checking 'last' on dark channels.
+
+Added FASA Inferno scale rules
+     Seperate InfernoAmmo explosion rolls on heatscale.
+	(Added logic optimiazation to keep CPU down and prevent
+	 player emit rollspam)
+	Heat	Avoid
+	10+	4+
+	14+	6+
+	19+	8+
+	23+	10+
+	28+	12
+
+Changed 'defailt' for SLWarn to on. Sorta. Really just the list
+	on status shows if SLWarn is off.
+
+------
+04/15/01
+------
+Modified : mech.pickup.c mech.combat.c bsuits.c mech.notify.c
+------
+
+Removed tank towing blocks.
+
+Added Debug channel emits for pick and dropoffs.
+
+Modified SALVAGE_TECH towing speed math to be more beneficial.
+
+Bsuits :
+	- Blocked mounted unit from firing.
+	- Blocked swarming units from firing at targets other than swarmtarget.
+	- Changed 'MOUNTED' and 'SwARMED(ING)' semantics on STATUS display.
+	- mounted bsuits can now suck LT and RT hits on their mounted units.
+	- Firing on mounted or swarmed unit DIRECTLY is now dissallowed.
+	- BMR prone to throw mech rules
+		- Prone command works only on succesfull Pilot Roll (+1 per MP movement)
+		- Sucess causes fall damage but autothrows swarmers and damages.
+		- 10 second recycle. for now.
+	- Verified landing code works properly. no forced landing, but +4 BTH roll to throw off swarmers works.
+	- Verified thrash as FASA. Removed code to throw current swarms off if they failed roll, was nonFASA.
+
+------
+04/16/01
+------
+Modified : mech.combat.c bsuit.c mech.physical.c mech.scan.c
+------
+Fixed bug with firing at unmounted bsuits.
+
+Removed locks on quads from thrashing.
+
+Changed glancing blows to be -1 of BTH rather than == BTH.
+
+Blocked physicals against bstuits also.
+
+Blocked VIEW command when no direct LOS.
+
+Blocked towing of bsuits to be abused.
+
+------
+04/21/01
+-----
+Modified : mech.tech.commands.c mech.combat.c mech.hitloc.c
+--------
+Fixed OMOADDMO bug in halfton ammo and ammo removals of wrong weights.
+
+Fixed rounding up on glancing blows damages.
+
+Added bruising to skirt crits if failed pilot skill roll.
+	- Mod +1 per 4MP
+
+Fixed messages when streaks hit glancing blows but really do nothing.
+
+Added 19 weapon classes. Omni code blocked to 4 weapons from any given class.
+WCLASS_SLAS
+WCLASS_MLAS 
+WCLASS_LLAS 
+WCLASS_PPC 
+WCLASS_MG 
+WCLASS_AMS 
+WCLASS_AC2 
+WCLASS_AC5 
+WCLASS_AC10 
+WCLASS_AC20 
+WCLASS_LRM 
+WCLASS_MRM 
+WCLASS_SRM 
+WCLASS_NARC 
+WCLASS_ARTY 
+WCLASS_GAUSS 
+WCLASS_PC
+WCLASS_ATM 
+WCLASS_FLAM 
+
+Fixed new partial rules on relevance to physicalls. -1BTH and damage rounding.
+
+--------
+05/01/01
+--------
+
+Fixed TBolt glancing blows.
+
+Fixed IsCrap checks on section destruction.
+
+Fixed counter reset in tanks for scharge.
+
+Blocked some techcommands from hardpoints.
+
+Blocked swarms from targeting CS units.
+
+--------
+05/29/01
+--------
+Modified : mech.h mech.tech.commands.c mech.tech.h mech.combat.c mech.status.c artillery.c mech.status.c mech.tech.do.c weapons.h aero.move.c 	
+--------
+
+Added MISSILE_HPOINT and SPECIAL_HPOINT and GAUSS_HPOINT to mech.h. Changed HPOINT naming on AMMO_ and LASER_ to BALL_ and ENERGY_.  Updated
+	- critstatus with new naming conventions and support for new items.  Updated tech code with new names and functionality
+	- checks for Missiles.
+
+Fixed OS bug in mech.combat.c for ammo decrementation in prep for RocketLauncher code.  Might need to add REALL
+	OS ammo reload code. (cry)
+
+Changed REMOVES_TIME to be dynamic like REATTACH_TIME.  Same formulae and old time proportions.
+
+Changed DamageMech to getMap the wounded and arillery.c to send source as attacker to give credit for kills.
+
+Added IS.RocketLnchr-10/15/20. .5 1.0 1.5 tons. Max range 12 15 18. One shot. +1BTH. Else like !IDF LRM.
+
+Added oaddsp command. Can add ArtemisIV, Capacitor, ECM, AngelECM, TAG, Beagle, bloodhounds and axe/mace/sword for now.
+	- Cap and Artemis require data pointing to proper crit. Same location only for now.
+	- Axe mace and sword can use any hardpoint type as long as is arm.
+
+Changed VTOL fuel code.  Flank speed uses less fuel.  Altitude cutoff now 40 instead of 20, and increments of 20 over that.
+
+Due to Targcomp code and FASA lack of support, -4 Radar BTH dropped to -1.  This is for AA Tech only.
+
+Added TargComp code.
+	- Xcode value MechTargComp
+	- Value is char, 0 is normal.
+	- Chart as follows :
+Type		Num	Mods
+-----------------------------------------------------------------
+Normal		0 	None
+Short		1	-1 SR, +1 LR
+Long		2	-1 LR, +1 SR
+Multi		3	No StableLock mods. +1 all targ not in Front Arc
+AA		4	-2 Flying. +1 Ground
+
+Added STINGER_MODE for LRM's. -2BTH. Fire ONLY at Flying targets. Halfammo.
+
+
+----
+6/16/2001
+----
+Modified : artillery.c
+----
+
+Fixed bug in artillery.c for arty-kill counter. NullPointer.
+
+Fixed mech.combat.c NULLSIG check to FindBaseToHit w/o TargComp mods.
+
+Fixed FindNormalBTH crashes from unchecked possible null pointers.
+
+Fixed bug in 3 arg fire command to allow non-existent hex to hit. SIGSEG.
+
+--------
+7/10/2001
+---------
+Modified : mech.combat.c mech.pickup.c aero.move.c mech.hitloc.c glue.scode.c
+	   functions.c glue.h econ_cmds.c p.econ_cmds.h
+---------
+
+AA_TECH /and/ Targcomp AA get -3, else -2 for targcomp AA.
+
+Backlog forgot to add -> Added partial StealthArmor support.
+
+Blocked VTOLs from towing.
+
+Increased Stinger to -3 BTH.
+
+Fixed LBX to get BTH vs Aeros also, not just VTOLs.
+
+Covertly! increased fuel useage for VTOLs.
+
+Added iscritical = 1 to any ROTOR hit on hitloc.c.  crit.c
+	then figure 6+ as a crit for ROTOR.  This way, 50/50
+	ROTOR hits are now crits.
+
+Changed from 1pt per rotor hit to 25percent damage per rotor hit.
+	(Rounded UP. ML does do 2 pts.)
+
+Added btgetweight function for getting floating point weight of commodities.
+	Fine tuned and tweaked enture special and cargo weightlists.
+
+Increased 'view' command to see up to MechScanRange.
+
+Fixed ammo flow masking. MIssiles can't 'kick down' to crappier
+	fire mode on hightech ammo anymore.
+
+--------
+08/4/2001
+--------
+Modified : econ_cms.c btconfig.h(c?) mech.status.c mech.h mech.tech.commands.c
+	   mech.tech.commands.c
+--------
+
+Fixed cargo weight math problem with econpartweight func.
+
+Added HEAVY_TANK to btconfig.h(c?).  
+	- Added section location degs to mech.h.
+	- Added STATUS message.
+
+Fixed oaddsp adding one less crit for physweaps on odd-div-15 mechs.
+
+OADDSP command now lists up to date output when you give it the wrong part.
+OADDSP now support Heatsinks, but only in Special type hardpoints.
+
+--------
+09/02/2001
+--------
+Modified : mech.advanced.c event.c mech.tech.commands.c mech.combat.c mech.utils.c mech.status.c mech.move.c
+--------
+
+Weapon Mode Changes :
+    Blocked any weaponmode changes while weapon is recycling.
+    Force weapons VRT of recycle upon mode change.
+
+Ammo Dumps :
+    Cannot dump ammo while Running or Jumping.
+    Cannot run or jump while dumping ammo.
+    Roll 6+ on rear section dumping ammo or ammo booms.
+        LA/LL map to check LT, HD to CT, RA/RL to RT for checks.
+
+Narc/Inarc Tracking :
+    Narc/Inarc tracked per section (.config).  Flags added at hittime.
+    Destroyed Sections call new function to remove Narc/Inarc on sect and check all others,
+	in order to remove the Status ATTACH flags.
+    @magic now accounts for all flag clearing.
+    Added 'SHOWPODS' command to rudimentarily list where different pods were at.
+
+Added backlog of event names for internal code in events.c.
+
+Cosmetic Fix - oaddsp 'bloodhound probe' typo.
+
+STATUS shows physical weapon types besides section status.
+
+Added logic checks to 'speed' command to prevent speed 0 typos.
+
+--------
+09/21/2001
+--------
+Modified : mech.combat.c mech.scan.c mech.notify.c
+--------
+
+Fixed Sixth Sense check in mech.combat.c to pass over SS emit to target.  used to check for MechSpecials
+	and not MechCritStatus.  Translate, CompInternal doods could lock SS people w/o emit.
+
+Added CLAIRVOYANTS to see more info on scans as if they were the owner.
+
+Added blocks on OBSERVATORIC units to not sendchannel, also.
+
+Added OBSERVATORIC to hear ALL radios on their map with a team-table switched color
+	scheme for each time (technically hardwireable in structure) and see faction
+	name inside <>'s.
+
+--------
+09/24/2001
+--------
+Modified : autpilot.c map.dynamic.c contacts.c mech.utils.c crit.c glue.scode.c eject.c 
+	   mech.advanced.c mech.sensors.c mech.status.c glue.h bsuit.c p.eject.h glue.h
+	   mech.consistency.c mech.move.c
+--------
+
+Added some change to get AI load/unload working.
+
+Added comntactopion of 'i' for InCharacter units (Obs Lounge Despam)
+
+Fixed type 'destroy x to jam' in crit.c on tanks.
+
+Changed btcritslot for mode 2 to allow checking for dested/undested parts.
+
+Changed @ood to drop aeros at -90 angle.
+
+Modified 'sdisembark' to perform an OOD event on units leaving.
+
+Changed bsuit_xplos_tankmod to _bsuit and added item in for 10 percent XP loss on bsuits.
+
+Changed ammo mode rollover to not cause recyle if ammo for weap is empty.  Also fixed recycle bug
+	by using proper function. :P Also does not recuycle for hotload/ultra modes.
+
+Fixed SLITE on VTOL status to show.
+
+Cleaned Hidden Units rules in sensor code :
+	- BAP/BLP can see a normal hidden unit within range automatically.
+	- BAP is treated as a normal sensors if hidden unit is Stealth/Nullsig.
+	- BLP can auto see a Stealth/Nullsigh hidden unit.
+	- Normal sensor cannot see Units past 2 hexes, 1 if bsuit.
+		- chance under this hex range is divided by 6.
+        - Added HIDDEN_TECH (Hideen_Tech) to allow use of Hide command.
+		- MW-> 1 turn Bsuit -> 3 turn VTOL-> 4 turns else 5 turns.
+
+Added Carrier Tech  and changed some bsuit loadups around :
+	- sdismbark changed to udisembark.
+	- Added Carrier_Tech.  They can be embark/udisembarked'ed by normal units, AND bsuits.
+		- !Carrier_Tech with cargospace can only load Bsuits.
+	- Added logic checks to Cargo code.  Amongst :
+		- Startup and !Dest checks.
+		- 1 kph or less required for embarking UNITS.
+		- Modified @weight output to roll back CargoWeight on @weight by factor of 5.
+			- SetCargoWeight as Normal straight numerics.
+	- Carrier have 4 times the cargo capacity and 3 times the towing capacity.
+
+---------
+10/27/2001
+---------
+Modified : mech.util.c mech.startup.c mech.combat.c autopilot.c 
+---------
+
+Added internal BV calculater to mech.utils.c as CalculateBV prototype.
+	- Added startup event to do a BV calc.
+	- Added per-30-sec math to prevent CPU spam.
+	- Recalc is called (with CPU prevention) each mech damage.
+
+Added ADV_AA_TECH ad Adv_AntiAircraft.  Exactly as radar except has 5000 range.
+
+Added IS.OrbitalGaussRifle.
+
+Fixed AI loadcargo and unloadcargo commands.
+
+-----------
+11/09/2001
+-----------
+Modified : aero.move.c mech.combat.c map.obj.c mech.scan.c autopilot.c ai.c autopilot_command.c
+-----------
+Remove hiding flags on takeoff.
+
+Made glancing blows really glance buildings.
+
+Added Physicals display to external scans.
+
+Fixed embark/disembark to work as addprogram commands.
+
+Various other ai tweaks on heat and behaviour.
+
+-------------
+11/15/2001
+-------------
+Modified : autopilot_command.c artillery.c mech.combat.c map.c map.h autpilot.h artillery.c
+	   autopilot.c
+-------------
+Fixed Incendiary ammo to melt snow hexes.
+
+Added 'swarm' directive to battlesheep and normal AI program code.
+
+Added 'pickup' and 'dropoff' to battlesheep and normal AI program code.
+
+Halved the safeup and safedowmn of arty for 10/4 to 5/2 to prevent bad VTOL mortaring.
+
+------------
+11/28/2001
+------------
+Modified : autogun.c autopilot.c autpilot.h autopilot_commands.h mech.update.c mech.hitloc.c mech.combat.c
+	   config.c map.conditions.c mech.sensor.c ds.turret.c
+------------
+
+Added bsuit swarm support and mech punch support into autogun.c.
+
+Increased AUTOGUN_TICK to 1, but only proceed past physicals every 3rd turn.
+
+Added attackleg support to sheep and program code.
+
+Added checks in autpilot.c to prevent mech_swarm/mech_attackleg calls from !bsuits.
+
+Fixed ai cmode logic and casting. (program)
+
+Added 'speed' to sheep command infrastructure.
+
+Added MiscEvent (enterbase/etc...) stopper when staggered.
+
+Fixed TransferTarget to transfer head to CT on torsocockpit mechs to prevent arbitrary desting.
+
+Changed '+help' command to '+help2'.
+
+Added CT(r) check for section hit for changing over to bsuit hit if swarmed.  Also
+	removed team check on this.
+
+Removed Attacker Movement mods for Bsuits.
+
+Added 360 degree firing arcs and sensor arcs for MW and BSuits.
+
+Blocked using seismic by hovers, MW, Navals, and Bsuits.
+
+Fixed Searchlight Desting code to allow Turret or Fside desting (if have turret) of slites on tanks.
+
+Fixed TORSOCOCKPIT head flooding from destroying mechs.
+
+Added check to DS turret commons to not block out !IC gunners to one init.
+
+------
+03/08/2002
+------
+Modified : bsuit.c map.conditions.c map.h mech.combat.c eject.c mech.ood.c mech.combat.c
+------
+
+Fixed bsuits & MW's to be able to hide.
+
+Added MAPFLAG_UNDERGROUND
+	- IDF/Arty blocked.
+	- No jumping.
+	- No ejecting.
+	- No Aero/VTOL takeoff
+
+Carriers -
+	- udisembark is not started up now.
+	- changed VTOL paradop (OOD) landings to be
+	  more damaging on failed rolls. Cocoon-less
+	  (Paradops) now have harder BTH, also.
+	  paradrops also take auto-damage even on fail rolls.
+	  (Tons / 25 levels of mechfalls. All paradops end
+	   FALLEN regardless.)
+	- blocked embark if phys/weapon recycles.
+	- Fixed embark/udisembark speed blocks. All
+	  now require speed of carrier of 0.
+	- Damage on existing dested carrier.
+	- Blocked disembark/udisembark from
+	  Hidden Carriers.
+
+Precision ammo -
+	- -2 cap at SR, -1 cap at MR, 0 cap at LR.
+
+--------
+03/25/2002
+--------
+modified : comsys.c (various) regmatch.c autopliot.c autopilot.h ai.c functions.c funceval.c
+	    hitloc.c crit.c mech.combat.c mech.move.c glue.h mech.update.c mech.events.c
+	more.
+--------
+
+Comsys : Fixed memory leaks, typos, and dirty code.
+
+Extensive overhaul of object list system.
+
+Patches on funceval.c calls. cleaner regmatch fix.
+
+SUSPECT flag emits events to Suspects chan and commands to SuspectsLog chan.
+
+Reverted some changes from speed settings in AI.
+
+Blocked set() and idle() from players.
+
+Various files fixed to avoid compile warnings/errors.
+
+Changed crittable() to make XL/XXL tanks critable regardless of critlvel setting.
+
+Modified Maxtech crits to reduce speed of tank with engine crit to 0 instead of 1/2.
+
+Fixed TailRotor crits to force speed to walk speed upon taking the crit to avoid abuse.
+
+Code mods from Vlad (Pat Blackman) :
+    Added Desert terrain as '}', blocked JJ like snow in Desert, add 2 heat like fire in desert.
+	No MP Mods, except Bsuits and Wheels have same as Lightforest.
+	+1 MP to all pilot rolls in this terrain.
+    Renamed PC.Sword to PC.Blade. DJ - Also changed some Sword checks in code for PC weaps.
+
+Made non-track tanks not able to backwalk.
+
+Added EVADE and SPRINT movement modes.
+	- Command is EVADE or SPRINT to toggle modes.
+	- Toggling takes 1 TURN, for on or off.
+	- Limitations, but not benefits, apply while toggling.
+	(both modes ahve status listing, changing has CHAGING MOVEMENT MODE)
+	- Cannot fire weapons or perform phsyicals or IDF spot.
+	- Cannot jump.
+	- SPRINT mode mechs are -1 BTH to hit.
+	- SPRINT mode mechs sprint at 2x WalkMP.
+	- SPRINT mode all pilot BTH's are +2.
+	- EVADE gets + BTH bonus base on skill /BTH/ :
+		6+ or higher = +1 BTH
+		4+ - 5+ = +2 BTH
+		2+ - 3+ = +3 BTH
+		0+ - 1+ = +4 BTH
+	- (EVADE requires 2 hip actuatores. Not checked since speed is locked
+	   on 2x Hipcrit anyhow)
+	- EVADE/SPRINT flag is RESET on /uninentional fall/.
+	- Contacts flags : 'm' for Evade and 'M' for Sprint.
+
+On MaxTech tank crit chart added fallover from rolls of '5' to '6' for minor extra critting.
+
+Added 5 new Advantages :
+	Dodge_Maneuver : use command DODGE, like evade/sprint, to set DODGE mode.
+			DODGING resets every occurence, but adds +2 BTH to all physicals against you.
+			Takes 1 Turn to flag over. Must be rest after used once.
+	Pain_Resistance: Ammo explodes do 1 damage not 2.
+			 +1 onto roll for all conc rolls.
+	Speed_Demon    : +1MP to SPRINT MP (FASA)
+			 +1 BTH on evade BTH (!FASA)
+	Maneuver_Ace   : Allows to lateral in !QUAD.
+	Melee_Specialist: +1 damage to all physicals.
+			  -1 (cap at 0) mod to AttackMovementMods.
+
+-----
+04/29/2002
+-----
+functions.c mech.events.c mech.move.c mech.update.c mech.ice.c glue.h btmacros.h mech.h
+-----
+
+Fixed movemode_event to set mech speed down if over running speed still from Sprintmode.
+
+Fixed idle() to check permission blocks against objects OWNER beign WizRoy also for wiz objs.
+
+Added GROWFOREST, FIXWALL, and FIXBRIDGE commands to allow hcoded performance fixes on map respawns code.
+
+Fixed some TSM anomalies on sprintcode.
+
+Added removal of sprinting if mechs takes daamge. Requires a turn before able to fire again.
+
+Blocked SPRINT command to MW, BSuits, Ground Vehicles, and Mechs.
+
+Cancelled movement mode changes (except Dodging) if taken damage.
+
+Blocked road mods from tanks in sprint mode.
+
+--------
+05/3/2002
+--------
+btmacros.h conf.c muxconf.h comsys.c commac.c game.c 
+--------
+
+Changed Shutdown macro to stop more appropriate events and clear more flags.
+
+Fixed comsys/macro dumps and loads to use new database entries to prevent format and crash problems.
+
+-------
+05/6/2002
+-------
+mech.move.c mech.events.c events.c btmacros.h glue.h mech.move.c mech.pickup.c
+mech.hitloc.c
+-------
+
+Changed Tanks to turn slower based on current speed. Faster they are going slower they turn.
+
+Changed Tanks to accelerate at 2/3 the normal rate.
+
+Added new events handling to make sidsliping VTOLs roll or spin out. ALlowed Hovers to sidelsip.
+
+Changed movemode-change-reset-on-damage to also not affect evading.
+
+Blocked towing from performed while sprinting.
+
+Fixed more comsys/macro dump bugs in character formats with newlines.
+
+Allowed tracked tanks to make elev2 changes.
+
+Changed so tanks could survive turret dest. Damage randomly transfers.
+
+----
+Vlad Supplement
+8/30/2002
+----
+
+mech.tech.h - line 233 changed #ifdef 0 to #if 0 - Wouldn't compile like it was.
+mech.status.c - removed class_bsuit critstatus blocker in mech_critstatus()
+mechrep.c - added a break in the setmovement (F) case statement. No longer
+shows error after setting movetype to foil.
+mech.startup.c - added mech_dropoff() in mech_shutdown so you drop when you
+shutdown
+mech.move.c - fixed bug that prevented sprinting if they weren't towing, nice
+typo :)
+mech.move.c - Can't sprint while jumping
+mech.move.c - can't evade while towing
+mech.update.c/mech.ice.c - Added ICE breaking for navals, when entering a ice
+hex it breaks the ice, on navals with < 100 tons a roll is made to see if
+damage is taken.
+weapons.h - added in FastRecharge Lasers/PPC with 20vrt and lower damage
+mech.move.c - Can't sprint while mounted (bsuits)
+mech.move.c - Bsuits only take half a turn to start sprinting.
+mech.update.c - changes bsuit/mw accleration to 1/2 max. (KM's idea)
+mech.update.c - fix the if else bug where it would be acc/20 regardless of
+movement type
+mech.tech.damages.c - You can now see damages when you are !stalled.
+mech.tech.repairs.c - you can now see repairs when you are !stalled.
+mech.ice.c - Vtols no longer fall if building is destoryed benath them.
+mech.advanced.c - YOu can't capacitate while sprinting.
+glue.scode.c - mechdamage now shows reloads of OS launchers
+mech.status.c - Status now says C3-Slave or C3-Master instead of just C3 for
+both.
+mech.status.c - Now shows specials sensors on status. And if they are on too :)
+mech.h - added COMPACT_HEAT_TECH
+mech.utils.c - added crit and effiecncy for COMPACT_HEAT_TECH
+template.c - Added compact_heatsink to list of parts and specials
+econ_cmds.c - Compact heatsinks weight 3 tons
+mech.tech.commands.c - added compact heatsinks in omni code.
+mechrep.c - added Compact heatsinks to tech listing
+mech.consistency.c - Added Compact heatsink efficency stats and size
+map.conditions.c - losting a compacths crit loses 2 heat dissapation.
+crit.c - losing a compacths loses 2 RealHeatsinks and destroys 1 crit.
+mech.h - added HFF_TECH and LFF_TECH
+template.c - added names for heavy/light ferro and logic for autoadding of
+FerroTechs
+mech.consistency.c - added armor multipliers based on alf's post of the rules
+-
+bit ugly
+
+---- 
+9/11/2002
+----
+Misc
+---
+
+Various fixes.
+
+Reduced MP loss on inferno'ed tanks.
+
+Fixed extreme times caused by mortar incendiary.
+
+Blocked hidden flag from remaining after aero/vtol takeoff.
+
+1 Bsuit point should use 1t cargospace, not 5t. Modifed mech.consistency and template.c to use 1/5 ratio, like carrier.
+	- Note. Code switching looks redundent. oh well.
+
+Modifed bsuit.c func bsuit_hide to allow Wizard() macro to behave like HIDDEN_TECH in regerence to ALLOWANCE to hide.
+
+Fixed ancient SmallCockpit bug to not miss SmallCockput auto-tech if head crit 6 was ANY IsSpecial.
+
+REMOVED skilled evading optional rules. Evading units ONLY recieve a +1 BTH to be hit now. Now more +2 for 4+ and +3 for 2+ and +4 for rest.
+	FASA world 5+ is average.
+
+----
+10/5/2002
+----
+mech.update.c mech.events.c eject.c mech.consistency.c template.c
+btechstats.c mech.utils.c btechstats.h mech.h failures.h eject.c 
+mech.physicals.c bsuit.c mech.update.c mech.combat.c mech.maps.c
+----
+Mods to SideSlipping (!Quad Lateral)
+    - No XP gains. 
+    - -3MP loss on lateral for anything !Quad.
+
+Mods to Maneuvering Ace
+    - Maneuvering Ace lateral a non-quad must roll sideslip.
+    - Ace in -3MP-losing Hover/VTOL (Sideslip) onles loses -2MP instead.
+
+Carrier :
+    - Modified cargo carrying capacity (stores) from * 4 to * 5 compared to normal.
+    - Internal modification to template math to allow carriers to carry more tonnage.
+    - Added 2nd arg to SETCARGOSPACE for 'carmaxton'. Max tonnage in unit. Template system saves now support it.
+
+Modified mech_embark to support new tonnage code for MaxTon.
+
+Added MW3-Like NEW_STATS to btechstats.h. NEW_STATS is compile time setting
+Gunnery-Laser/Flamer/Missile/Spotting/Artillery/Autocannon
+Piloting-Tracked/Wheeled/Hover/Naval/Biped/Quad/Aerospace/Spacecraft/Bsuit
+
+Modified (wit a MW3 optional rules) SD and Ammo rolls to be based off 4+ computers tilt. All modifiers
+    match differnt betwen 4+ and charted BTH. Only BTH changes was the 13, autofail, on SD max heat to mod +8. (BTH 12)
+
+Added Tech_Aptitude Advantage. 2/3 best rolls on tech work.
+
+Modifed shutdown/ammo code o use base4+ computer for skill. Recaclulated mods. I do allow BTH12 instead of impossible at highest levels tho.
+
+Bsuits :
+	- Fixed attackleg to blocks while movemoding.
+	- Fixed bug in attacklet that checked the BSUIT to have legs...
+
+Added to Swords the capacity to use two swords swings. +2 BTH added to 2nd sword swing so far.
+
+Modified carrier code to allow mech to tow units in. It still check MaxTon and Tonnage for both units, tho. No automated winches here.
+
+Blocked radio towers from enterbase.
+
+Exempted towers from free-fall on shutdown.
+
+Added Coal to commodity list.
+
+---
+11/15/02
+---
+mech.consistency.c
+map.c
+template.c
+crit.c
+mech.update.c
+bsuit.c
+---
+Mechs with ICE engines no longer get 10 free HS.
+Same deal with tanks.
+Added a check where when freeing old map data, would try to free out of bounds w/o checking first.
+Also no longer sets HS to 10 if it's an ICE unit, and saves HS numbers, as 10 is no longer the default.
+ICE engine mechs no longer suffer from extra heat when taking engine crits, instead they lose an MP.
+ICE engine mechs no longer get extra heat from inferno, rather they slow down like tanks
+ICE engine mechs no longer are effected by movement heat
+Sum it up, ONLY weapons fire, JJ movement, and desert terrain heat affects ICE. Note fire terrain does NOT affect ICE 
+mechs
+
+Bsuit physical attacks now affected by Dodge maneuver. Also feexed double penalizing of bsuits with less than 3 sutis 
+for attackleg
+---
+11/17/02
+---
+template.c
+weapons.h
+mech.combat.c
+btmacros.h
+---
+Added support for infantry weapons ammo
+Moded heat causing routine to support infantry flamers
+---
+12/01/02
+---
+buncha buncha
+---
+Infantry weapons no longer cause headhit uncon rolls
+Added new hotload routine to cause cycle, eat double ammo, and de-hotload after firing
+Leg Crit speed calc modded to fix funkiness and to work with ICE engine crits
+Added 3 new mudonfs, reb_hotload reb_headhit reb_icetech
+
+3/10/03
+---
+bunch
+---
+Fixed alot of poop with btech_fasacanon being illogical.
+	- BTHADD wouldn't allow EVADING to affect BTH in fasacanon mode. (Not canon :P)
+	- Removed the check for transfering crits on it, left blocking them on TAC tho.
+	- A lot of entries in mech.combat.c were fubaring logic in cases where it was off very bad.
+	- I DID leave fasacanon swith in on UpdateHeading, UpdateSpeed, BTH/Range on Bsuits... and other sensible stuff.
+	- Who knows WTF else. fasacanon was only tested in it's true boolean value, as false it fucks up.
+	- fasacanon now applies to Heading/Speed updates and some Bsuit details.
+
+Reduced ATMO_Z to 50.
+
+Modified CS_ON_LAND to !CS on takeoff begin.
+
+Added a dynamic DS LZ block of range 25 to all other DS.
+
+-----
+4/22/2003
+-----
+bunch
+---
+To date, so many things have been fixed from old code that I have not listed so many of them. Sorry.
+Fixed recycling to check on VTOLs in case of carriers.
+Fixed lots and lots of AI code stuff and added new bsheep directives.
+More. Henceforth this will be kept up to date.
+
+------
+4/23/2003
+----
+mech.move.c mech.maps.c
+--
+Modified gravity code to not pull leg snap problems based on MechMaxSpeed() but rather MMaxSpeed() to prevent Sprinting problems.
+
+Changed jumping with Cargo to block if MechCarrying() or MechCarriedCargo(), not just do a dumb speed check compared to original speed.
+
+Changed tactical to show DS bays is DS is above ORBIT_Z.
+
+------
+4/28/2003
+----
+mech.ood.c map.conditions.c crit.c aero.move.c mech.pickup.c
+--
+Added CS_ON_LAND (MechStatus2 flag) check to initiate_ood() to set !CS on normal softcode @ood.
+
+Added btech_floatcrit to block floating crit (transfering crits) on/off.
+
+Modified aero_land() to read MechSpeed() not DesiredSpeed().
+
+Moved SendDebug call in DestroyParts() to hit the KDR sending message better.
+
+Modified mech_dropoff() to not pad +2 when checking Z elev for Z dropping towed objects.
+
+Added to ai_crash() potential to check hex for stacking. More plans here.
+
+Changed all LZ block checks back to 2D.
+
+-------
+5/01/2003
+----
+mech.pickup.c eject.c
+----
+Modified mech_dropoff() for safer ejection of towed items from VTOLs.
+
+Fixed udisembark to properly handle Starting up of right target units.
+
+Fixed code that was commented out, Paradropping out of Carriers will startup unit again.
+
+Added swarmmode on/off command to bsheep.
+
+Various AI tweaks and fixes.
+
+------
+5/07/2003
+----
+bsuit.c autpilot_command.c mech.utils.c
+----
+Added hi[de] command to bsheep.
+
+Fixed typoe in bsuit_hide in bsuit.c.
+
+Modified FindPilot* functions to read off AI dbref for mechskills.
+
+----
+5/08/2003
+----
+autopilot_command.c mech.notify.c mech.h mech.update.c
+----
+Fixed auto_reply()'s to also check location of auto object to prevent errors.
+
+Fixed MechNoRadio to work appropriately and give more messages.
+
+Added WATERPROOF_TECH to MechSpecials2() and allow it to let bsuits live in water.
+
+Removed locks on tows to allow towing bsuits. Cheesy but usefull unfortunately.
+
+Removed Rebs removal of the Friendly Fire blockers.
+
+Modified common_checks() MECH_PILOTONLY to check IC /or/ IsDS to allow DS takeoff blocks and such.
+
+---
+5/15/2003
+----
+ai.c mech.combat.c bunch more
+----
+discard_mw() now gives a time delay if !MW to prevent object data problems for dested AI bsuits and such.
+
+Added some logic checks in AI code and reordered when what checks were made to be more robust.
+
+Removed phys/weapons blocks on enterbase/enterbay
+
+Awhile back added pilot damage recalibration onto leavebase/leavebay.
+
+Rewrote some DestroySections() code and process ordering to check zero'ing later in the events to prevent some problems.
+
+Fixed udisembark to verify enactor is INSIDE mech. Fixes Startup() calls.  Doesn't check for isPlayer() due to AI needs. Location() should suffice.
+
+---
+5/20/2003
+---
+mech.lite.c autogun.c
+---
+Added some logic checks to autogun sensors events to prevent crashes on sensor sets.
+
+Added check for mechs being started to get slite warnings.
+
+Fixed mechs to drop when walls blow underneath them.
+
+Modified udisembark not to OOD Flying Targets.
+
+---
+5/22/2003
+---
+mech.move.c mech.update.c
+---
+Modified sprinting speed affect to not apply while in movement modes. Primarily to address problem with sprinting in gravity.
+
+Added HUDINFO support via hudinfo.c and much more. Compliments to Focus.
+
+Added optimization on MapLOS code. Still no cache.
+
+5/23/2003
+---
+mech.status.c mech.h btmacros.h ds.bay.c mech.utils.c mech.update.c mech.hitloc.c crit.c
+---
+Modified DS to conform sides to AT2. (4 locs).
+
+Added SI box to Dropships STATUS.
+
+Modified weapon arcs code to support wing arcs.
+
+Added fixer to set MechSpeed to MMaxSpeed if over it upon leavebay/leavehangar.
+
+Removed fasa_turnmode conf param and all switching regarding it.
+
+Fixed TURNMODE setup.
+    - Now TURNMODE command turns ON 'tight' mode. When off it is 'NORMAL' mode.
+    - Checks now double check Maneuvering Ace to allow turnmode TIGHT to affect mech.
+	- This prevent a pilot leaving it on in a mech, then a pilot change affecting it.
+    - Tight will increase by 50% your heading gains. Increase by 33% your speed loss.
+    - SPRINTING and EVADE now both make turns slower and speed loss on turn greater.
+
+Moved reb_icetech crap and modified some behaviour.
+
+Turned btech_floatcrit to manage hitloc floating crits. Fixed bug that caused fallthrough to roll #3 hitloc on non-crit floats.
+
+Removed reb_hotload code.
+
+5/24/2003
+---
+mech.update.c mech.combat.c mech.contacts.c mech.move.c aero.move.c mech.consistency.c mech.status.c weapons.h mech.hitloc.c mech.h mech.utils.c
+---
+Modified speed_demon advantage to not be affected by Sprint/Evade mods to heading/speed on turns.
+
+Added blocks on changing heading while taking off.
+
+Lowered Spheroid DS to 120s launchtime. Added DNYAMIC_LAUNCHTIME macro to modify !vtol and !spheroid's by their mechspeed to enforce
+	AT2 hex distances (roughly at least)
+
+Fixed Arc listing bug on contacts.
+
+Fixed Arc sensor bugs with tanks w/120deg sensors.
+
+Added Contruction rules for Aero/DS.
+
+Added Aero Weapon Range categories to weapons stats.
+
+Modified various code to read aerorange for firing, weaponspecs, and other stuff. Aeros have no min range.
+
+Added landing code and landing event to read same code, more or less, as takeoff and to block in the same manner.
+
+Fixed aerodyne DS to use 4 sections like aeros, fixed arcs properly, and fixed hitlocations.
+
+Fixed named section output on all DS types.
+
+Fixed hitlcations on DS.
+
+Fixed mechs mounted by friendly bsuits to not be able to fire CT mounted weapons, also.
+
+Modified embark/disembark :
+	- udisembarking is allowed on hidden carriers, but it unhides them.
+	- embarking a hidden carrier makes it visible, also.
+
+Now remove land flag from VTOLs leaving flying carriers.
+
+Modified gravity-leg-snap to not affect mechs while making move mode changes.
+
+Modified AttackerMovementMods in BTH code to properly adjust based on gravity changes to speed.
+
+Fixed oaddsp to properly remove phys weapons on omnis in non-special hardpoints.
+
+Added new Aero movement code :
+	- Lots of details.
+	- Spheroid DS, tho, switch to use old code.
+
+6/19/2003
+---
+mech.pickup.c mech.consistency.c
+---
+Blocked picking up HIDDEN units.
+
+Fixed some consutrction rules weight formulae problems.
+
+Fixed misc minor bugs.
+
+Modified Thrust code to no longer - from MechThrust on Turning in space. It now just does NOT apply thrust to forward/back velocity.
+
+Added THRUST arguements :
+	'turn' and 'rturn' - + or - to set to value required to turn. (minimum. Setting this and turning causes no velocity to apply forward/back)
+	'safe' and 'over' to set to SafeThrust and OverThrust (Run and Walk speed so to speak)
+
+Modified Aero Fuel code to be more realistic and fit the MUX world.
+
+Mapedging is now zero's MechVelocity, also.
+
+Fixed fuelless aero's to properly move around still or cap at MP1 (nice code for space).
+
+Added a 4:1 scale zone betweem ATMO_Z and ORBIT_Z, 'upper atmoshpere'.
+
+Added noreentry_tech to block downward atmosphere entry from Space to Upper.
+
+Fixed techcode on fixinternals, reattaches, and damage listings.
+
+Fixed Angle of Attack on TargetMods BTH.
+
+Fixed Range BTH modes for aero weaps.
+
+Fixed OT on attacker mods.
+
+Fixed leaving bay and hangars for aeros to not crash.
+
+7/01/2003
+---
+mech.notify.c
+---
+Fixed mech to mech LoS radio to drop an ansi break sequence at the end to prevent ANSI bleed.
+
+HIDDEN units taking damage now unhide.
+
+VTOL_ROTOR_DEST'ed unit no longer hover towed target in air.
+
+Evade command works when you are hip critted and un-evading.
+
+Modifed code to prevent no-damage-to-bsuit-on-OOD problems.
+
+Fixed legacy code causing PI not to affect single PC's in SD mechs.
+
+Modified ZBearing function to return 0 on a range 0 check.
+
+Modified sight on hexes to return Out of range or Too close appropriately.
+
+Modified LRS to put enemy units caps and friendly lower.
+
+Inferno :
+    Inferno Speeds mods affects Non-Mechs or anything with ICE. (Note OR)
+    Inferno Heat Diss affects only Mechs w/o ICE_TECH.
+
+Removed HEAD limboff crits.
+
+Added autoeject (w/Pilot Roll) or die on mech side (not turret) destruction.
+
+Wrote new XP code. More KISS. More common sense based.
+
+Fixed a bug with saving 20t cargospace units.
+
+Made some BV code fixes.
+
+7/12/2003
+------
+aero.move.c mech.update.c btmacros.h mech.utils.c mech.combat.c
+------
+Modified 'safe' and 'rsafe' args to THRUST to use MP1 * SI value if it's lower than normal safe thrust.
+
+Modified scale of LowerAtmo/UpperAtmo/Space speed from 8:4:1 to 4:2:1. No curve, just linear x2 and /2.
+
+On takeoff, you now go 2 Velocity (166kph by math as of this entry) for spheroid and 3 Velocity on aerodyne (252kph)
+
+KPH_PER_VELOCITY changed from 8 to 4. Affects :
+	- All kph numbers halved. 1 Velocity == 44 instead of 88.
+	- Acceleration slowed. As above, this means max/min speeds lower.
+
+MechVelocity() now 0'ed on Shutdown() macro.
+
+Ice and Snow now melt in DS spewage.
+
+Going off mapedge in aero should now evenly (not angled) bounce you back w/o speed changes, etc...
+
+Remvoed pilto roll on autoeject for tanks ide loss temporarily.
+
+Lowered turn rates to match velocity scale drops.
+
+7/13/2003
+-------
+mech.sensor.functions.c mech.combat.c mech.pickup.c mech.ood.c
+-------
+Radar can now only see inside it's own atmo/space layer.
+
+CS_ON_LAND unit cannot see things on radar when landed.
+
+Scanner freqs won't emit to MechFreqs.
+
+CS_ON_LAND units that are Combat_Safe are overrided in mech.combat.c to be hit if any bay has mech entering.
+
+Ammo Boom Autoeject, which hits if all transferable locations would be dested by damage, now stops adding locations once one has CASE.
+
+Modified OD code to not at +1 for !bsuit units on land. Base landing BTH on safe hex w/o terrain/problems is now 4 instead of 5. Bsuits get -1 BTH now.
+
+Aero's can now only tow if they have salvage_tech.
+
+Reordered DestroyMech() call on tank dest to fix autoeject problem.
+
+Modified autoeject() to take an attacker argument. This should fix all lack of Debug channel emits for autoejects.
+
+Removed Friendly Fire locks on Coolant Guns.
+
+Allow autogun'ing to target friendly units. Code blocks out stuff anyhow so it allows coolant guns instead.
+
+Modified seismic to allow cansee only if target speed > MP1 instead of MP1/2.
+
+Blocked non-Players from autoejecting.
+
+Modified leaving hangar when flying to set 3 args for elevation to setxy.
+
+Fixed negative velocity to invert heading for math calculations
+
+Partial ammo reloads/unload should take less time now.
+
+BTH mod to shoot a sprint modded from -1 to -3 due to extreme use in combat all the time.
+
+Aero's on contacts fixed to show Angle only on landed, and to show velocity when not landed and speed when landed.
+
+7/21/2003
+----
+autogun.c hudinfo.c  autopilot_commands.c ai.c eject.c mech.startup.c mech.combat.c
+----
+Modified HUDINFO to block LRS range over ORBIT_Z properly.
+
+Set code back to allow Tracked tanks to safely backwalk elevs. Reb removed it.
+
+Changed SWARMCHARGE command to use dumb follow.
+
+Additional misc bug fixes.
+
+Fixed masc and scharge event to remove enabled flag, and properly start a recovery event, on return cases from base event.
+
+Modified self-coolanting to use flat Gunnery Skill BTH instead of modified one.
+
+Modified udisembark to properly set pilot damage right.
+
+Tanks now crit properly instead of critting only ONCE.
+
+Startup no longer auto-recycles locations.
+
+Artillery no longer damages MOVE_NONE units.
+
+Added 'parts' 'ammo' and 'weapons' optinal args to 'stores' and 'manifest' commands.
+
+VTOLs are now capped at Z100 (ATMO_Z).
+
+Changed VTOL fuel use multiplier to +.5 (50%) per 20Z starting at 20Z.
+
+----
+7/27/2003
+----
+mech.combat.c
+----
+Pierce Ammo now gets the +2 roll mod against ICE_TECH for armor hits crit checking.
+
+Maxtech Rules code for motive crits fixed and modularized.
+	- 12 Roll on chart now properly MP0's.
+
+Fixed maxtech config params to properly swtich the Motive Crits and old style FASA hitloc crits.
+
+Ammunition explosions that core the CT no longer zero the whole mech.
+
+----
+7/28/2003
+----
+mech.notify.c mech.events.c mech.combat.c mech.hitloc.c eject.c
+----
+AI no longer receives commands while it is ECM disturbed.
+
+Modified MG and Spooge Weaposn roll same BTH to hit other bsuits. Main hitloc roll always hits, tho.
+
+Removed weapon arc checks for artillery.
+
+Modified Maxtech style floating crits to tie into fasacrit < 0 instad of floatcrit. (Prevents crit trasnfer that way)
+
+RFM MG : Reduced heat by 1/2. HVYW weapons do 1-12 instead of 1-6.
+
+Removed DS_BlastHex effects on per-10-tic floating to prevent Aerodyne abuse. It still occurs on takeoff.
+
+Changed embark to allow !DS carriers to enter DS carriers.a
+
+Added DS emit when aborting takeoff.
+
+Modified enterbay into flying DS to be +/- 4
+
+8/03/2003
+----
+mech.update.c mech.maps.c hudinfo.c
+----
+Modified lvl+2 Tree Hex code to not affect DS's/aero's under velocity 40 to make landing in forest (even with land BTH+) viable somewhat.
+
+Modified ORBIT_Z Tactical/Hudinfo checks to do ORBIT_Z + 50 blocks instead fo allow a 50 Z zone to opt to be in to see terrain.
+
+Modified DS sketching to not pop up for Carriers Tech DS's.
+
+Modified carrier tech DS's to not apply to DS stacking.
+
+8/04/2003
+----
+mech.pickup.c mech.hitloc.c crit.c mech.notify.c conf.c conf.c mudconf.h eject.c aero.move.c mech.move.c
+
+MW Changes :
+	- Already couldn't motive crit.
+	- Can no longer TAC (hitloc).
+	- Cannot use digitial frequencies.
+	- Added btech_mwparent for DBref to parent them to.
+	- Creation of MW now triggers @aclone.
+
+Modified pickup to allow DS that are dested to be towed.
+
+Functionaly bounded weight in towing to a weight math of 1-100 (1024-10240) value. Towing dested DS is like a 100tonner.
+
+Removed Dest blockers from embark.
+
+Internally allowed more unit types to be carriers, accoring to MW's. :P
+
+Increased turn rates.  If your angle is greater than +/- 60 you gain extra turn rate. If over +/30 it will get half as much a boost.
+
+Lowered DS launch time to 30s.
+
+Added crash check to taxi'ing aero's to not make more than 1 elev change.  Changed some heading change stuff.
+
+Modified vector command to output different with 3 and 6 XYZ coord args with vertical bearing. Also returns Z bearing on default target.
+
+Modified bearing command to give a +/- mark.
+
+Modified autopilot event timings to alleviate CPU. Fixed old autogun logic to properly splice every 3rd tic for non-physics rather than just miss 1/3 for it. :P
+
+8/11/2003
+----
+econ_cmds.c
+----
+Manifest/Stores/Unloadcargo/Loadcargo all work inside a mech in a carrier now.
+
+Fixed code to properly cap VTOL's at Z100.
+
+Re-entering in NoReEntry_Tech now bounces you straight vertical w/o velocity loss.
+
+Fixed all skills calls to use -Spacecraft for Aero's (DS/Aerodyne DS worked fine before).
+
+Minimized damage from leave dested carrier to 4 elev drops.
+
+Added Bomb Econ :
+    'bomb list' will show you current bombs. The amount is how many you can drop from that crit before it's empty.
+    'bomb aim' will show you were a bomb will land if launched at that moment. A missed BTH on drop randomizes it more.
+    'bomb drop #' drops a bomb from the location on 'bomb list'.
+    Random wind effect added to bomb to affect long distances.
+    BTH goes up at higher Z.
+    Tech Command 'mountbomb' added 'MOUNTBOMB <LOC> <CRIT> <TYPE> [#]`.
+	Types are : Bomb_5_AntiInfantry Bomb_5_Cluser Bomb_5_Standard Bomb_10_Standard Bomb_10_Cluster Bomb_20_Concussion Bomb_20_Neutron Bomb_20_Standard.
+	You won't be seeing any neutrons and prolly not concussions till later. :)
+	The optional [#] arg allows you to reload partial amounts. Per Crit, class 20's can have 2 bombs, 10 can have 5, 5 can have 10. AI is exception with 15.
+	Make the <TYPE> arg be 'empty' and it will unload bombs of that loaded type. # doesn't matter on this one.
+	Bomb loads/unloads take 1min per crit.
+	Yes, you need one store for each bomb load.
+    Speed mods are half FASA. Bomb loads are extrapolated from FASA per strength ratios.  Primary difference is we allow '10' bombs per 1 Safe Thrust loss instead of 10.
+
+Fixed headhitmwdamage() to not do damage to player, but do it to mech, if player location is not inside the mech.
+
+Added 'CRUISE <ON|OFF>' for aeros and 'SETCRUISE <#|info|current` to set it.  Code is hacky but does well enough for now to keep you at even velocity.
+
+Modified ejection from carriers to be OOD-like again.
+
+Added mechpref of 'OVERTHRUST ON|OFF' to allow overthrust preference blocking.
+
+Fixed minor bug with polarity of math done on velocity while in reverse and turning.
+
+Fixed dynamic LZ blockers to onyl also count up CS_ON_LAND stuff to limit blockers more.
+
+Fixed Spheroids trying to land in forest and stuff somewhat.
+
+08/15/2003
+----
+flags.h eject.c
+----
+Added s_Inherit to base MUX distro in order to set it on MW creation properly.
+
+Removed damage, but left terrain mods, on DS spew. Also reduced range.
+
+Fixed towing code bound error. Also fixed towing code CargoSpace math modulation error.
+
+08/16/2003
+----
+mech.ood.c
+----
+Modified thrust/speed settings on FlyingT being ODed to only occur if under orbitz.
+
+Made some fixes to Cruise Control in space to allow it to work better.
+
+Landing BTH range for unfriendlies in area moved from range 30 to range 20. (General weapons range)
+
+Changes Dive/Climb angle for velocity gain/loss from +/- 30 to +/- 45.
+
+Lowered atmo velocity loss from 2.5Vel/5Vel to 2Vel/4Vel.
+
+Made MOUNTBOMB work on !IC units.
+
+08/17/2003
+----
+aero.bomb.c mech.utils.c
+----
+BOMBS -
+-------
+Fixed bomb weights.
+
+Modified BTH rolls to properly capture MoF and modify land area.
+
+Increased BTH mods for range and added BTH mod for velocity.
+
+Added wind movement support on flight simulation but not to aiming.
+
+Modified BombThrustLoss to read 1 bomb as a 10 Strength insteead of 20 Strength. Back to FASA.
+
+Created Bomb Cap to be 10 points * MechTons/5.
+
+Added BOMB_RACK (Bomb_Rack) to extend bomb cap by 50 points.
+
+----
+08/22/2003
+----
+aero.move.c crit.c mech.update.c
+----
+Fixed type to properly go backwards on reverse velocity.
+
+Fixed some VTOL rotorcrit speed problems.
+
+Fixed MechElev() cacher in update of MOVE_BACK to prevent mis-elevations until next hex moved.
+
+Changed ImproperLZ() checks to only check_dynamic if the mech checking (DS) was CS_ON_LAND.
+	- Dynamic DS landed blockers only create and affect fellow CS_ON_LAND units.
+
+CS_ON_LAND now also goes CS when in orbit.
+
+Increased Spher launch time to 60s. Added 3x modifier for CS_ON_LAND stuff to launch.
+
+Dynamic /and/ Normal LZ blockers now only affect CS_ON_LAND units.  Normal !CS_ON_LAND DS's can land inside blockers.
+
+Handicaped DS Wing arcs to go up to 10 degrees in the opoosing direction.
+
+Overthrust burn messages now properly read off the Safe/Over thrust values and not modified SI maxthrust values.
+	- Has the effect of not rolling for G's in overthrust, just if over SI. :P
+
+BSuits recycles moved to 20 tics from 10 tics.
+
+Re-enabled 'thrash' command. Bear in mind it's onmly range .5 and swarm/attackleg is range 1.0.
+
+Fixed mechs to recycle all limbs appropriately when suit drop off when the mech lands from a jump. 
+
+Opened filter on DumpCarrer() dolist to rely more on getMech() rather than abitrary MUXcode checks.
+
+Fixed the aero udisembark from carrier bug. Old VTOL aware code.
+
+Modularized some internal aero destruction checks. Included a case that should fix tooo large of damage (crash) causing odd SI values to be set.
+
+Fixed aero's to pickup MW's.
+
+Modified to allow Landed DS Carriers to enter DS bays.
+
+----
+10/04/2003
+----
+blah.c
+----
+Fixed a SIGSEG crash when blasting a wall by the mapedge.
+
+Fixed death tracking emits for vehicles dying in water.
+
+Revered old code for Wiz OL com info/colors. Let's hope it satiates KM's request.
+
+Jumping mechs can't see stuff on seismic. :D
+
+Blocked physicals during stabilization after jump.
+
+Bsuits show more info on status for gear like ECM and such.
+
+Aero's now burn fuel while taxi'ing to the same degree as if applying thrust.
+
+Added bay lock checks on enterbay event call.
+
+Fixed some wing arc issues.
+
+---
+10/05/2003
+----
+Fixed taking damage on sprint to not reset timer and emit stuff if your already changing movement mode.
+
+Increased min takeoff speed for aeros to 44 (mp4) and capped taxi speed out at MP4.
+
+Made dropping towed items on water actually fall to bottom.
+
+Added btthreashold() function to get a skill threshhold.
+
+Added a '4' flag to btgetcharvalue() for XP to next level.
+
+Fixed a bunch of buffer overflow and memory legacy bugs in base MUX and BT code.
+    - Fixed a coupla skill-based legacy memory leaks. Bleh.
+    - Coupla buffer overflows in skill hash lookup.
+    - tprintf() had possible uglee handling of buffer sizes so now use truncuating functions.
+    - Increased buffer sizes somewhat.
+
+---
+10/10/2003
+----
+Fixed BV calculator to call Original Maxspeed rather than Sprint Affected Maxspeed
+
+Fixed a bunch of typoes.
+
+Decreased min takeoff speed to 33.
+
+REALLY fixed the channel emits for water-dested tanks.
+
+Made WATERPROOF_TECH allow tanks to not water-die.
+
+Fixed some motive crit speed setting issues.
+
+Removed most of the btech_ic eject.c elements.
+
+Added btech_headtopunchtab to re-roll punchtables for roll 12 headhits. If roll is NOT the head, it will crew stun the mech.
+
+Removed 'Too Close' at range 0.0 when firing weapons.
+
+Added btech_autopxp (default 0) to allow letting IC AutoPilots pass thru on XP checks.
+
+Fixed Dodge Maneuver bug preventing weapons fire while coming out of dodge mode.
+
+Dodge BTH remains at +2 against physicals but a physical attack no longer removes the dodge flag.
+
+Added maxtech modifier to pilot rolls for falling kick targets.  Modifiser is Defender - Attacker mod. Light 1 Medium 0 Heavy -1 Assault -2
+
+Added following ifantry weapons with these specs :
+Weapon Name      Heat   Damage  Range: Min      Sht     Med     Lng     VRT
+PC.InfantryRifle 0      1               0       1       2       2       10
+PC.InfantryFlamer0      1               0       1       2       3       15
+PC.InfantryMG    0      1               0       1       2       3       15
+PC.InfantryLaser 0      1               0       1       2       3       20
+PC.InfantrySRM   0      1               0       2       4       6       15
+IS.MagshotGaussRifle 0  2               0       3       6       9       15
+IS.GrenadeLauncher 0    1(1D6)          0       1       2       0       10
+IS.MineLauncher 0       4               0       1       0       0       10
+
+Added RANDDAM weapons flag (MechWeapons[].special) to make a weapon (Grenade Launcher) do 1-MechWeapons[].damage damage.
+
+Added Personal_ECM tech to have a 1 range ECM. Must still have ECM crit, though.
+
+Added Grapple_Claw tech to -1 from attackleg/swarm and +1 to all throw off attempts.
+
+Observatorics no longer get garbled ECM radio or scan blocks from ECM.
+
+Observatorics no longer have range caps on view command.
+
+All hex clears of light forest go to rough hex only, no longer to grassland even randomly.
+
+11/9/2003
+---------
+conf.c mudconf.c object.c
+---------
+Added room_parent and exit_parent config parameters (default 0, if 0 does nothing) to allow default hcode object parenting.
+
+MW_Pickups and other teleports from mech actions now TELE_LOUD to trigger aenters and therfore send to jail automatically.
+
+Added overrides in regards to MONITOR flags to let STAFF flagged objects monitor themselves. Kinda odd but lets monitor flags listen more efficient.
+
+Moved tech XP emits to MechTechXP chan.
+
+Moved building and physical attack emits to MechAttacks chan.
+
+11/14/2003
+----
+bleh
+---- 
+Moved BTH debug info to MechBTHDebug
+
+Fixed MW's to properly get Running XP.
+
+Fixed a bug in .def doing odd stuff when you didn't put an = in.
+
+Added the following scode functions :
+_ref functions for dnyamic internal viewing. 
+btgetxcodevalue_ref(<ref>, <XcodeValue>)
+btarmorstatus_ref(<ref>, <Location>)
+btcritslot_ref(<ref>, <Location>, <Critslot>, <Flag>)
+btcritstatus_ref(<ref>, <Location>)
+bttechlist_ref(<ref>)
+btshowstatus_ref(<ref>, <emitplayer>)
+btshowwspecs_ref(<ref>, <emitplayer>)
+btgetbv_ref(<ref)
+Various interaction functions.
+btid2db(<MapDB>, <ID>)
+bthexlos(<MechDB>, <X>, <Y>)
+btlosm2m(<MechDB>, <TargetDB>)
+btloadmap(<MapDB>, <Mapname>)
+btloadmech(<MechDB>, <Ref>)
+btsetxy(<MechDB>, <MapDB>, <X>, <Y>, <Z>)
+bthexemit(<MapDB>, <X>, <Y>, <Msg>)
+btmapemit(<MapDB>, <Msg>)
+btparttype(<Partname>)
+btdamagemech(<Mech>, <Damage>, <ClusterSize>, <Direction>, <CritFlag>, <Msg>, <LOSMsg>)
+btpartweight(<Partname) - Clone of btgetweight() to give more logical name. will remove it completely later.
+btweapstat(<Weapname>,<FLAG -> VRT TYPE HEAT DAMAGE MIN SR MR LR CRIT AMMO WEIGHT BV ABV REP>)
+btengrate(<MechDB>)
+btengrate(<Ref)
+
+'R' switch in mech_stats created for btshowstatus_ref() to changeout mechname.
+
+bttechlist now also lists TAG on TAG units.
+
+11/20/2003
+----
+bleh
+----
+Fixed various little bugs in btdamagemech() and bttechlist*().
+
+Added btech_complexrepair config parameter to control the following parts useage in tech code for a coupla hundren new cargo type parts :
+	The parts consumption is basically lenient FASA rules you now have the following parts.
+	Tonnage Based useage (grouped in 10, so 10-100)
+		Sensors_#, Myomer_# (Re-attaches only), TriplerMyomer_#, Internal_#, ES_Internal_#, JumpJet_#, CO_Internal_# RE_Internal_#, UpperArmActuator_# (Includes shoulder), LowerArmActuator_#, HandActuator_#, UpperLegActuator_# (Including hip), LowerLegActuator_#, and FootActuator_#.
+ 	Rating Based useage (gruped in 20 rating chunk up to 400, for engines)
+		Engine_#, XL_Engine_#, ICE_Engine_#, Light_Engine_#, XXL_Engine_#, Compact_Engine_#. (Some are mostly unused in FASA)
+ 	Rating based useage for Gyro's only (grouped in 100 rating chunks up to 400, so 4 each 1-4)
+		Gyro_#, XL_Gyro_#, HD_Gyro_#, Compact_Gyro_#.
+	This system is lenient FASA essentially. Unlike FASA, it's not /exact/ tonnage or EngineRatingxTonnage for engines.
+	This is meant for lenient softcode econ systems, like the Merc Site, since in a RealSpace economy this is HUGELY a bogdown. The merc site is planned to have instant purcahse of parts (some cost more than others at times, but no lack of availability) so this is not a problem, it controls cost a lot better. In RS site econs this is a HUGE bogdown unless you have softcode that is used to take the Generic parts, charge you whatever to turn them into the useable tech parts. Which is a possbility.
+
+Fixed a bug with CASE ammo explosios that was ejecting the pilot if the damage taken was exactly equal to the inernal left in the location checks.
+
+Fixed MW speed on autoeject.
+
+Fixed some double emitting death crits.
+
+Changed reload difficulty from +1 to 0.
+
+Reduced tech times - Replace parts 30 to 20. reload 10 to 5, Bsuit Reload from 1 to 3, Fixarmor 3 to 2, Fixinternal 9 to 7, reatachs fro 15m per 5tons to 10m.
+
+Weapon repair difficulty reduced marginally.
+
+Fixed tech stackign to PROPERLY cap.
+
+Max techtime reduced to 8 hours. One night's sleep.
+
+Fixed reload time mathematics.
+
+11/21/2003
+----
+----
+Added btgetpartcost() and btsetpartcost() to track part costs for all parts. There is NO PRE-INITIALIZE VALUE setup tho. But data/econ.db saves and loads in the same manner as hcode.db. This data is primarily used for cost calculation (see next) but can also expediated and save some space in MUX DB. Not much, no, but some. econ_database config parameter will set a non standard file from 'econ.db'.
+
+Added btfasabasecost() to return a FASA 'c-bills' costs mechs based on FASA calculations and read part costs input via btset and btget partcosts.  It will add 0 cost if for various weapons and such if you DO NOT INITIALIZE them.
+
+Fixed a few bugs and behaviour issues.
+
+11/25/2003
+----
+----
+Added btshowcritstatus_ref(ref, player, section);
+
+Removed all electronics useage from hardcode.
+
+Fixed myomer to use only one part on re-attach.
+
+Added btech_laxcore and btech_freetechtime.
+
+Added btech_allowsprint to disallow/allow sprinting.
+
+Modified btcritslot() and btcritslot_ref() to take different arguements for the last flag :
+NAME		Flat part name
+STATUS		Disabled, Destroyed, Operational
+DATA		Part's Data (Ammo left...)
+MAXAMMO		Part (current mode accounted for) maximum ammo
+AMMOTYPE	Part name required to reload ammo.
+MODE		The mode flag for weap/ammo (same leter as on STATUS)
+
+Fixed BV calc code to skip reading MechJumpSpeed() on aeros and DS's cuz it's used by cruise control code.
+
+Removed hex locking to hit mechs.
+
+----
+12/4/2003
+----
+----
+Fixed OD's that had their wall hex blown out from under them from isnta landing and acting like they were on the ground.
+
+Fixed DISABLED weapons from firing.
+
+Removed duplicated from 'DOING' (Player Who) but still show on Session/WizWho, etc....
+
+Modified btfasabasecost_ref() to multiple ammo cost by part data to make the cost per-shot in econ DB.
+
+Fixed Gyro to actually cause piloting roll stuff on jump landings.
+
+Lessened the tank heading restrictioned some to fix some things.
+
+Speed blocekd on vertical if Unajamming (VTOLs)
+
+Glancing blow emit moved around to avoid allow weapon jams not to emit it.
+
+ACID_TICK downed to 10 from 60. Acid Damage still 1-3.  Continues to burn if damage is anything other than 1, tho, rather than only burns if damage was 2.
+
+DFA require no sections to have weapons recycling now.
+
+Fixed a bug where swarming a friendly mech on the auto-BTH case to remove HIDDEN flag properly.
+
+C3 info now shows on tanks and stuff properly.
+
+Added global friendly fire physicals blocker.
+
+Movement mode changes while bogged down are now allowed.
+
+----
+12/5/2003
+----
+----
+Modified 'stores' to output 'vlong' name rather than hacky mech status partname translations.
+
+Ice now doesn't break under MW's.  BTH is +2 to break for BSuits.
+
+Added WCLASS arguement to btweapstat() to allow checking of weapon class for omni scode.
+
+Modified seismic cansee code to properly require the cansee target to be a target. Seismic can't see hexes.
+
+Modified Turret Hits to not longer dest the tank (transfers to BSIDE instead) automatically if turret is hit again after 0ed.
+
+Fixed a bug with displaying STATUS while midair when a DFA targeted mech got dested in midair already to the point of being !Xcoded. Very rare.
+
+Fixed obscure bug with mechs dested/cored already breaking ice in the middle of the object clearing timer.
+
+Added @Amechdest attribute. %! obviously is who it's upon and %# enacts as the destroying mech.
+
+Changed @tacheight to @tacsize and it takes 2 space delimieted numers for Tac Height (1-24) and Tac Size (1-40).
+
+Added btgetrange(MapDB,X,X,X,X) to get range. Arg options for X X X X are :
+	- DBRefMech, X, Y
+	- DBRefMech, DBrefMech
+	- X1, Y1, X2, Y2
+
+----
+12/15/2003
+----
+---
+Removed blocks on startup of DFM ammo. The limitations of DFM will have to be good enough.
+
+Made DFM also half ammo per ton (Large Ammo) as per pierce etc...
+
+Reduced Inferno overall effect time to about 1/3.
+
+Blocked mechs in the process of standing from doing pickups.
+
+Fixed Shutdown() calls to properly set Desired Heading to Actual Heading.
+
+Sprinting BTH mod increased to -4 from -3 BTH.
+
+Sprinting and Evading BTH modifiers now affect whiling going into AND out of the mode. (This also means BTH mods exists beyond just the first actual hit from sprint)
+
+Sprint/Evade no longer instantly leaves upon falling.
+
+----
+12/21/2003
+----
+----
+Fixed sprint/evade BTH bug. Ooops. Fingon event code.
+
+Modified SLITE command to A: block useage on CS units and B: before blocking remove SLITE_ON if Combat_Safe.
+
+Re-instated enterbase/leavebase blocks if the hagnar CF is 0.
+
+Added LeaveLock check to Leave_Hangar code.
+
+Added btlistblz(MapDBref) -> returns X Y Range delimited with | of BLZ's.
+
+Added bthexinblz(MapDBRef, X, Y) to return if a hex in inside a blocked LZ range.
+
+Speed_Demon now only adds 1/2 MP.  This is because MUX is much different than boardgame. In BG 1 MP barely allows extra turning.
+
+Blocked 'embark' command if your a unit being towed.
+
+Did some logic fixes in btgetrange() to fix crashes.
+
+Added optimization into AI code to control speed differently. Primarily despams the comand sends with MP rounding and pre-checks.
+
+Added optimization for arc checking on physical attacks to prevent AI command spam.
+
+Added more logic fixes to btgetrange().
+
+Fixed the above towing/embark stuff to (duh) be righ and block embarking WHAT your towing.
+
+---------
+1/06/2003
+---
+---
+BAP/BLP no longer works when sprinting.
+
+Fixed bug in bttechlsit that was returning MTOW on quads with actuaors in 'arms'.
+
+Added speed_demon to give 25% bonus to acceleration/deceleration.
+
+Added config parameter 'btech_extendedhide' to allow HIDE command to work for anyone (override hidden_tech needed).
+
+Doubled hide time for units hiding but not having HIDDEN_TECH.
+
+Shutdown macro now !dugin's units (SD or Dest)
+
+OODing AI no longer fire on targets, breaking their OOD.
+
+Acid on sections internal trackign flags handled better. Reb typoed AcidClear entry and I added Acid clearing to @magic.
+
+Seismic additionally blockde from Navals, Aero's, and DS's now.
+
+Fixed half the MOVE_BACK calls in backwalks to have brackets around the macro.
+
+Minimum damage for spoog/MG weapons on BSuits is now 1 so double-glances don't cause 0.
+
+btfasabasecost()'s no longer give a value for Aero/DS.
+
+Spottign XP now properly acquired for more than just Arty Spotting.
+
+Fixed some BV code :
+- There was an error in heat math. Also made sure to bypass some fancy heat math as per literalized wording in BV rules.
+- Fixed tank internals and armor multiplers (down)
+- Fixed mech internal multipliers (up)
+- Fixed a few otehr things.
+- Debate : Lower speed mod values for having JJ's cuz it's MUX?
+
+
+1/30/2004
+----
+Despite the dupliaction of code, I will do a whole system rewrite someday in the net year, the bug with unjamming auto-success
+    when prone is now fixed.
+
+Modified BV Calculator to a more custom formulae for JJ BV. It no longer applies to the offensive weap BV multipler for speed but before
+    speed multiplier affect offensieve BV, static points are added based on = (1pt * (MechTons/5)) * Total JJ. MUX has less use for JJ.
+
+Fixed certain avoiding personal damage rolls to properly not give damage on success.
+
+Added ATTACKEMIT_MECH status2 flag (letter 'r') to emit to MechAttackEmits channel same as MechAttacks. A filter.
+
+Trigger style mines modified to be more efficient to their common uses.
+	- Strength value is minimum tonnage to trigger.
+	- 'Extra' value is range to trigger. 0 and 1 being TheHex itself, 2 being the adjacent hex, and so on.
+
+2/22/2004
+----
+Modified XP code :
+    BV Ratio multipler hardwired to 1.0 if aero is involved, shooting or attacking.
+    LRM mul moved to 1.25, AC 1.5.
+    MRM bonus moved to 0.5, OS Weap to 1.0.
+
+Fixed aero BTH math to properly give +2 on MechThrust overthrusting, not just velocity over Safe Thrust. :P
+
+Modified AeroStatus command to return proper thresholds.
+
+Modified damage to crit on > not >= of armor threshold for aero's.
+
+XP is no longer awarded for shooting a mech who's pilot is not IC.
+
+Descreased the turn rate in space.
+
+MP_PER_VELOCITY returned to FASA standard of 8 from old temp value of 4. This will increase max speed in atmo and stall speeds.
+
+Lighter aero's now recieve turn rate bonus's.
+
+Aero's now have 360 degree arcs like mechs.
+
+Subs should no longer, or need WATERPROOF_TECH, flood on submerging.
+
+Ice breaking behaviour only occurs if the unit is at z 0.
+
+Subs should now proplerly set to exact depth when hitting the bottom.
+
+Hull Navals no longer have 10% lift equipment.
+
+Modified setxy code to properly set Floating Z. Normally this is caught by normal code and updated, but some use seems to act up.
+
+'Climb' and 'Dive' w/o arg now returns present actual angle, instead of present desired angle.
+
+Fixed a possible crash bug in odd occurences with bsuit swarm - command when scode is used improperly.
+
+Aero's now 'no flying machine has gone before' style crash on buildigns while landing/taxi'ing.
+
+Aero's still locked out by landing will NOT get chance to make a skill roll to prevent crash.
+
+Landign aero's now take 20x the crash damage when crashing while landing.
+
+Velocity now has a cap at 4000kph.
+
+There is now an altitude cap at Z14000 in space.
+
+Modified engine-dest behaviour (crits) to prevent some odd behaviour hopefully.
+
+---
+3/06/2004
+---
+
+Fixed InfantrySRM's to properly have a missile hits table entry. :P
+
+Fixed caseless/RFM/RFMMG to behave more properly. Primarily a logic overide just exploded caseless every time instead of more commonly jamming.
+
+Fixed bsuits who drop off a mech to have the proper Z.
+
+Navals shutting down in water no longer sink to the bottom.
+
+Tweaked aero turn rates down more.
+
+Removed < Z10 'half stall speed' hack. Stall speed is the same up to Z200 now. Learn to 'stall land' yer aero's. It's not hard.
+
+---
+3/16/2004
+---
+Fixed aero strikes to proplery cap range at 6. (Aero vs ground is supposed to not just limtied side arcs for the weapon but also the range)
+
+Updated 'Thrust' command for 'safe' and 'rsafe' to use SI aware thrust value.
+
+Removed the aero based BV hardliner in XP code to set BV mul to 1.0.
+
+ECM no longer blocks any sensors (EM, Seismic, or Radar) from seeing targets on 'contacts'. It STILL affects tactical map if both your sensors are ECM-baffleable. (Ie, you'll see the ECM Bubble on tactical if all yer sensors are EM, Seismic, or Radar)
+
+Reduced ECM and Radar BTH mods for being ECM Fuzzled/Protected from +2 to +1.
+
+NOTE : ECM is still usefull as per FASA rules, I've just minimized the MUX extensions of it's use. It still blocks artemis, narc, etc... (even the /buble/ having LoS passed thru affects these). ECM Coverage or LoS traversal still blocks Narc, Artemis, SGuided, and other things per FASA.
+
+IDF (Spotter LRM fire) now properly adds FASA AttackerMovement mods of the spotter unit cumulatively with the AttackerMovement mods of the firer.
+
+IDF spotters must now be within range 21, also, or the BTH flies through the roof.
+
+IDF now requires non-blocked LoS from the spotter. This means no BAP or Seismic LoS will allow spotting.
+
+As per FASA BMR Spotters can no longer fire weapons while spotting.
+
+Modified aero BV code :
+Fixed calculations on internal to not add the SI per-section, but just once.
+Previously the code excluded aero (like tanks) from heat BV mods. Fixed.
+The Defensive BV 'speed mod' was replaced in AT2 BV calcs with a flat modifier for unit type. Fixed.
+The Offensive BV 'speed mod' was fixed for DS's to use safe thrust instead of max thrust.
+
+---
+6/9/2004
+---
+Added 'btnumrepjobs(MechDB)' to return the number of possible repair jobs possible on a mech.
+
+Added some extra AI stopping events into DestroyMech() global handler.
+
+Delayed discarding of 0ed mechs by 5 more event ticks.
+
+Added some extra AI stopping events into discard event for zeroed mechs, also.
+
+Modified CLEARSTUFF to clear the enactor instead of #-1 if the enactor is a room. (Allows @fo room=clearstuff)
+
+---
+6/12/2004
+---
+Added SQL support via 'sqlslave' process and @query command. :
+- @startsqlslave works same as @startslave. Note sqlslave does NOT use children processes inheritly to itself. Yet.
+	- (Might someday merge all possible (now 2, soon 3) slave processes into one threaded slave process. Original slave needs rewrite tho.
+- @query command added. Requires /sql swtich (only one for now) and is used in the format -> @querysql OBJ/ATTR=QUERY
+	- OBJ/ATTR is obj/attr combo like normal commands for what to TRIGGER when completed. %0 of trigger is the FULL return data.
+		- Someday we can possibly make %0-%9 used for different return content, but never can support tuple spreading.
+- Data output is in format 'OPERATION RESULT}ROW1FIELD1:ROW1FIELD2|ROW2FIELD1:ROW2FIELD2' and so on. In case of NO resulting tuple structure expect the return to be just 'OPERATION RESULT'. OPERATION RESULT is either 'Success', a sqlslave error message, or a DB error message. All items after } are only sent (including the }) if an actuall tuple response is acquired from the query.
+- sqlslave killing and communication pipe seems to work fine so far across @restart's and crash's.
+- With further use I am expecting to minorly or majorly modify the @query/sql output syntax.
+- @query/* can support any external query we want to support. If anyone gets me the external query type and a pointer to a library that uses it, I will rename 'sqlslave' to 'queryslave' and add them. I am highly debating merging DNS queries into 'queryslave' and adding @query/dns.
+- For some odd reason libdbi considered 'text' database datatypes as 'binary' types. A caveat to be aware of is that ANY 'binary' data type (BLOB) is interpretted as TEXT when coming into the MUX. So be carefull if it's not really a 'text' type. Avoid SELECT's on any binary type other than 'text'. We protect the buffer overflow possibility, but you might get tons of gibberish where you expect text.
+- So far there does seem to be a problem with the MUX process's I/O pipes to SQLslave gettign jumbled up with some very large instant spamn of @query. Most notably, not responses seem to read up when I '@dolist lnum(50)=@dbquery/sql blah'. Try to @wait space all your queries reasonably in automated code till I have time to address this. When this does occur, though, running @startsqlslave (and maybe killing old sqlslave at shell) works fine to get @query working again.
+
+
+Fixed a general socket maangement in shovechars() main loop which where original MUX code did not properly calculate max file descriptor value for select, causing odd behaviour with old slave and sqlslave depending on the specific numbers the socket FD's for the slaves was at. (If it somehow got higher than the highest socket for normal network sockets, they wouldn't get read.)
+
+---
+6/16/2004
+---
+Modified @query/sql for the best and hopefully final format :
+There are now A-E slot identifier for DB connections (formating of conf files required it, else I woulda coded relative unlimited) with config directives : (Consider 'SLOT' to be A, B, C, D, or E.)
+sqlDB_hostname_SLOT		hostname of the database
+sqlDB_username_SLOT		username to login
+sqlDB_password_SLOT		password to login
+sqlDB_dbname_SLOT		dbname for the slot
+sqlDB_type_SLOT			DB type, currently just 'mysql' is hardwired in code to support. Libdbi drivers required on server installation so I didn't bother installiong all the other DB's to compile them. Once I care to modify it will take 5 minutes to do and I can support 'postgres' 'sqllite' 'msql' and maybe 'oracle'
+
+@query command changes to format : @query/sql SLOT_LETTER/OBJ_TRIGER/ATTRIBUTE_TRIGGER/PRESERVE_DATA=QUERY. This is same as before expect for inserting a DB SLOT identifier and adding a preserve string. This is any user defined data that will be returned alongside the trigger arguements so you can pass 'reminders' for anything in your softcode you want. (These are capped to same length as all the others, an LBUF at 16k characters currently).
+
+Triger response now has 3 arguements (%0,%1,%2) identifier : %0 is a general status message (Success, libdbi error, or SQL database error string), %1 is the result, if any, of a select statement (you can check it for being empty easily with ifelse(%1,X,Y)), and %2 which is whatver PRESERVE_DATA was passed to @query. This is usefull to pass DBrefs or other attribute points or any kinda of parseable data you want to let the trigger attribute now more about what to do in detail.
+
+I don't immediately see anything else usefull to modify or update. Rock on. SQL integration, clean, efficient, and powerfull. :D
+
+---
+6/17/2004
+---
+Added new 'fileslave' process.
+	- All internal @log and logf() entry works the exact same.
+	- @startfileslave now exists.
+	- Fileslave will create file's if they do not exist. Arguement STILL is only a filename WITHIN /logs directory. No need for shell access to make the file first now.
+	- Most odd crash potential is fixed.
+	- By using the slave process all blocking effects on the MUX while fwrite() goes through no longer occurs. Much more efficient for heavy usage.
+	- On @log send a receipt of it sending it sent to user. When slave is done it returns an error message, or completion message, to the user also. (Much like a SQL does an @tr, this does an @pemit so to speak)
+
+---
+6/20/2004
+---
+Lowered STINGER_MODE ammo to be normal shots per ton instead of LARGE_AMMO.
+
+Fixed BV to no longer factor in extra BTH mods to stat modified multiplier for piloting. Hardened armor, Quads, Torso cockpit, etc... were all affected Pil/Gun skill mods to BV.
+
+OODing ground units are now exempt from ground strike rules (know as strafing to the less technicaly people) and can be shot while OODing w/o the normap ground unit blocks.
+
+Modified mech_explode_event() to not call blasthex's if mapindx is invalid. This prevents SIGSEGV's caused my -1 mapindex on a mech, but as with many other things !X or @desting the object while this or any event is running still will have undefined effects.
+
+Partially Tested Experiment : In order to allow emits of the damage from an ammo boom (dunno why it was omitted before...) I made a change to allow it. We will have to wait to see if this causes a bunch of other strange damage emits, but should not.
+
+Carrier embarking now require A: to be at the same Z B: embarker and embarkee to not be jumping.
+
+Added a "5" flag to 3rd arg of btgetcharvalue() that reads an optional 4th arg where 4th arg is a replacement XP amount to theorize a return code for what the target BTH will be. This is for storing XP values as numbers wherever and viewing their BTH level.
+
+Modified btgetcharvalue() flag of "4" (XP to next level) to optionally read 4th arg as a replacement current skill target.
+
+Modified many template SendError (MechErrors chan) warnings to format to "Mech #%d - ......" for easier channel listener grabbing.
+
+---
+TEST CASE BINARY?
+---
+Removed ALL remnants to part brand code existing, very extensive mods.
+
+Removed ALL remnants of unused (and hooked into brand code) failures code.
+
+Rewrote entire old MTX crit code cuz it was written by someone else and SUCKED bad. New code updated to use pure Maxtech rules.
+	- Added 'weapstatus <Weapon#>' command.
+
+Removed old "tinker" code and commansd that never got used.
+
+Reordered mech.h to properly use 4byte (32bit) word ordering in common memory structures. MECH object 15% or more smaller.
+
+Cleaned up HELP commands list code internals, but also tried to expand as many descriptions with more arguments that I could.
+
+Modified btdamages() to note use , as a delimiter but rather :
+
+Added btunitfixable() function to return 1 if fixable, 0 if not. (for checking core rules w/o crappy softcode)
+
+Fixed "fix" to read the first weapon crit when calling replacegun.
+
+Added emit upon successful stand to be seen by all around.
+
+Removed last remnants of @luck code (Was called still but never read luck code). Jsut removed it in prep for reusing A_LUCK attrib.
+
+Gauss Rifle's should properly not explode if disabled.
+
+Repairgun now should fix multi-crit damages, but not fix the part.
+
+Updated some AI MechAuto() resets.
+
+Moved many AI debug calls to MechAI chan rather then Debug or Error.
+
+added "reset" AI command to clear adn reset AI event and settings.
+
+Expanded TYPE_USHORT for unsigned short in the scode xcode integration.
+
+Expanded MechTeam to be unsigned short (0-65535)
+
+btech_ic now has 0, 1, 2 values possible. 0 is as expected, 1 is also, but 2 has XP-loss on death read but BLOCKS disembark and autoejects.
+
+Dropped XP mod on missilse from 1.25 to 1.1
+
+Modified some setspeed code to remove old "speed rounding" and to apply "speed percentage" setting.
+
+Modified autopilot dumbgoto event to speed 0 and continue trigger on event of being int he right X Y regardless of current speed to more seamlessly curve through AI programms.
+
+----
+11/04/04
+----
+Added a weapon cap per-weaponclass for omni code. Next up if needed : A per weapon point value system for each class.
+
+Put some extra error checking into LOGINDATA tracking to prevent crashes. Although this migth be caused due to corruption of DB, at the least it won't crash and will wipe the attrib instead and emit to a channel (Wizard for now)
+
+Added btech_enablehudinfo flag to runtime flag HUDINFO protocol on and off.
+
+Fixed some newline being embedded in comsys DB problems.
+
+Expanded mech_ref in MECH structure to be 32 instead of 16 characters.
+
+----
+11/22/04
+----
+Finally added 'u' for underlined ansi code :P
+
+Fixed up a few pointers in eval.c
+
+Made a few extra Xcode attribs on some unit types.
+
+Made some Xcode attribs Read Only type.
+
+Replaced various strdup() calls in commac and comsys code. Made a better cleanup to an older fixed bug in defining macros.
+
+Made exits teleportable.
+
+Did a few more ports from 3030 codebase as I planned the future merge project.
+
+Fixed a few buffer sizes and made some sprintf's use snprintf.
+
+Added same StopAutoPilot checks (AIDestCheck macro now) to not only call on mech dest as before but now also newfreemech() on XCODE object deletion.
+This prevents @desting an AI's mech as it is still engaged from causing a crash (When the AI object event for move, gun, etc.. hit after the internal XCODE object of the mech is nonvalid.)
+
+Replaced MechTeam() check in embark command to check passing the MECH's DBref against the CARRIER's EnterLock. Softcoders make sure to update enterlock scode.
+
+Split up SendXP emits for weapon attacks and mech pilotgain into SendAttackXP and SendPilotXP. Load control on monitor objects.
+
+Made Object Stacks (push() modified only) made FIFO instead of LIFO. This means pull()/peek() still pull first thing in it's lstack() list, but push() put stuff on the end of the list instead of begining.
+
+----
+12/08/04
+----
+Fixed default weapon BV on MRM's.
+
+Added SETWBV and SETABV commands in debug for modifying weapon BV.
+
+Added small hack to not give mechs like BGS XXL tech. Still gives them LEng and XL, but no outward game effects on the level XXL did to ruin the mech.
+
+Modified Weapon Classes to use teh following spread with the following caps :
+struct weapon_class_struct WeaponClassTable[] = {
+    { WCLASS_NONE,              0 },
+    { WCLASS_SHORT,             5 },
+    { WCLASS_MED,               4 },
+    { WCLASS_LONG,              4 },
+    { WCLASS_VLONG,             2 },
+    { WCLASS_AMS,               4 },
+    { WCLASS_SHORT_AC,          2 },
+    { WCLASS_MED_AC,            3 },
+    { WCLASS_LONG_AC,           4 },
+    { WCLASS_NARC,              4 },
+    { WCLASS_ARTY,              4 },
+    { WCLASS_GAUSS,             1 },
+    { WCLASS_LGAUSS,            2 },
+    { WCLASS_PC,                0 },
+    { WCLASS_ATM,               2 },
+    { WCLASS_FLAM,              2 },
+    { WCLASS_STREAK,            2 },
+    { -1,                       -1}
+};
+Some weapons might get tweaked. Like LL and PPC are Short and Long now, might need them in same bracket. Will see how it goes.

@@ -1,0 +1,45 @@
+#CC             = cc
+CC		= gcc
+#CC		= egcc
+
+MAKEDEPEND	= makedepend                            # Standard
+CODEROOT	= ~/btmux-exile/src
+MAKEDEPENDFIX   = $(CODEROOT)/bin/makedepcleaner.pl    # Not so standard :)
+PROTOMAKER	= $(CODEROOT)/bin/protomaker.sh
+
+# If you lack MAKEDEPENDFIX, just set it as 'cat'
+
+# NOTE: You need to update 'main' makefile's GNUMAKE variable as well.
+
+GNUMAKE		= make
+
+MYFIFOOBJ	= ../misc/myfifo.o
+EVENTOBJ	= ../event/event.o
+
+# Available flags: BT_ENABLED (=> BattleTech hcode goes in)
+
+MUXCFLAGS	= -g -O1 -Wall -Wno-unused -DMYFIFO -DMEMORY_BASED -DBT_ENABLED -DHUDINFO_SUPPORT
+CFLAGS		= $(MUXCFLAGS)
+
+%.do:   %
+	cd $< ; $(GNUMAKE) ; cd ..
+
+%.dep:  %
+	cd $< ; $(GNUMAKE) depend ; cd ..
+
+%.cle:  %
+	cd $< ; $(GNUMAKE) clean ; cd ..
+
+.depend:
+	rm -f .depend
+	touch .depend
+	$(MAKEDEPEND) -f .depend $(INCLUDES) -- $(CFLAGS) -- $(wildcard *.c)
+	$(MAKEDEPENDFIX) < .depend > .depend~
+	mv .depend~ .depend
+
+depend: .depend
+
+protos:
+	$(PROTOMAKER) "$(INCLUDES)" $(wildcard *.c)
+
+include .depend

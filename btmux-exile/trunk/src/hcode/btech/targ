@@ -1,0 +1,12 @@
+autopilot.h:    /* Temporary AI-pathfind data variables */
+autopilot.h:#define Gunning(a)          ((a)->flags & AUTOPILOT_AUTOGUN)
+autopilot.h:#define StartGun(a)         (a)->flags |= AUTOPILOT_AUTOGUN
+autopilot.h:#define StopGun(a)          (a)->flags &= ~(AUTOPILOT_AUTOGUN|AUTOPILOT_GUNZOMBIE)
+autopilot.h:{ StartGun(a) ; TrulyStartGun(a); a->flags &= ~AUTOPILOT_GUNZOMBIE; }
+autopilot.h:{ a->flags |= AUTOPILOT_GUNZOMBIE; TrulyStopGun(a); }
+autopilot.h:{ a->flags |= AUTOPILOT_PILZOMBIE; }
+autopilot.h:{ if (a->flags & AUTOPILOT_GUNZOMBIE) { TrulyStartGun(a); a->flags &= ~AUTOPILOT_GUNZOMBIE; } }
+autopilot.h:{ if (Gunning(a)) UnZombify(a); if (a->flags & AUTOPILOT_PILZOMBIE) { a->flags &= ~AUTOPILOT_PILZOMBIE ; AUTOEVENT(a, EVENT_AUTOCOM, auto_com_event, 1, 0); } }
+autopilot.h:(((a->program_counter + (b)) < a->first_free) ? a->commands[(a->program_counter+(b))] : -1)
+autopilot.h:       (1 + acom[a->commands[a->program_counter]].argcount)
+autopilot.h:       a->program_counter

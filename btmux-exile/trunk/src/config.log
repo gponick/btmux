@@ -1,0 +1,140 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:529: checking for gcc
+configure:642: checking whether the C compiler (gcc  ) works
+configure:658: gcc -o conftest    conftest.c  1>&5
+configure:684: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:689: checking whether we are using GNU C
+configure:698: gcc -E conftest.c
+configure:717: checking whether gcc accepts -g
+configure:749: checking how to run the C preprocessor
+configure:770: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:829: checking for POSIXized ISC
+configure:851: checking for minix/config.h
+configure:861: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:857: minix/config.h: No such file or directory
+configure: failed program was:
+#line 856 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:899: checking for ANSI C header files
+configure:912: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:979: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1007: checking for memory.h
+configure:1017: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1007: checking for unistd.h
+configure:1017: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1007: checking for errno.h
+configure:1017: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1007: checking for malloc.h
+configure:1017: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1007: checking for ieeefp.h
+configure:1017: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1013: ieeefp.h: No such file or directory
+configure: failed program was:
+#line 1012 "configure"
+#include "confdefs.h"
+#include <ieeefp.h>
+configure:1007: checking for sys/select.h
+configure:1017: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1007: checking for sys/rusage.h
+configure:1017: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1013: sys/rusage.h: No such file or directory
+configure: failed program was:
+#line 1012 "configure"
+#include "confdefs.h"
+#include <sys/rusage.h>
+configure:1007: checking for sys/ucontext.h
+configure:1017: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1013: sys/ucontext.h: No such file or directory
+configure: failed program was:
+#line 1012 "configure"
+#include "confdefs.h"
+#include <sys/ucontext.h>
+configure:1044: checking whether time.h and sys/time.h may both be included
+configure:1058: gcc -c -g -O2  conftest.c 1>&5
+configure:1079: checking for pid_t
+configure:1113: checking for vfork.h
+configure:1123: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1119: vfork.h: No such file or directory
+configure: failed program was:
+#line 1118 "configure"
+#include "confdefs.h"
+#include <vfork.h>
+configure:1148: checking for working vfork
+configure:1299: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1322: checking for vprintf
+configure:1350: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1429: checking for setrlimit
+configure:1457: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1429: checking for getrusage
+configure:1457: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1429: checking for timelocal
+configure:1457: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1429: checking for mktime
+configure:1457: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1429: checking for srandom
+configure:1457: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1484: checking for getpagesize
+configure:1512: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1484: checking for getdtablesize
+configure:1512: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1484: checking for socket
+configure:1512: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1484: checking for gethostbyaddr
+configure:1512: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1539: checking for gettimeofday
+configure:1567: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1594: checking for strdup
+configure:1622: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1649: checking return type of signal handlers
+configure:1671: gcc -c -g -O2  conftest.c 1>&5
+configure:1690: checking for wait3 that fills in rusage
+configure:1729: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1752: checking whether struct tm is in sys/time.h or time.h
+configure:1765: gcc -c -g -O2  conftest.c 1>&5
+configure:1786: checking for tm_zone in struct tm
+configure:1799: gcc -c -g -O2  conftest.c 1>&5
+configure:1856: checking for pid_t
+configure:1889: checking for union wait
+configure:1898: gcc -c -g -O2  conftest.c 1>&5
+configure:1913: checking for sys_siglist declaration in signal.h or unistd.h
+configure:1930: gcc -c -g -O2  conftest.c 1>&5
+configure: In function `main':
+configure:1926: warning: initialization discards `const' from pointer target type
+configure:1952: checking for working const
+configure:2006: gcc -c -g -O2  conftest.c 1>&5
+configure:2027: checking whether char is unsigned
+configure:2090: checking for inline
+configure:2104: gcc -c -g -O2  conftest.c 1>&5
+configure:2130: checking for linger
+configure:2139: gcc -c -g -O2  conftest.c 1>&5
+configure:2154: checking for crypt in -lcrypt
+configure:2173: gcc -o conftest -g -O2   conftest.c -lcrypt   1>&5
+configure:2206: checking for main in -lsocket
+configure:2221: gcc -o conftest -g -O2   conftest.c -lsocket  -lcrypt  1>&5
+ld: cannot open -lsocket: No such file or directory
+configure: failed program was:
+#line 2214 "configure"
+#include "confdefs.h"
+
+int main() {
+main()
+; return 0; }
+configure:2255: checking for main in -linet
+configure:2270: gcc -o conftest -g -O2   conftest.c -linet  -lcrypt  1>&5
+ld: cannot open -linet: No such file or directory
+configure: failed program was:
+#line 2263 "configure"
+#include "confdefs.h"
+
+int main() {
+main()
+; return 0; }
+configure:2300: checking for main in -lnsl
+configure:2315: gcc -o conftest -g -O2   conftest.c -lnsl  -lcrypt  1>&5
+configure:2343: checking for main in -lbsd
+configure:2358: gcc -o conftest -g -O2   conftest.c -lbsd  -lnsl -lcrypt  1>&5
+configure:2386: checking for main in -liberty
+configure:2401: gcc -o conftest -g -O2   conftest.c -liberty  -lbsd -lnsl -lcrypt  1>&5

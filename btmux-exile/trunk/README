@@ -1,0 +1,39 @@
+Exile Source Release
+--------------------
+The Exile source has been re-released under 3030's artistic license with the
+permission of the previous authors. We are making this available to everyone
+in hopes of getting additional help with porting features from here to the
+new BtOnline codebase, and for historical value. Please note that this
+branch is NO LONGER MAINTAINED, you will need an experienced hardcoder to
+assist in fixing bugs and some outstanding issues if you plan on running a
+site with this. Note that we can not offer anything more than a "good luck"
+since our focus is now on the new codebase.
+
+About this Codebase
+-------------------
+The Exile source is explained on our 'About our codebase' wiki page. If
+you'd like to know where this tree fit into the development of BTMux,
+take a peek at: http://docs.btmux.com/index.php/About_our_Codebase
+
+Sites that Ran this Codebase
+----------------------------
+* Exile : Exodus 
+  The site this branch was created for and primarily developed on. It 
+  featured the mammoth-sized crawlers we all came to know and love.
+
+* Battletech: The Frontier Lands
+  A hybrid RS/SimSite that ran Exile code for over two years. 
+
+Getting Help
+------------
+You may find resources on http://docs.btmux.com for general softcode help,
+but again, this code is currently not being promoted or widely used (if at
+all) due to the work being done on the new codebase. You will find that
+help is at a premium due to differences in the way things operate.
+
+The License File
+----------------
+Take a look at the LICENSE file for legalities. The gist of it is that if
+you modify this codebase, you MUST make your modifications public or
+submit patches back to the BtOnline-Btech project. Since we are no longer
+maintaining this branch, you will just need to make your changes public.

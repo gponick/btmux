@@ -1,0 +1,4 @@
+# Cleaned by MakeDepCleaner Sun Jun 15 00:07:36 2003
+mux_tree.o: tree.h mux_tree.h p.mux_tree.h
+tree.o: vixie.h tree.h
+# Original lines: 21 - New lines: 2

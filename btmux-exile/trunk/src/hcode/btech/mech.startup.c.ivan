@@ -1,0 +1,381 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <sys/file.h>
+
+#include "mech.h"
+#include "mech.events.h"
+#include "autopilot.h"
+#include "p.mech.pickup.h"
+#include "p.btechstats.h"
+#include "p.mech.utils.h"
+#include "p.econ_cmds.h"
+#include "p.mech.tech.h"
+#include "p.mech.build.h"
+#include "p.mech.update.h"
+
+/* NOTE: Number of boot messages for both types _MUST_ match */
+
+#define BOOTCOUNT 6
+
+char *bsuit_bootmsgs[BOOTCOUNT] = {
+    "%cg->         Initializing powerpack       <-%c",
+    "%cg->          Powerpack operational       <-%c",
+    "%cg->             Suit sealed              <-%c",
+    "%cg->  Computer system is now operational  <-%c",
+    "%cg->         Air pressure steady          <-%c",
+    "       %cg- %cr-=>%ch%cw All systems go!%c %cr<= %cg-%c"
+};
+
+char *aero_bootmsgs[BOOTCOUNT] = {
+    "%cg->       Main reactor is now online    <-%c",
+    "%cg->            Thrusters online         <-%c",
+    "%cg->  Main computer system is now online <-%c",
+    "%cg->     Scanners are now operational    <-%c",
+    "%cg-> Targeting system is now operational <-%c",
+    "       %cg- %cr-=>%ch%cw All systems go!%c %cr<= %cg-%c"
+};
+
+char *bootmsgs[BOOTCOUNT] = {
+    "%cg->       Main reactor is now online    <-%c",
+    "%cg->         Gyros are now stable        <-%c",
+    "%cg->  Main computer system is now online <-%c",
+    "%cg->     Scanners are now operational    <-%c",
+    "%cg-> Targeting system is now operational <-%c",
+    "   %cg- %cr-=>%ch%cw All systems operational!%c %cr<=- %cg-%c"
+};
+
+char *hover_bootmsgs[BOOTCOUNT] = {
+    "%cg->  Powerplant initialized and online  <-%c",
+    "%cg->   Checking plenum chamber status    <-%c",
+    "%cg->         Verifying fan status        <-%c",
+    "%cg->     Scanners are now operational    <-%c",
+    "%cg-> Targeting system is now operational <-%c",
+    "   %cg- %cr-=>%ch%cw All systems operational!%c %cr<=- %cg-%c"
+};
+
+char *track_bootmsgs[BOOTCOUNT] = {
+    "%cg->  Powerplant initialized and online  <-%c",
+    "%cg->      Auto-aligning drive wheels     <-%c",
+    "%cg->       Adjusting track tension       <-%c",
+    "%cg->     Scanners are now operational    <-%c",
+    "%cg-> Targeting system is now operational <-%c",
+    "   %cg- %cr-=>%ch%cw All systems operational!%c %cr<=- %cg-%c"
+};
+
+char *wheel_bootmsgs[BOOTCOUNT] = {
+    "%cg->  Powerplant initialized and online  <-%c",
+    "%cg->  Performing steering system checks  <-%c",
+    "%cg->        Checking wheel status        <-%c",
+    "%cg->     Scanners are now operational    <-%c",
+    "%cg-> Targeting system is now operational <-%c",
+    "   %cg- %cr-=>%ch%cw All systems operational!%c %cr<=- %cg-%c"
+};
+
+char *vtol_bootmsgs[BOOTCOUNT] = {
+    "%cg->     Initializing main powerplant    <-%c",
+    "%cg-> Main turbine online and operational <-%c",
+    "%cg->      Rotor transmission engaged     <-%c",
+    "%cg->     Scanners are now operational    <-%c",
+    "%cg-> Targeting system is now operational <-%c",
+    "   %cg- %cr-=>%ch%cw All systems operational!%c %cr<=- %cg-%c"
+};
+/*
+#define SSLEN MechType(mech) == CLASS_BSUIT ? 1 : (STARTUP_TIME / BOOTCOUNT)
+*/
+#define SSLEN (STARTUP_TIME / BOOTCOUNT)
+
+static void mech_startup_event(EVENT * e)
+{
+    MECH *mech = (MECH *) e->data;
+    int timer = (int) e->data2;
+    MAP *mech_map;
+    int i;
+
+    MechStartupLast(mech) = event_tick;
+    mech_notify(mech, MECHALL,
+	is_aero(mech) ? aero_bootmsgs[timer] : MechType(mech) ==
+	CLASS_BSUIT ? bsuit_bootmsgs[timer] : MechMove(mech) ==
+	MOVE_HOVER ? hover_bootmsgs[timer] : MechMove(mech) ==
+	MOVE_TRACK ? track_bootmsgs[timer] : MechMove(mech) ==
+	MOVE_WHEEL ? wheel_bootmsgs[timer] : MechMove(mech) ==
+	MOVE_VTOL ? vtol_bootmsgs[timer] : bootmsgs[timer]);
+    timer++;
+    if (timer < BOOTCOUNT) {
+	MECHEVENT(mech, EVENT_STARTUP, mech_startup_event, SSLEN, timer);
+	return;
+    }
+    if ((mech_map = getMap(mech->mapindex)))
+	for (i = 0; i < mech_map->first_free; i++)
+	    mech_map->LOSinfo[mech->mapnumber][i] = 0;
+    initialize_pc(MechPilot(mech), mech);
+    Startup(mech);
+    MarkForLOSUpdate(mech);
+    SetCargoWeight(mech);
+    UnSetMechPKiller(mech);
+    MechLOSBroadcast(mech, "powers up!");
+    MechVerticalSpeed(mech) = 0;
+    MechBVLast(mech) = event_tick - 30;
+    MechBV(mech) = CalculateBV(mech, 100, 100);
+    EvalBit(MechSpecials(mech), SS_ABILITY, ((MechPilot(mech) > 0 &&
+		isPlayer(MechPilot(mech))) ? char_getvalue(MechPilot(mech),
+		"Sixth_Sense") : 0));
+    if (FlyingT(mech)) {
+	if (MechZ(mech) <= MechElevation(mech)) {
+	    MechStatus(mech) |= LANDED;
+	    if (MechStatus2(mech) & CS_ON_LAND)
+		MechStatus(mech) |= COMBAT_SAFE;
+	    }
+    }
+    MechComm(mech) = DEFAULT_COMM;
+    if (isPlayer(MechPilot(mech)) && !(db[mech->mynum].flags & QUIET)) {
+	MechComm(mech) =
+	    char_getskilltarget(MechPilot(mech), "Comm-Conventional", 0);
+	MechPer(mech) =
+	    char_getskilltarget(MechPilot(mech), "Perception", 0);
+    } else {
+	MechComm(mech) = 6;
+	MechPer(mech) = 6;
+    }
+    MechCommLast(mech) = 0;
+    if (is_aero(mech) && !Landed(mech)) {
+	MechDesiredAngle(mech) = -90;
+	MechStartFX(mech) = 0.0;
+	MechStartFY(mech) = 0.0;
+	MechStartFZ(mech) = 0.0;
+	MechDesiredSpeed(mech) = MechMaxSpeed(mech);
+	MaybeMove(mech);
+    }
+    UnZombifyMech(mech);
+}
+
+void mech_startup(dbref player, void *data, char *buffer)
+{
+    MECH *mech = (MECH *) data;
+    int n, i, ii, c = 0;
+    int part, mode;
+    int avoided = 0;
+#if 0
+    int hasDFM = 0, nostartup = 0;
+    int roll = 2, bth = 2;
+    unsigned short ammoarray[8 * MAX_WEAPS_SECTION];
+    unsigned int modearray[8 * MAX_WEAPS_SECTION];
+
+    for (i = 0; i < NUM_SECTIONS; i++)
+	{
+	for (ii = 0; ii < CritsInLoc(mech, i); ii++)
+	    {
+	    if (!PartIsNonfunctional(mech, i, ii))
+		{
+	        if (IsAmmo((part = GetPartType(mech, i, ii))))
+		    {
+/*		    SendDebug(tprintf("Startup|Foundammo - Type %d : Sect %d : Crit %d : DFM %d",
+		         part, i, ii, (mode & DEADFIRE_MODE))); */
+	            mode = (GetPartMode(mech, i, ii));
+	            if (!hasDFM)
+	                hasDFM = ((mode & DEADFIRE_MODE) > 0);
+	            ammoarray[c] = part;
+	            modearray[c] = mode;
+                    c++;
+		    }
+            } else {
+/*                SendDebug(tprintf("Startup|Foundnonfunc - Type %d : Sect %d : Crit %d",
+                    GetPartType(mech, i, ii), i, ii)); */
+                continue;
+	        }
+	    }
+	}
+    for (i = 0; i < c; i++)
+	{
+        if (!(modearray[i] & DEADFIRE_MODE))
+	    continue;
+	for (ii = 0; ii < c; ii++)
+	    {
+	    if (ammoarray[i] != ammoarray[ii])
+		continue;
+	    if (modearray[ii] & DEADFIRE_MODE)
+		continue;
+            nostartup = ii + 1;
+            break;
+	    }
+	if (nostartup > 0)
+	    break;
+	}
+/*    SendDebug(tprintf("Startup - hasDFM %d : nostart %d : count %d", hasDFM, nostartup, c)); */
+    DOCHECK(nostartup && hasDFM,
+	tprintf("You cannot startup becuase not all of your %s ammo is of the deadfire variety!",
+		MechWeapons[Ammo2Weapon(ammoarray[nostartup - 1])].name));
+#endif
+	if (player != GOD) {
+	    cch(MECH_CONSISTENT | MECH_MAP | MECH_PILOT_CON);
+	} else {
+		cch(MECH_CONSISTENT | MECH_MAP);
+	}
+    skipws(buffer);
+    DOCHECK(!(Good_obj(player) && (Alive(player) || isRobot(player) ||
+		Hardcode(player))), "That is not a valid player!");
+    DOCHECK(MechType(mech) == CLASS_MW &&
+	Started(mech), "You're up and about already!");
+    DOCHECK(Towed(mech),
+	"You're being towed! Wait for drop-off before starting again!");
+    DOCHECK(mech->mapindex < 0, "You are not on any map!");
+    DOCHECK(Destroyed(mech), "This 'Mech is destroyed!");
+    DOCHECK(Started(mech), "This 'Mech is already started!");
+    DOCHECK(Starting(mech), "This 'Mech is already starting!");
+    n = figure_latest_tech_event(mech);
+    DOCHECK(n,
+	"This 'Mech is still under repairs (see checkstatus for more info)");
+    DOCHECK(In_Character(mech->mynum) && (MechStall(mech) > 0),"This mech is in a repair stall!");
+    DOCHECK((In_Character(mech->mynum) || IsDS(mech)) && !Wiz(player) &&
+	(char_lookupplayer(GOD, GOD, 0, silly_atr_get(mech->mynum,
+		    A_PILOTNUM)) != player), "This isn't your mech!");
+    DOCHECK(((MechHeat(mech) >= 14.) && ((event_tick - MechStartupLast(mech)) < 10)),
+	"You can't get the engine to turn over yet!");
+
+#if 0
+    if (MechHeat(mech) >= 14.) {
+        MechStartupLast(mech) = event_tick;
+	roll = Roll();
+        if (MechHeat(mech) >= 30.) {
+	/* And STAY down! */
+        bth = 13;
+        } else if (MechHeat(mech) >= 26.) {
+        /* Shutdown avoid on 10+ */
+            if (roll >= (bth = 10))
+                avoided = 1;
+        } else if (MechHeat(mech) >= 22.) {
+        /* Shutdown avoid on 8+ */
+            if (roll >= (bth = 8))
+                avoided = 1;
+        } else if (MechHeat(mech) >= 18.) {
+        /* Shutdown avoid on 6+ */
+            if (roll >= (bth = 6))
+                avoided = 1;
+        } else if (MechHeat(mech) >= 14.) {
+        /* Shutdown avoid on 4+ */
+            if (roll >= (bth = 4))
+                avoided = 1;
+        }
+    mech_notify(mech, MECHALL, "You attempt to override the engine safeties!");
+    mech_notify(mech, MECHALL, tprintf("BTH : %d  Roll : %d", bth, roll));
+    } else {
+	avoided = 1;
+    }
+    DOCHECK(!avoided, "The engine putters but won't turn over!")
+#else
+    if (MechHeat(mech) >= 14.) {
+        MechStartupLast(mech) = event_tick;
+	mech_notify(mech, MECHALL, "You attempt to override the engine safeties!");
+	avoided = char_getskillsuccess(MechPilot(mech), "computer", (MechHeat(mech) >= 30. ? 8 : MechHeat(mech) >= 26. ? 6 : MechHeat(mech) >= 22. ? 4 : MechHeat(mech) >= 18. ? 2 : 0), 1);
+    } else {
+	avoided = 1;
+    }
+#endif
+    n = 0;
+    if (*buffer && !strncasecmp(buffer, "override", strlen(buffer))) {
+	DOCHECK(!WizP(player), "Insufficient access!");
+	n = BOOTCOUNT - 1;
+    }
+    MechPilot(mech) = player;
+
+/*   if (In_Character(mech->mynum)) */
+    /* Initialize the PilotDamage from the new pilot */
+    fix_pilotdamage(mech, player);
+    mech_notify(mech, MECHALL, "Startup Cycle commencing...");
+/*
+    MechSections(mech)[RLEG].recycle = 0;
+    MechSections(mech)[LLEG].recycle = 0;
+    MechSections(mech)[RARM].recycle = 0;
+    MechSections(mech)[LARM].recycle = 0;
+    MechSections(mech)[RTORSO].recycle = 0;
+    MechSections(mech)[LTORSO].recycle = 0;
+*/
+
+    for (i = 0; i < NUM_SECTIONS; i++)
+	SetRecycleLimb(mech, i, 0);
+
+    MECHEVENT(mech, EVENT_STARTUP, mech_startup_event, (n ||
+	    MechType(mech) == CLASS_MW) ? 1 : SSLEN,
+	MechType(mech) == CLASS_MW ? BOOTCOUNT - 1 : n);
+}
+
+void mech_shutdown(dbref player, void *data, char *buffer)
+{
+    MECH *mech = (MECH *) data;
+
+    if (!CheckData(player, mech))
+	return;
+    DOCHECK((!Started(mech) &&
+	    !Starting(mech)), "The 'mech hasn't been started yet!");
+    DOCHECK(MechType(mech) == CLASS_MW,
+	"You snore for a while.. and then _start_ yourself back up.");
+    DOCHECK(is_aero(mech) && !Landed(mech) &&
+	!Wiz(player), "No shutdowns in mid-air! Are you suicidal?");
+    if (MechPilot(mech) == -1)
+	return;
+    if (Starting(mech)) {
+	mech_notify(mech, MECHALL,
+	    "The startup sequence has been aborted.");
+	StopStartup(mech);
+	MechPilot(mech) = -1;
+	return;
+    if (MechStatus2(mech) & UNJAMMING)
+	{
+	mech_notify(mech, MECHALL, "Unjamming attempt aborted!");
+	MechStatus2(mech) &= ~UNJAMMING;
+	}
+    }
+    if (MechCarrying(mech) > 0)
+      {
+	mech_dropoff(MechPilot(mech), mech, "");
+      }
+    mech_notify(mech, MECHALL, tprintf("%s has been shutdown!",
+	    IsDS(mech) ? "Dropship" : is_aero(mech) ? "Fighter" :
+	    MechType(mech) == CLASS_BSUIT ? "Suit" : ((MechMove(mech) ==
+		    MOVE_HOVER) || (MechMove(mech) == MOVE_TRACK) ||
+		(MechMove(mech) ==
+		    MOVE_WHEEL)) ? "Vehicle" : MechMove(mech) ==
+	    MOVE_VTOL ? "VTOL" : "Mech"));
+
+    /*
+     * Fixed by Kipsta so searchlights shutoff when the mech shuts down
+     */
+
+    if (MechStatus(mech) & SLITE_ON) {
+	mech_notify(mech, MECHALL, "Your searchlight shuts off.");
+	MechStatus(mech) &= ~SLITE_ON;
+	MechCritStatus(mech) &= ~SLITE_LIT;
+    }
+
+    if (MechStatus(mech) & TORSO_RIGHT) {
+	mech_notify(mech, MECHSTARTED,
+	    "Torso rotated back to center for shutdown");
+	MechStatus(mech) &= ~TORSO_RIGHT;
+    }
+    if (MechStatus(mech) & TORSO_LEFT) {
+	mech_notify(mech, MECHSTARTED,
+	    "Torso rotated back to center for shutdown");
+	MechStatus(mech) &= ~TORSO_LEFT;
+    }
+    if (MechMove(mech) != MOVE_NONE && MechType(mech) != CLASS_VEH_NAVAL &&
+       ((MechType(mech) == CLASS_MECH && Jumping(mech)) ||
+	(MechType(mech) != CLASS_MECH &&
+	    MechZ(mech) > MechUpperElevation(mech) && MechZ(mech) < ORBIT_Z))) {
+	mech_notify(mech, MECHALL,
+	    "You start free-fall.. Enjoy the ride!");
+	MECHEVENT(mech, EVENT_FALL, mech_fall_event, FALL_TICK, -1);
+    } else if (MechSpeed(mech) > MP1) {
+	mech_notify(mech, MECHALL, "Your systems stop in mid-motion!");
+	if (MechType(mech) == CLASS_MECH)
+	    MechLOSBroadcast(mech, "stops in mid-motion, and falls!");
+	else {
+	    mech_notify(mech, MECHALL,
+		"You tumble end over end and come to a crashing halt!");
+	    MechLOSBroadcast(mech,
+		"tumbles end over end and comes to a crashing halt!");
+	}
+	MechFalls(mech, 1, 0);
+	domino_space(mech, 2);
+    }
+    Shutdown(mech);
+}
