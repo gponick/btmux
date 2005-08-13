@@ -357,16 +357,16 @@ ACMD(auto_chasetarg)
 ACMD(auto_roammode)
 {
     if (strcmp(args[0], "on") == 0) {
-    Clear(a);
-    auto_addcommand(a->mynum, a, tprintf("roammode 1"));
-    auto_engage(a->mynum, a, "");
+        Clear(a);
+        auto_addcommand(a->mynum, a, tprintf("roammode 1"));
+        auto_engage(a->mynum, a, "");
         return "Roam mode is ON";
-        } else if (strcmp(args[0], "off") == 0) {
-    Clear(a);
-    auto_addcommand(a->mynum, a, tprintf("roammode 0"));
-    auto_engage(a->mynum, a, "");
+    } else if (strcmp(args[0], "off") == 0) {
+        Clear(a);
+        auto_addcommand(a->mynum, a, tprintf("roammode 0"));
+        auto_engage(a->mynum, a, "");
         return "Roam mode is OFF";
-        }
+    }
     return "!Invalid input use on or off";
 }
 

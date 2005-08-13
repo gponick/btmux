@@ -25,5 +25,6 @@ void auto_dumbfollow_event(EVENT * e);
 void auto_leave_event(EVENT * e);
 void newautopilot(dbref key, void **data, int selector);
 void auto_enter_event(EVENT * e);
+void auto_roam_event(EVENT *e);
 void CalAutoMapindex(MECH * mech);
 #endif				/* _P_AUTOPILOT_H */

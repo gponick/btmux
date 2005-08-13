@@ -368,6 +368,10 @@ void auto_com_event(EVENT * e)
             AUTOEVENT(a, EVENT_AUTOGOTO, auto_goto_event, 
                     AUTOPILOT_GOTO_TICK, 0);
             return;
+        case GOAL_ROAM:
+            GSTART(a, mech);
+            AUTOEVENT(a, EVENT_AUTOGOTO, auto_roam_event, AUTOPILOT_GOTO_TICK, 1);
+            return;
         case GOAL_DUMBGOTO:
             GSTART(a, mech);
             AUTOEVENT(a, EVENT_AUTOGOTO, auto_dumbgoto_event,
@@ -653,8 +657,11 @@ void auto_roam_event(EVENT * e)
         return;
     }
 
+    /* Start roam for the first time or we made it to the hex we wanted */
     if ((tx == 0 && ty == 0) || e->data2 > 0 || (MechX(mech) == tx 
             && MechY(mech) == ty && abs(MechSpeed(mech)) < 0.5)) {
+
+        /* Loop through possible hexes on the map to find one to 'roam' to */
         while (i) {
             tx = BOUNDED(1, Number(20, map->map_width - 21), map->map_width - 1);
             ty = BOUNDED(1, Number(20, map->map_height - 21), map->map_height - 1);
@@ -662,6 +669,8 @@ void auto_roam_event(EVENT * e)
             t = GetRTerrain(map, tx, ty);
             range = FindRange(MechFX(mech), MechFY(mech), MechFZ(mech), 
                     dx, dy, ZSCALE * GetElev(map, tx, ty));
+
+            /* Only go to a hex that is in sight and not a water or mountain hex */
             if ((InLineOfSight(mech, NULL, tx, ty, range) && 
                     t != WATER && t != HIGHWATER && t != MOUNTAINS ) || i > 5000) {
                 i = 0;  
@@ -669,14 +678,19 @@ void auto_roam_event(EVENT * e)
                 i++;
             }
         }
+
+        /* Found the hex lets go to it */
         a->commands[a->program_counter + 1] = tx;
         a->commands[a->program_counter + 2] = ty;
         AUTOEVENT(a, EVENT_AUTOGOTO, auto_roam_event, AUTOPILOT_GOTO_TICK, 0);
         return;
     }
+
+    /* Still roaming to a hex */
     MapCoordToRealCoord(tx, ty, &dx, &dy);
     figure_out_range_and_bearing(mech, tx, ty, &range, &bearing);
     if (!slow_down_if_neccessary(a, mech, range, bearing, tx, ty)) {
+
         /* Use the AI */
         if (ai_check_path(mech, a, dx, dy, 0.0, 0.0))
             AUTOEVENT(a, EVENT_AUTOGOTO, auto_roam_event, AUTOPILOT_GOTO_TICK, 0);
@@ -728,10 +742,20 @@ void auto_follow_event(EVENT * e)
 
     CCH(a);
     GSTART(a, mech);
-    if (!(leader = getMech(GVAL(a, 1)))) {
+    if (!(leader = getMech(GVAL(a, 1))) || Destroyed(leader)) {
         /* For some reason, leader is missing(?) */
-        ADVANCE_PG(a);
-        return;
+        if (a->flags & AUTOPILOT_ROAMMODE) {
+            auto_disengage(a->mynum, a, my2string(""));
+            auto_delcommand(a->mynum, a, "-1");
+            PG(a) = 0;
+            auto_addcommand(a->mynum, a, tprintf("autogun"));
+            auto_addcommand(a->mynum, a, tprintf("roam 0 0"));
+            auto_engage(a->mynum, a, my2string(""));
+            return;
+        } else {
+            ADVANCE_PG(a);
+            return;
+        }
     }
     h = MechFacing(leader);
     FindXY(MechFX(leader), MechFY(leader), h + a->ofsx, a->ofsy, &fx, &fy);
@@ -758,10 +782,20 @@ void auto_dumbfollow_event(EVENT * e)
 
     CCH(a);
     GSTART(a, mech);
-    if (!(leader = getMech(GVAL(a, 1)))) {
+    if (!(leader = getMech(GVAL(a, 1))) || Destroyed(leader)) {
         /* For some reason, leader is missing(?) */
-        ADVANCE_PG(a);
+        if (a->flags & AUTOPILOT_ROAMMODE) {
+            auto_disengage(a->mynum, a, my2string(""));
+            auto_delcommand(a->mynum, a, "-1");
+            PG(a) = 0;
+            auto_addcommand(a->mynum, a, tprintf("autogun"));
+            auto_addcommand(a->mynum, a, tprintf("roam 0 0"));
+            auto_engage(a->mynum, a, my2string(""));
+            return;
+        } else {
+            ADVANCE_PG(a);
         return;
+        }
     }
     h = MechDesiredFacing(leader);
     x = a->ofsy * cos(TWOPIOVER360 * (270.0 + (h + a->ofsx)));

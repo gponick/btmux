@@ -30,6 +30,7 @@ btonline-btechmux 0.4:
 	  later. (Dany)
 
 	- Merge
+	* Added Exile's AI Roam stuff. (Dany)
 	* Added Exile's hide tech (CAMO_TECH in this case) so any
 	  unit set with CAMO_TECH can hide. (Dany)
 	* Added a whole bunch of AI commands from Exile. Check the
