@@ -1,0 +1,4511 @@
+*** Begin MACRO ***
+78
+1647 241 2
+D:Default Macros
+0 fire 0 *
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+13 fire 13 *
+14 fire 14 *
+15 fire 15 *
+16 fire 16 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+acon reportcon a *
+act activity
+actc activity/con
+actm activity/max
+asc critstatus as
+at addtic *
+b bearing *
+bb bbread *
+bbr bbread *
+bbs bbscan *
+bf brief *
+bl baselist
+blm baselist/map
+c contacts *
+c2 tscan *
+c3st c3master *
+c3tg c3targets *
+ca sendchannel a=*
+cb sendchannel b=*
+cc sendchannel c=*
+cd sendchannel d=*
+ce sendchannel e=*
+cen census *
+cenp census/spawn
+cenr census/rs
+cens census/stats
+cent census/techs *
+cenu census/units
+cf sendchannel f=*
+cg sendchannel g=*
+ch sendchannel h=*
+ci sendchannel i=*
+cj sendchannel j=*
+ck sendchannel l=*
+cl club *
+cm climb *
+com setchanneltitle *
+con con *
+cp chop *
+cra critstatus a *
+crct critstatus ct *
+crfl critstatus fl *
+crfr critstatus fr *
+crfs critstatus fs *
+crh critstatus h *
+crla critstatus la *
+crll critstatus ll *
+crls critstatus ls *
+crlt critstatus lt *
+crlw critstatus lw *
+crn critstatus n *
+crra critstatus ra *
+crrl critstatus rl *
+crrr critstatus rr
+crrs critstatus rs *
+crrt critstatus rt *
+crrw critstatus rw *
+crt critstatus t*
+cs census *
+csq census/squad
+css census/spawn
+ct cleartic *
+ctc critstatus ct
+db dropclub *
+dfm deadfire *
+dp dump *
+dv dive *
+e eta *
+eb enterbase *
+et enter *
+f firetic 0 *
+f0 firetic 0 *
+f1 firetic 1 *
+f2 firetic 2 *
+f3 firetic 3 *
+fa fliparms *
+fc findcenter *
+fct factions
+ff firetic 1 *
+fff firetic 2 *
+ffff firetic 3 *
+fl fuellist
+fsc critstatus fs
+g grab *
+gb grabclub *
+gen genlist
+genl genlist/map
+h heading *
+hac critstatus h
+hc critstatus hd
+hex hexme *
+j jump *
+k kick *
+kl kick l *
+kr kick r *
+l lock *
+lac critstatus la
+lat lateral *
+lb leavebase *
+lch listchannels
+ld land *
+lit listchannels *
+llc critstatus ll
+lm +checkall
+lsc critstatus ls
+lt listtic *
+ltc critstatus lt
+m speed run
+mode setchannelmode *
+n navigate *
+nav navigate *
+ot overthrust *
+p prone *
+pad speed -5
+pb punch b *
+ph push *
+pl punch l *
+pr punch r *
+pu pickup *
+q speed stop *
+r range *
+rac critstatus ra
+rc rottorso c *
+rd radio *
+ref +ref *
+reg +reglist
+rel relaylist
+relm relaylist/map
+rev speed back
+rl rottorso l *
+rlc critstatus rl
+rp report *
+rr rottorso r *
+rsc critstatus rs
+rt rottorso *
+rtc critstatus rt
+s speed *
+s0 sight 0 *
+s1 sight 1 *
+s10 sight 10 *
+s11 sight 11 *
+s12 sight 12 *
+s13 sight 13 *
+s14 sight 14 *
+s15 sight 15 *
+s2 sight 2 *
+s24 sight 24 *
+s3 sight 3 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+sb stab *
+sc scan *
+scf setchannelfreq *
+sch setchannelfreq *
+scm setchannelmode *
+sct setchanneltitle *
+sd shutdown *
+se sensor *
+sen sensor *
+set setchannelfreq *
+sh slash *
+sl slite *
+sm smash *
+sp speed *
+spec weaponspecs
+sr speed run
+ss status s
+st status *
+stat aerostatus
+stc standcheck *
+stf staff
+stl stationlist
+stlm stationlist/map
+stp startup *
+sw speed walk
+sz speed 0
+t tactical *
+ta status a *
+tc tactical c *
+tg target *
+th status h *
+ti status i *
+tmn turnmode normal
+tmt turnmode tight
+tn status n *
+to takeoff *
+tra transmit assistance
+trd transmit distress
+ts tscan
+tt thrust *
+tu turret *
+tuc critstatus tu
+tw status w *
+u stand *
+ub usebin *
+uj unjam *
+v vertical *
+vec vector *
+vr viewref *
+vrs viewref/specs *
+vrw viewref/weaponspecs *
+vv vertical -15
+vw view *
+w speed walk
+wdfm deadfire *
+we weather *
+weap weaponspecs *
+wf heat *
+wg gatling 4
+wh hotload *
+wi inferno *
+wind incendiary *
+wl warplist
+wpre precision *
+wr rapidfire *
+ws weaponspecs *
+wu ultra *
+wx explosive *
+x axe *
+z speed run *
+290 1 0
+D:Dwi
+cad sendchannel a=<Dwi> *
+13 83 0
+D:Death's Macros
+0 fire 0 *
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+13 fire 13 *
+14 fire 14 *
+15 fire 15 *
+16 fire 16 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+a STATUS ARMOR
+av AVAILABLE
+b VECTOR *
+bl BASELIST
+c CONTACTS *
+c3m C3MESSAGE *
+c3t C3TARGETS
+ca SENDCHANNEL a=*
+ccc census
+ccr census/spawn
+cr CRITSTATUS *
+cx SENDCHANNEL a=<Death> *
+e contacts e
+el ECONLOG *
+ETA ETA *
+ev EVADE
+f FIRETIC 0 *
+ff FIRETIC 1 *
+fff FIRETIC 2 *
+ffff FIRETIC 3 *
+fl FUELLIST
+gl GENLIST
+gmap GENLIST/MAP
+h HEADING *
+hco HEATCUTOFF
+i STATUS INFO
+j JUMP *
+k KICK * *
+l LOCK *
+lb LEAVEBASE
+lch LISTCHANNELS
+lr LISTRESP
+map BASELIST/MAP
+n NAVIGATE
+o ORDERS
+oc OMNICHECK
+os OMNISETUP
+p PUNCH * *
+r VECTOR *
+rc ROTTORSO center
+rl RELAYLIST
+rmap RELAYLIST/MAP
+rt ROTTORSO *
+s SPEED *
+sck standcheck
+se SENSOR *
+sl STATIONLIST
+smap STATIONLIST/MAP
+ss STATUS SHORT
+st STATUS *
+t TACTICAL *
+top RANKINGS/TOP
+tp TPSTATUS
+ts TSCAN
+tt tt
+tu TURRET *
+use VIEWREF [v(ACTIVEMECH.D)]
+v VERTICAL *
+vr VIEWREF *
+vs VIEWREF/SPECS *
+vw VIEW *
+w STATUS WEAPONS
+we WEATHER
+wl FUELLIST
+ws WEAPONSPECS
+x AXE *
+483 21 0
+D:Groz'sAirMacs
+blm baselist
+c3m c3message *
+c3t c3targets
+clm climb *
+cr cruise on
+cro cruise off
+dv dive *
+fa fliparms
+fl fuellist
+fla fliparms
+gr sendchannel a=<Groz> *
+lfl lateral fl
+lfo lateral -
+lfr lateral fr
+lrl lateral rl
+lrr lateral rr
+sci setcruise info
+scr setcruise *
+tml turnmode loose
+tmn turnmode normal
+tmt turnmode tight
+301 46 0
+D:Mah Macros
+a status a
+al attackleg *
+ap pierce *
+art artemis *
+ba bash *
+base baselist
+c3m c3message <TT> *
+c3t c3targets
+cap capacitate *
+cta sendchannel a=<tt> *
+dfm deadfire *
+e eta *
+f firetic 0
+fc findcenter *
+ff firetic 1
+fff firetic 2
+ffff firetic 3
+fuel fuellist
+g chex
+gen genlist
+gg ccon *
+hl hotload *
+i status i
+map baselist/map
+me census
+own mex
+p punch *
+pre precision *
+ref viewref *
+rel relaylist
+rig riglist
+scf setchannelfreq *
+slw slwarn on
+sta stationlist
+sti stinger *
+time think time()
+tn turnmode normal
+tr thrust *
+tt turnmode tight
+v vertical *
+vr viewref/specs *
+w status w
+warp warplist
+whe census/spawn
+who census
+x axe *
+518 66 0
+D:Paco's Tacos
+00 sight 0
+11 sight 1
+22 sight 2
+33 sight 3
+44 sight 4
+55 sight 5
+66 sight 6
+77 sight 7
+88 sight 8
+99 sight 9
+a status a
+aa contacts a
+art artemis *
+c2 tscan
+cap capacitate *
+ci command/info
+cras critstatus as
+crct critstatus ct
+crfs critstatus fs
+crhd critstatus hd
+crla critstatus la
+crll critstatus ll
+crls critstatus ls
+crlt critstatus lt
+crra critstatus ra
+crrl critstatus rl
+crrs critstatus rs
+crrt critstatus rt
+crtu critstatus tu
+cw census/spawn
+d sight 2
+dd sight 4
+df deadfire *
+ee contacts e
+em embark *
+er explode reactor
+ev evade
+f firetic 0
+fa fliparms
+ff firetic 1
+fl fuellist
+fs speed 9999
+g firetic 2
+gg firetic 3
+hc heatcutoff
+hh status h
+lc listchannels
+lr listresp
+om omnisetup
+pr precision *
+rd radio *
+sb speed -999
+sht shutdown
+sr viewref/specs *
+stp startup
+tc rottorso c
+tg target *
+tl rottorso l
+tm turnmode *
+tr rottorso r
+tt contacts t
+up unitpl
+wp weapstats *
+ws weaponspecs
+y punch *
+z speed 0
+1373 17 2
+D:Aero Macros
+as aerostatus
+atm lam/atm
+bmba Bomb Aim
+bmbd bomb drop *
+bmbl Bomb List
+clm climb *
+crof cruise off
+cron cruise on
+di dive *
+ld land
+mta lam/mta
+otof OverThrust off
+oton Overthrust on
+sd selfdestruct
+stc setcruise *
+th Thrust *
+to takeoff
+1108 108 0
+D:Cyn's Macros
+ad think add(*)
+adam omodammo *
+ag oaddgun *
+at addtic *
+b bearing *
+bb bbread *
+bbc bbcatchup *
+bl baselist
+blm baselist/map
+c contacts *
+c2 tscan
+ca sendchannel a=*
+cas caseless *
+cb sendchannel b=*
+ccm c3message *
+cct c3targets
+ch chop *
+cin command/info
+cond weather
+crit viewref/critstatus *
+cs critstatus *
+css census/spawn
+df deadfire *
+dg oremgun *
+dt deltic *
+eb rtb
+emb embark *
+est unitestimate *
+ext extract
+f fire *
+f0 firetic 0
+f1 firetic 1
+f2 firetic 2
+f3 firetic 3
+fa fliparms
+fc findcenter
+fl fuellist
+freq setchannelfreq *
+get pickup *
+gh go-home
+ghq go-hq
+gl genlist
+glm genlist/map
+gr go-relay *
+gs go-station *
+gsp go-sp
+h heading *
+heat heatcutoff
+hot hotload *
+hul hulldown
+j jump *
+l lrs *
+lat lateral *
+lb leavebase
+lc listchannels
+lt listtic *
+mul think mul(*)
+nav navigate
+od respawn/od *
+ol sendchannel a=<Cyn> *
+ord orders
+pl @pl
+r range *
+re report *
+rel relay
+req request *
+rl relaylist
+rlm relaylist/map
+s status *
+sc scan *
+scm setchannelmode *
+setc ofc/setcf *
+seth ofc/sethotbase *
+setm setmech *
+seto ofc/setobj *
+setr ofc/setrally *
+shut shutdown
+si status i
+sp speed *
+sr viewref/specs *
+st stinger *
+stf staff
+stl stationlist
+stm stationlist/map
+su startup
+t tactical *
+ta setchanneltitle a=*
+tc rottorso c
+tg target *
+tl rottorso l
+to takeoff
+tpb briefing
+tps tpstatus
+tr rottorso r
+trig trigger
+tur turret *
+twk tweaktarg *
+ulp unitpl *
+upl unitpl *
+v vertical *
+vr viewref *
+vrw viewref/weaponspecs *
+w status w
+who census
+whos census/squad
+wl warplist
+ws weaponspecs
+x axe *
+539 0 0
+D:derf
+1376 219 0
+D:Cougar's Fighting Macros
+, who
+/ census
+2s rottwo *
+4s rotfour *
+6s rotsix *
+aer aerostatus *
+aes aerostatus
+af autofall *
+art artemis *
+ass stats
+atl attackleg *
+bbc bbcatchup *
+bbr bbread *
+bbs bbscan *
+bbu bbread */u
+br bera
+bre bre
+brea brea
+breb breb
+brec brec
+bred bred
+bree bree
+bref bref
+bv viewref/specs *
+c contacts *
+c+ contacts a*
+c0 capacitate 0
+c2 tscan *
+c3 c3master *
+c3m c3message <Cougar> *
+c3t c3targets *
+c9 climb *90
+ca sendchannel a=<Cougar> *
+cap capacitate *
+capa capacitate *
+car manifest *
+carl loadcargo *
+caru unloadcargo *
+cb sendchannel b=<Cougar> *
+cc sendchannel c=<Cougar> *
+cch command/changefreq *
+cd sendchannel d=<Cougar> *
+ch charge *
+chst checkstatus *
+ci climb *
+cin climb 0
+cinf command/info
+clus firecluster *
+clz checklz *
+cm c3message <Cougar> *
+cmo convert/money *
+co comlist
+coi command/info
+cp contacts e*
+crui cruise *
+cs critstatus *
+cse caseless *
+ctic cleartic *
+cxp convert/xp *
+d9 climb -90
+di climb -*
+dmb disembark *
+du dropoff *
+dus dump stop
+e enter *
+eb rtb *
+eba rtb *
+ec enter #416
+elev lrs e *
+emb embark *
+enh enterhangar *
+eva evade *
+f firetic 0 *
+f2 firetic 1 *
+f3 firetic 2 *
+f4 firetic 3 *
+fa fliparms *
+fc findcenter
+ff firetic 1 *
+fff firetic 2 *
+ffff firetic 3 *
+fst stinger *
+fth setmech H_FuelTruck-AP
+fue fuel/*load
+fuel fuel/*load
+fuen fuel/unload
+g heading *
+gat ultra *
+ge heading 90
+gn heading 0
+gne heading 60
+gnw heading 300
+gs heading 180
+gse heading 120
+gsw heading 240
+gw heading 270
+he heat *
+hea heat *
+hid hide
+hl hotload *
+hp pierce 0
+i status i
+id view *
+ids init/ds
+inci fireincend *
+je jump 90 1
+jn jump 0 1
+jne jump 60 1
+jnw jump 300 1
+js jump 180 1
+jse jump 120 1
+jsw jump 240 1
+jw jump 270 1
+lb lbx *
+leb leavebase
+leh leavehangar *
+ln lock -
+loc loadcrit *
+mech lrs m *
+mex census
+mine baselist
+mw speed walk
+n navigate *
+oc omnicheck
+off officer/list
+os omnisetup
+ot overthrust *
+ovt overthrust *
+pem @pemit me=*
+pier pierce *
+pr precision *
+pre precision *
+pu pickup *
+ra radio *
+rada sendchannel a=*
+radb sendchannel b=*
+radc sendchannel c=*
+radd sendchannel d=*
+rade sendchannel e=*
+rank ranklist
+ras radio * -- Cougar
+reg setmech *
+req transmit *
+resp census/spawn
+rflc setmech FLC-4N
+rmcy setmech MCY-98
+ron setmech ON1-C
+rshd setmech SHD-2H
+rtb rtb *
+rtp respawn/tp
+sa status a
+self look me
+setc setcruise *
+sh speedheading
+si status i
+sm speed run
+smok firesmoke *
+sn speed 0
+spa census/spawn
+spaw census/spawn
+spr sprint *
+spri sprint
+sr speed back
+ss status s
+st status *
+stc standcheck
+stg stinger *
+stin stinger *
+sto stores *
+swe @sweep/here
+sz status w
+ta target *
+ti time
+tic listtics
+tr thrust *
+tr- thrust *110
+tr0 thrust *100
+tr1 thrust *10
+tr2 thrust *22
+tr3 thrust *30
+tr4 thrust *44
+tr5 thrust *50
+tr6 thrust *60
+tr7 thrust *70
+tr8 thrust *80
+tr9 thrust *90
+tri trigger *
+trig trigger
+trma thrust *115
+trmi thrust 6.46
+trn thrust -
+trw thrust *77
+udmb udisembark
+uest unitestimate *
+ul ultra *
+unf fuel/unload
+unj unjam *
+v vertical *
+vd vertical -60
+vi sensor *
+vii sensor -
+vl vertical -14
+vn vertical 0
+vr viewref *
+vrc viewref/critstatus *
+vrd listrefs/dyn *
+vrs viewref/specs *
+vrw viewref/weaponspecs *
+vu vertical 60
+vws viewref/weaponspecs *
+warp warplist
+we weather
+weap weapstats *
+west weapstats *
+wl weaplist
+ws weaponspecs
+wt podspace
+xp @pl
+z status w
+507 88 2
+D:Feret's Macros
+0 fire 0 *
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+13 fire 13 *
+14 fire 14 *
+15 fire 15 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+acon reportcon a *
+act activity
+actc activity/con
+actm activity/max
+asc critstatus as
+at addtic *
+b bearing *
+bb bbread *
+bbs bbscan *
+bf brief *
+bl baselist
+blrm baselist/map
+bm baselist/map *
+c contacts
+c2 tscan *
+c3m c3message *
+c3n c3network
+c3t c3targets
+ca sendchannel a=*
+cb sendchannel b=*
+cc sendchannel c=*
+cd sendchannel d=*
+cl climb *
+co contacts *
+cs census*
+ct cleartic *
+D sendchannel D=*
+dv dive *
+eb enterbase
+ft firetic *
+glm genlist/map
+gls genlist
+gm genlist/map *
+h heading *
+hot hotload *
+l lock *
+lb leavebase
+lch listchannels *
+lf fuel/load
+lsr listrefs/dyn *
+lt listtic *
+n navigate *
+pl unitpl
+pr command/info
+rc rottorso center
+rl rottorso left
+rlm relaylist/map
+rls relaylist*
+rr rottorso right
+s speed *
+sc scan *
+sch setchannelmode *
+sm stationlist/map
+spwn census/spawn
+sr speed run
+st status *
+sw speed walk
+t tactical *
+tc sendchannel A=<Feret> *
+th thrust *
+uf fuel/unload
+upl unitpl
+vec vector *
+vr viewref *
+vrc viewref/critstatus
+vrs viewref/specs
+vrw viewref/weaponspecs
+vw view *
+w status w
+we weather *
+ws weaponspecs
+x axe *
+1017 11 0
+D:Mav´s Macros
+a status a
+cta sendchannel a=<Mav> *
+q sendchannel a=.
+rlm relaylist/map
+te tactical 90 10
+tn tactical 0 6
+ts tactical 180 6
+tw tactical 270 10
+xb bx
+xl lx *
+xr rx
+1306 60 0
+D:RamMacs
+a status a
+art artemis *
+at addtic *
+back lateral -
+bl baselist
+c contacts
+c2 tscan
+crct critstatus ct
+crfl critstatus fl
+crfr critstatus fr
+crhd critstatus head
+crla critstatus la
+crll critstatus ll
+crlt critstatus lt
+crra critstatus ra
+crrl critstatus rl
+crrr critstatus rr
+crrt critstatus rt
+dead deadfire *
+ee contacts e
+exp explosive *
+fa fliparms
+fl lateral fl
+fr lateral fr
+fs speed 9999
+gl genlist
+h heading *
+ht status h
+i status i
+lb leavebase
+lc listchannels
+loc hexme
+lt listtic *
+n navigate *
+p punch
+rd radio *
+rep report *
+rl lateral rl
+rlay relaylist
+rr lateral rr
+s speed *
+sb speed back
+se sensor *
+sht shutdown
+si sight *
+spaw census/spawn
+spec viewref/specs *
+stp startup
+sw speed walk
+t tactical *
+tc rottorso c
+tg target *
+tl rottorso l
+tr rottorso r
+trn turnmode tight
+tt contacts t
+up stand up
+vr viewref *
+w status w
+we weather *
+1129 140 0
+D:Good Macros
+0 fire 0 *
+1 fire 1 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+a status a
+ams ams *
+asc critstatus as
+at addtic *
+b bearing *
+bl baselist
+c contacts *
+c3t c3targets
+ca sendchannel a=*
+cap capture zone
+cb sendchannel b=*
+cc sendchannel c=*
+cd sendchannel d=*
+ce sendchannel e=*
+cf sendchannel f=*
+cg sendchannel g=*
+ch charge *
+chop chop *
+ci sendchannel i=*
+cj sendchannel j=*
+cond weather
+cp check patrols
+ct cleartic *
+ctc critstatus ct
+do dropoff
+drop prone
+dt deltic *
+eb enterbase *
+ebay enterbay *
+ecm ecm *
+elev lrs e *
+eta eta *
+f firetic 0
+fa fliparms
+fc findcenter
+ff firetic 1
+fff firetic 2
+ffff firetic 3
+flip fliparms
+fllc critstatus fll
+frlc critstatus frl
+fsc critstatus fs
+ft firetic *
+h heading *
+hc critstatus h
+hd Hulldown
+i status i
+inf inferno *
+j jump *
+k kick l *
+l lock *
+lac critstatus la
+lat lateral *
+lb leavebase
+lbx lbx *
+lch listchannels
+llc critstatus ll
+lrt lrs t *
+lsc critstatus ls
+lt listtic *
+ltc critstatus lt
+m speed run
+mas masc
+me !mechs
+mech lrs m *
+mine +mines
+n navigate
+narc narc *
+obj +objectives
+p punch *
+pp check patrols
+pu pickup *
+r range *
+rac critstatus ra
+rc rottorso c
+re report *
+rl rottorso l
+rlc critstatus rl
+rllc critstatus rll
+rr rottorso r
+rrlc critstatus rrl
+rsc critstatus rs
+rtc critstatus rt
+s speed *
+s0 sight 0
+s1 sight 1
+s2 sight 2
+s3 sight 3
+s4 sight 4
+s5 sight 5
+s6 sight 6
+s7 sight 7
+s8 sight 8
+s9 sight 9
+sc scan *
+sch setchannelfreq *
+scm setchannelmode *
+sct setchanneltitle *
+sd shutdown
+se sensor *
+spec weaponspecs
+ss status s
+st status *
+sth stealth
+su startup
+t tactical *
+th thrust *
+thr thrash *
+time @pemit me=The time is [time()].
+tu turret *
+tuc critstatus tu
+ul ultra *
+up stand
+v vertical *
+vr viewref *
+vrs viewref/specs *
+w status w
+weap weaponspecs
+wiz +wizards
+wk speed walk
+wl warplist
+ws weaponspecs
+z speed 0
+zf +zones/factional
+zon +zones/nearby
+zon1 +zones 1 15
+zon2 +zones 16 30
+zon3 +zones 31 36
+zone +zones/map
+zonh +zones/help3
+1036 38 0
+D:Loch
+a artemis *
+bk speed back
+blst baselist
+bmap baselist/map
+c3 c3message *
+c3m c3master *
+c3t c3targets
+ci command/info
+com command
+con +ccon *
+cta sendchannel a=<Loch> *
+cx +chex
+e ecm
+ec eccm
+flst fuellist
+glst genlist
+ht status h
+la lateral *
+lb leavebase
+ocfg Omniconfig *
+olst Omniconfig/list *
+or orders
+req request *
+rlst relaylist
+rn speed run
+sct setchanneltitle *
+sdn shutdown
+slst stationlist
+slw speed 22
+spr sprint
+stp speed 0
+sup startup
+t tactical
+tra transmit assistance
+tt tactical *
+wk speed walk
+wlst warplist
+x axe
+539 1 0
+D:derf
+cdf sendchannel a=[Derf] *
+307 92 0
+D:OZ's Everything
+base baselist
+c2 tscan
+c3m c3message *
+c3ma c3master *
+c3t c3targets
+case caseless *
+cen census
+dead deadfire *
+ded deadfire *
+demo setmech demolisher
+dis disembark *
+emb embark *
+ent enter *
+ext sendchannel a=extracting
+fa fliparms
+fing finger *
+fl fuellist
+fuel setmech Hoverfueltruck
+full fuel/load
+fulu fuel/unload
+hcut heatcutoff
+he heading 90
+hn heading 0
+hne heading 60
+hnw heading 300
+hot hotload *
+hs heading 180
+hse heading 120
+hsw heading 240
+hw heading 270
+inf inferno *
+j1e jump 90 1
+j1n jump 0 1
+j1ne jump 60 1
+j1nw jump 300 1
+j1s jump 180 1
+j1se jump 120 1
+j1sw jump 240 1
+j1w jump 270 1
+j2e jump 90 2
+j2n jump 0 2
+j2ne jump 60 2
+j2nw jump 300 2
+j2s jump 180 2
+j2se jump 120 2
+j2sw jump 240 2
+j2w jump 270 2
+lbx lbx *
+lc loadcrit *
+lnd land
+lref listrep
+map baselist/map
+prc pierce *
+pun punch
+ra radio *
+sb speed back
+sd shutdown
+sf speed flank
+so speed 0
+spr sprint
+sref viewref/specs *
+staf staff
+std standcheck
+stg stinger *
+strt startup
+sw speed walk
+t1e tactical 90 10
+t1n tactical 0 10
+t1ne tactical 60 10
+t1nw tactical 300 10
+t1s tactical 180 10
+t1se tactical 120 10
+t1sw tactical 240 10
+t1w tactical 270 10
+t2e tactical 90 20
+t2n tactical 0 20
+t2ne tactical 60 20
+t2nw tactical 300 20
+t2s tactical 180 20
+t2se tactical 120 20
+t2sw tactical 240 20
+t2w tactical 270 20
+trig trigger
+udis udisembark
+uj unjam *
+ult ultra *
+unj unjam *
+upl unitpl
+vo vertical 0
+vr viewref *
+vref viewref *
+warp warplist
+608 36 2
+D:SK's Set
+bux pose whips out his wallet and flashes the %cg[get(me/econ_money.d)]%cn c-bills inside
+c3 c3message *
+c3m c3master *
+c3t c3targets
+comi command/info
+cond weather
+dt deltic *
+ext extract
+fc firecluster *
+fi fireincend *
+flip fliparms
+four rotfour *
+fs firesmoke *
+home go-home
+lat lateral *
+lr listresp
+moon radio *=(_|_)
+pl unitpl
+rent pose is renting: %cg[get(me/oneusemechs.l)]
+rep report *
+req request *
+rtb rtb
+six rotsix *
+spr sprint
+sref viewref/specs *
+star startup
+two rottwo *
+uj unjam *
+ul ultra *
+unit pose Owns the following units: %cg[get(me/mechsowned.l)]
+up stand
+upc standcheck
+vref viewref *
+w status w
+wref viewref/weaponspecs *
+x axe *
+162 30 0
+D:Pie's macros
+a status a
+art artemis *
+aut autofall *
+c3m c3message *
+c3ma c3master *
+c3t c3targets
+eccm eccm
+eva evade
+fla fliparms
+fs1 fireswarm1 *
+glm genlist/map
+hot hotload *
+la land
+lat lateral *
+rlm relaylist/map
+rot2 rottwo *
+rot4 rotfour *
+rot6 rotsix *
+sb speed back
+slw slwarn *
+spr sprint
+stm stationlist/map
+tg target *
+tm turnmode *
+tra transmit assistance
+unj unjam *
+up stand
+vwr viewref *
+wet weather
+wps weapstats *
+247 6 0
+D:Rahel
+bb bbread *
+c contacts
+cm c3message *
+ct c3targets *
+ft firetic *
+w status w
+509 400 0
+D:Ber
+0 fire 0 *
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+a status a
+a1 speed 4
+a2 speed 9
+a3 speed 14
+a4 speed 23
+all lock 150 185
+allx lock 156 184
+art artemis *
+at addtic *
+atx lock 100 60
+ax axe *
+b bearing *
+bbr bbread *
+bl baselist
+bla lock 100 100
+blm baselist/map
+br brief a 5
+buy Buyticket *
+c contacts
+ccs census/spawn
+cd command/destroy #*
+cen census
+cent lock 100 100
+cf command/changefreq #*
+cfb command/changefreq #*=65611
+cfc command/changefreq #*=76722
+cfd command/changefreq #*=87833
+cfe command/changefreq #*=98944
+cff command/changefreq #*=54500
+ci command/info
+cr charge *
+crg charge *
+cry lock 15 150
+cry1 lock 13 148 h
+cryx lock 19 154
+ct cleartic *
+ctb setchanneltitle b=*
+ctc setchanneltitle c=*
+ctd setchanneltitle d=*
+cte setchanneltitle e=*
+ctf setchanneltitle f=*
+ctg setchanneltitle g=*
+cth setchannletitle h=*
+cti setchanneltitle i=*
+ctj setchanneltitle j=*
+ctk setchanneltitle k=*
+ctl setchanneltitle l=*
+ctm setchanneltitle m=*
+ctn setchanneltitle n=*
+cto setchanneltitle o=*
+cut heatcutoff
+d prone
+d0 dump 0
+d1 dump 1
+d2 dump 2
+d3 dump 3
+d4 dump 4
+d5 dump 5
+d6 dump 6
+d7 dump 7
+d8 dump 8
+d9 dump 9
+dam critstatus *
+den lock 100 140
+down shutdown
+drp dropoff
+ds dump stop
+dt deltic *
+e speed 73
+eat lock 175 100
+ec econlog *
+ee speed 65.8
+eee speed 45
+ej eject *
+elev eleventer
+elv elevlist
+em embark *
+en enter *
+epi lock 185 150
+exp explode reactor
+ext extract
+f firetic 0 *
+fc findcenter
+ff firetic 1 *
+fff firetic 2 *
+fl fliparms
+fl1 lock 100 25
+fl2 lock 25 100
+fl3 lock 175 100
+fl4 lock 100 175
+fr1 lock 153 109 c
+fr10 lock 143 107 c
+fr11 lock 142 107 c
+fr12 lock 141 107 c
+fr13 lock 140 106 c
+fr2 lock 152 108 c
+fr3 lock 151 108 c
+fr4 lock 150 107 c
+fr5 lock 149 107 h
+fr6 lock 147 107 c
+fr6a lock 146 105 c
+fr6b lock 145 105 c
+fr6c lock 144 104 c
+fr6d lock 143 105 c
+fr6e lock 142 105 c
+fr6f lock 141 106 c
+fr7 lock 146 107 c
+fr8 lock 145 107 c
+fr9 lock 144 107 h
+fuel fuellist
+gas fuel/load
+gas1 lock 120 175
+gh go-home
+gl genlist
+go startup
+gq go-hq
+gr go-relay *
+grn4 lock 114 121 h
+gsp go-sp
+gug go-ughq
+h heading *
+hq1 lock 176 178
+hq2 lock 174 132
+ht hotload *
+ht0 hotload 0
+ht1 hotload 1
+ht2 hotload 2
+ht3 hotload 3
+ht4 hotload 4
+ht5 hotload 5
+i status i *
+j jump *
+k kick *
+kk kick l
+kl kick left *
+kor lock 185 50
+kr kick r
+l land
+la sendchannel a=*
+lb sendchannel b=*
+lc sendchannel c=*
+lch listchannels
+ld sendchannel d=*
+ldcr loadcrit *
+le sendchannel e=*
+lf sendchannel f=*
+lg sendchannel g=*
+lh sendchannel h=*
+li sendchannel i=*
+lj sendchannel j=*
+lk sendchannel k=*
+ll sendchannel l=*
+lm sendchannel m=*
+ln sendchannel n=*
+lo sendchannel o=*
+lr listresp
+lst listrefs/dyn *
+lv leave
+lvb leavebase
+m masc
+mm standcheck
+myt lock 50 15
+n navigate
+nar narc *
+neg lock 120 80
+neg1 lock 123 79 h
+neg2 lock 124 78 h
+neg3 lock 125 79 h
+neu lock 150 15
+not lock 100 25
+npl unitnewpl
+nwg lock 80 80
+o sendchannel a=[Dixie] *
+od respawn/od *
+od1 lock 131 69
+od1x respawn/od 131 69
+od2 lock 118 36
+od2x respawn/od 118 36
+ofcf ofc/setcf *
+ofhb ofc/sethotbase *
+ofob ofc/setobj *
+ofra ofc/setrally *
+oo sendchannel b=[Dixie] *
+or orders
+p punch *
+p1 pierce 1
+p2 pierce 2
+p3 pierce 3
+p5 pierce 5
+pas0 lock 128 47
+pas1 lock 129 51 c
+pas2 lock 129 52 c
+pas3 lock 129 53 c
+pas4 lock 129 54 c
+pas5 lock 129 55 c
+pas6 lock 129 56 c
+per lock 140 100
+per0 lock 137 104 h
+per1 lock 138 104 h
+per2 lock 139 105 h
+per3 lock 140 105 h
+per4 lock 141 105 h
+per5 lock 142 104 h
+perx lock 135 98
+perz lock 161 111
+pic pickup *
+pl punch left *
+pr punch right *
+q speed run
+qq speed back
+qqq speed walk
+qw speed 0
+r range *
+r1 speed -4
+r2 speed -9
+r3 speed -17
+r4 speed -34
+rc rottorso center
+re report *
+rel relaylist
+req request *
+res respawn *
+rh respawn/home
+rl rottorso l
+rmru request MRU
+rp request Probe
+rqfs request FootSquad
+rqlc request Light_Cooler
+rqms request MotoSquad
+rqt1 request Turret-1
+rqt2 request Turret-2
+rqt3 request Turret-3
+rqta request Turret-AA
+rr rottorso right
+rt1 lock 147 161
+rt1a lock 114 149
+rt2 lock 173 124
+rt2b lock 117 145
+rt4 lock 121 100
+rug respawn/ug
+run1 lock 131 86
+run2 lock 129 59
+run3 lock 129 50
+run4 lock 131 43
+run5 lock 113 21
+ry relay
+s speed *
+s0 sight 0 *
+s1 sight 1 *
+s10 sight 10 *
+s11 sight 11 *
+s12 sight 12 *
+s2 sight 2 *
+s3 sight 3 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+sc scan *
+scb setchannelfreq b=*
+scc setchannelfreq c=*
+scd setchannelfreq d=*
+sce setchannelfreq e=*
+scf setchannelfreq f=*
+scg setchannelfreq g=*
+sch setchannelfreq h=*
+sci setchannelfreq i=*
+scj setchannelfreq j=*
+sck setchannelfreq k=*
+scl setchannelfreq l=*
+scm setchannelmode *
+scmm setchannelfreq m=*
+scn setchannelfreq n=*
+sco setchannelfreq o=*
+sct setchanneltitle *
+se sensor *
+se1 lock 164 158 h
+se1a lock 165 158 h
+se1b lock 163 159 h
+se2 lock 165 146 h
+se2a lock 148 158 h
+se2b lock 147 159 h
+se2c lock 146 157 h
+se2d lock 146 152 h
+seg lock 120 120
+seg1 lock 113 122 h
+seg2 lock 114 121 h
+seg3 lock 115 122 h
+seg4 lock 116 122 h
+seg5 lock 117 122 h
+seg6 lock 118 121 h
+seg7 lock 119 122 h
+segx lock 116 113
+shr viewref/specs *
+sl slite
+slw slwarn on
+sm setmech *
+sm0 setmech WVR-6M
+sm1 setmech ON1-C
+sm10 setmech HBK-4P
+sm11 setmech CGR-1A5
+sm2 setmech SHD-2H
+sm3 setmech H-7C
+sm4 setmech FLC-4N
+sm5 setmech OTL-4D
+sm6 setmech CGR-1A9
+sm7 setmech HGN-733
+sm8 setmech STK-4N
+sm9 setmech VTR-9B
+smf setmech Fuel_Truck
+sot lock 100 175
+sp sprint
+spec weaponspecs
+st status *
+stg stinger *
+swg lock 80 120
+swg1 lock 88 122 h
+swg2 lock 89 122 h
+swg3 lock 87 122 h
+t tactical *
+ta transmit assist
+tc ticlist
+td transmit distress
+thr thrash *
+tk takeoff
+tp tpstatus
+tps tpstatus
+tr trigger
+tri lock 60 100
+trix lock 65 100
+ts tscan
+tu turret *
+u stand
+ue unitestimate *
+ulf fuel/unload
+ult ultra *
+un udisembark
+un0 unjam 0
+un1 unjam 1
+un2 unjam 2
+un3 unjam 3
+un4 unjam 4
+un5 unjam 5
+unj unjam *
+uo unitoffer *
+upl unitpl
+upt uptime
+v vertical *
+vq vertical 165
+vqq vertical -165
+vqqq vertical -120
+vr viewref *
+vv vertical -23
+vvv vertical -70
+vw view
+vx vertical 0
+w status w
+we weather
+wet lock 25 100
+wl1 lock 148 158 h
+wl1a lock 147 159 h
+x target head
+x- target -
+x1 lock dr
+xa target aft
+xct target ct
+xfs target fs
+xla target la
+xll target ll
+xls target ls
+xlt target lt
+xra target ra
+xrl target rl
+xrs target rs
+xrt target rt
+xtu target turret
+xx lock el
+y speed 40
+yal lock 50 185
+yal1 lock 42 184 h
+yalx lock 42 185
+yaz lock 15 50
+yy speed 44
+yyy speed -34
+zz lock sa
+946 33 0
+D:Ul's Toy Set
+bk speed back
+bl6 setmech BL6-KNT
+bone sendchannel a=*chants* Come on in. Take off your skin and rattle around in your bones.
+cao sendchannel a=Outbound Mail!
+car sendchannel a=rgr
+card pose pulls an electronic card out of his pocket and presses the button. It says, "%ch%cbUlrich%cw, %crThe Mad Man%cw, %cbSjostrum%ch%cn" at your service. Mad pilot of all class of mechs and many tanks and aeros. DropShip PILOT extream G puller.
+cas sendchannel a=BLOODY SNOW!
+cat sendchannel a=<ul> *
+chuc pose chuckles under his breath as he looks over your shoulder.
+ele eleventer
+fac facroster
+gal setmech GAL-1GLS
+hgn3 setmech HGN-733
+jft setmech Fuel_Truck-JJ
+lat lateral *
+lst listchannels
+mauh pose laughs insainly as he walks by.
+mln setmech MLN-1A
+p punch
+resh respawn/home
+resu respawn/ug
+sdr setmech SDR-9KA
+spr sprint
+sta startup
+ul say %cbUlrich, %crThe Mad Man, %cbSjostrum%ch%cn
+v view *
+ve vertical *
+w status weapons
+wdm setmech WDM-2M
+wk speed walk
+wlf2 setmech WLF-2
+x axe *
+z speed stop
+484 11 0
+D:Basic Stuff
+c3m c3master *
+cii command/info
+fa fliparms
+fl fliparms
+g +CCON *
+gl genlist
+hcc heatcutoff
+lam LAM/ATM
+lma LAM/MTA
+me +chex
+pl unitpl
+462 194 2
+D:Knightmoves
+0 fire 0 *
+1 fire 1 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+a status a
+a0 addtic 0 *
+a1 addtic 1 *
+a2 addtic 2 *
+a3 addtic 3 *
+aa OVERTHRUST OFF
+aaa OVERTHRUST ON
+al attackleg *
+ar artemis *
+ass transmit assistance
+ast aerostatus
+b bearing *
+bb bbread *
+bbb bomb drop *
+bbl bomb list
+bl baselist
+blm baselist/map
+br brief *
+c contacts
+c3c c3targets
+c3j c3master *
+c3s c3message *
+ca climb *
+cap capacitate *
+cc lrs m *
+ccc lrs e *
+cccc lrs t *
+cen census
+cens census/spawn
+ch charge *
+cl club *
+com listchannels
+comm comlist
+cr critstatus *
+crts viewref/critstatus *
+ct0 cleartic 0
+ct1 cleartic 1
+ct2 cleartic 2
+ct3 cleartic 3
+d0 deltic 0=*
+d1 deltic 1=*
+d2 deltic 2=*
+d3 deltic 3=*
+da dive *
+ddd dump all
+df deadfire *
+dis udisembark
+dock baselist/docks
+dr prone
+e enter *
+eb rtb
+econ econlog *
+elev lrs e *
+em embark *
+est unitestimate *
+ev evade
+exp explosive *
+f firetic 0 *
+fa fliparms
+fcl firecluster *
+ff firetic 1 *
+fff firetic 2 *
+ffff firetic 3 *
+fin fireincend *
+fl fuellist
+fs fireswarm *
+fs1 fireswarm1 *
+fsm firesmoke *
+fuel fuellist
+gen genlist
+genm genlist/map
+gun FireHG *
+h heading *
+hl hotload *
+id view *
+inf inferno *
+info command/info
+j jump *
+k kick *
+l lock *
+lb leavebase
+lbx lbx *
+lc checklz *
+lme @pl
+lt0 listtic 0
+lt1 listtic 1
+lt2 listtic 2
+lt3 listtic 3
+lv leave *
+man manifest
+mm masc
+n navigate *
+ocfg Omniconfig *
+off shutdown
+on startup
+out udisembark
+p punch *
+pp pierce *
+pr prone
+pre precision *
+pu pickup *
+q scan *
+qt tscan
+r range *
+ra radio *
+raa sendchannel a=*
+rab sendchannel b=*
+rac sendchannel c=*
+rad sendchannel d=*
+rc rottorso c
+ref viewref *
+refd listrefs/dyn *
+reff viewref/specs *
+rel relaylist
+relm relaylist/map
+resp listresp
+rig riglist
+rl rottorso l
+rma setchannelmode a=*
+rmb setchannelmode b=*
+rmc setchannelmode c=*
+rmd setchannelmode d=*
+rme setchannelmode e=*
+rpt report *
+rr rottorso r
+s speed *
+s0 sight 0 *
+sb speed back
+sc scan *
+sca setchannelfreq a=*
+scb setchannelfreq b=*
+scc setchannelfreq c=*
+scd setchannelfreq d=*
+sce setchannelfreq e=*
+sch setchannelfreq *
+scm setchannelmode *
+sco setchannelfreq o=*
+scta setchanneltitle a=*
+sctb setchanneltitle b=*
+sctc setchanneltitle c=*
+sctd setchanneltitle d=*
+scte setchanneltitle e=*
+sen sensor *
+sl slite
+sos transmit distress
+spd setcruise info
+sqd census/squad
+sr speed run
+ss status i
+st status *
+sta stationlist
+stam stationlist/map
+stg stinger *
+sttp tpstatus
+sw speed walk
+sw0 sight 0 *
+sw1 sight 1 *
+sw2 sight 2 *
+sw3 sight 3 *
+sw4 sight 4 *
+sw5 sight 5 *
+sw6 sight 6 *
+sw7 sight 7 *
+sw8 sight 8 *
+sw9 sight 9 *
+t tactical *
+th thrust *
+time uptime
+to takeoff
+tr turret *
+tra tracer *
+tw thrust 43
+ul dropoff
+up stand
+up? standcheck
+v vertical *
+w status w
+warp warplist
+wea weather
+wep weapstats *
+ws weaponspecs
+x axe *
+x2 rottwo *
+x4 rotfour *
+x6 rotsix *
+xxx command/destroy *
+1427 209 0
+D:Mine
+0 fire 0 *
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+13 fire 13 *
+14 fire 14 *
+15 fire 15 *
+16 fire 16 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+a addtic *
+aa sendchannel a=*
+acon reportcon a *
+b bearing *
+ba bash *
+bb sendchannel b=*
+bf brief *
+c contacts *
+c2 tscan *
+c3m c3message <Dany> *
+c3st c3master *
+c3tg c3targets *
+cap capacitate *
+cc sendchannel c=*
+cen census *
+cenp census/spawn
+cenr census/rs
+cens census/squad
+cent census/techs *
+cenu census/units
+ch charge *
+cl club *
+cm climb *
+com setchanneltitle *
+con con *
+cp chop *
+cra critstatus a *
+crct critstatus ct *
+crfl critstatus fl *
+crfr critstatus fr *
+crfs critstatus fs *
+crh critstatus h *
+crla critstatus la *
+crll critstatus ll *
+crls critstatus ls *
+crlt critstatus lt *
+crlw critstatus lw *
+crn critstatus n *
+crra critstatus ra *
+crrl critstatus rl *
+crrr critstatus rr
+crrs critstatus rs *
+crrt critstatus rt *
+crrw critstatus rw *
+crs1 critstatus s1 *
+crs2 critstatus s2 *
+crs3 critstatus s3 *
+crs4 critstatus s4 *
+crt critstatus t*
+cs contacts e *
+ct cleartic *
+cud setchanneltitle a=Cuddly *
+db dropclub *
+dd sendchannel d=*
+dp dump *
+dv dive *
+e eta *
+eb enterbase *
+ee sendchannel e=*
+ej eject *
+em embark *
+et enter *
+f0 firetic 0 *
+f1 firetic 1 *
+f2 firetic 2 *
+f3 firetic 3 *
+fa fliparms *
+fc findcenter *
+ff sendchannel f=*
+fl fuel/load
+flt fuellist
+fu fuel/unload
+g grab *
+gb grabclub *
+h heading *
+hct heatcutoff *
+hex hexme *
+j jump *
+kl kick l *
+kr kick r *
+l lock *
+lat lateral *
+lb leavebase *
+ld land *
+lit listchannels *
+ma masc *
+me sendchannel a=<Dany> *
+mode setchannelmode *
+nav navigate *
+ot overthrust *
+own say [v(MECHSOWNED.L)]
+p prone *
+pad speed -5
+pb punch b *
+ph push *
+pl punch l *
+pr punch r *
+pu pickup *
+q speed stop *
+r range *
+r2 rottwo *
+r4 rotfour *
+r6 rotsix *
+rc rottorso c *
+rd radio *
+ref +ref *
+rev speed back
+rl rottorso l *
+rp report *
+rr rottorso r *
+s scan *
+s0 sight 0 *
+s1 sight 1 *
+s10 sight 10 *
+s11 sight 11 *
+s12 sight 12 *
+s13 sight 13 *
+s14 sight 14 *
+s15 sight 15 *
+s2 sight 2 *
+s24 sight 24 *
+s3 sight 3 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+sb stab *
+sci setcruise info *
+sd shutdown *
+sen sensor *
+set setchannelfreq *
+sh slash *
+sl slite *
+sm smash *
+sp speed *
+spec weaponspecs
+sr viewref/specs *
+st status *
+stat aerostatus
+stc standcheck *
+stp startup *
+swe weapstatus *
+t tactical *
+ta status a *
+tc tactical c *
+tg target *
+th status h *
+ti status i *
+tmn turnmode normal
+tmt turnmode tight
+tn status n *
+to takeoff *
+tra transmit assistance
+trd transmit distress
+ts status s *
+tt thrust *
+tu turret *
+tw status w *
+u stand *
+ub usebin *
+udis udisembark *
+uj unjam *
+v vertical *
+vec vector *
+vr viewref *
+vv vertical -15
+vw view *
+w speed walk
+wa artemis *
+wc caseless *
+wclu firecluster *
+wdfm deadfire *
+we weather *
+wf heat *
+wg gatling 4
+wh hotload *
+wi inferno *
+wind fireincend *
+wl lbx *
+wpie pierce *
+wpre precision *
+wr rapidfire *
+ws weapstatus *
+ws1 fireswarm1 *
+wt tracer *
+wu ultra *
+wx explosive *
+wz stinger *
+x axe *
+z speed run *
+1373 9 0
+D:Oro's Stuff
+c3 c3targets
+lb leavebase
+lr listresp
+moro pose holds up signs saying "%ch%cgMake %crOronar %cyAn %ccOfficer%cn"!
+pic pose opens a tub of %ch%ccNull's %cwIce %cyCream%cn and enjoys.
+tast transmit assistance
+tdis transmit distress
+ud udisembark
+wack pose wacks * in the head with a crowbar and exclaims "%ch%crHalf%cw-%cyLife%cn Style!"
+757 109 2
+D:Hot Set!
+0 fire 0
+1 fire 1
+2 fire 2
+3 fire 3
+4 fire 4
+5 fire 5
+6 fire 6
+7 fire 7
+8 fire 8
+9 fire 9
+a status a *
+ad OAddgun *
+ammo omodammo *
+art Artemis *
+at addtic *
+b bearing *
+bv viewref/specs *
+c contacts *
+ca sendchannel a=*
+cap capacitor *
+cb sendchannel b=<Doc> *
+cc sendchannel c=*
+cl climb *
+clu firecluster *
+comp baselist
+cs census
+csp census/spawn
+csq census/squad
+ct cleartic *
+ctc critstatus ct
+cw census/spawn
+dead deadfire *
+f firetic 0
+fa fliparms
+ff firetic 1
+fff firetic 2
+fl fuellist
+fuel fuellist
+gen genlist
+h heading *
+hc critstatus h
+hco heatcutoff
+i status i
+inf inferno *
+j jump *
+k kick *
+l lock *
+lac critstatus la
+lat lateral -
+lb leavebase
+lch listchannels
+lfl lateral fl
+lfr lateral fr
+llc critstatus ll
+lrl lateral rl
+lrr lateral rr
+lt listtic *
+ltc critstatus lt
+m speed run
+min relaylist
+myr rankings/myrank
+n navigate *
+own say I own the following: [get(me/mechsowned.l)]
+p punch *
+pie pierce *
+plo explosive *
+pre precision *
+r range *
+rac critstatus ra
+rc rottorso ct *
+re ORemGun *
+rep report *
+rig riglist
+rl rottorso l *
+rlc critstatus rl
+rr rottorso r *
+rtc critstatus rt
+s speed *
+s0 sight 0 *
+s1 sight 1 *
+s2 sight 2 *
+s3 sight 3 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+sc scan *
+sch setchannelfreq *
+scm setchannelmode *
+sct setchanneltitle *
+se sensor *
+sl slite *
+st status *
+sta stationlist
+t tactical *
+th thrust *
+tra transmit assistance
+trd transmit distress
+tu turret *
+ul ultra *
+v vertical *
+vr viewref *
+w status w
+warp warplist
+we weather
+ws weaponspecs
+x axe *
+306 4 0
+D:Trez's Macros
+c3 c3message <Trez> *
+rc rottorso c
+rl rottorso l
+RT Rottorso right
+455 18 0
+D:mine
+at addtic *
+crit critstatus *
+f firetic 0
+ff firetic 1
+fff firetic 2
+ffff firetic 3
+flip fliparms
+gl GENLIST
+hec @forceme=(?hexme)
+hex ?hexme
+hot respawn/hotbase
+k kick *
+lea leavebase
+lt listtic *
+max speed 999999
+n navigate
+re report *
+se sensor *
+931 123 2
+D:Rnr's Handy Dandy Macroset
+0 fire 0 *
+1 fire 1 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+as aerostatus
+b bearing *
+bl baselist
+blm baselist/map
+boa bomb aim
+bod bomb drop *
+bol bomb list
+c contacts *
+c3m c3master *
+ccc c3targets
+ccm c3message *
+cmi command/info
+con weather
+cr critstatus *
+cs critstatus *
+f firetic 0 *
+fac firecluster *
+fai fireincend *
+fas firesmoke *
+fc findcenter
+fdl fuellist
+ff firetic 1 *
+fff firetic 2 *
+ffff firetic 3 *
+fl fliparms
+gl genlist
+glm genlist/map
+h heading *
+hb heading 240
+hg heading 270
+hh headtar
+hj heading 90
+hm heading 120
+hn heading 180
+hnb heading 210
+hnm heading 150
+ht heading 300
+hth headtarh *
+hu heading 60
+hy heading 0
+hyt heading 330
+hyu heading 30
+j jump *
+l lock *
+otf overthrust off
+otn overthrust on
+r range *
+rb rangebearing *
+rc rottorso c
+re report *
+rl rottorso left
+rr rottorso right
+s speed *
+s0 sight 0
+s1 sight 1
+s10 sight 10
+s11 sight 11
+s12 sight 12
+s13 sight 13
+s2 sight 2
+s3 sight 3
+s4 sight 4
+s5 sight 5
+s6 sight 6
+s7 sight 7
+s8 sight 8
+s9 sight 9
+scc `setcr *
+sccr setcruise *
+scf cruise off
+scn cruise on
+se sensor *
+sm speed run
+srr speed -999
+ss speed 0
+ssr speed -8
+ssw speed 8
+st status *
+sta status a
+sth status h
+sti status i
+sts status S
+stw status w
+sw speed walk
+sx speed 0
+t tactical *
+th thrust *
+tics ticslist
+tl tactical l *
+tmn turnmode normal
+tmt turnmode tight
+ts tscan
+tt navigate
+ttb turretbearing
+tu turret *
+vr viewref *
+vrc viewref/critstatus *
+vrs viewref/specs *
+vrw viewref/weaponspecs *
+wes weapstats *
+wps weaponspecs
+ws weapstatus *
+xa sendchannel a=*
+xl listchannels
+xt sendchannel a=<rnr> *
+zh climb 0
+zhh dive 5
+zhhn dive 20
+zhhy climb 30
+zhn dive 10
+zhy climb 15
+zy climb 30
+zyy climb 40
+517 441 0
+D:Morg's Macs
+, vertical 0
+. vertical 0
+/ @trigger me/killtic
+0 firetic 0
+0- firetic 0
+1 firetic 1
+12 vertical 129
+2 firetic 2
+3 firetic 3
+3t t3
+5 fire 5
+a status a
+ac sendchannel a=*
+acc accept *
+ad @doing *
+ae lock 52 100
+af lock 172 58
+aku aku
+al attackleg
+ani @name me=Ani DiFranco
+anv navigate
+ap speed *
+art artemis *
+ass +assets
+at addtic *
+att :snaps to attention *
+auc +aucstatus
+avg avg
+awa @away me=*
+axm axm
+b bearing *
+b10 lock 76 142
+b2 lock 28 58
+b3 lock 76 58
+b4 lock 124 58
+b5 lock 172 58
+b6 lock 100 100
+bb bbread *
+beg begin picking
+bh Bearing *;heading *
+bhk bhku
+bhku bhku
+bj bj
+bla blas
+br @fo me=Bearing *;range *
+brh @fo me=bearing *;heading *;range *
+c contacts *
+c2 c2console
+c3m c3message *
+c3t c3targets
+ca sendchannel a=*
+cap +cappy
+cc copper captain
+cd sendchannel d=*
+ce sendchannel e=*
+cen census *
+cent lock 100 100
+cf ofc/setcf *
+cgr cgr
+ch charge *
+cha ' changes color to match her surroundings.
+chop chop
+ci command/info
+cin command/info
+cl climb *
+cln cln
+cm c3message *
+com @trigger me/vc
+con weather
+cow lock 76 142
+cp pilot *
+cpl cplt
+cred sendchannel a=*MAYDAY MAYDAY* This is a code red! If you are seeing this, my death is imminent and unavoidable! This is a recorded message! Short of drastic measures, please consider me unavailable to survive my current encounter. I charge you, my teammates, to avenge me!
+cri critstatus *
+crit critstatus *
+crk crk
+crt critstatus *
+cs critstatus *
+csp census/spawn
+ct cleartic *
+cti ctic
+ctic ctic
+d @fo me=vertical -96;vertical -129
+d4 dump 4
+day ex me/day
+dd digdug *
+de deploy
+df deadfire *
+dig digdug *
+dm lock 183 143
+dnf lock 28 142
+dow shutdown
+dp speed *
+dp0 speed 0
+ds dump stop
+dsc @desc me=%cn%ccIII DD%b EEE N N TTT%b%b%bCC%b A%b RR%b DD%r%bI%b D D EE%b NNN%b T%b%b C%b%b AAA RRR D D%rIII DD%b EEE N N%b T%b%B%B CC A A R R DD%r%cn%cy/------%ch%cbMECH%cn%cy-----%\/------%ch%cbTANK%cn%cy-----%\%ch%cr333%b%b%b00%b%b%b666%b5555%r%cn%cy|
+dup startup
+duty duty
+eb enterbase s
+eco +econ
+ei lock 100 17
+ekt lock 100 100
+emb embark *
+eng engaged
+ent enter *
+es estimate *
+eta eta *
+eye :raises one eyebrow *
+f fire *
+f6 fire 6
+fa fliparms
+faca +faction me=admin
+fc fixcrit *
+fdd +finddoubles *
+ffl @trigger me/ffl
+fh fix here
+fi fixinternal *
+fin finger *
+fix fix *
+fl fuel/load
+fll fuellist
+fre fret *
+fs fireswarm *
+fs1 fireswarm1 *
+ft firetic *
+fu fuel/unload
+fue fuel
+gal gal
+gh go-home
+ghj pose is using a flashy new [get(me/company)] this sim!
+ghr tdr
+gil * I think I'll CF Gil, because he is a cheating prick!
+gir @name me=Morgan Macaskill
+gl genlist
+gohq go-hq
+gosp go-sp
+got @pemit me=sub(xp_avail(me),get(me/va)) Is how many XP you made last sim.
+gr go-relay *
+gre say Greetings, *!
+h heading *
+ha1 ha1
+hb heading 240
+hbk hbk
+he bail
+hel heli
+hg heading 270
+hh help highcommand
+hit hit
+hj heading 90
+hloc hloc
+hm heading 120
+hn heading 180
+hon @fo me=delcom lo;delcom h;addcom h=Hate;addcom lo=Hate
+hot hotload *
+hov setmech HoverFuelTruck
+ht heading 300
+htm htm
+hu heading 60
+hur * sings. I hurt myself today... to see if I still feel... I focus on the pain... the only thing that's real. The needle tears a hole... the old familiar sting... try to kill it all away. but I remember. Everything.
+hy heading 0
+i status i
+idl @idle me=*
+idle @idle me=*
+inf +inflate *
+ini init
+io speed 10
+iu speed -10
+iw status i w
+ize 'You've been -=>*SUNDERIZED!*<=-
+j jump *
+j, jump 120 1
+jh jump 270 1
+ji jump 60 1
+jk jump 90 1
+jm jump 180 1
+jn jump 240 1
+jos @name me=Josh
+jr7 jr7
+jt jump to *
+ju jump 0 1
+jvn jvn
+jy jump 300 1
+k kick *
+kim kim
+kkb lock 124 58
+kw1 kw1
+l lock *
+lan land
+lb leavebase
+lc listchannels
+le leave
+let letin *
+lgb lgb
+lit slite
+lm listmechs
+lnx lnx
+lo +laston *
+loa load *
+lon @fo me=delcom h;delcom lo;addcom h=Love;addcom lo=Love
+lr listresp
+lrp listresp
+ls +Listscens
+lt listtic *
+lti ltic
+ltic ltic
+m masc2
+mad mad
+map baselist/map
+mas masc2
+mc news mechcosts *
+mk pose hrms, checking his inventory. He notices with pride that he's managed to accumulate a few units... [get(me/mechsowned.l)], to be specific. Not a bad start...
+mru request MRU
+ms Market/sell *
+mt MATCHTEAM *
+mw lock 124 142
+n navigate
+naf lock 76 58
+nap nap
+nav navigate
+neg lock 125 80
+no say Hurm..you don't want it huh? Well ok fine your loss. No skin off MY back. Maybe next time!
+noc +nocappy
+nod :nods *
+nsr nsr
+nva navigate
+nwg lock 69 80
+oav oavg
+ob +objectives
+obj ofc/setobj *
+ocfr ofc/setrally *
+od respawn/OD *
+oe respawn/od *
+ofcc ofc/setcf *
+ofco ofc/setobj *
+ofcr ofc/setrally *
+ogo say sub(xp_avail(me),get(me/va)) Is how many XP I made last sim.
+op +uptime
+ord orders
+ove @pemit me=overlord
+own +owners *
+p punch *
+p1a p1a
+p1c p1c
+per per
+pl @pl
+pod podspace
+pok 'reach out and -=>*POKE*<=- someone!
+pou pou
+pp 'POUNCAH POWAH!!!!!!!!!!!
+pp2 'YOU BEEN POUNCED UPON!!!!!!!!
+pp3 232
+pre pref *
+prec precision *
+pri +price *
+pro prone
+ps @ps
+pu pickup *
+q status w
+qv +qv
+r range *
+ra reattach *
+rad radio *
+rall ofc/setrally *
+rap rap
+rax reg AXM-2N
+rbh reg BHKU-OP
+rc rottorso center
+rca ex me/REGISTERED_COMBINEDARMS
+rcl reg CLN-7V
+rct request Light_Cooler
+rec +record *
+ref viewref *
+ref2 viewref/specs *
+reg +reginfo
+rel relay
+req request *
+resp respawn *
+rf @fo me=range;fuel
+rg removegun *
+rh respawn/home
+rhi reg HM-1
+rhm ex me/REGISTERED_HEAVYMETAL
+rjn rjn
+rjv reg JVN-10F
+rki ex me/REGISTERED_kindergarten
+rl rottorso left
+rll relaylist
+rmu request MRU
+rp removepart *
+rpg ex me/REGISTERED_PROVINGGROUNDS
+rr rottorso right
+rrt reg RTX1-OC
+rs repairstatus
+rsc reg SCT-45
+rst REG STH-1D
+rsy reg SYU-2B
+rtb rtb
+rtx rap
+rwu request MRU
+rwv REG WVR-7K
+rym reg YMN-6Y
+s speed *
+s0 speed 0
+s00 sight 0
+s1 sight 1
+s10 sight 10
+s11 sight 11
+s12 sight 12
+s14 sight 14
+s15 sight 15
+s16 sight 16
+s2 sight 2
+s3 sight 3
+s4 sight 4
+s5 sight 5
+s6 sight 6
+s7 sight 7
+s8 sight 8
+s9 sight 9
+sa sendchannel a=*
+sal :salutes *
+sb sendchannel b=*
+sc scan *
+sca scan *
+scc sendchannel c=*
+sce scenario
+scf setchannelfreq *
+sch standcheck
+sco setcomtitle *
+scr scribble *
+sct setchanneltitle *
+sd1 sd1
+sdr sdr
+se sendchannel e=*
+seg lock 125 115
+sen sensor *
+sh @fo me=speed;heading
+sho +showref *
+shw +showref *
+sli ' slides stealthily in and out or your perception while allowing its guns to blaze death.
+slwo slwarn on
+sm setmech *
+sm9m setmech H-9M
+smak setmech AKU-1X
+smbh setmech BHKU-OClear
+smde setmech demolisherII
+smec setmech ECL-1I
+smfe setmech Ferret-Armor
+smfl setmech FLC-8R
+smft setmech HoverFuelTruck
+smh setmech H-9
+smh9 setmech H-9
+smhe setmech Hetzer
+smhm setmech Hawk_Moth
+smki setmech KIM-2
+smlr setmech Partisan-LRM
+smmi setmech MID-2J
+smpp setmech PPR-5S
+smsc setmech Schiltron-B
+smsl setmech Fenrir-SL
+smsr setmech SRM_Carrier
+sna 'snarls viciously
+snd sendmsg *
+so speakers on
+sp speed *
+sp0 speed 0
+spe weaponspecs
+spr sprint
+sr speed 9999999
+sr1 sr1
+srt speed walk
+ss status s
+st status *
+sta +status
+staf staff
+stat staff
+sth sth
+stk stk
+sup startup *
+swg lock 69 115
+swh swho *
+sy status
+syp startup
+syu syu
+sz speed -999999
+t tactical *
+t3 t3
+t4 tactical 300 10
+t5 tactical 0 10
+t6 tactical 60 10
+tar target *
+tass transmit assistance
+tco +bbscan
+tcon bbscan
+tdis transmit distress
+tdr tdr
+tel @tel *
+test test
+tf tactical 250 10
+tg tactical 180 10
+th thrust *
+tim +time
+tj tactical 120 10
+top +top10 *
+tr tactical 270 6
+trf lock 172 142
+tri @trigger me/aconnect
+tsc tscan
+tui turret *
+tur turret *
+ty tactical 90 10
+ul ultra *
+up stand
+upl unitpl
+va ex me/va
+val Value *
+vb ex me/vb
+vec vector *
+ver vertical *
+vie +viewref *
+view view *
+vkg vkg
+vrc viewref/critstatus *
+vul vul
+vv vertical 0
+w status w
+wan say I have a the pleasure of presenting a very special item to you today: a Matter_Transference_Device! I know you'll want it, so go ahead and give me the 1000 credits I'm asking for it and let's get this deal over with before I change my mind.
+wav pose waves *
+wea 'takes off his SUNDERwear!
+whm whm
+who +who *
+wvr wvr
+xp @pemit me=XP_Avail(me)
+xpo @pemit me=XP CHECK: * has [XP_total(*)] total XP, and [XP_avail(*)] available.
+xpt @pemit me=[xp_avail(me)] xp + [money(me)] creds=[add(xp_avail(me), div(money(me),10))] xp available.
+xtr extract
+y tactical *
+yes say A pleasure doing business with you *... hope to do more soon! Seeya!
+yi lock 148 100
+ymn ymn
+yp stand
+679 14 0
+D:MINE
+a status a
+aa sendchannel a=*
+ar artemis *
+bb sendchannel b=*
+ccf command/changefreq *
+ci command/info
+dd sendchannel d=*
+gl genlist
+ohb ofc/sethotbase *
+oob ofc/setobj *
+p punch *
+ta target *
+vrc viewref/critstatus *
+w status w
+1365 24 0
+D:Karl's Customs
+al20 omodammo is.lb20-xac * *
+algr omodammo is.lightgaussrifle * *
+am30 omodammo is.mrm-30 * *
+amm1 omodammo is.minimortar/10 * *
+amm5 omodammo is.minimortar/5 * *
+au2 omodammo is.ultraac/2 * *
+au20 omodammo is.ultraac/20 * *
+au5 omodammo is.ultraac/5 * *
+case oaddsp case * *
+df deadfire *
+erml oaddgun is.ermediumlaser * *
+ersl oaddgun is.ersmalllaser * *
+hs oaddsp heatsink * *
+lb20 oaddgun is.lb20-xac rtorso 1
+lgr oaddgun is.lightgaussrifle * *
+m30 oaddgun is.mrm-30 * *
+ml oaddgun is.mediumlaser * *
+mm1 oaddgun is.minimortar/10 rtorso *
+mm5 oaddgun is.minimortar/5 rtorso *
+ps podspace
+rg oremgun * *
+sd shutdown
+u2 oaddgun is.ultraac/2 * *
+u20 oaddgun is.ultraac/20 rtorso 1
+514 106 2
+D:Bi's Battle Set
+0 fire 0
+1 fire 1
+2 fire 2
+3 fire 3
+4 fire 4
+5 fire 5
+6 fire 6
+7 fire 7
+8 fire 8
+9 fire 9
+a status a
+asst transmit assistance
+at addtic *
+b bearing *
+c contacts *
+ca sendchannel a=*
+cb sendchannel b=*
+cc sendchannel c=*
+cd sendchannel d=*
+ce sendchannel e=*
+cf sendchannel f=*
+cg sendchannel g=*
+ch charge *
+con cone
+cp chop *
+cpx baselist
+ct cleartic *
+dmg damages
+do dropoff
+dp prone
+e eta *
+eb enterbay
+en enterbase *
+ext extract
+f firetic 0
+fa fliparms
+ff firetic 1
+fff firetic 2
+ffff firetic 3
+fl fuellist
+gen genlist
+h heading *
+i status i
+j jump *
+k kick *
+l lock *
+lb leavebase
+lch listchannels
+lrs lrs *
+lt listtic *
+lt0 listtic 0
+lt1 listtic 1
+lt2 listtic 2
+lt3 listtic 3
+map baselist/map
+mech :currently has purchased the following mechs: [ansi(hg,v(MechsOwned.L))]%r%n also has the following One use mechs: [ansi(hy,v(ONEUSEMECHS.L))].
+min +mines
+n navigate *
+pat check patrols
+pk pickup *
+r range *
+rc rottorso c
+ref viewref *
+ref2 viewref/specs *
+rel relaylist
+rl rottorso l
+rr rottorso r
+s speed *
+s0 sight 0
+s1 sight 1
+s2 sight 2
+s3 sight 3
+s4 sight 4
+s5 sight 5
+s6 sight 6
+s7 sight 7
+s8 sight 8
+s9 sight 9
+sc scan *
+sch setchannelfreq *
+scm setchannel mode *
+sct setchanneltitle *
+sen sensor *
+sl slite
+smap stationlist/map
+sos transmit distress
+st status
+stl stationlist
+t tactical *
+tc rottorso c
+tl rottorso l
+to takeoff
+tow attachcables bi *
+tr rottorso r
+ts tscan
+tt +techtime
+tu turret *
+up stand
+v view
+vt vertical *
+w status w
+warp warplist
+ws weaponspecs
+wth weather
+x axe *
+zh +zones/help4
+1459 2 0
+D:Cat's
+caa sendchannel a=<Cat> *
+sa say %ch%cm*
+40 15 0
+D:Zero
+a status a
+i status i
+k kick *
+lt listtic *
+ltc critstatus lt
+p punch *
+rtc critstatus rt
+sa speed walk
+se sensor *
+sq speed run
+ss speed 0
+sz speed back
+up stand
+vv vertical 0
+w status w
+249 97 0
+D:Dal's Macros
+a status a
+ar artemis *
+bbc bbcatchup *
+bsl baselist
+bsm baselist/map
+btl bountylist
+c3m c3master *
+c3t c3targets *
+cct critstatus ct
+chd critstatus hd
+cinf command/info
+cla critstatus la
+cll critstatus ll
+clt critstatus lt
+co sendchannel o=*
+con weather
+cra critstatus ra
+crl critstatus rl
+crt critstatus rt
+d prone
+dfm deadfire *
+dt deltic *
+emb embark *
+exr explode reator
+ext extract
+fin finger *
+flst fuellist
+fs fireswarm *
+fs1 fireswarm1 *
+glst genlist
+god go-ds
+goh go-home
+gop go-sp
+goq go-hq
+gor go-relay *
+gos go-station *
+gp @pl
+hl hotload *
+i status i
+inf inferno *
+k kick *
+lrp listresp
+lt listtic *
+nar narc *
+ord orders
+p punch *
+ra radio *
+res respawn *
+rlst relaylist
+rod respawn/od *
+rsh respawn/home
+sb speed back
+sn speed run
+sr viewref/specs *
+stch setmech chp-3n
+sthk setmech hko-1c
+sthp setmech hbk-4p
+sths setmech hbk-4sp
+sti stinger *
+stkw setmech kw1-lh2
+stm setmech *
+stmg setmech glt-4l
+stmh setmech hoverfueltruck
+stmn setmech ng-c3a
+stmo setmech mon-66
+stmt setmech tdr-5ss
+stmw setmech whm-7k
+strf setmech rfl-rubinsky2
+stsj setmech sja-7d
+su startup
+tar target *
+te tactical 90 10
+tee tactical 90 20
+time uptime
+tl tactical l
+tn tactical 0 10
+tne tactical 60 10
+tnn tactical 0 20
+tnw tactical 300 10
+ts tactical 180 10
+tsc tscan
+tse tactical 120 10
+tss tactical 180 20
+tsw tactical 240 10
+tw tactical 270 10
+tww tactical 270 20
+up stand
+upb unitbuy *
+upe unitestimate *
+upl unitpl
+ups unitsell *
+vi view *
+vr viewref *
+w status w
+wh WHO
+ws weaponspecs
+wst weapstats *
+1685 24 2
+D:Whee
+a status a
+bk speed back
+con con *
+cond weather
+d vertical -15
+eta eta
+g con *
+gl genlist
+hl hotload 0-3
+i status i
+k kick
+nod pose nods.
+p punch
+sct setchanneltitle *
+se sensor *
+ss status s
+ta sendchannel a=<Chubs> *
+tc sendchannel c = <Chubs> *
+time time
+w status w
+wk speed walk
+ws weaponspecs
+x vertical 0
+z speed 0
+977 204 2
+D:Revenge of the Sith
+0 fire 0 *
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+13 fire 13 *
+14 fire 14 *
+15 fire 15 *
+16 fire 16 *
+17 fire 17 *
+18 fire 18 *
+19 fire 19 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+a status a
+at addtic *
+b bearing *
+bb bbread *
+bk speed back
+bl baselist
+blm baselist/map
+c contacts *
+c3 c3message *
+c3m c3master *
+c3n c3network
+c3t c3targets *
+ca sendchannel a=*
+cb sendchannel b=*
+cc ccon *
+cch critstatus h *
+cct critstatus ct *
+cd command/destroy *
+ch chop *
+ci command/info
+cl club *
+cla critstatus la *
+cll critstatus ll *
+clt critstatus lt *
+cn con *
+cp chop *
+cra critstatus ra *
+crl critstatus rl *
+crt critstatus rt *
+cs census *
+css census/spawn
+ct cleartic *
+dfm deadfire *
+dp dropclub *
+du dump *
+e eta *
+em embark *
+er explode reactor
+ev evade
+ext extract
+f firetic 0 *
+fa fliparms *
+fc findcenter *
+fd fuellist
+ff firetic 1 *
+fff firetic 2 *
+ffff firetic 3 *
+fl fuel/load
+fs request footsquad
+fu fuel/unload
+g grab *
+gc grabclub *
+gl genlist
+glm genlist/map
+gr go-relay *
+h heading *
+hot respawn/hotbase
+hq respawn/home
+hx hexme *
+j jump *
+k kick *
+kl kick l *
+kr kick r *
+l lock *
+lat lateral *
+lb leavebase
+lc loadcrit *
+ld land *
+lfl lateral fl
+lfr lateral fr
+ln lateral -
+lr listresp
+lrl lateral rl
+lrr lateral rr
+ls loadset/settic *
+lsc loadset/cleartics *
+m speed run
+mm masc
+mt request mash_truck
+n navigate *
+oag oaddgun *
+oas oaddsp *
+oc omnicheck
+ocf ofc/setcf *
+od respawn/od *
+oh omnihelp
+ohot ofc/sethotbase
+ol officer/list
+oma omodammo *
+oobj ofc/setobj *
+oral ofc/setrally *
+org oremgun *
+ors oremsp *
+os omnisetup
+p punch *
+ph request phalanx
+pl punch l *
+pp prone *
+pr punch r *
+ps podspace
+pu pickup *
+r range *
+ram rankings/myrank
+rb request bulldog
+rc rottorso c *
+rd radio *
+re report *
+rel relay
+rh respawn/hotbase
+rk rankings/myrank
+rl rottorso l *
+rlm relaylist
+rm request mru
+rp request probe
+rq request *
+rr rottorso r *
+rs respawn *
+rt rankings/top *
+s speed *
+s0 sight 0
+s1 sight 1 *
+s10 sight 10 *
+s11 sight 11 *
+s12 sight 12 *
+s13 sight 13 *
+s14 sight 14 *
+s15 sight 15 *
+s16 sight 16 *
+s17 sight 17 *
+s18 sight 18 *
+s19 sight 19 *
+s2 sight 2 *
+s3 sight 3 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+sc scan *
+scf setchannelfreq *
+scm setchannelmode *
+sd shutdown
+se sensor *
+sl slite *
+slw slwarn on
+sm setmech *
+sp sprint
+st status
+stu startup
+t tactical *
+ta transmit assistance
+td transmit distress
+tl relaylist
+tn turnmode normal
+tr trigger
+ts tscan
+tt turnmode tight
+tu turret *
+u stand *
+ub unitbuy *
+ue unitestimate *
+uj unjam *
+uo unitoffer *
+up unitpl
+us unitsell *
+v view *
+vr viewref *
+vrs viewref/specs *
+vrw viewref/weaponspecs *
+w status w
+we weather *
+wf heat *
+wh hotload *
+wi inferno *
+wind incendiary *
+wk speed walk
+wl weaplist
+wp precision *
+wr rapidfire *
+ws weaponspecs
+wu ultra *
+wx explosive *
+x axe *
+1198 4 0
+D:EasyMacs
+k kick
+ltc critstatus lt
+rtc critstatus rt
+se sensors *
+1224 63 0
+D:Mine
+0 fire 0
+1 fire 1
+2 fire 2
+3 fire 3
+4 fire 4
+5 fire 5
+6 fire 6
+7 fire 7
+8 fire 8
+9 fire 9
+at addtic *
+b bearing *
+c contacts *
+ca sendchannel a=*
+cb sendchannel b=*
+cc sendchannel c=*
+cct critstatus ct *
+cd sendchannel d=*
+ce sendchannel e=*
+cf sendchannel f=*
+chd critstatus h *
+cll critstatus ll *
+clt critstatus lt *
+crl critstatus rl *
+crt critstatus rt *
+dt deltic *
+f firetic 0 *
+ff firetic 1 *
+fff firetic 2 *
+flip fliparms
+h heading *
+j jump *
+k kick *
+l lock *
+n navigate *
+p punch *
+r range *
+rc rottorso c *
+re report *
+rl rottorso l *
+rr rottorso r *
+s speed *
+s0 sight 0 *
+s1 sight 1 *
+s2 sight 2 *
+s3 sight 3 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+sc scan *
+scf setchannelfreq *
+scm setchannelmode *
+sct setchanneltitle *
+sen sensor *
+spec weaponspecs *
+st status *
+t tactical *
+we weather *
+x speed walk *
+z speed run *
+423 17 0
+D:Ryche's Macros
+ctc critstatus ct
+gl genlist
+hc critstatus hd
+llc critstatus ll
+lt listtic *
+ltc critstatus lt
+map baselist/map
+oh omnihelp
+pr prone
+re report *
+ref viewref/specs *
+rlc critstatus rl
+rtc critstatus rt
+ry relaylist
+su Startup
+vrf viewref *
+ws weaponspecs
+659 1 0
+D:Mine!
+a status a
+313 21 0
+D:Mine
+a status a
+bk speed back
+ctc critstatus ct
+dt deltic *
+gl genlist
+hc critstatus h
+k kick
+lac critstatus la
+llc critstatus ll
+lt listtic *
+ltc critstatus lt
+p punch
+rac critstatus ra
+re report
+ref viewref *
+rlc critstatus rl
+rtc critstatus rt
+w status w
+wk speed walk
+ws weaponspecs *
+z speed 0
+966 1 0
+D:ges macros
+k kick *
+1693 0 0
+D:ff
+1560 13 0
+D:jazz
+base baselist
+caa sendchannel a=<jazz> *
+cap capacitate *
+crit critstatus *
+esti unitestimate *
+gen genlist
+k kick *
+lc listchannels
+re report *
+roll +rolls
+run speed 999
+sp sprint
+view viewref *
+602 5 0
+D:Bil's
+cond weather
+gl genlist
+lr listresp
+p punch b *
+z speed 0
+300 14 0
+D:Mic's Macros
+a status a
+cen census
+cens census/spawn
+exx extract
+fa fliparms
+gl genlist
+pl unitpl
+re report *
+resp respawn *
+rll relaylist
+spr sprint
+su startup
+vr viewref *
+w status w
+884 4 0
+D:
+con weather
+sa speed walk
+sq speed run
+sz speed -9999
+732 8 0
+D:Mine
+a status a
+bk speed back
+m speed run
+ss status s
+t0 tactical 0 6
+t180 tactical 180 6
+wk speed walk
+z speed 0
+732 20 2
+D:Alo
+a status armor
+bk speed back
+go startup
+ss status s
+t0 tactical 0 6
+t120 tactical 120 9
+t150 tactical 150 7
+t180 tactical 180 6
+t210 tactical 210 7
+t240 tactical 240 9
+t270 tactical 270 9
+t30 tactical 30 7
+t300 tactical 300 9
+t330 tactical 330 7
+t60 tactical 60 9
+t90 tactical 90 9
+vr viewref *
+w status w
+wk speed walk
+z speed 0
+1005 22 0
+D:Thors Oddity
+bas baselist
+crit critstatus *
+de stand
+dr prone
+eb rts
+ee evade
+fuel fuellist
+gen genlist
+map baselist/map
+p punch
+pu pickup *
+qq target tu
+rad radio *
+rel relaylist
+res respawn *
+resh respawn/home
+sd shutdown
+ser viewref/specs *
+ss sprint
+su startup
+sw startup
+ver viewref *
+315 2 0
+D:Rand's Stuff
+c3m c3master *
+c3t c3targets
+611 4 0
+D:1
+ctc critstatus ct
+ft firetic *
+ltc critstatus lt
+rtc critstatus rt
+1811 21 0
+D:FUXLORD
+. speed -10
+buy unitbuy *
+chal radio *=I, Jasmine Ichiban, challenge you to an honor duel!
+con weather
+ee sendchannel a=<erk> *
+lc listchannels
+ll viewref *
+p punch *
+ra radio *
+run speed run
+te tactical 90 9
+tn tactical 0 7
+tne tactical 60 9
+tnw tactical 300 9
+ts tactical 180 7
+tse tactical 120 9
+tsw tactical 240 9
+tw tactical 270 9
+walk speed walk
+weap weaponspecs
+z speed 0
+1573 11 0
+D:Raven's List
+ho go-home
+hq go-hq
+su startup
+vd vertical -60
+vl vertical -15
+vu vertical 60
+ws weaponspecs
+z speed 0
+zz speed 30
+zzz speed 9999
+zzzz speed -9999
+979 8 2
+D:Mike's Critical Macros
+ctc critstatus ct
+hdc critstatus hd
+lac critstatus la
+llc critstatus ll
+ltc critstatus ltc
+rac critstatus ra
+rlc critstatus rl
+rtc critstatus rtc
+1539 1 0
+D:Kitty
+ta sendchannel a = <Kitty> *
+1536 1 0
+D:me
+bux pose whips out his wallet and flashes the [get(me/econ_money.d)] c-bills inside
+1084 43 0
+D:Indys
+b bearing *
+f1 firetic 0
+f2 firetic 1
+f3 firetic 2
+f4 firetic 3
+h heading *
+j jump *
+k kick
+l lrs *
+la land
+ll lateral *
+m tactical *
+n navigate *
+p punch
+pl unitpl
+q range *
+r report *
+rt rottorso *
+s speed *
+s3 sight 0
+s4 sight 2
+sc sendchannel *
+sca sendchannel a=*
+scb sendchannel b=*
+scc sendchannel c=*
+scd sendchannel d=*
+sce sendchannel e=*
+scf setchannelfreq *
+sct setchanneltitle *
+sl slite
+sr speed run
+ss stop
+st status *
+sw speed walk
+t contacts *
+to takeoff
+v vertical *
+vr viewref *
+vrc viewref/critical *
+x1 sight 0
+x2 sight 4
+x3 sight 0
+x4 sight 2
+1832 236 2
+D:FoxMacros
+0 fire 0 *
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+13 fire 13 *
+14 fire 14 *
+15 fire 15 *
+16 fire 16 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+a status armor *
+acon reportcon a *
+act activity
+actc activity/con
+actm activity/max
+at addtic *
+b bearing *
+bb bbread *
+bbr bbread *
+bbs bbscan *
+bf brief *
+bl baselist
+blm baselist/map
+c contacts *
+c2 tscan *
+c3st c3master *
+c3tg c3targets *
+ca sendchannel a=*
+cb sendchannel b=*
+cc sendchannel c=*
+cct critstatus ct
+cd sendchannel d=*
+ce sendchannel e=*
+cen census *
+cenp census/spawn
+cenr census/rs
+cens census/stats
+cent census/techs *
+cenu census/units
+cf sendchannel f=*
+cg sendchannel g=*
+ch sendchannel h=*
+ci sendchannel i=*
+cj sendchannel j=*
+ck sendchannel l=*
+cl club *
+cla critstatus la
+cll critstatus ll
+clt critstatus lt
+cm climb *
+com setchanneltitle *
+con con *
+cp chop *
+cra critstatus ra *
+crct critstatus ct *
+crfl critstatus fl *
+crfr critstatus fr *
+crfs critstatus fs *
+crh critstatus h *
+crl critstatus rl
+crla critstatus la *
+crll critstatus ll *
+crls critstatus ls *
+crlt critstatus lt *
+crlw critstatus lw *
+crn critstatus n *
+crra critstatus ra *
+crrl critstatus rl *
+crrr critstatus rr
+crrs critstatus rs *
+crrt critstatus rt *
+crrw critstatus rw *
+crt critstatus rt
+cs census *
+csq census/squad
+css census/spawn
+ct cleartic *
+ctc critstatus ct
+db dropclub *
+dfm deadfire *
+dp dump *
+dv dive *
+e eta *
+eb enterbase *
+et enter *
+f firetic 0 *
+f0 firetic 0 *
+f1 firetic 1 *
+f2 firetic 2 *
+f3 firetic 3 *
+fa fliparms *
+fc findcenter *
+fct factions
+ff firetic 1 *
+fff firetic 2 *
+ffff firetic 3 *
+fl fuellist
+ft firetic *
+g grab *
+gb grabclub *
+gen genlist
+h heading *
+hac critstatus h
+hc critstatus h
+hex hexme *
+i status i *
+j jump *
+k kick *
+kl kick l *
+kr kick r *
+l lock *
+lac critstatus la
+lat lateral *
+lb leavebase *
+lch listchannels
+ld land *
+lit listchannels *
+llc critstatus ll
+lm +checkall
+lt listtic *
+ltc critstatus lt
+n navigate *
+ot overthrust *
+p punch b *
+pad speed -5
+ph push *
+pl punch l *
+pn prone *
+pr punch r *
+pre precision *
+pu pickup *
+r range *
+ra radio *
+rac critstatus ra
+rc rottorso c *
+rd radio *
+ref viewref *
+reg +reglist
+rel relaylist
+relm relaylist/map
+rev speed back
+rl rottorso l *
+rlc critstatus rl
+rp report *
+rr rottorso r *
+rt rottorso *
+rtc critstatus rt
+s speed *
+s0 sight 0 *
+s1 sight 1 *
+s10 sight 10 *
+s11 sight 11 *
+s12 sight 12 *
+s13 sight 13 *
+s14 sight 14 *
+s15 sight 15 *
+s2 sight 2 *
+s3 sight 3 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+sb stab *
+sc scan *
+scf setchannelfreq *
+sch setchannelfreq *
+scm setchannelmode *
+sct setchanneltitle *
+sd shutdown *
+se sensor *
+sen sensor *
+set setchannelfreq *
+sh slash *
+sl slite *
+sm smash *
+sp speed *
+spec weaponspecs
+sr speed run
+st status *
+stat aerostatus
+stc standcheck *
+stf staff
+stl stationlist
+stlm stationlist/map
+stp startup *
+sw speed walk
+sz speed 0
+t tactical *
+ta status a *
+tc tactical c *
+tg target *
+th status h *
+ti status i *
+tmn turnmode normal
+tmt turnmode tight
+tn status n *
+to takeoff *
+tra transmit assistance
+trd transmit distress
+ts status s *
+tt thrust *
+tu turret *
+tw status w *
+u stand *
+ub usebin *
+uj unjam *
+v vertical *
+vec vector *
+vr viewref *
+vrs viewref/specs *
+vrw viewref/weaponspecs *
+vv vertical -15
+vw view *
+w status weapons *
+wdfm deadfire *
+we weather *
+wf heat *
+wg gatling *
+wh hotload *
+wi inferno *
+wind incendiary *
+wl warplist
+wpre precision *
+wr rapidfire *
+wu ultra *
+wx explosive *
+x axe *
+1756 227 0
+D:Kym's Macros
+0 fire 0 *
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+13 fire 13 *
+14 fire 14 *
+15 fire 15 *
+16 fire 16 *
+2 fire 2 *
+3 fire 3 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+a status armor *
+acon reportcon a *
+act activity
+actc activity/con
+actm activity/max
+at addtic *
+b bearing *
+bb bbread *
+bbr bbread *
+bbs bbscan *
+bf brief *
+bl baselist
+blm baselist/map
+c contacts *
+c2 tscan *
+c3st c3master *
+c3tg c3targets *
+ca sendchannel a=*
+cb sendchannel b=*
+cc sendchannel c=*
+cd sendchannel d=*
+ce sendchannel e=*
+cen census *
+cenp census/spawn
+cenr census/rs
+cens census/stats
+cent census/techs *
+cenu census/units
+cf sendchannel f=*
+cg sendchannel g=*
+ch sendchannel h=*
+ci sendchannel i=*
+cj sendchannel j=*
+ck sendchannel l=*
+cl club *
+cm climb *
+com setchanneltitle *
+con con *
+cp chop *
+cra critstatus a *
+crct critstatus ct *
+crfl critstatus fl *
+crfr critstatus fr *
+crfs critstatus fs *
+crh critstatus h *
+crla critstatus la *
+crll critstatus ll *
+crls critstatus ls *
+crlt critstatus lt *
+crlw critstatus lw *
+crn critstatus n *
+crra critstatus ra *
+crrl critstatus rl *
+crrr critstatus rr
+crrs critstatus rs *
+crrt critstatus rt *
+crrw critstatus rw *
+crt critstatus t*
+cs census *
+csq census/squad
+css census/spawn
+ct cleartic *
+ctc critstatus ct
+db dropclub *
+dfm deadfire *
+dp dump *
+dv dive *
+e eta *
+eb enterbase *
+et enter *
+f firetic 0 *
+f0 firetic 0 *
+f1 firetic 1 *
+f2 firetic 2 *
+f3 firetic 3 *
+fa fliparms *
+fc findcenter *
+fct factions
+ff firetic 1 *
+fff firetic 2 *
+ffff firetic 3 *
+fl fuellist
+ft firetic *
+g grab *
+gb grabclub *
+gen genlist
+h heading *
+hac critstatus h
+hex hexme *
+i status i *
+j jump *
+k kick *
+kl kick l *
+kr kick r *
+l lock *
+lac critstatus la
+lat lateral *
+lb leavebase *
+lch listchannels
+ld land *
+lit listchannels *
+llc critstatus ll
+lm +checkall
+lt listtic *
+n navigate *
+ot overthrust *
+p punch b *
+pad speed -5
+ph push *
+pl punch l *
+pn prone *
+pr punch r *
+pu pickup *
+r range *
+ra radio *
+rac critstatus ra
+rc rottorso c *
+rd radio *
+ref +ref *
+reg +reglist
+rel relaylist
+relm relaylist/map
+rev speed back
+rl rottorso l *
+rlc critstatus rl
+rp report *
+rr rottorso r *
+rt rottorso *
+s speed *
+s0 sight 0 *
+s1 sight 1 *
+s10 sight 10 *
+s11 sight 11 *
+s12 sight 12 *
+s13 sight 13 *
+s14 sight 14 *
+s15 sight 15 *
+s2 sight 2 *
+s3 sight 3 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+sb stab *
+sc scan *
+scf setchannelfreq *
+sch setchannelfreq *
+scm setchannelmode *
+sct setchanneltitle *
+sd shutdown *
+se sensor *
+sen sensor *
+set setchannelfreq *
+sh slash *
+sl slite *
+sm smash *
+sp speed *
+spec weaponspecs
+sr speed run
+st status *
+stat aerostatus
+stc standcheck *
+stf staff
+stl stationlist
+stlm stationlist/map
+stp startup *
+sw speed walk
+sz speed 0
+t tactical *
+ta status a *
+tc tactical c *
+tg target *
+th status h *
+ti status i *
+tmn turnmode normal
+tmt turnmode tight
+tn status n *
+to takeoff *
+tra transmit assistance
+trd transmit distress
+ts status s *
+tt thrust *
+tu turret *
+tw status w *
+u stand *
+ub usebin *
+uj unjam *
+v vertical *
+vec vector *
+vr viewref *
+vrs viewref/specs *
+vrw viewref/weaponspecs *
+vv vertical -15
+vw view *
+w status weapons *
+wdfm deadfire *
+we weather *
+wf heat *
+wg gatling *
+wh hotload *
+wi inferno *
+wind incendiary *
+wl warplist
+wpre precision *
+wr rapidfire *
+wu ultra *
+wx explosive *
+x axe *
+1178 64 0
+D:jd
+00 tactical 0 9
+120 tactical 120 7
+150 tactical 150 8
+18 tactical 180 9
+180 tactical 180 9
+210 tactical 210 8
+240 tactical 240 7
+270 tactical 270 6
+30 tactical 30 8
+300 tactical 300 7
+330 tactical 330 8
+60 tactical 60 7
+90 tactical 90 6
+a status a
+all !checkall
+as !assign *
+bk speed back
+c contacts +
+ca sendchannel a=<Concept> *
+ca: sendchannel a=Concept *
+cb sendchannel b=<Concept> *
+cb: sendchannel b=Concept *
+cc sendchannel c=<Concept> *
+cc: sendchannel c=Concept *
+cd sendchannel d=<Concept> *
+cd: sendchannel d=Concept *
+ck !check *
+co +complexes
+con contacts *
+cr !crane *
+cs checkstatus
+dc +dcread *
+eb enterbase
+et estimate work
+ew estimate work
+fb +ccread *
+fc findcenter
+i status i
+kk Macro_kk *
+lo profile *
+lrs @lrsheight me=*
+ls !liststalls
+map +map
+mi +mines
+mm speed 57
+obj +mines
+re report *
+rep !notes
+ret pose returns the salute.
+rl macro_rl
+rr macro_rr
+seta seta
+setb setb
+setc setc
+setd setd
+tac @tacheight me=*
+tr !transfer *
+tt +techtime
+up startup
+view macro_view *
+w status w
+wk speed walk
+y macro_y
+z speed 0
+205 0 0
+D:Alf's Templating Macros
+515 7 0
+D:
+help help macro
+ltc critstatus lt
+p punch *
+rtc critstatus rt
+ta target *
+wk speed walk
+z speed 0
+1043 2 0
+D:Mutt Stuff
+pl @pl
+stat stationlist
+1298 71 0
+D:Sabaku Sousou
+a status a
+con weather
+cs census
+dd prone
+floa fuel/load
+fuel fuellist
+funl fuel/unload
+h0 heading 0
+h10 heading 10
+h100 heading 100
+h110 heading 110
+h120 heading 120
+h130 heading 130
+h140 heading 140
+h150 heading 150
+h160 heading 160
+h170 heading 170
+h180 heading 180
+h190 heading 190
+h20 heading 20
+h200 heading 200
+h210 heading 210
+h220 heading 220
+h230 heading 230
+h240 heading 240
+h250 heading 250
+h260 heading 260
+h270 heading 270
+h280 heading 280
+h290 heading 290
+h30 heading 30
+h300 heading 300
+h310 heading 310
+h320 heading 320
+h330 heading 330
+h340 heading 340
+h350 heading 350
+h40 heading 40
+h45 heading 45
+h50 heading 50
+h60 heading 60
+h70 heading 70
+h80 heading 80
+h90 heading 90
+hdc critstatus hd
+hot hotload *
+i status i
+lb lbx *
+lba leavebase
+nod pose nods.
+pb punch both
+pick pickup *
+ra radio *
+re report *
+sen sensor *
+shut shutdown
+spe weaponspecs
+su startup
+t0 tactical 0 10
+t120 tactical 120 10
+t180 tactical 180 10
+t240 tactical 240 10
+t270 tactical 270 10
+t300 tactical 300 10
+t60 tactical 60 10
+t90 tactical 90 10
+ta sendchannel a=<$yxx> *
+tar target *
+ult ultra *
+vrf viewref/specs *
+w status w
+1060 4 0
+D:
+rl relaylist
+sb speed back
+z speed 0
+zz speed 0
+634 4 0
+D:mine
+bb bbread *
+upl unitpl
+upt uptime
+vr viewref *
+1246 1 0
+D:
+re report *
+1797 0 0
+D:.ne heading ne
+1797 0 0
+D:.ne heading 45
+1850 46 7
+D:Marca's Marcros
+0 firetic 0
+1 firetic 1
+2 firetic 2
+3 firetic 3
+4 sendchannel a= *
+? sight *
+[ rottorso l
+] rottorso r
+a status a
+at addtic *
+b bearing *
+bl baselist
+c contacts
+cm SETCHANNELMODE *
+ct SETCHANNELTITLE *
+eb enterbay
+es enterbase
+f fire *
+g speed *
+gg speed walk
+ggg speed run
+gggg speed run
+gl genlist
+h heading *
+j jump *
+k kick *
+lc listchannels
+lt listtic *
+n navigate
+q status *
+r report
+rd radio *
+rg range *
+s scan *
+sc SETCHANNELFREQ *
+ss startup
+st stand
+t tactical *
+tr Turret *
+ts tscan
+v vector *
+vv vector *
+w status w
+wc weather
+ws weaponspecs
+x sensor *
+1671 2 0
+D:Phel's Macros
+ba sendchannel a=<ps> *
+dt deltic *
+1850 51 0
+D:Marc take two
+0 firetic 0
+1 firetic 1
+2 firetic 2
+3 firetic 3
+4 sendchannel a= *
+? sight *
+[ rottorso l
+[[ rottorso c
+] rottorso r
+]] rottorso c
+a status a
+at addtic *
+b bearing *
+bl baselist
+c contacts
+cm SETCHANNELMODE *
+ct SETCHANNELTITLE *
+eb enterbay
+es enterbase
+f fire *
+g speed *
+gg speed walk
+ggg speed run
+gggg speed run
+gl genlist
+h heading *
+i status i
+j jump *
+k kick *
+l lock *
+lc listchannels
+lt listtic *
+m navigate
+n navigate
+q status *
+r report
+rd radio *
+rg range *
+s scan *
+sc SETCHANNELFREQ *
+ss startup
+st stand
+t tactical *
+tr Turret *
+ts tscan
+v vector *
+vv vector *
+w status w
+wc weather
+ws weaponspecs
+x sensor *
+1196 2 0
+D:Faz's Fixes
+bk speed back
+wk speed walk
+1768 11 0
+D:BW's Macros
+bk speed back
+lr listresp
+lre lrs e *
+lrs lrs m *
+ra radio *
+rt sendchannel a=<BW> *
+su startup
+ve vector *
+w status w
+wk speed walk
+z speed 0
