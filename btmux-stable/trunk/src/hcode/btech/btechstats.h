@@ -182,7 +182,7 @@ struct char_value {
     {"Tactics", CHAR_SKILL, CHAR_MENTAL | CAREER_ACADMISC, 50},
     {"Technician-Aerospace", CHAR_SKILL, SK_XP | CHAR_MENTAL | CAREER_TECHVEH, 50},
     {"Technician-Battlemech", CHAR_SKILL, SK_XP | CHAR_MENTAL | CAREER_TECHMECH, 600},
-    {"Technician-Battlesuit", CHAR_SKILL, SK_XP | CHAR_MENTAL, 300},
+    {"Technician-BSuit", CHAR_SKILL, SK_XP | CHAR_MENTAL | CAREER_TECHBS, 300},
     {"Technician-Electronics", CHAR_SKILL, SK_XP | CHAR_MENTAL | CAREER_TECH, 50},
     {"Technician-Mechanic", CHAR_SKILL, SK_XP | CHAR_MENTAL | CAREER_TECHVEH, 400},
     {"Technician-Weapons", CHAR_SKILL, SK_XP | CHAR_MENTAL | CAREER_TECH, 300},

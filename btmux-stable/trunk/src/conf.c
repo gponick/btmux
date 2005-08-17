@@ -131,7 +131,7 @@ void NDECL(cf_init)
     mudconf.btech_xp_vrtmod = 0;
     mudconf.btech_limitedrepairs = 0;
     mudconf.btech_newcharge = 0;
-    mudconf.btech_tl3_charge = 0;
+    mudconf.btech_tl3_charge = 1;
     mudconf.btech_xploss = 666;
     mudconf.btech_critlevel = 100;
     mudconf.btech_tankshield = 0;
@@ -140,6 +140,7 @@ void NDECL(cf_init)
     mudconf.btech_stacking = 2;
     mudconf.btech_stackdamage = 100;
     mudconf.btech_mw_losmap = 1;
+    mudconf.btech_use_tech_bsuit = 1;
 #ifdef EXILE_FUNCS_SUPPORT
     mudconf.btech_usedmechstore = 0;
     mudconf.btech_ooc_comsys = 0;
@@ -1257,6 +1258,8 @@ CONF conftable[] = {
 	cf_int,		CA_GOD,		&mudconf.btech_stackdamage, 0},
 {(char *)"btech_mw_losmap",
 	cf_int,		CA_GOD,		&mudconf.btech_mw_losmap, 0},
+{(char *)"btech_use_tech_bsuit",
+	cf_int,		CA_GOD,		&mudconf.btech_use_tech_bsuit, 0},
 #ifdef EXILE_FUNCS_SUPPORT
 {(char *)"btech_usedmechstore",
 	cf_int,         CA_GOD,         &mudconf.btech_usedmechstore,   0},

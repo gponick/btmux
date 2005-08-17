@@ -580,17 +580,20 @@ int FindPilotGunnery(MECH * mech, int weapindx)
 char *FindTechSkillName(MECH * mech)
 {
     switch (MechType(mech)) {
-    case CLASS_MECH:
-    case CLASS_BSUIT:
-	return "Technician-Battlemech";
-    case CLASS_VEH_GROUND:
-    case CLASS_VEH_NAVAL:
-	return "Technician-Mechanic";
-    case CLASS_AERO:
-    case CLASS_VTOL:
-    case CLASS_SPHEROID_DS:
-    case CLASS_DS:
-	return "Technician-Aerospace";
+        case CLASS_BSUIT:
+            if (mudconf.btech_use_tech_bsuit) {
+                return "Technician-BSuit";
+            }
+        case CLASS_MECH:
+            return "Technician-Battlemech";
+        case CLASS_VEH_GROUND:
+        case CLASS_VEH_NAVAL:
+            return "Technician-Mechanic";
+        case CLASS_AERO:
+        case CLASS_VTOL:
+        case CLASS_SPHEROID_DS:
+        case CLASS_DS:
+            return "Technician-Aerospace";
 #if 0				/* Used to be DS tech */
 	return (char_getskilltarget(player, "Technician-Spacecraft", 0));
 #endif

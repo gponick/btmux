@@ -1,5 +1,9 @@
 btonline-btechmux 0.4:
 	- Changes
+	* Changed btech_tl3_charge to default on. (Dany)
+	* Added btech_use_tech_bsuit config parameter with default on.
+	  When enabled it uses the Technician-BSuit skill for fixing
+	  BattleSuits, if off uses Technician-Battlemech. (Dany)
 	* Added HIDDEN flag to status and scan so you can tell if a
 	  unit is hidden. (Dany)
 	* Changed how AIs do physical attacks. Physical weapon attacks 
@@ -41,6 +45,9 @@ btonline-btechmux 0.4:
 	* Added Exile's autosensor code for the AIs. (Dany)
 
 	- BugFixes
+	* Changed the name of the skill 'Technician-BattleSuit' to
+	  'Technician-BSuit' to fix a bug when setting and getting the xp
+	  of that skill. (Dany)
 	* Should now see more emits when trying to hide and when you break
 	  your cover. (Dany)
 	* AIs should now limit their speed if the user specifies a

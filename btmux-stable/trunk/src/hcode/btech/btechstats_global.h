@@ -49,11 +49,14 @@
 #define CAREER_DROPSHIP  0x0100	/* Dropship Pilot/Gun */
 #define CAREER_TECHMECH  0x0200
 #define CAREER_TECHVEH   0x0400
-#define CAREER_TECH      (CAREER_TECHMECH|CAREER_TECHVEH)
+#define CAREER_TECH      (CAREER_TECHMECH|CAREER_TECHVEH|CAREER_TECHBS)
 #define CAREER_MISC      0x0800
 #define CAREER_ACADMISC  0x1000
 #define CAREER_RECON     0x2000
 #define SK_XP            0x4000	/* Always raise xp (not spammable) */
+#define CAREER_GUNNER    0x8000 /* NEW_STATS Gunnery classification */
+#define CAREER_BSUIT     0x10000
+#define CAREER_TECHBS    0x20000
 
 #define XP_MAX    (256*256*256)	/* Then we wrap ; tough beans */
 
