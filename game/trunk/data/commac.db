@@ -1,8 +1,9 @@
 *** Begin COMMAC ***
-33
+34
 1 0 0 -1 -1 -1 -1 0
-2 4 0 -1 -1 -1 -1 0
+2 5 0 -1 -1 -1 -1 0
 mdb MechDebugInfo
+mons Mon-SCode
 pub Public
 sql Mon-SQL
 wiz Wizard
@@ -40,6 +41,8 @@ chan CC-Main
 chan DBInfo
 1809 1 -1 -1 -1 -1 -1 -1
 chan LC-Main
+1836 1 -1 -1 -1 -1 -1 -1
+pub Public
 1841 1 -1 -1 -1 -1 -1 -1
 chan MechTechXP
 1842 1 -1 -1 -1 -1 -1 -1
@@ -72,15 +75,15 @@ chan HighCommand
 +V2
 31
 MechBTHDebug
-8 0 0 0 17 0 3 1844 3
+8 0 0 0 17 0 5 1844 5
 1119933974 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
 1120780020 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
 1123909236 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
+1124157872 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
+1124239063 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
 0
 DSInfo
-8 0 0 0 17 0 22 1851 20
-1117157565 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
-1117159360 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+8 0 0 0 17 0 24 1851 20
 1117159648 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 1117159656 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 1117159852 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
@@ -99,46 +102,52 @@ DSInfo
 1119933097 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 1120780020 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 1123909236 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1124157872 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1124239063 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 0
 Mon-SCode
-8 0 0 0 17 0 28 79 20
-1117159648 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117159656 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117159852 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117163022 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117163032 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117163286 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117163303 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117163346 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117163372 [Mon-SCode] [1m[31mTEMP:[0m Kelvin McCorvin(#2) has removed the template [1mBL6-KNT[0m.
-1117163445 [Mon-SCode] [1m[31mTEMP:[0m Kelvin McCorvin(#2) has removed the template [1mBL6-KNT[0m.
-1117163745 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117163941 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117166531 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117166601 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117226349 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1117227036 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1119908415 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1119933097 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1120780020 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1123909236 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-0
+8 0 0 0 17 0 56 79 20
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1124248705 [Mon-SCode] [1mCHARGEN:[0m Wizard(#2) has selected Support Specialist as their archetype.
+1
+2 1
+t:
 MechTechXP
-8 0 0 0 17 0 3 1841 3
+8 0 0 0 17 0 5 1841 5
 1119934011 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
 1120780020 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
 1123909236 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1124157872 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1124239063 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
 0
 MechPilotXP
-8 0 0 0 17 0 3 1842 3
+8 0 0 0 17 0 5 1842 5
 1119934003 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
 1120780020 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
 1123909236 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1124157872 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1124239063 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
 0
 Wizard
-8 0 0 0 17 0 27 523 20
-1117157565 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
-1117159360 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+8 0 0 0 17 0 29 523 20
 1117159648 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1117159656 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1117159852 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
@@ -157,19 +166,21 @@ Wizard
 1119933097 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1120780020 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1123909236 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1124157872 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1124239063 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1
 2 1
 t:
 MechAttackEmits
-8 0 0 0 17 0 3 1847 3
+8 0 0 0 17 0 5 1847 5
 1119933944 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
 1120780020 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
 1123909236 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1124157872 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1124239063 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
 0
 MechCustom
-8 0 0 0 17 0 22 1855 20
-1117157566 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
-1117159361 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+8 0 0 0 17 0 24 1855 20
 1117159649 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 1117159657 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 1117159853 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
@@ -188,11 +199,11 @@ MechCustom
 1119933098 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 1120780021 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 1123909237 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1124157873 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1124239064 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 0
 CC-Main
-8 0 0 0 17 0 26 1663 20
-1117157565 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
-1117159360 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+8 0 0 0 17 0 28 1663 20
 1117159648 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 1117159656 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 1117159852 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
@@ -211,11 +222,11 @@ CC-Main
 1119933097 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 1120780020 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 1123909236 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1124157872 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1124239063 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 0
 DC-Main
-8 0 0 0 17 0 26 1621 20
-1117157565 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
-1117159360 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+8 0 0 0 17 0 28 1621 20
 1117159648 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 1117159656 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 1117159852 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
@@ -234,11 +245,11 @@ DC-Main
 1119933097 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 1120780020 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 1123909236 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1124157872 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1124239063 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 0
 MechErrors
-8 0 0 0 17 0 28 78 20
-1117159026 [MechErrors] Error in InfiltratorII template: 0.0 tons of 'stuff', yet 1 ton frame.
-1117159360 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+8 0 0 0 17 0 30 78 20
 1117159648 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
 1117159656 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
 1117159852 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
@@ -257,11 +268,11 @@ MechErrors
 1119933097 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
 1120780020 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
 1123909236 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+1124157872 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+1124239063 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
 0
 FC-Main
-8 0 0 0 17 0 26 1623 20
-1117157565 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
-1117159360 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+8 0 0 0 17 0 28 1623 20
 1117159648 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 1117159656 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 1117159852 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
@@ -280,11 +291,11 @@ FC-Main
 1119933097 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 1120780020 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 1123909236 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1124157872 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1124239063 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 0
 HighCommand
-8 0 0 0 17 0 26 428 20
-1117157565 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
-1117159360 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+8 0 0 0 17 0 28 428 20
 1117159648 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 1117159656 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 1117159852 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
@@ -303,11 +314,11 @@ HighCommand
 1119933097 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 1120780020 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 1123909236 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1124157872 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1124239063 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 0
 LC-Main
-8 0 0 0 17 0 26 1809 20
-1117157565 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
-1117159360 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+8 0 0 0 17 0 28 1809 20
 1117159648 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 1117159656 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 1117159852 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
@@ -326,11 +337,11 @@ LC-Main
 1119933097 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 1120780020 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 1123909236 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1124157872 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1124239063 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 0
 MechXP
-8 0 0 0 17 0 26 77 20
-1117157565 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
-1117159360 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+8 0 0 0 17 0 28 77 20
 1117159648 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 1117159656 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 1117159852 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
@@ -349,11 +360,11 @@ MechXP
 1119933097 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 1120780020 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 1123909236 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1124157872 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1124239063 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 0
 Mon-SQL
-8 0 0 0 17 0 29 1582 20
-1117159656 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
-1117159852 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+8 0 0 0 17 0 31 1582 20
 1117163022 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
 1117163032 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
 1117163286 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
@@ -372,13 +383,13 @@ Mon-SQL
 1120780608 [Mon-SQL] dsf  
 1120780635 [Mon-SQL] dsf3sfd  
 1123909236 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1124157872 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1124239063 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
 1
 2 1
 t:
 MechAI
-8 0 0 0 17 0 26 76 20
-1117157565 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
-1117159360 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+8 0 0 0 17 0 28 76 20
 1117159648 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 1117159656 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 1117159852 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
@@ -397,11 +408,11 @@ MechAI
 1119933097 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 1120780020 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 1123909236 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1124157872 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1124239063 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 0
 Suspect
-8 0 0 0 17 0 22 1849 20
-1117157565 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
-1117159360 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+8 0 0 0 17 0 24 1849 20
 1117159648 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 1117159656 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 1117159852 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
@@ -420,11 +431,11 @@ Suspect
 1119933097 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 1120780020 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 1123909236 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1124157872 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1124239063 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 0
 MechEconInfo
-8 0 0 0 17 0 22 1854 20
-1117157565 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
-1117159360 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+8 0 0 0 17 0 24 1854 20
 1117159648 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 1117159656 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 1117159852 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
@@ -443,11 +454,11 @@ MechEconInfo
 1119933097 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 1120780020 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 1123909236 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1124157872 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1124239063 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 0
 EventInfo
-8 0 0 0 17 0 22 1852 20
-1117157565 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
-1117159360 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+8 0 0 0 17 0 24 1852 20
 1117159648 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 1117159656 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 1117159852 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
@@ -466,11 +477,11 @@ EventInfo
 1119933097 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 1120780020 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 1123909236 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1124157872 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1124239063 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 0
 MechDebugInfo
-8 0 0 0 17 0 27 83 20
-1117157565 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
-1117159360 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+8 0 0 0 17 0 29 83 20
 1117159648 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1117159656 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1117159852 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
@@ -489,13 +500,13 @@ MechDebugInfo
 1119933097 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1120780020 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1123909236 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+1124157872 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+1124239063 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1
 2 1
 t:
 MineTriggers
-8 0 0 0 17 0 26 80 20
-1117157565 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1117159360 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+8 0 0 0 17 0 28 80 20
 1117159648 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 1117159656 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 1117159852 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
@@ -514,11 +525,11 @@ MineTriggers
 1119933097 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 1120780020 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 1123909236 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1124157872 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1124239063 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 0
 DBInfo
-8 0 0 0 17 0 26 690 20
-1117157565 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
-1117159360 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+8 0 0 0 17 0 28 690 20
 1117159648 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 1117159656 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 1117159852 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
@@ -537,11 +548,11 @@ DBInfo
 1119933097 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 1120780020 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 1123909236 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1124157872 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1124239063 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 0
 Royalty
-8 0 0 0 17 0 26 96 20
-1117157565 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
-1117159360 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+8 0 0 0 17 0 28 96 20
 1117159648 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1117159656 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1117159852 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
@@ -560,11 +571,11 @@ Royalty
 1119933097 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1120780020 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1123909236 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1124157872 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1124239063 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 0
 MechSensor
-8 0 0 0 17 0 26 81 20
-1117157565 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
-1117159360 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+8 0 0 0 17 0 28 81 20
 1117159648 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 1117159656 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 1117159852 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
@@ -583,11 +594,11 @@ MechSensor
 1119933097 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 1120780020 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 1123909236 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1124157872 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1124239063 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 0
 FAQ
-520 0 0 0 17 0 21 103 20
-1117157565 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
-1117159360 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+520 0 0 0 17 0 23 103 20
 1117159648 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 1117159656 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 1117159852 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
@@ -606,11 +617,11 @@ FAQ
 1119933097 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 1120780020 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 1123909236 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1124157872 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1124239063 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 0
 SuspectsLog
-8 0 0 0 17 0 22 1848 20
-1117157565 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
-1117159360 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+8 0 0 0 17 0 24 1848 20
 1117159648 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 1117159656 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 1117159852 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
@@ -629,23 +640,19 @@ SuspectsLog
 1119933097 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 1120780020 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 1123909236 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1124157872 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1124239063 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 0
 MechAttackXP
-8 0 0 0 17 0 3 1846 3
+8 0 0 0 17 0 5 1846 5
 1119933958 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
 1120780020 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
 1123909236 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1124157872 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1124239063 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
 0
 MUXConnections
-8 0 0 0 17 0 49 1850 20
-1119908421 [MUXConnections] * Kelvin McCorvin has disconnected *
-1119933097 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
-1119933155 [MUXConnections] * Kelvin McCorvin has connected from localhost.localdomain *
-1119933164 [MUXConnections] * Kelvin McCorvin has disconnected *
-1119933177 [MUXConnections] * Kelvin McCorvin has connected from localhost.localdomain *
-1119933239 [MUXConnections] * Kelvin McCorvin has disconnected *
-1119933287 [MUXConnections] * Kelvin McCorvin has connected from localhost.localdomain *
-1119933482 [MUXConnections] * Wizard has disconnected *
+8 0 0 0 17 0 57 1850 20
 1119933487 [MUXConnections] * Wizard has connected from localhost.localdomain *
 1119933492 [MUXConnections] * Wizard has disconnected *
 1119933494 [MUXConnections] * Wizard has connected from localhost.localdomain *
@@ -658,18 +665,25 @@ MUXConnections
 1123909236 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
 1123909258 [MUXConnections] * Wizard has connected from localhost.localdomain *
 1123909309 [MUXConnections] * Wizard has disconnected *
+1124157872 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1124157910 [MUXConnections] * Wizard has connected from localhost.localdomain *
+1124157943 [MUXConnections] * Wizard has disconnected *
+1124157981 [MUXConnections] * Wizard has connected from localhost.localdomain *
+1124164800 [MUXConnections] * Wizard has disconnected *
+1124239063 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1124239275 [MUXConnections] * Wizard has connected from localhost.localdomain *
+1124251620 [MUXConnections] * Wizard has disconnected *
 0
 MechFreqs
-8 0 0 0 17 0 3 1843 3
+8 0 0 0 17 0 5 1843 5
 1119933990 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
 1120780020 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
 1123909236 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1124157872 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1124239063 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
 0
 Public
-520 0 0 0 17 0 22 84 20
-1117157565 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
-1117159360 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
-1117159648 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+520 0 0 0 17 0 25 84 20
 1117159656 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 1117159852 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 1117163022 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
@@ -687,8 +701,13 @@ Public
 1119933097 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 1120780020 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 1123909236 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
-1
+1124157872 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1124239063 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1124240507 [Public] Mechwarrior has joined this channel.
+2
 2 1
+t:
+1836 1
 t:
 *** Begin MACRO ***
 1
