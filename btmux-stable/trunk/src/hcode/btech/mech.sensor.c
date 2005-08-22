@@ -633,7 +633,7 @@ char *mechSensorInfo(int mode, MECH * mech, char *arg)
     buffer[0] = SensorInf[(short) MechSensor(mech)[0]];
     buffer[1] = SensorInf[(short) MechSensor(mech)[1]];
     if (SensorChange(mech)) {
-	event_gothru_type_data(EVENT_SCHANGE, (void *) mech, sensor_check);
+	muxevent_gothru_type_data(EVENT_SCHANGE, (void *) mech, sensor_check);
 	if (tmp_found) {
 	    buffer[2] = SensorInf[tmp_prim + NUM_SENSORS];
 	    buffer[3] = SensorInf[tmp_sec + NUM_SENSORS];
@@ -653,7 +653,7 @@ static void show_sensor(dbref player, MECH * mech, int verbose)
     sensor_mode(mech, "Sensors", player, MechSensor(mech)[0],
 	MechSensor(mech)[1], verbose);
     if (SensorChange(mech)) {
-	event_gothru_type_data(EVENT_SCHANGE, (void *) mech, sensor_check);
+	muxevent_gothru_type_data(EVENT_SCHANGE, (void *) mech, sensor_check);
 	if (tmp_found)
 	    sensor_mode(mech, "Wanted", player, tmp_prim, tmp_sec, 0);
     }

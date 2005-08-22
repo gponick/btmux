@@ -2,7 +2,7 @@
 
 CC             = @CC@
 MAKEDEPEND     = gcc -MM
-CFLAGS         = -pipe -g -Wall -O2 -Wno-unused -fno-strict-aliasing
+CFLAGS		   = -g -Wall -Wno-unused
 CPPFLAGS       = @CPPFLAGS@
 
 INCLUDES       = -Iinclude -Isrc -Isrc/hcode/include -Isrc/hcode/btech
@@ -58,6 +58,7 @@ MUX_OBJECTS    = src/alloc.o       \
                  src/predicates.o  \
                  src/python.o      \
                  src/regexp.o      \
+				 src/rbtree.o      \
                  src/rob.o         \
                  src/set.o         \
                  src/speech.o      \

@@ -115,7 +115,7 @@ extern int doing_explode;
 void check_stackpole(MECH * wounded, MECH * attacker)
 {
     if (mudconf.btech_stackpole && !doing_explode && 
-        (MechBoomStart(wounded) + MAX_BOOM_TIME) >= event_tick &&
+        (MechBoomStart(wounded) + MAX_BOOM_TIME) >= muxevent_tick &&
         Roll() >= BOOM_BTH &&
         (Started(wounded) || Starting(wounded))) {
 

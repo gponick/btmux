@@ -1,10 +1,9 @@
 
 /* interface.h */
 
-/* $Id: interface.h,v 1.3 2005/06/24 04:39:05 av1-op Exp $ */
+/* $Id: interface.h,v 1.7 2005/08/08 10:30:11 murrayma Exp $ */
 
 #include "copyright.h"
-#include "config.h"
 
 #ifndef __INTERFACE__H
 #define __INTERFACE__H
@@ -13,6 +12,7 @@
 #include "externs.h"
 #include "htab.h"
 #include "alloc.h"
+#include "config.h"
 
 #include <sys/types.h>
 #include <sys/time.h>
@@ -22,6 +22,7 @@
 #ifdef HAVE_SYS_SELECT_H
 #include <sys/select.h>
 #endif
+#include <event.h>
 
 /* these symbols must be defined by the interface */
 
@@ -65,19 +66,6 @@ struct cmd_block {
     char cmd[LBUF_SIZE - sizeof(CBLKHDR)];
 };
 
-typedef struct text_block_hdr TBLKHDR;
-typedef struct text_block TBLOCK;
-
-struct text_block {
-    struct text_block_hdr {
-	struct text_block *nxt;
-	char *start;
-	char *end;
-	int nchars;
-    } hdr;
-    char data[OUTPUT_BLOCK_SIZE - sizeof(TBLKHDR)];
-};
-
 typedef struct prog_data PROG;
 struct prog_data {
     dbref wait_cause;
@@ -91,13 +79,6 @@ typedef struct descriptor_data DESC;
 struct descriptor_data {
     int descriptor;
     int logo;
-#ifdef CONCENTRATE
-#define C_CCONTROL 1
-#define C_REMOTE 2
-    int concid;
-    int cstatus;
-    struct descriptor_data *parent;
-#endif
     int flags;
     int retries_left;
     int command_count;
@@ -113,8 +94,6 @@ struct descriptor_data {
     int output_size;
     int output_tot;
     int output_lost;
-    TBLOCK *output_head;
-    TBLOCK *output_tail;
     int input_size;
     int input_tot;
     int input_lost;
@@ -132,6 +111,7 @@ struct descriptor_data {
     struct descriptor_data *hashnext;
     struct descriptor_data *next;
     struct descriptor_data **prev;
+    struct event sock_ev;
 };
 
 /* flags in the flag field */
@@ -144,43 +124,42 @@ extern DESC *descriptor_list;
 
 /* from the net interface */
 
-extern void NDECL(emergency_shutdown);
-extern void FDECL(shutdownsock, (DESC *, int));
-extern void FDECL(shovechars, (int));
-extern void NDECL(set_signals);
+extern void emergency_shutdown(void);
+extern void shutdownsock(DESC *, int);
+extern void shovechars(int);
+extern void set_signals(void);
 
 /* from netcommon.c */
 
-extern struct timeval FDECL(timeval_sub, (struct timeval, struct timeval));
-extern int FDECL(msec_diff, (struct timeval now, struct timeval then));
-extern struct timeval FDECL(msec_add, (struct timeval, int));
-extern struct timeval FDECL(update_quotas, (struct timeval,
-	struct timeval));
-extern void FDECL(handle_http, (DESC *, char *));
-extern void FDECL(raw_notify, (dbref, const char *));
-extern void FDECL(raw_notify_raw, (dbref, const char *, char *));
-extern void FDECL(raw_notify_newline, (dbref));
-extern void FDECL(hudinfo_notify, (DESC *, const char *, const char *, const char *));
-extern void FDECL(clearstrings, (DESC *));
-extern void FDECL(queue_write, (DESC *, const char *, int));
-extern void FDECL(queue_string, (DESC *, const char *));
-extern void FDECL(freeqs, (DESC *));
-extern void FDECL(welcome_user, (DESC *));
-extern void FDECL(save_command, (DESC *, CBLK *));
-extern void FDECL(announce_disconnect, (dbref, DESC *, const char *));
-extern int FDECL(boot_off, (dbref, char *));
-extern int FDECL(boot_by_port, (int, int, char *));
-extern int FDECL(fetch_idle, (dbref));
-extern int FDECL(fetch_connect, (dbref));
-extern void NDECL(check_idle);
-extern void NDECL(process_commands);
-extern int FDECL(site_check, (struct in_addr, SITE *));
-extern void FDECL(make_ulist, (dbref, char *, char **));
-extern dbref FDECL(find_connected_name, (dbref, char *));
+extern struct timeval timeval_sub(struct timeval, struct timeval);
+extern int msec_diff(struct timeval now, struct timeval then);
+extern struct timeval msec_add(struct timeval, int);
+extern struct timeval update_quotas(struct timeval, struct timeval);
+extern void handle_http(DESC *, char *);
+extern void raw_notify(dbref, const char *);
+extern void raw_notify_raw(dbref, const char *, char *);
+extern void raw_notify_newline(dbref);
+extern void hudinfo_notify(DESC *, const char *, const char *, const char *);
+extern void clearstrings(DESC *);
+extern void queue_write(DESC *, const char *, int);
+extern void queue_string(DESC *, const char *);
+extern void freeqs(DESC *);
+extern void welcome_user(DESC *);
+extern void save_command(DESC *, CBLK *);
+extern void announce_disconnect(dbref, DESC *, const char *);
+extern int boot_off(dbref, char *);
+extern int boot_by_port(int, int, char *);
+extern int fetch_idle(dbref);
+extern int fetch_connect(dbref);
+extern void check_idle(void);
+extern void process_commands(void);
+extern int site_check(struct in_addr, SITE *);
+extern void make_ulist(dbref, char *, char **);
+extern dbref find_connected_name(dbref, char *);
 
 /* from hcode/btech/hudinfo.c */
 #ifdef HUDINFO_SUPPORT
-extern void FDECL(do_hudinfo, (DESC *, char *));
+extern void do_hudinfo(DESC *, char *);
 #endif
 
 /* From predicates.c */
@@ -189,31 +168,36 @@ extern void FDECL(do_hudinfo, (DESC *, char *));
 #define free_desc(b) pool_free(POOL_DESC,((char **)&(b)))
 
 #define DESC_ITER_PLAYER(p,d) \
-	for (d=(DESC *)nhashfind((int)p,&mudstate.desc_htab);d;d=d->hashnext)
+	for (d=(DESC *)rb_find(mudstate.desctree, &p);d;d=d->hashnext)
+
 #define DESC_ITER_CONN(d) \
 	for (d=descriptor_list;(d);d=(d)->next) \
 		if ((d)->flags & DS_CONNECTED)
+
 #define DESC_ITER_ALL(d) \
 	for (d=descriptor_list;(d);d=(d)->next)
 
 #define DESC_SAFEITER_PLAYER(p,d,n) \
-	for (d=(DESC *)nhashfind((int)p,&mudstate.desc_htab), \
+	for (d=(DESC *)rb_find(mudstate.desctree, &p), \
         	n=((d!=NULL) ? d->hashnext : NULL); \
 	     d; \
 	     d=n,n=((n!=NULL) ? n->hashnext : NULL))
+
 #define DESC_SAFEITER_CONN(d,n) \
 	for (d=descriptor_list,n=((d!=NULL) ? d->next : NULL); \
 	     d; \
 	     d=n,n=((n!=NULL) ? n->next : NULL)) \
 		if ((d)->flags & DS_CONNECTED)
+
 #define DESC_SAFEITER_ALL(d,n) \
 	for (d=descriptor_list,n=((d!=NULL) ? d->next : NULL); \
 	     d; \
 	     d=n,n=((n!=NULL) ? n->next : NULL))
-
+#if 0
 #define MALLOC(result, type, number, where) do { \
 	if (!((result)=(type *) XMALLOC (((number) * sizeof (type)), where))) \
 		panic("Out of memory", 1);				\
 	} while (0)
+#endif
 
 #endif

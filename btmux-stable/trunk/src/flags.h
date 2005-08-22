@@ -1,7 +1,7 @@
 
 /* flags.h - object flags */
 
-/* $Id: flags.h,v 1.1.1.1 2005/01/11 21:17:41 kstevens Exp $ */
+/* $Id: flags.h,v 1.3 2005/06/23 02:59:58 murrayma Exp $ */
 
 #include "copyright.h"
 
@@ -293,17 +293,17 @@ typedef struct flagset {
     FLAG word3;
 } FLAGSET;
 
-extern void NDECL(init_flagtab);
-extern void FDECL(display_flagtab, (dbref));
-extern void FDECL(flag_set, (dbref, dbref, char *, int));
-extern char *FDECL(flag_description, (dbref, dbref));
-extern FLAGENT *FDECL(find_flag, (dbref, char *));
-extern char *FDECL(decode_flags, (dbref, FLAG, int, int));
-extern int FDECL(has_flag, (dbref, dbref, char *));
-extern char *FDECL(unparse_object, (dbref, dbref, int));
-extern char *FDECL(unparse_object_numonly, (dbref));
-extern int FDECL(convert_flags, (dbref, char *, FLAGSET *, FLAG *));
-extern void FDECL(decompile_flags, (dbref, dbref, char *));
+extern void init_flagtab(void);
+extern void display_flagtab(dbref);
+extern void flag_set(dbref, dbref, char *, int);
+extern char *flag_description(dbref, dbref);
+extern FLAGENT *find_flag(dbref, char *);
+extern char *decode_flags(dbref, FLAG, int, int);
+extern int has_flag(dbref, dbref, char *);
+extern char *unparse_object(dbref, dbref, int);
+extern char *unparse_object_numonly(dbref);
+extern int convert_flags(dbref, char *, FLAGSET *, FLAG *);
+extern void decompile_flags(dbref, dbref, char *);
 
 #define	unparse_flags(p,t) decode_flags(p,Flags(t),Flags2(t),Flags3(t))
 

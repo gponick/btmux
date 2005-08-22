@@ -37,8 +37,8 @@ extern NAMETAB indiv_attraccess_nametab[];
 
 extern int game_lag(void);
 
-extern void FDECL(cf_log_notfound, (dbref player, char *cmd,
-	const char *thingname, char *thing));
+extern void cf_log_notfound(dbref player, char *cmd,
+	const char *thingname, char *thing);
 
 /*
  * Function definitions from funceval.c 
@@ -5667,8 +5667,7 @@ FUN flist[] = {
 
 
 
-void NDECL(init_functab)
-{
+void init_functab() {
     FUN *fp;
     char *buff, *cp, *dp;
 

@@ -40,7 +40,7 @@ extern char *strtok(char *s, const char *ct);
 /* EXTERNS THAT SHOULDN'T BE IN HERE! */
 extern void *FindObjectsData(dbref key);
 dbref match_thing(dbref player, char *name);
-void event_remove_data(void *data);
+void muxevent_remove_data(void *data);
 
 #define MECHREP_COMMON(a) \
 struct mechrep_data *rep = (struct mechrep_data *) data; \
@@ -504,7 +504,7 @@ void mechrep_Rloadnew(dbref player, void *data, char *buffer)
     MECHREP_COMMON(1);
     if (mech_parseattributes(buffer, args, 1) == 1)
 	if (mech_loadnew(player, mech, args[0]) == 1) {
-	    event_remove_data((void *) mech);
+	    muxevent_remove_data((void *) mech);
 	    clear_mech_from_LOS(mech);
 	    notify(player, "Template loaded.");
 	    return;

@@ -4,19 +4,20 @@
  */
 
 /*
- * $Id: dbconvert.c,v 1.2 2005/06/24 04:39:04 av1-op Exp $ 
+ * $Id: dbconvert.c,v 1.5 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #undef MEMORY_BASED
 #include "copyright.h"
 #include "config.h"
 
+#include "config.h"
 #include "db.h"
 #include "externs.h"
 
-extern void NDECL(cf_init);
-extern void FDECL(do_dbck, (dbref, dbref, int));
-extern void NDECL(vattr_init);
+extern void cf_init(void);
+extern void do_dbck(dbref, dbref, int);
+extern void vattr_init(void);
 
 /*
  * ---------------------------------------------------------------------------
@@ -115,9 +116,7 @@ char *argv[];
 	exit(1);
     }
     cf_init();
-#ifdef RADIX_COMPRESSION
-    init_string_compress();
-#endif
+
     /*
      * Decide what conversions to do and how to format the output file 
      */

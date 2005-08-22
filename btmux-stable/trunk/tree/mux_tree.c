@@ -1,6 +1,6 @@
 
 /*
- * $Id: mux_tree.c,v 1.3 2005/06/24 04:39:08 av1-op Exp $
+ * $Id: mux_tree.c,v 1.2 2005/06/23 22:02:14 av1-op Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *

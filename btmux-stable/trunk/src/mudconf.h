@@ -1,24 +1,21 @@
 
 /* mudconf.h */
 
-/* $Id: mudconf.h,v 1.8 2005/07/22 16:50:07 av1-op Exp $ */
+/* $Id: mudconf.h,v 1.6 2005/08/08 10:30:11 murrayma Exp $ */
 
 #include "config.h"
 
 #ifndef __CONF_H
 #define __CONF_H
 
-#ifdef VMS
-#include "multinet_root:[multinet.include.sys]types.h"
-#include "multinet_root:[multinet.include.netinet]in.h"
-#else
 #include <netinet/in.h>
-#endif
+#include "config.h"
 #include "htab.h"
 #include "alloc.h"
 #include "flags.h"
 #include "mail.h"
 #include "db.h"
+#include "rbtree.h"
 
 /* CONFDATA:	runtime configurable parameters */
 
@@ -120,8 +117,8 @@ struct confdata {
     int btech_nofusionvtolfuel;	/* Fusion engine'd VTOLs don't use fuel */
     int btech_vhltacthreshold;	/* threshold for vehicle TACs. If it's <= 0, we ignore any armor level and do normal tacs, else we only TAC if the armor percent is <= to the value. */
     int btech_mechtacthreshold;	/* threshold for Mech TACs. If it's <= 0, we ignore any armor level and do normal tacs, else we only TAC if the armor percent is <= to the value. */
-    int btech_newcharge;    /* New vector based charge code */
-    int btech_tl3_charge;   /* TL3 charge rules for used with the new charge code */
+    int btech_newcharge;
+    int btech_tl3_charge;
     int btech_tankfriendly;	/* Some tank friendly changes if fasacrit is too harsh */
     int btech_skidcliff;	/* skidroll to check for cliffs and falldamage for mechs  */
     int btech_xp_bthmod;	/* Use bth modifier in new xp code */
@@ -295,40 +292,30 @@ struct confdata {
     char sqlDB_username_A[128];
     char sqlDB_password_A[128];
     char sqlDB_dbname_A[128];
-    char sqlDB_socket_A[128];
-    char sqlDB_port_A[128];
     int sqlDB_init_B;
     char sqlDB_type_B[128];
     char sqlDB_hostname_B[128];
     char sqlDB_username_B[128];
     char sqlDB_password_B[128];
     char sqlDB_dbname_B[128];
-    char sqlDB_socket_B[128];
-    char sqlDB_port_B[128];
     int sqlDB_init_C;
     char sqlDB_type_C[128];
     char sqlDB_hostname_C[128];
     char sqlDB_username_C[128];
     char sqlDB_password_C[128];
     char sqlDB_dbname_C[128];
-    char sqlDB_socket_C[128];
-    char sqlDB_port_C[128];
     int sqlDB_init_D;
     char sqlDB_type_D[128];
     char sqlDB_hostname_D[128];
     char sqlDB_username_D[128];
     char sqlDB_password_D[128];
     char sqlDB_dbname_D[128];
-    char sqlDB_socket_D[128];
-    char sqlDB_port_D[128];
     int sqlDB_init_E;
     char sqlDB_type_E[128];
     char sqlDB_hostname_E[128];
     char sqlDB_username_E[128];
     char sqlDB_password_E[128];
     char sqlDB_dbname_E[128];
-    char sqlDB_socket_E[128];
-    char sqlDB_port_E[128];
 #endif
 #ifdef EXTENDED_DEFAULT_PARENTS
     int room_parent;
@@ -432,7 +419,8 @@ struct statedata {
     HASHTAB attr_name_htab;	/* Attribute names hashtable */
     HASHTAB vattr_name_htab;	/* User attribute names hashtable */
     HASHTAB player_htab;	/* Player name->number hashtable */
-    NHSHTAB desc_htab;		/* Socket descriptor hashtable */
+//    NHSHTAB desc_htab;		/* Socket descriptor hashtable */
+    rbtree *desctree;
     NHSHTAB fwdlist_htab;	/* Room forwardlists */
     NHSHTAB parent_htab;	/* Parent $-command exclusion */
 #ifdef PARSE_TREES
@@ -517,7 +505,7 @@ extern STATEDATA mudstate;
 			long	extra; \
 			dbref	player;
 
-#define CF_HDCL(proc)	int FDECL(proc, (long *, char *, long, dbref, char *))
+#define CF_HDCL(proc)	int proc(long *, char *, long, dbref, char *)
 
 /* Global flags */
 

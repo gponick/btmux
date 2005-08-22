@@ -21,6 +21,8 @@
 
 #include "mech.h"
 #include "mech.events.h"
+#include "muxevent.h"
+#include "p.event.h"
 #include "p.mech.utils.h"
 #include "p.mech.los.h"
 #include "p.eject.h"

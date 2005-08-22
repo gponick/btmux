@@ -1,6 +1,6 @@
 
 /*
- * $Id: glue.h,v 1.5 2005/08/10 14:09:34 av1-op Exp $
+ * $Id: glue.h,v 1.4 2005/08/08 09:43:10 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *
@@ -21,7 +21,6 @@
 #include "config.h"
 
 /* Parameter to the save/load function */
-
 #ifndef _GLUE_H
 #define _GLUE_H
 
@@ -1040,19 +1039,14 @@ LINEB(txt,cmd,0,NULL,0,NULL,power)
 LINEB(txt,cmd,sizeof(t),NULL,0,NULL,power)
 
 SpecialObjectStruct SpecialObjects[] = {
-    LINE("MECH", mechcommands, MECH, newfreemech, HEAT_TICK, mech_update,
-	POW_MECH),
+    LINE("MECH", mechcommands, MECH, newfreemech, HEAT_TICK, mech_update, POW_MECH),
     LINE_ND("DEBUG", debugcommands, POW_SECURITY),
-    LINE_NU("MECHREP", mechrepcommands, struct mechrep_data,
-	newfreemechrep, POW_MECHREP),
-    LINE("MAP", mapcommands, MAP, newfreemap, LOS_TICK, map_update,
-	POW_MAP),
+    LINE_NU("MECHREP", mechrepcommands, struct mechrep_data, newfreemechrep, POW_MECHREP),
+    LINE("MAP", mapcommands, MAP, newfreemap, LOS_TICK, map_update, POW_MAP),
     LINE_ND("CHARGEN", chargencommands, POW_SECURITY),
-    LINE_NU("AUTOPILOT", autopilotcommands, AUTO, newautopilot,
-	POW_SECURITY),
+    LINE_NU("AUTOPILOT", autopilotcommands, AUTO, newautopilot, POW_SECURITY),
     LINE_NU("TURRET", turretcommands, TURRET_T, newturret, POW_SECURITY),
-    LINE_NU("CUSTOM", customcommands, struct custom_struct, newfreecustom,
-	POW_MECHREP),
+    LINE_NU("CUSTOM", customcommands, struct custom_struct, newfreecustom, POW_MECHREP),
     LINE_NFS("SCEN", scencommands, SCEN, POW_SECURITY),
     LINE_NFS("SSIDE", sscommands, SSIDE, POW_SECURITY),
     LINE_NFS("SSOBJ", sscommands, SSOBJ, POW_SECURITY),

@@ -1,6 +1,6 @@
 
 /*
- * $Id: predicates.c,v 1.3 2005/07/18 17:03:29 av1-op Exp $ 
+ * $Id: predicates.c,v 1.5 2005/08/08 10:30:11 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -8,6 +8,7 @@
 
 #include <signal.h>
 #include "mudconf.h"
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "externs.h"
@@ -20,17 +21,15 @@
 #include "patchlevel.h"
 #include "htab.h"
 
-extern dbref FDECL(match_thing, (dbref, char *));
-extern int FDECL(do_command, (DESC *, char *, int));
-extern void NDECL(dump_database);
-extern void NDECL(dump_restart_db);
+extern dbref match_thing(dbref, char *);
+extern int do_command(DESC *, char *, int);
+extern void dump_database(void);
+extern void dump_restart_db(void);
 extern int slave_pid;
 extern int slave_socket;
 
 #ifdef SQL_SUPPORT
-#ifndef NO_SQLSLAVE
 extern int sqlslave_pid, sqlslave_socket;
-#endif
 #endif
 
 #if ARBITRARY_LOGFILES_MODE==2
@@ -38,7 +37,7 @@ extern int fileslave_pid, fileslave_socket;
 #endif
 
 #ifdef NEED_VSPRINTF_DCL
-extern char *FDECL(vsprintf, (char *, char *, va_list));
+extern char *vsprintf(char *, char *, va_list);
 
 #endif
 
@@ -932,7 +931,8 @@ char *message;
     /* First, set 'all' to a descriptor we find for this player */
 
 
-    all = (DESC *) nhashfind(d->player, &mudstate.desc_htab);
+    //all = (DESC *) nhashfind(d->player, &mudstate.desc_htab);
+    all = (DESC *) rb_find(mudstate.desctree, &d->player);
 
     for (i = 0; i < MAX_GLOBAL_REGS; i++) {
 	free_lbuf(all->program_data->wait_regs[i]);
@@ -986,7 +986,8 @@ char *name;
 	return;
     }
 
-    d = (DESC *) nhashfind(doer, &mudstate.desc_htab);
+//    d = (DESC *) nhashfind(doer, &mudstate.desc_htab);
+    d = (DESC *) rb_find(mudstate.desctree, &doer);
 
     for (i = 0; i < MAX_GLOBAL_REGS; i++) {
 	free_lbuf(d->program_data->wait_regs[i]);
@@ -1118,10 +1119,8 @@ void do_restart(player, cause, key)
     shutdown(slave_socket, 2);
     kill(slave_pid, SIGKILL);
 #ifdef SQL_SUPPORT
-#ifndef NO_SQLSLAVE
     shutdown(sqlslave_socket, 2);
     kill(sqlslave_pid, SIGKILL);
-#endif
 #endif
 
 #if ARBITRARY_LOGFILES_MODE==2    

@@ -300,7 +300,7 @@ int cause_internaldamage(MECH * wounded,
     /* Hmm.. This should be interesting */
     if (MechType(wounded) == CLASS_MECH && intDamage && (hitloc == CTORSO)
 	&& GetSectInt(wounded, hitloc) == GetSectOInt(wounded, hitloc))
-	MechBoomStart(wounded) = event_tick;
+	MechBoomStart(wounded) = muxevent_tick;
 
     if (GetSectInt(wounded, hitloc) <= intDamage) {
 	intDamage -= GetSectInt(wounded, hitloc);
@@ -831,7 +831,7 @@ void DestroySection(MECH * wounded, MECH * attacker, int LOS, int hitloc)
         for (i = 0; i < NUM_SECTIONS; i++)
             if (GetSectOInt(wounded, i) && GetSectInt(wounded, i))
                 return;
-        if (event_count_type_data(EVENT_NUKEMECH, (void *) wounded)) {
+        if (muxevent_count_type_data(EVENT_NUKEMECH, (void *) wounded)) {
             fprintf(stderr, "And nuke event already existed.\n");
             return;
         }

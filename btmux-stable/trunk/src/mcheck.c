@@ -31,7 +31,6 @@
 #include "copyright.h"
 #include "config.h"
 #include "externs.h"
-#include <stdlib.h>
 
 /*
  * Old hook values.  

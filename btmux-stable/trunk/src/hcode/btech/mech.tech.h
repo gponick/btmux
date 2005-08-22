@@ -108,10 +108,10 @@ DOCHECK(mudconf.btech_limitedrepairs && !isds && !MechStall(mech) && !Wiz(player
 #define START(a) notify(player, a)
 #ifndef BT_FREETECHTIME
 #define FIXEVENT(time,d1,d2,fu,type) \
-     event_add(MAX(1, time), 0, type, fu, (void *) d1, (void *) ((d2) + player * PLAYERPOS))
+     muxevent_add(MAX(1, time), 0, type, fu, (void *) d1, (void *) ((d2) + player * PLAYERPOS))
 #else
 #define FIXEVENT(time,d1,d2,fu,type) \
-    event_add((mudconf.btech_freetechtime ? 2 : MAX(2, time)), 0, type, fu, (void *) d1, (void *) ((d2) + player * PLAYERPOS))
+    muxevent_add((mudconf.btech_freetechtime ? 2 : MAX(2, time)), 0, type, fu, (void *) d1, (void *) ((d2) + player * PLAYERPOS))
 #endif
 #define REPAIREVENT(time,d1,d2,fu,type) \
      FIXEVENT((time)*TECH_TICK,d1,d2,fu,type)
@@ -250,21 +250,21 @@ ECMD(tech_fix);
    (t == Special(HEAT_SINK) && MechHasDHS(m) ? Cargo(DOUBLE_HEAT_SINK) : t)))
 #endif
 
-ETECHEVENT(event_mech_reattach);
-ETECHEVENT(event_mech_reseal);
-ETECHEVENT(event_mech_reload);
-ETECHEVENT(event_mech_removegun);
-ETECHEVENT(event_mech_removepart);
-ETECHEVENT(event_mech_removesection);
-ETECHEVENT(event_mech_repairarmor);
-ETECHEVENT(event_mech_repairgun);
-ETECHEVENT(event_mech_repairenhcrit);
-ETECHEVENT(event_mech_repairinternal);
-ETECHEVENT(event_mech_repairpart);
-ETECHEVENT(event_mech_replacegun);
-ETECHEVENT(event_mech_mountbomb);
-ETECHEVENT(event_mech_umountbomb);
-ETECHEVENT(event_mech_replacesuit);
+ETECHEVENT(muxevent_tickmech_reattach);
+ETECHEVENT(muxevent_tickmech_reseal);
+ETECHEVENT(muxevent_tickmech_reload);
+ETECHEVENT(muxevent_tickmech_removegun);
+ETECHEVENT(muxevent_tickmech_removepart);
+ETECHEVENT(muxevent_tickmech_removesection);
+ETECHEVENT(muxevent_tickmech_repairarmor);
+ETECHEVENT(muxevent_tickmech_repairgun);
+ETECHEVENT(muxevent_tickmech_repairenhcrit);
+ETECHEVENT(muxevent_tickmech_repairinternal);
+ETECHEVENT(muxevent_tickmech_repairpart);
+ETECHEVENT(muxevent_tickmech_replacegun);
+ETECHEVENT(muxevent_tickmech_mountbomb);
+ETECHEVENT(muxevent_tickmech_umountbomb);
+ETECHEVENT(muxevent_tickmech_replacesuit);
 ETECHEVENT(very_fake_func);
 
 void loadrepairs(FILE * f);

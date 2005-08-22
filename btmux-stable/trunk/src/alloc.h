@@ -1,7 +1,7 @@
 
 /* alloc.h - External definitions for memory allocation subsystem */
 
-/* $Id: alloc.h,v 1.1.1.1 2005/01/11 21:17:32 kstevens Exp $ */
+/* $Id: alloc.h,v 1.3 2005/08/08 09:43:05 murrayma Exp $ */
 
 #include "copyright.h"
 
@@ -18,8 +18,8 @@
 #define	NUM_POOLS	7
 
 
-#define LBUF_SIZE	8000
-#define MBUF_SIZE	400
+#define LBUF_SIZE	4096
+#define MBUF_SIZE	512
 #define SBUF_SIZE	64
 
 /*
@@ -30,11 +30,11 @@
 
 #ifndef STANDALONE
 
-extern void FDECL(pool_init, (int, int));
-extern char *FDECL(pool_alloc, (int, const char *));
-extern void FDECL(pool_free, (int, char **));
-extern void FDECL(list_bufstats, (dbref));
-extern void FDECL(list_buftrace, (dbref));
+extern void pool_init(int, int);
+extern char *pool_alloc(int, const char *);
+extern void pool_free(int, char **);
+extern void list_bufstats(dbref);
+extern void list_buftrace(dbref);
 
 #define	alloc_lbuf(s)	pool_alloc(POOL_LBUF,s)
 #define	free_lbuf(b)	pool_free(POOL_LBUF,((char **)&(b)))

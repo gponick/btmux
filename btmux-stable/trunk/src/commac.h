@@ -1,7 +1,7 @@
 
 /* commac.h */
 
-/* $Id: commac.h,v 1.1.1.1 2005/01/11 21:17:33 kstevens Exp $ */
+/* $Id: commac.h,v 1.1 2005/06/13 20:50:46 murrayma Exp $ */
 
 #ifndef __COMMAC_H__
 #define __COMMAC_H__

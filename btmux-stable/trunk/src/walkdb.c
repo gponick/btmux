@@ -4,13 +4,14 @@
  */
 
 /*
- * $Id: walkdb.c,v 1.3 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: walkdb.c,v 1.4 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
 #include "config.h"
 
 #include "mudconf.h"
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "match.h"
@@ -22,7 +23,6 @@
 #include "alloc.h"
 
 #ifdef MCHECK
-#include <stdlib.h>
 #endif
 
 /*
@@ -1030,7 +1030,7 @@ char *command, *cargs[];
  * olist_push: Create a new object list at the top of the object list stack
  */
 
-void NDECL(olist_push)
+void olist_push(void)
 {
     OLSTK *ol;
 
@@ -1049,7 +1049,7 @@ void NDECL(olist_push)
  * olist_pop: Pop one entire list off the object list stack
  */
 
-void NDECL(olist_pop)
+void olist_pop(void)
 {
     OLSTK *ol;
     OBLOCK *op, *onext;
@@ -1094,7 +1094,7 @@ dbref item;
  * olist_first: Return the first entry in the object list 
  */
 
-dbref NDECL(olist_first)
+dbref olist_first(void)
 {
     if (!mudstate.olist->head)
 	return NOTHING;
@@ -1106,7 +1106,7 @@ dbref NDECL(olist_first)
     return mudstate.olist->cblock->data[mudstate.olist->citm++];
 }
 
-dbref NDECL(olist_next)
+dbref olist_next(void)
 {
     dbref thing;
 

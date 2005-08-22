@@ -1,7 +1,7 @@
 
 /* file_c.h -- File cache header file */
 
-/* $Id: file_c.h,v 1.1.1.1 2005/01/11 21:17:40 kstevens Exp $ */
+/* $Id: file_c.h,v 1.3 2005/06/23 02:59:58 murrayma Exp $ */
 
 #include "copyright.h"
 #ifndef __FILE_C
@@ -27,10 +27,10 @@
 
 /* File cache routines */
 
-extern void FDECL(fcache_rawdump, (int fd, int num));
-extern void FDECL(fcache_dump, (DESC * d, int num));
-extern void FDECL(fcache_send, (dbref, int));
-extern void FDECL(fcache_load, (dbref));
-extern void NDECL(fcache_init);
+extern void fcache_rawdump(int fd, int num);
+extern void fcache_dump(DESC * d, int num);
+extern void fcache_send(dbref, int);
+extern void fcache_load(dbref);
+extern void fcache_init(void);
 
 #endif

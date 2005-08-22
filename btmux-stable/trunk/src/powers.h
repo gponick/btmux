@@ -1,7 +1,7 @@
 
 /* powers.h - object powers */
 
-/* $Id: powers.h,v 1.1.1.1 2005/01/11 21:17:53 kstevens Exp $ */
+/* $Id: powers.h,v 1.3 2005/06/23 02:59:58 murrayma Exp $ */
 
 #include "copyright.h"
 
@@ -80,14 +80,14 @@ typedef struct powerset {
     POWER word2;
 } POWERSET;
 
-extern void NDECL(init_powertab);
-extern void FDECL(display_powertab, (dbref));
-extern void FDECL(power_set, (dbref, dbref, char *, int));
-extern char *FDECL(power_description, (dbref, dbref));
-extern POWERENT *FDECL(find_power, (dbref, char *));
-extern int FDECL(has_power, (dbref, dbref, char *));
-extern void FDECL(decompile_powers, (dbref, dbref, char *));
-extern int FDECL(decode_power, (dbref, char *, POWERSET *));
+extern void init_powertab(void);
+extern void display_powertab(dbref);
+extern void power_set(dbref, dbref, char *, int);
+extern char *power_description(dbref, dbref);
+extern POWERENT *find_power(dbref, char *);
+extern int has_power(dbref, dbref, char *);
+extern void decompile_powers(dbref, dbref, char *);
+extern int decode_power(dbref, char *, POWERSET *);
 
 
 

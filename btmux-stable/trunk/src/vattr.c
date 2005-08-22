@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: vattr.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: vattr.c,v 1.4 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -17,8 +17,8 @@
 #include "htab.h"
 #include "externs.h"
 
-static void FDECL(fixcase, (char *));
-static char FDECL(*store_string, (char *));
+static void fixcase(char *);
+static char *store_string(char *);
 
 /*
  * Allocate space for strings in lumps this big. 
@@ -38,7 +38,7 @@ static char *stringblock = (char *) 0;
 
 static int stringblock_hwm = 0;
 
-void NDECL(vattr_init)
+void vattr_init(void)
 {
     hashinit(&mudstate.vattr_name_htab, 256 * HASH_FACTOR);
 }
@@ -187,7 +187,7 @@ char *name, *newname;
     return (vp);
 }
 
-VATTR *NDECL(vattr_first)
+VATTR *vattr_first(void)
 {
     return (VATTR *) hash_firstentry(&mudstate.vattr_name_htab);
 }

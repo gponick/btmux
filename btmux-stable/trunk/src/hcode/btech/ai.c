@@ -794,8 +794,8 @@ int ai_check_path(MECH * m, AUTO * a, float dx, float dy, float delx,
     MAP *map = getMap(m->mapindex);
 
     o = ai_opponents(a, m);
-    if (a->last_upd > event_tick || (event_tick - a->last_upd) > AUTO_GOET) {
-        if ((event_tick - a->last_upd) > AUTO_GOTT) {
+    if (a->last_upd > mudstate.now || (mudstate.now - a->last_upd) > AUTO_GOET) {
+        if ((mudstate.now - a->last_upd) > AUTO_GOTT) {
             a->b_msc = MAGIC_NUM;
             a->w_msc = MAGIC_NUM;
             a->b_bsc = MAGIC_NUM;
@@ -809,7 +809,7 @@ int ai_check_path(MECH * m, AUTO * a, float dx, float dy, float delx,
             UNREF(a->w_dan, a->b_dan, 8);
             a->b_dan = MAX(a->b_dan, (40 + 20 * 29 + 100) * 30);        /* To stay focused */
         }
-        a->last_upd = event_tick;
+        a->last_upd = mudstate.now;
     }
     /* Got either opponents (nasty) or 
      * [possibly] blocked path (slightly nasty), i.e. 12sec */
@@ -817,7 +817,7 @@ int ai_check_path(MECH * m, AUTO * a, float dx, float dy, float delx,
         getFriends(m, map, 0);
     if (o) {
         getEnemies(m, map, 0);
-        if (!((event_tick / AUTOPILOT_GOTO_TICK) % 4)) {        /* Just every fourth tick, 
+        if (!((mudstate.now / AUTOPILOT_GOTO_TICK) % 4)) {        /* Just every fourth tick, 
                                                                    i.e. 12sec */
             /* Thorough check */
             ai_path_score(m, map, a, move_norm_opt, MNORM_COUNT, 1, dx, dy,
@@ -836,7 +836,7 @@ int ai_check_path(MECH * m, AUTO * a, float dx, float dy, float delx,
         }
         return 1;                /* We want to keep fighting near foes */
     }
-    if (!((event_tick / AUTOPILOT_GOTO_TICK) % 4)) {        /* Just every fourth tick, 
+    if (!((mudstate.now / AUTOPILOT_GOTO_TICK) % 4)) {        /* Just every fourth tick, 
                                                                i.e. 12sec */
         /* Thorough check */
         ai_path_score(m, map, a, move_norm_opt, MNORM_COUNT, 0, dx, dy,

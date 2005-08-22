@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: mguests.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: mguests.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include <stdlib.h>
@@ -14,13 +14,14 @@
 #include "mudconf.h"
 #include "externs.h"
 #include "mguests.h"
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "mail.h"
 #include "attrs.h"
 #include "powers.h"
 
-extern void FDECL(destroy_player, (dbref));
+extern void destroy_player(dbref);
 extern void do_lock(dbref player, dbref cause, int key, char *name,
     char *keytext);
 typedef int object_flag_type;

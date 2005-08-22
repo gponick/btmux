@@ -1,6 +1,6 @@
 
 /*
- * $Id: spath.h,v 1.1.1.1 2005/01/11 21:18:34 kstevens Exp $
+ * $Id: spath.h,v 1.1 2005/06/13 20:50:53 murrayma Exp $
  *
  * Last modified: Sat Jun  6 20:57:26 1998 fingon
  *

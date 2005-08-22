@@ -1,6 +1,6 @@
 
 /*
- * $Id: glue.scode.c,v 1.10 2005/06/30 14:27:11 av1-op Exp $
+ * $Id: glue.scode.c,v 1.5 2005/08/08 09:43:09 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *
@@ -462,11 +462,9 @@ static GMV xcode_data[] = {
     MeEntry("heading", MechRFacing, TYPE_SHORT),
     MeEntry("stall", MechStall, TYPE_INT),
     MeEntry("status", MechStatus, TYPE_BV),
-/* Adding in Exile's status2 and removing 3030's specialsstatus */
     MeEntry("status2", MechStatus2, TYPE_BV),
     MeEntry("critstatus", MechCritStatus, TYPE_BV),
     MeEntry("tankcritstatus", MechTankCritStatus, TYPE_BV),
-/*  MeEntry("specialsstatus", MechSpecialsStatus, TYPE_BV), */
     MeEntry("target", MechTarget, TYPE_DBREF),
     MeEntry("team", MechTeam, TYPE_INT),
     MeEntry("tons", MechTons, TYPE_INT),
@@ -589,7 +587,7 @@ FUNCTION(fun_btsetxcodevalue)
     /* fargs[0] = id of the mech
        fargs[1] = name of the value
        fargs[2] = what the value's to be set as
-     */
+       */
     dbref it;
     int i, spec;
     void *foo;
@@ -602,45 +600,45 @@ FUNCTION(fun_btsetxcodevalue)
     FUNCHECK(!(foo = FindObjectsData(it)), "#-1");
     FUNCHECK(!WizR(player), "#-1 PERMISSION DENIED");
     for (i = 0; xcode_data[i].name; i++)
-	if (!strcasecmp(fargs[1], xcode_data[i].name) &&
-	    xcode_data[i].gtype == spec &&
-	    (scode_in_out[xcode_data[i].type] & 2)) {
-	    bar = (void *) ((int) foo + xcode_data[i].rel_addr);
-	    switch (xcode_data[i].type) {
-	    case TYPE_STRFUNC_BD:
-	    case TYPE_STRFUNC_S:
-		tempfun = (void *) xcode_data[i].rel_addr;
-		tempfun(1, (MECH *) foo, (char *) fargs[2]);
-		break;
-	    case TYPE_STRING:
-		strncpy((char *) bar, fargs[2], xcode_data[i].size - 1);
-		((char *)bar)[xcode_data[i].size - 1] = '\0';
-		break;
-	    case TYPE_DBREF:
-		*((dbref *) bar) = atoi(fargs[2]);
-		break;
-	    case TYPE_CHAR:
-		*((char *) bar) = atoi(fargs[2]);
-		break;
-	    case TYPE_SHORT:
-		*((short *) bar) = atoi(fargs[2]);
-		break;
-	    case TYPE_INT:
-		*((int *) bar) = atoi(fargs[2]);
-		break;
-	    case TYPE_FLOAT:
-		*((float *) bar) = atof(fargs[2]);
-		break;
-	    case TYPE_BV:
-		*((int *) bar) = text2bv(fargs[2]);
-		break;
-	    case TYPE_CBV:
-		*((byte *) bar) = (byte) text2bv(fargs[2]);
-		break;
-	    }
-	    safe_tprintf_str(buff, bufc, "1");
-	    return;
-	}
+        if (!strcasecmp(fargs[1], xcode_data[i].name) &&
+                xcode_data[i].gtype == spec &&
+                (scode_in_out[xcode_data[i].type] & 2)) {
+            bar = (void *) ((int) foo + xcode_data[i].rel_addr);
+            switch (xcode_data[i].type) {
+                case TYPE_STRFUNC_BD:
+                case TYPE_STRFUNC_S:
+                    tempfun = (void *) xcode_data[i].rel_addr;
+                    tempfun(1, (MECH *) foo, (char *) fargs[2]);
+                    break;
+                case TYPE_STRING:
+                    strncpy((char *) bar, fargs[2], xcode_data[i].size - 1);
+                    ((char *)bar)[xcode_data[i].size - 1] = '\0';
+                    break;
+                case TYPE_DBREF:
+                    *((dbref *) bar) = atoi(fargs[2]);
+                    break;
+                case TYPE_CHAR:
+                    *((char *) bar) = atoi(fargs[2]);
+                    break;
+                case TYPE_SHORT:
+                    *((short *) bar) = atoi(fargs[2]);
+                    break;
+                case TYPE_INT:
+                    *((int *) bar) = atoi(fargs[2]);
+                    break;
+                case TYPE_FLOAT:
+                    *((float *) bar) = atof(fargs[2]);
+                    break;
+                case TYPE_BV:
+                    *((int *) bar) = text2bv(fargs[2]);
+                    break;
+                case TYPE_CBV:
+                    *((byte *) bar) = (byte) text2bv(fargs[2]);
+                    break;
+            }
+            safe_tprintf_str(buff, bufc, "1");
+            return;
+        }
     safe_tprintf_str(buff, bufc, "#-1");
     return;
 }
@@ -754,53 +752,53 @@ void set_xcodestuff(dbref player, void *data, char *buffer)
     memset(args, 0, sizeof(char *) * 2);
 
     DOCHECK(silly_parseattributes(buffer, args, 2) != 2,
-	"Invalid arguments!");
+            "Invalid arguments!");
     t = WhichSpecial(Location(player));
     for (i = 0; xcode_data[i].name; i++)
-	if (xcode_data[i].gtype == t)
-	    break;
+        if (xcode_data[i].gtype == t)
+            break;
     DOCHECK(!xcode_data[i].name,
-	"Error: No xcode values for this type of object found.");
+            "Error: No xcode values for this type of object found.");
     for (i = 0; xcode_data[i].name; i++)
-	if (!strcasecmp(args[0], xcode_data[i].name) &&
-	    xcode_data[i].gtype == t &&
-	    (scode_in_out[xcode_data[i].type] & 2))
-	    break;
+        if (!strcasecmp(args[0], xcode_data[i].name) &&
+                xcode_data[i].gtype == t &&
+                (scode_in_out[xcode_data[i].type] & 2))
+            break;
     DOCHECK(!xcode_data[i].name,
-	"Error: No matching xcode value for this type of object found.");
+            "Error: No matching xcode value for this type of object found.");
     bar =
-	(void *) ((int) FindObjectsData(Location(player)) +
-	xcode_data[i].rel_addr);
+        (void *) ((int) FindObjectsData(Location(player)) +
+                  xcode_data[i].rel_addr);
     switch (xcode_data[i].type) {
-    case TYPE_STRFUNC_BD:
-    case TYPE_STRFUNC_S:
-	tempfun = (void *) xcode_data[i].rel_addr;
-	tempfun(1, getMech(Location(player)), (char *) args[1]);
-	break;
-    case TYPE_STRING:
-	strncpy((char *) bar, args[1], xcode_data[i].size - 1);
-	((char *)bar)[xcode_data[i].size - 1] = '\0';
-	break;
-    case TYPE_DBREF:
-	*((dbref *) bar) = atoi(args[1]);
-	break;
-    case TYPE_CHAR:
-	*((char *) bar) = atoi(args[1]);
-	break;
-    case TYPE_SHORT:
-	*((short *) bar) = atoi(args[1]);
-	break;
-    case TYPE_INT:
-	*((int *) bar) = atoi(args[1]);
-	break;
-    case TYPE_FLOAT:
-	*((float *) bar) = atof(args[1]);
-	break;
-    case TYPE_BV:
-	*((int *) bar) = text2bv(args[1]);
-	break;
-    case TYPE_CBV:
-    	*((byte *) bar) = (byte) text2bv(args[1]);
+        case TYPE_STRFUNC_BD:
+        case TYPE_STRFUNC_S:
+            tempfun = (void *) xcode_data[i].rel_addr;
+            tempfun(1, getMech(Location(player)), (char *) args[1]);
+            break;
+        case TYPE_STRING:
+            strncpy((char *) bar, args[1], xcode_data[i].size - 1);
+            ((char *)bar)[xcode_data[i].size - 1] = '\0';
+            break;
+        case TYPE_DBREF:
+            *((dbref *) bar) = atoi(args[1]);
+            break;
+        case TYPE_CHAR:
+            *((char *) bar) = atoi(args[1]);
+            break;
+        case TYPE_SHORT:
+            *((short *) bar) = atoi(args[1]);
+            break;
+        case TYPE_INT:
+            *((int *) bar) = atoi(args[1]);
+            break;
+        case TYPE_FLOAT:
+            *((float *) bar) = atof(args[1]);
+            break;
+        case TYPE_BV:
+            *((int *) bar) = text2bv(args[1]);
+            break;
+        case TYPE_CBV:
+            *((byte *) bar) = (byte) text2bv(args[1]);
     }
 }
 
@@ -921,11 +919,6 @@ FUNCTION(fun_btmapterr)
        fargs[1] = x
        fargs[2] = y
      */
-
-    /* Added check at the end to change space to .
-     * so scoders have easier time with this function
-     * Dany - 06/2005 */
-
     dbref it;
     MAP *map;
     int x, y;
@@ -941,15 +934,10 @@ FUNCTION(fun_btmapterr)
     FUNCHECK(Readnum(y, fargs[2]), "#-2");
     FUNCHECK(x < 0 || y < 0 || x >= map->map_width ||
 	y >= map->map_height, "?");
-
-    /* Get the terrain for that spot */
     terr = GetTerrain(map, x, y);
-
-    /* Check to change space to . so easier to parse output */
-    if (terr == GRASSLAND)
+    if(terr == GRASSLAND)
         terr = '.';
-
-    /* Output */
+    
     safe_tprintf_str(buff, bufc, "%c", terr);
 }
 
@@ -1497,7 +1485,7 @@ FUNCTION(fun_btloadmech)
     mech = getMech(mechdbref);
     FUNCHECK(!mech, "#-1 INVALID TARGET");
     if (mech_loadnew(player, mech, fargs[1]) == 1) {
-	event_remove_data((void *)mech);
+	muxevent_remove_data((void *)mech);
 	clear_mech_from_LOS(mech);
 	safe_str("1", buff, bufc);
     } else {
@@ -1828,13 +1816,10 @@ FUNCTION(fun_bttechlist_ref)
 }
 
 /* Function to return the 'payload' of a unit
- * ie: the Guns and Ammo (if there is any)
+ * ie: the Guns and Ammo
  * in a list format like <item_1> <# of 1>|...|<item_n> <# of n>
  * Dany - 06/2005 */
-FUNCTION(fun_btpayload_ref)
-{
-
-    /* fargs[0] = unit ref */
+FUNCTION(fun_btpayload_ref) {
     MECH *mech;
     char *infostr;
     
@@ -1862,11 +1847,10 @@ FUNCTION(fun_btshowstatus_ref)
 
 FUNCTION(fun_btshowwspecs_ref)
 {
-    /* fargs[0] = unit ref
-     * fargs[1] = person to output to */
     dbref outplayer;
     MECH *mech;
     char *infostr;
+
 
     FUNCHECK(!WizR(player), "#-1 PERMISSION DENIED");
     FUNCHECK((mech = load_refmech(fargs[0])) == NULL, "#-1 NO SUCH MECH");

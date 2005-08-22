@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: game.c,v 1.4 2005/07/18 17:03:29 av1-op Exp $ 
+ * $Id: game.c,v 1.8 2005/08/08 10:30:11 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -12,8 +12,10 @@
 
 #include <sys/stat.h>
 #include <signal.h>
+#include <event.h>
 
 #include "mudconf.h"
+#include "config.h"
 #include "file_c.h"
 #include "db.h"
 #include "interface.h"
@@ -28,7 +30,6 @@
 #include "commac.h"
 
 #ifndef NEXT
-#include <stdlib.h>
 #endif
 
 #ifdef HAVE_IEEEFP_H
@@ -38,58 +39,49 @@
 #include <sys/ucontext.h>
 #endif
 
-extern void NDECL(init_attrtab);
-extern void NDECL(init_cmdtab);
-extern void NDECL(init_mactab);
-extern void NDECL(init_chantab);
-extern void NDECL(cf_init);
-extern void NDECL(pcache_init);
-extern int FDECL(cf_read, (char *fn));
-extern void NDECL(init_functab);
-extern void FDECL(close_sockets, (int emergency, char *message));
-extern void NDECL(init_version);
-extern void NDECL(init_logout_cmdtab);
-extern void NDECL(init_timer);
-extern void FDECL(raw_notify, (dbref, const char *));
-extern void NDECL(do_second);
-extern void FDECL(do_dbck, (dbref, dbref, int));
-extern void NDECL(boot_slave);
+extern void init_attrtab(void);
+extern void init_cmdtab(void);
+extern void init_mactab(void);
+extern void init_chantab(void);
+extern void cf_init(void);
+extern void pcache_init(void);
+extern int cf_read(char *fn);
+extern void init_functab(void);
+extern void close_sockets(int emergency, char *message);
+extern void init_version(void);
+extern void init_logout_cmdtab(void);
+extern void init_timer(void);
+extern void raw_notify(dbref, const char *);
+extern void do_second(void);
+extern void do_dbck(dbref, dbref, int);
+extern void boot_slave(void);
 #ifdef SQL_SUPPORT
-#ifndef NO_SQLSLAVE
-extern void NDECL(boot_sqlslave);
-#endif
+extern void boot_sqlslave(void);
 #endif
 
 #if ARBITRARY_LOGFILES_MODE==2
-extern void NDECL(boot_fileslave);
+extern void boot_fileslave(void);
 #endif
 
 #ifdef HUDINFO_SUPPORT
-extern void NDECL(init_hudinfo);
+extern void init_hudinfo(void);
 #endif
 
-void FDECL(fork_and_dump, (int));
-void NDECL(dump_database);
-void FDECL(do_dump_optimize, (dbref, dbref, int));
-void NDECL(pcache_sync);
-void FDECL(dump_database_internal, (int));
-static void NDECL(init_rlimit);
+void fork_and_dump(int);
+void dump_database(void);
+void do_dump_optimize(dbref, dbref, int);
+void pcache_sync(void);
+void dump_database_internal(int);
+static void init_rlimit(void);
 
 int reserved;
-
-#ifdef CONCENTRATE
-int conc_pid = 0;
-
-#endif
 
 extern pid_t slave_pid;
 extern int slave_socket;
 
 #ifdef SQL_SUPPORT
-#ifndef NO_SQLSLAVE
 extern pid_t sqlslave_pid;
 extern int sqlslave_socket;
-#endif
 #endif
 
 #if ARBITRARY_LOGFILES_MODE==2
@@ -145,7 +137,7 @@ int key;
  * print out stuff into error file 
  */
 
-void NDECL(report)
+void report(void)
 {
     STARTLOG(LOG_BUGS, "BUG", "INFO") {
 	log_text((char *) "Command: '");
@@ -1044,13 +1036,6 @@ int dump_type;
     }
 
     sprintf(prevfile, "%s.prev", mudconf.outdb);
-#ifdef VMS
-    sprintf(tmpfile, "%s.-%d-", mudconf.outdb, mudstate.epoch - 1);
-    unlink(tmpfile);		/*
-				 * nuke our predecessor 
-				 */
-    sprintf(tmpfile, "%s.-%d-", mudconf.outdb, mudstate.epoch);
-#else
     sprintf(tmpfile, "%s.#%d#", mudconf.outdb, mudstate.epoch - 1);
     unlink(tmpfile);		/*
 				 * nuke our predecessor 
@@ -1075,9 +1060,6 @@ int dump_type;
 	    log_perror("SAV", "FAIL", "Opening", tmpfile);
 	}
     } else {
-#endif				/*
-				 * VMS 
-				 */
 	f = fopen(tmpfile, "w");
 	if (f) {
 	    db_write(f, F_MUX, OUTPUT_VERSION | OUTPUT_FLAGS);
@@ -1089,9 +1071,7 @@ int dump_type;
 	} else {
 	    log_perror("SAV", "FAIL", "Opening", tmpfile);
 	}
-#ifndef VMS
     }
-#endif
 
 #ifndef STANDALONE
     if (mudconf.have_mailer)
@@ -1106,20 +1086,14 @@ int dump_type;
 #endif
 }
 
-void NDECL(dump_database)
+void dump_database(void)
 {
     char *buff;
 
     mudstate.epoch++;
     mudstate.dumping = 1;
     buff = alloc_mbuf("dump_database");
-#ifndef VMS
     sprintf(buff, "%s.#%d#", mudconf.outdb, mudstate.epoch);
-#else
-    sprintf(buff, "%s.-%d-", mudconf.outdb, mudstate.epoch);
-#endif				/*
-				 * VMS 
-				 */
     STARTLOG(LOG_DBSAVES, "DMP", "DUMP") {
 	log_text((char *) "Dumping: ");
 	log_text(buff);
@@ -1149,13 +1123,7 @@ int key;
     mudstate.epoch++;
     mudstate.dumping = 1;
     buff = alloc_mbuf("fork_and_dump");
-#ifndef VMS
     sprintf(buff, "%s.#%d#", mudconf.outdb, mudstate.epoch);
-#else
-    sprintf(buff, "%s.-%d-", mudconf.outdb, mudstate.epoch);
-#endif				/*
-				 * VMS 
-				 */
     STARTLOG(LOG_DBSAVES, "DMP", "CHKPT") {
 	if (!key || (key & DUMP_TEXT)) {
 	    log_text((char *) "SYNCing");
@@ -1180,7 +1148,6 @@ int key;
 	pcache_sync();
     SYNC;
     if (!key || (key & DUMP_STRUCT)) {
-#ifndef VMS
 	if (mudconf.fork_dump) {
 	    if (mudconf.fork_vfork) {
 		child = vfork();
@@ -1190,19 +1157,10 @@ int key;
 	} else {
 	    child = 0;
 	}
-#else
-	child = 0;
-#endif				/*
-				 * VMS 
-				 */
 	if (child == 0) {
 	    dump_database_internal(DUMP_NORMAL);
-#ifndef VMS
 	    if (mudconf.fork_dump)
 		_exit(0);
-#endif				/*
-				 * VMS 
-				 */
 	} else if (child < 0) {
 	    log_perror("DMP", "FORK", NULL, "fork()");
 	}
@@ -1215,7 +1173,7 @@ int key;
 	raw_broadcast(0, "%s", mudconf.postdump_msg);
 }
 
-static int NDECL(load_game)
+static int load_game(void)
 {
     FILE *f;
     int compressed;
@@ -1225,7 +1183,6 @@ static int NDECL(load_game)
 
     f = NULL;
     compressed = 0;
-#ifndef VMS
     if (mudconf.compress_db) {
 	StringCopy(infile, mudconf.indb);
 	strcat(infile, ".gz");
@@ -1235,9 +1192,6 @@ static int NDECL(load_game)
 		compressed = 1;
 	}
     }
-#endif				/*
-				 * VMS 
-				 */
     if (compressed == 0) {
 	StringCopy(infile, mudconf.indb);
 	if ((f = fopen(mudconf.indb, "r")) == NULL)
@@ -1383,7 +1337,7 @@ int key;
     fcache_load(player);
 }
 
-static void NDECL(process_preload)
+static void process_preload(void)
 {
     dbref thing, parent, aowner;
     int aflags, lev, i;
@@ -1465,6 +1419,7 @@ char *argv[];
     fclose(stdin);
     fclose(stdout);
 #endif
+    event_init();
 
 #if defined(HAVE_IEEEFP_H) && defined(HAVE_SYS_UCONTEXT_H)
     /*
@@ -1474,11 +1429,6 @@ char *argv[];
     fpsetmask(fpgetmask() & ~FP_X_OFL);
 #endif
 
-#ifdef RADIX_COMPRESSION
-    init_string_compress();
-#endif				/*
-				 * RADIX_COMPRESSION 
-				 */
     mindb = 0;			/*
 				 * Are we creating a new db? 
 				 */
@@ -1516,7 +1466,7 @@ char *argv[];
     nhashinit(&mudstate.mail_htab, 50 * HASH_FACTOR);
     nhashinit(&mudstate.fwdlist_htab, 25 * HASH_FACTOR);
     nhashinit(&mudstate.parent_htab, 5 * HASH_FACTOR);
-    nhashinit(&mudstate.desc_htab, 25 * HASH_FACTOR);
+    mudstate.desctree = rb_init(desc_cmp, NULL);
     vattr_init();
 
     if (argc > 1 && !strcmp(argv[1], "-s")) {
@@ -1596,7 +1546,7 @@ char *argv[];
     hashreset(&mudstate.wizhelp_htab);
     hashreset(&mudstate.plushelp_htab);
     hashreset(&mudstate.wiznews_htab);
-    nhashreset(&mudstate.desc_htab);
+    // nhashreset(&mudstate.desc_htab);
 
     for (mindb = 0; mindb < MAX_GLOBAL_REGS; mindb++)
 	mudstate.global_regs[mindb] = alloc_lbuf("main.global_reg");
@@ -1607,42 +1557,11 @@ char *argv[];
 
     boot_slave();
 #ifdef SQL_SUPPORT
-#ifndef NO_SQLSLAVE
     boot_sqlslave();
-#endif
 #endif
 
 #if ARBITRARY_LOGFILES_MODE==2
     boot_fileslave();
-#endif
-
-#ifdef CONCENTRATE
-    if (!mudstate.restarting) {
-	/*
-	 * Start up the port concentrator. 
-	 */
-
-	conc_pid = fork();
-	if (conc_pid < 0) {
-	    perror("fork");
-	    exit(-1);
-	}
-	if (conc_pid == 0) {
-	    char mudp[32], inetp[32];
-
-	    /*
-	     * Add port argument to concentrator 
-	     */
-	    sprintf(mudp, "%d", mudconf.port);
-	    sprintf(inetp, "%d", mudconf.conc_port);
-	    execl("./bin/conc", "concentrator", inetp, mudp, "1", 0);
-	}
-	STARTLOG(LOG_ALWAYS, "CNC", "STRT") {
-	    log_text("Concentrating ports... ");
-	    log_text(tprintf("Main: %d Conc: %d", mudconf.port,
-		    mudconf.conc_port));
-	    ENDLOG;
-    }}
 #endif
 
 #ifdef MCHECK
@@ -1670,11 +1589,9 @@ char *argv[];
     }
 
 #ifdef SQL_SUPPORT
-#ifndef NO_SQLSLAVE
     if (sqlslave_socket != -1) {
 	kill(sqlslave_pid, SIGKILL);
     }
-#endif
 #endif
 
 #if ARBITRARY_LOGFILES_MODE==2
@@ -1683,14 +1600,10 @@ char *argv[];
     }
 #endif
  
-#ifdef CONCENTRATE
-    kill(conc_pid, SIGKILL);
-#endif
-
     exit(0);
 }
 
-static void NDECL(init_rlimit)
+static void init_rlimit(void)
 {
 #if defined(HAVE_SETRLIMIT) && defined(RLIMIT_NOFILE)
     struct rlimit *rlp;

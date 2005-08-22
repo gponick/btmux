@@ -1,7 +1,7 @@
 
 /* db.h */
 
-/* $Id: db.h,v 1.1.1.1 2005/01/11 21:17:39 kstevens Exp $ */
+/* $Id: db.h,v 1.4 2005/06/23 02:59:58 murrayma Exp $ */
 
 #include "copyright.h"
 
@@ -14,11 +14,7 @@
 #include <sys/file.h>
 
 #ifndef MEMORY_BASED
-#ifdef RADIX_COMPRESSION
-#define STORE(key, attr, len)	cache_put(key, attr, len)
-#else
 #define STORE(key, attr)	cache_put(key, attr)
-#endif				/* RADIX_COMPRESSION */
 #define DELETE(key)		cache_del(key)
 #define FETCH(key)		cache_get(key)
 #define SYNC			cache_sync()
@@ -31,7 +27,6 @@
 #define CLOSE
 #endif				/* MEMORY_BASED */
 
-#include "udb.h"
 
 #define	ITER_PARENTS(t,p,l)	for ((l)=0, (p)=(t); \
 				     (Good_obj(p) && \
@@ -46,7 +41,7 @@ struct attr {
     const char *name;		/* This has to be first.  braindeath. */
     int number;			/* attr number */
     int flags;
-    int FDECL((*check), (int, dbref, dbref, int, char *));
+    int (*check)(int, dbref, dbref, int, char *);
 };
 
 #ifdef MEMORY_BASED
@@ -64,8 +59,8 @@ struct stack {
     STACK *next;
 };
 
-extern ATTR *FDECL(atr_num, (int anum));
-extern ATTR *FDECL(atr_str, (char *s));
+extern ATTR *atr_num(int anum);
+extern ATTR *atr_str(char *s);
 
 extern ATTR attr[];
 
@@ -73,7 +68,7 @@ extern ATTR **anum_table;
 
 #define anum_get(x)	(anum_table[(x)])
 #define anum_set(x,v)	anum_table[(x)] = v
-extern void FDECL(anum_extend, (int));
+extern void anum_extend(int);
 
 #define	ATR_INFO_CHAR	'\1'	/* Leadin char for attr control data */
 
@@ -227,28 +222,28 @@ extern NAME *names;
 #define	s_Home(t,n)		s_Link(t,n)
 #define	s_Dropto(t,n)		s_Location(t,n)
 
-extern int FDECL(Pennies, (dbref));
-extern void FDECL(s_Pennies, (dbref, int));
+extern int Pennies(dbref);
+extern void s_Pennies(dbref, int);
 
-extern dbref FDECL(getref, (FILE *));
-extern void FDECL(putref, (FILE *, dbref));
-extern BOOLEXP *FDECL(dup_bool, (BOOLEXP *));
-extern void FDECL(free_boolexp, (BOOLEXP *));
-extern dbref FDECL(parse_dbref, (const char *));
-extern int FDECL(mkattr, (char *));
-extern void FDECL(al_add, (dbref, int));
-extern void FDECL(al_delete, (dbref, int));
-extern void FDECL(al_destroy, (dbref));
-extern void NDECL(al_store);
-extern void FDECL(db_grow, (dbref));
-extern void NDECL(db_free);
-extern void NDECL(db_make_minimal);
-extern dbref FDECL(db_read, (FILE *, int *, int *, int *));
-extern dbref FDECL(db_write, (FILE *, int, int));
-extern void FDECL(destroy_thing, (dbref));
-extern void FDECL(destroy_exit, (dbref));
-extern void NDECL(load_restart_db);
-extern void FDECL(dump_database_internal, (int));
+extern dbref getref(FILE *);
+extern void putref(FILE *, dbref);
+extern BOOLEXP *dup_bool(BOOLEXP *);
+extern void free_boolexp(BOOLEXP *);
+extern dbref parse_dbref(const char *);
+extern int mkattr(char *);
+extern void al_add(dbref, int);
+extern void al_delete(dbref, int);
+extern void al_destroy(dbref);
+extern void al_store(void);
+extern void db_grow(dbref);
+extern void db_free(void);
+extern void db_make_minimal(void);
+extern dbref db_read(FILE *, int *, int *, int *);
+extern dbref db_write(FILE *, int, int);
+extern void destroy_thing(dbref);
+extern void destroy_exit(dbref);
+extern void load_restart_db(void);
+extern void dump_database_internal(int);
 
 #define	DOLIST(thing,list) \
 	for ((thing)=(list); \

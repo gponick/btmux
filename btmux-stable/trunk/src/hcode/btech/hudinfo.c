@@ -14,7 +14,7 @@
 #include "externs.h"
 #include "interface.h"
 
-#include "event.h"
+#include "muxevent.h"
 #include "mech.h"
 #include "map.h"
 #include "map.los.h"

@@ -4,12 +4,13 @@
  */
 
 /*
- * $Id: match.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: match.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
 #include "config.h"
 
+#include "config.h"
 #include "db.h"
 #include "mudconf.h"
 #include "externs.h"
@@ -129,7 +130,7 @@ char *name;
     return (buffer);
 }
 
-void NDECL(match_player)
+void match_player(void)
 {
     dbref match;
     char *p;
@@ -175,7 +176,7 @@ int need_pound;
     return NOTHING;
 }
 
-void NDECL(match_absolute)
+void match_absolute(void)
 {
     if (md.confidence >= CON_DBREF)
 	return;
@@ -183,7 +184,7 @@ void NDECL(match_absolute)
 	promote_match(md.absolute_form, CON_DBREF);
 }
 
-void NDECL(match_numeric)
+void match_numeric(void)
 {
     dbref match;
 
@@ -194,7 +195,7 @@ void NDECL(match_numeric)
 	promote_match(match, CON_DBREF);
 }
 
-void NDECL(match_me)
+void match_me(void)
 {
     if (md.confidence >= CON_DBREF)
 	return;
@@ -207,7 +208,7 @@ void NDECL(match_me)
     return;
 }
 
-void NDECL(match_home)
+void match_home(void)
 {
     if (md.confidence >= CON_DBREF)
 	return;
@@ -216,7 +217,7 @@ void NDECL(match_home)
     return;
 }
 
-void NDECL(match_here)
+void match_here(void)
 {
     dbref loc;
 
@@ -265,7 +266,7 @@ int local;
     }
 }
 
-void NDECL(match_possession)
+void match_possession(void)
 {
     if (md.confidence >= CON_DBREF)
 	return;
@@ -273,7 +274,7 @@ void NDECL(match_possession)
 	match_list(Contents(md.player), CON_LOCAL);
 }
 
-void NDECL(match_neighbor)
+void match_neighbor(void)
 {
     dbref loc;
 
@@ -320,7 +321,7 @@ int local;
     return result;
 }
 
-void NDECL(match_exit)
+void match_exit(void)
 {
     dbref loc;
 
@@ -331,7 +332,7 @@ void NDECL(match_exit)
 	(void) match_exit_internal(loc, loc, CON_LOCAL);
 }
 
-void NDECL(match_exit_with_parents)
+void match_exit_with_parents(void)
 {
     dbref loc, parent;
     int lev;
@@ -347,7 +348,7 @@ void NDECL(match_exit_with_parents)
     }
 }
 
-void NDECL(match_carried_exit)
+void match_carried_exit(void)
 {
     if (md.confidence >= CON_DBREF)
 	return;
@@ -355,7 +356,7 @@ void NDECL(match_carried_exit)
 	(void) match_exit_internal(md.player, md.player, CON_LOCAL);
 }
 
-void NDECL(match_carried_exit_with_parents)
+void match_carried_exit_with_parents(void)
 {
     dbref parent;
     int lev;
@@ -370,7 +371,7 @@ void NDECL(match_carried_exit_with_parents)
     }
 }
 
-void NDECL(match_master_exit)
+void match_master_exit(void)
 {
     if (md.confidence >= CON_DBREF)
 	return;
@@ -379,7 +380,7 @@ void NDECL(match_master_exit)
 	    mudconf.master_room, 0);
 }
 
-void NDECL(match_zone_exit)
+void match_zone_exit(void)
 {
     if (md.confidence >= CON_DBREF)
 	return;
@@ -420,7 +421,7 @@ int key;
     match_possession();
 }
 
-dbref NDECL(match_result)
+dbref match_result(void)
 {
     switch (md.count) {
     case 0:
@@ -436,7 +437,7 @@ dbref NDECL(match_result)
  * use this if you don't care about ambiguity 
  */
 
-dbref NDECL(last_match_result)
+dbref last_match_result(void)
 {
     return md.match;
 }
@@ -461,7 +462,7 @@ dbref player, match;
     return match;
 }
 
-dbref NDECL(noisy_match_result)
+dbref noisy_match_result(void)
 {
     return match_status(md.player, match_result());
 }
@@ -472,7 +473,7 @@ dbref player;
     return match_status(player, match_result());
 }
 
-int NDECL(matched_locally)
+int matched_locally(void)
 {
     return (md.confidence & CON_LOCAL);
 }

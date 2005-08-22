@@ -1,6 +1,6 @@
 
 /*
- * $Id: create.h,v 1.1.1.1 2005/01/11 21:17:31 kstevens Exp $
+ * $Id: create.h,v 1.1 2005/06/13 20:50:45 murrayma Exp $
  *
  * Author: Markus "iDLari" Stenberg <fingon@iki.fi>
  *

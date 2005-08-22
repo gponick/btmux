@@ -4,13 +4,14 @@
  */
 
 /*
- * $Id: speech.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: speech.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
 #include "config.h"
 
 #include "mudconf.h"
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "match.h"
@@ -20,7 +21,7 @@
 #include "attrs.h"
 #include "alloc.h"
 
-extern char *FDECL(next_token, (char *, char));
+extern char *next_token(char *, char);
 extern int In_IC_Loc(dbref);
 
 int sp_ok(player)

@@ -43,7 +43,7 @@ static void describe_repairs(EVENT * e)
 	    MechMove(mech), loc % 8), loc >= 8 ? "(R)" : "");
     sprintf(buf2, "%-5d ", player);
     sprintf(buf2 + strlen(buf2), "%-4d ",
-	game_lag_time((e->tick - event_tick) / 60));
+	game_lag_time((e->tick - muxevent_tick) / 60));
     switch (type) {
     case EVENT_REPAIR_REPL:
 	sprintf(buf2 + strlen(buf2), "%5s:%-2d Replacement of %s", buf,
@@ -136,7 +136,7 @@ static void describe_repairs(EVENT * e)
 
 /*   sprintf(buf2+strlen(buf2), " - %s", */
 
-/*        get_uptime_to_string(e->tick - event_tick)); */
+/*        get_uptime_to_string(e->tick - muxevent_tick)); */
     vsi(buf2);
 }
 
@@ -154,7 +154,7 @@ void tech_repairs(dbref player, MECH * mech, char *buffer)
     vsi(tprintf("%-5s %-4s %s", "Plr", "Time", "Location + Description"));
     addline();
     for (i = FIRST_TECH_EVENT; i <= LAST_TECH_EVENT; i++)
-	event_gothru_type_data(i, (void *) mech, describe_repairs);
+	muxevent_gothru_type_data(i, (void *) mech, describe_repairs);
     addline();
     vsi("Note: Time = Time remaining in minutes. Plr = Tech's dbref");
     addline();

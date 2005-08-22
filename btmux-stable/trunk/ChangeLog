@@ -1,5 +1,9 @@
 btonline-btechmux 0.4:
 	- Changes
+	* Merged with the unstable branch's revision #38 + the patch
+	  for @restart and the rbtree. Includes some updates to the 
+	  event code including the need for libevent to be installed 
+	  on the system. (Dany)
 	* Changed btech_tl3_charge to default on. (Dany)
 	* Added btech_use_tech_bsuit config parameter with default on.
 	  When enabled it uses the Technician-BSuit skill for fixing

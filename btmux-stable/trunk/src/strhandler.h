@@ -1,6 +1,6 @@
 
 /*
- * $Id: strhandler.h,v 1.1.1.1 2005/01/11 21:17:56 kstevens Exp $
+ * $Id: strhandler.h,v 1.1 2005/06/13 20:50:48 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *

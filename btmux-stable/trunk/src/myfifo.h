@@ -1,6 +1,6 @@
 
 /*
- * $Id: myfifo.h,v 1.1.1.1 2005/01/11 21:17:49 kstevens Exp $
+ * $Id: myfifo.h,v 1.1 2005/06/13 20:50:47 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *

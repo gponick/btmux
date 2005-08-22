@@ -67,9 +67,9 @@ const char *mechtypename(MECH * foo)
 
 int MNumber(MECH * mech, int low, int high)
 {
-    if ((event_tick / RANDOM_TICK) != MechLastRndU(mech)) {
+    if ((muxevent_tick / RANDOM_TICK) != MechLastRndU(mech)) {
 	MechRnd(mech) = random();
-	MechLastRndU(mech) = event_tick / RANDOM_TICK;
+	MechLastRndU(mech) = muxevent_tick / RANDOM_TICK;
     }
     return (low + MechRnd(mech) % (high - low + 1));
 }
@@ -2804,10 +2804,10 @@ if (!mech)
     return 0;
 
 if (gunstat == 100 || pilstat == 100) {
-    if (event_tick - MechBVLast(mech) < 30)
+    if (muxevent_tick - MechBVLast(mech) < 30)
         return MechBV(mech);
     else
-        MechBVLast(mech) = event_tick;
+        MechBVLast(mech) = muxevent_tick;
     }
 
 type = MechType(mech);

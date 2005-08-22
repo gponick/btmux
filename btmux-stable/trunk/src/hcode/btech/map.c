@@ -519,7 +519,7 @@ void map_update(dbref obj, void *data)
     int oldl, oldv, i, j;
     AUTO *au;
 
-    if (!(event_tick % 60)) {
+    if (!(muxevent_tick % 60)) {
 	oldl = map->maplight;
 	oldv = map->mapvis;
 	if (!(tmps = silly_atr_get(obj, A_MAPVIS)) ||

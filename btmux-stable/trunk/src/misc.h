@@ -1,7 +1,7 @@
 
 /* misc.h - miscellaneous structures that are needed in more than one file */
 
-/* $Id: misc.h,v 1.1.1.1 2005/01/11 21:17:49 kstevens Exp $ */
+/* $Id: misc.h,v 1.2 2005/06/23 02:59:58 murrayma Exp $ */
 
 #include "copyright.h"
 
@@ -42,8 +42,8 @@ struct stats_type {
     int s_garbage;
 };
 
-extern int FDECL(search_setup, (dbref, char *, SEARCH *));
-extern void FDECL(search_perform, (dbref, dbref, SEARCH *));
-extern int FDECL(get_stats, (dbref, dbref, STATS *));
+extern int search_setup(dbref, char *, SEARCH *);
+extern void search_perform(dbref, dbref, SEARCH *);
+extern int get_stats(dbref, dbref, STATS *);
 
 #endif

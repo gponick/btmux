@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: help.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: help.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -13,6 +13,7 @@
 #include <fcntl.h>
 
 #include "mudconf.h"
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "externs.h"
@@ -135,7 +136,7 @@ dbref player;
 		news, help, whelp, phelp, wnhelp));
 }
 
-void NDECL(helpindex_init)
+void helpindex_init(void)
 {
     hashinit(&mudstate.news_htab, 15 * HASH_FACTOR);
     hashinit(&mudstate.help_htab, 30 * HASH_FACTOR);

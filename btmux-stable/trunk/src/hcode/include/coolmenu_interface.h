@@ -1,6 +1,6 @@
 
 /*
- * $Id: coolmenu_interface.h,v 1.1.1.1 2005/01/11 21:18:33 kstevens Exp $
+ * $Id: coolmenu_interface.h,v 1.1 2005/06/13 20:50:52 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *

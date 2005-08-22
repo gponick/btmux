@@ -4,13 +4,14 @@
  */
 
 /*
- * $Id: wiz.c,v 1.3 2005/07/18 17:03:30 av1-op Exp $ 
+ * $Id: wiz.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
 #include "config.h"
 
 #include "mudconf.h"
+#include "config.h"
 #include "file_c.h"
 #include "db.h"
 #include "interface.h"
@@ -38,7 +39,7 @@ int recursive_check_contents(dbref victim, dbref destination)
     return 0;
 }
 
-extern char *FDECL(crypt, (const char *, const char *));
+extern char *crypt(const char *, const char *);
 
 void do_teleport(player, cause, key, arg1, arg2)
 dbref player, cause;
@@ -304,11 +305,7 @@ char *what, *qry;
         }
 
     if (key & QUERY_SQL) {
-#ifdef NO_SQLSLAVE
-        sql_doquery(db_slot, thing, attr, preserve, qry);
-#else
         sqlslave_doquery(db_slot, thing, attr, preserve, qry);
-#endif
         notify_quiet(player, "SQL query sent.");
     } else {
         notify_quiet(player, "Switch not supported.");

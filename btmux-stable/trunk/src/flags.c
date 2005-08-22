@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: flags.c,v 1.2 2005/06/24 04:39:04 av1-op Exp $ 
+ * $Id: flags.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -378,7 +378,7 @@ OBJENT object_types[8] = {
  * * init_flagtab: initialize flag hash tables.
  */
 
-void NDECL(init_flagtab)
+void init_flagtab(void)
 {
     FLAGENT *fp;
     char *nbuf, *np, *bp;

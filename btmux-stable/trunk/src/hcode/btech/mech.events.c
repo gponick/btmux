@@ -157,8 +157,8 @@ void ProlongUncon(MECH * mech, int len)
 	MECHEVENT(mech, EVENT_RECOVERY, mech_recovery_event, len, 0);
 	return;
     }
-    l = event_last_type_data(EVENT_RECOVERY, (void *) mech) + len;
-    event_remove_type_data(EVENT_RECOVERY, (void *) mech);
+    l = muxevent_last_type_data(EVENT_RECOVERY, (void *) mech) + len;
+    muxevent_remove_type_data(EVENT_RECOVERY, (void *) mech);
     MECHEVENT(mech, EVENT_RECOVERY, mech_recovery_event, l, 0);
 }
 
@@ -171,19 +171,19 @@ void MaybeRecycle(MECH * mech, int wticks)
     nr = NextRecycle(mech);
     UpdateRecycling(mech);
     if (nr < 0)
-	MechLWRT(mech) = event_tick;
+	MechLWRT(mech) = muxevent_tick;
     if (nr < 0 || nr > ((wticks + 1) * WEAPON_TICK)) {
 	dat = MAX(1, wticks * WEAPON_TICK);
 	MECHEVENT(mech, EVENT_RECYCLE, mech_recycle_event, dat, 0);
 #ifdef WEAPON_RECYCLE_DEBUG
 	SendDebug(tprintf("%6d Recycle event for #%d set in %ds.",
-		event_tick, mech->mynum, dat));
+		muxevent_tick, mech->mynum, dat));
 #endif
     }
 #ifdef WEAPON_RECYCLE_DEBUG
     else
 	SendDebug(tprintf("%6d Recycle event for #%d exists at %d secs",
-		event_tick, mech->mynum, nr));
+		muxevent_tick, mech->mynum, nr));
 #endif
 }
 
@@ -339,7 +339,7 @@ void aero_move_event(EVENT * e)
 	    MechStartFZ(mech) = MechStartFZ(mech) - 1;
 	move_mech(mech);
 	if (IsDS(mech) && MechZ(mech) <= (MechElevation(mech) + 5) &&
-	    ((event_tick / WEAPON_TICK) % 10) == 0)
+	    ((muxevent_tick / WEAPON_TICK) % 10) == 0)
 	    DS_BlastNearbyMechsAndTrees(mech,
 		"You are hit by the DropShip's plasma exhaust!",
 		"is hit directly by DropShip's exhaust!",

@@ -24,7 +24,6 @@
  */
 
 
-#include <stdlib.h>
 
 struct mstats mstats()
 {

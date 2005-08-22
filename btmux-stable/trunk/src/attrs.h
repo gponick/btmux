@@ -1,7 +1,9 @@
 
 /* attrs.h - Attribute definitions */
 
-/* $Id: attrs.h,v 1.4 2005/06/24 00:23:03 gregtaylor Exp $ */
+/* $Id: attrs.h,v 1.3 2005/08/08 09:43:05 murrayma Exp $ */
+
+#include "config.h"
 
 #ifndef _ATTRS_H
 #define _ATTRS_H

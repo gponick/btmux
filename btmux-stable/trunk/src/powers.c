@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: powers.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: powers.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -159,7 +159,7 @@ POWERENT gen_powers[] =
  * * init_powertab: initialize power hash tables.
  */
 
-void NDECL(init_powertab)
+void init_powertab(void)
 {
     POWERENT *fp;
     char *nbuf, *np, *bp;

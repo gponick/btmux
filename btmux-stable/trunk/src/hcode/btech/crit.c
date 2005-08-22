@@ -18,6 +18,7 @@
 #include "externs.h"
 #include "db.h"
 #include "mech.h"
+#include "btmacros.h"
 #include "mech.events.h"
 #include "mech.sensor.h"
 #include "failures.h"

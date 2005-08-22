@@ -25,6 +25,8 @@
 #include "attrs.h"
 #include "powers.h"
 #include "mech.stat.h"
+#include "muxevent.h"
+#include "p.event.h"
 
 #include "btconfig.h"
 #include "mymath.h"
@@ -1283,7 +1285,6 @@ extern void *FindObjectsData(dbref key);
 
 #define WDUMP_MASK	"%-24s %2d     %2d           %2d  %2d    %2d  %3d  %2d  %2d %d"
 #define WDUMP_MASKS	"%%cgWeapon Name             Heat  Damage  Range: Min Short Med Long VRT C  ApT"
-
 #include "btmacros.h"
 #include "p.glue.hcode.h"
 #include "map.h"

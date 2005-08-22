@@ -1,7 +1,7 @@
 
 /* comsys.h */
 
-/* $Id: comsys.h,v 1.1.1.1 2005/01/11 21:17:36 kstevens Exp $ */
+/* $Id: comsys.h,v 1.1 2005/06/13 20:50:46 murrayma Exp $ */
 
 #include "commac.h"
 #ifdef CHANNEL_HISTORY

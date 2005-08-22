@@ -1,6 +1,6 @@
 
 /*
- * $Id: glue.hcode.c,v 1.3 2005/08/03 21:40:53 av1-op Exp $
+ * $Id: glue.hcode.c,v 1.1 2005/06/13 20:50:49 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *
@@ -96,12 +96,11 @@ int BOUNDED(int min, int val, int max)
     return val;
 }
 
-float FBOUNDED(float min, float val, float max)
-{
-    if (val < min)
-    return min;
-    if (val > max)
-    return max;
+float FBOUNDED(float min, float val, float max) {
+    if(val < min)
+        return min;
+    if(val > max)
+        return max;
     return val;
 }
 

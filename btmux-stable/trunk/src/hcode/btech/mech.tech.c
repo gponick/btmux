@@ -15,7 +15,7 @@
  */
 
 #include "mech.h"
-#include "event.h"
+#include "muxevent.h"
 #include "mech.events.h"
 #include "mech.tech.h"
 #include "p.mech.utils.h"
@@ -25,9 +25,9 @@
 
 int game_lag(void)
 {
-    if (!event_tick)
+    if (!muxevent_tick)
 	return 0;
-    return 100 * (mudstate.now - mudstate.restart_time) / event_tick - 100;
+    return 100 * (mudstate.now - mudstate.restart_time) / muxevent_tick - 100;
 }
 
 int game_lag_time(int i)
@@ -235,7 +235,7 @@ int cheated_last = 0;
 
 static void cheat_find_last(EVENT * e)
 {
-    int ofs = e->tick - event_tick;
+    int ofs = e->tick - muxevent_tick;
     int amount = (((int) e->data2) % PLAYERPOS) / 16 - 1;
 
     switch (e->type) {
@@ -256,6 +256,6 @@ int figure_latest_tech_event(MECH * mech)
 
     cheated_last = 0;
     for (i = FIRST_TECH_EVENT; i <= LAST_TECH_EVENT; i++)
-	event_gothru_type_data(i, (void *) mech, cheat_find_last);
+	muxevent_gothru_type_data(i, (void *) mech, cheat_find_last);
     return cheated_last;
 }

@@ -1,6 +1,6 @@
 
 /*
- * $Id: event.h,v 1.1.1.1 2005/01/11 21:17:31 kstevens Exp $
+ * $Id: muxevent.h,v 1.1 2005/06/22 22:09:45 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *
@@ -12,8 +12,8 @@
  *
  */
 
-#ifndef EVENT_H
-#define EVENT_H
+#ifndef MUXEVENT_H
+#define MUXEVENT_H
 
 /* EVENT_DEBUG adds some useful debugging information to the structure
    / allows more diverse set of error messages to be shown. However,
@@ -69,7 +69,7 @@ typedef struct my_event_type {
 } EVENT;
 
 /* Some external things _do_ use this one */
-extern int event_tick;
+extern int muxevent_tick;
 extern int events_scheduled;
 extern int events_executed;
 extern int events_zombies;
@@ -79,8 +79,8 @@ extern int events_zombies;
 /* Simplified event adding is more or less irrelevant, most programs
    tend to make their own macros for it. This is an example,
    though. */
-#define event_add_simple_arg(time,func,data) event_add(time,0,0,func,data, NULL)
-#define event_add_simple_noarg(time,func) event_add(time,0,0,func,NULL, NULL)
+#define muxevent_add_simple_arg(time,func,data) muxevent_add(time,0,0,func,data, NULL)
+#define muxevent_add_simple_noarg(time,func) muxevent_add(time,0,0,func,NULL, NULL)
 
 /* Macros for handling simple lists 
    Where it applies: a = main list, b = thing to be added, c = prev
@@ -106,13 +106,13 @@ for (t=a;t->c != b;t=t->c); t->c = b->c; }
 #define debug(a...)
 #endif
 
-void event_add(int time, int flags, int type, void (*func) (EVENT *),
+void muxevent_add(int time, int flags, int type, void (*func) (EVENT *),
     void *data, void *data2);
-void event_gothru_type_data(int type, void *data, void (*func) (EVENT *));
+void muxevent_gothru_type_data(int type, void *data, void (*func) (EVENT *));
 void event_gothru_type(int type, void (*func) (EVENT *));
 
 
 
 /* Did I mention cproto is braindead? */
 
-#endif				/* EVENT_H */
+#endif				/* MUXEVENT_H */

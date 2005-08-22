@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: db_rw.c,v 1.2 2005/06/24 04:39:04 av1-op Exp $ 
+ * $Id: db_rw.c,v 1.4 2005/08/08 09:43:06 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -13,6 +13,7 @@
 #include <sys/file.h>
 
 #include "mudconf.h"
+#include "config.h"
 #include "externs.h"
 #include "db.h"
 #include "vattr.h"
@@ -20,9 +21,9 @@
 #include "alloc.h"
 #include "powers.h"
 
-extern const char *FDECL(getstring_noalloc, (FILE *, int));
-extern void FDECL(putstring, (FILE *, const char *));
-extern void FDECL(db_grow, (dbref));
+extern const char *getstring_noalloc(FILE *, int);
+extern void putstring(FILE *, const char *);
+extern void db_grow(dbref);
 
 extern struct object *db;
 
@@ -1038,7 +1039,7 @@ int db_format, db_version;
  * * efo_convert: Fix things up for Exits-From-Objects
  */
 
-void NDECL(efo_convert)
+void efo_convert(void)
 {
     int i;
     dbref link;

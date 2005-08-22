@@ -28,7 +28,7 @@
 
 #include "copyright.h"
 #include "config.h"
-#include <stdlib.h>
+#include <malloc.h>
 
 static FILE *mallstream;
 static char mallbuf[BUFSIZ];	/*

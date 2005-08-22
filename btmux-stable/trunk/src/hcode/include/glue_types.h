@@ -1,6 +1,6 @@
 
 /*
- * $Id: glue_types.h,v 1.1.1.1 2005/01/11 21:18:34 kstevens Exp $
+ * $Id: glue_types.h,v 1.1 2005/06/13 20:50:52 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *

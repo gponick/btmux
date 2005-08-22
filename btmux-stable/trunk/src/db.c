@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: db.c,v 1.6 2005/06/24 04:39:04 av1-op Exp $ 
+ * $Id: db.c,v 1.8 2005/08/08 09:43:06 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -14,6 +14,7 @@
 
 #define __DB_C
 #include "mudconf.h"
+#include "config.h"
 #include "externs.h"
 #include "db.h"
 #include "attrs.h"
@@ -50,12 +51,8 @@ extern int ndescriptors;
 extern int maxd;
 extern int slave_socket;
 
-#ifdef CONCENTRATE
-extern int conc_pid;
-
-#endif
 extern pid_t slave_pid;
-extern void FDECL(desc_addhash, (DESC *));
+extern void desc_addhash(DESC *);
 extern void del_commac(dbref);
 extern void do_clear_macro(dbref player, char *s);
 
@@ -66,21 +63,7 @@ int malloc_count = 0;
 				 * * TEST_MALLOC  
 				 */
 
-#ifdef RADIX_COMPRESSION
-
-/*
- * Buffers for compressing in and out of. NOTE: These assume that compression
- * will NEVER expand input text by more than 1.5, which is valid for the
- * radix tree stuff, since it emits at worst a 12 bit code for every input
- * byte. If this changes, the size of compress_buff needs to be adjusted to the
- * new worst case.
- */
-char decomp_buff[LBUF_SIZE];
-char compress_buff[LBUF_SIZE + (LBUF_SIZE >> 1) + 1];
-
-#endif
-
-extern VATTR *FDECL(vattr_rename, (char *, char *));
+extern VATTR *vattr_rename(char *, char *);
 
 typedef struct atrcount ATRCOUNT;
 struct atrcount {
@@ -104,10 +87,10 @@ extern unsigned int malloc_sbrk_used;	/*
 /*
  * Check routine forward declaration. 
  */
-extern int FDECL(fwdlist_ck, (int, dbref, dbref, int, char *));
+extern int fwdlist_ck(int, dbref, dbref, int, char *);
 
-extern void FDECL(pcache_reload, (dbref));
-extern void FDECL(desc_reload, (dbref));
+extern void pcache_reload(dbref);
+extern void desc_reload(dbref);
 
 /*
  * *INDENT-OFF* 
@@ -275,7 +258,7 @@ ATTR attr[] = {
 	NULL},
     {"Startup", A_STARTUP, AF_ODARK, NULL},
     {"Succ", A_SUCC, AF_ODARK | AF_NOPROG, NULL},
-    {"Tacsize", A_TACHEIGHT, AF_ODARK, NULL},
+    {"Tacheight", A_TACHEIGHT, AF_ODARK, NULL},
     {"TeloutLock", A_LTELOUT, AF_ODARK | AF_NOPROG | AF_NOCMD | AF_IS_LOCK,
 	NULL},
     {"Tfail", A_TFAIL, AF_ODARK | AF_NOPROG, NULL},
@@ -597,26 +580,30 @@ char **ptr, *new;
  * * Name, s_Name: Get or set an object's name.
  */
 
-INLINE char *Name(thing)
-dbref thing;
-{
+INLINE char *Name(dbref thing) {
     dbref aowner;
     int aflags;
     char *buff;
-    static char *tbuff[LBUF_SIZE];
+    static char *tbuff[MBUF_SIZE];
+    char buffer[MBUF_SIZE];
 
     if (mudconf.cache_names) {
-	if (!purenames[thing]) {
-	    buff = atr_get(thing, A_NAME, &aowner, &aflags);
-	    set_string(&purenames[thing], strip_ansi(buff));
-	    free_lbuf(buff);
-	}
+        if (thing > mudstate.db_top || thing < 0) {
+            return "#-1 INVALID DBREF";
+        }
+        if (!purenames[thing]) {
+            buff = atr_get(thing, A_NAME, &aowner, &aflags);
+            strip_ansi_r(buffer, buff, MBUF_SIZE);
+            set_string(&purenames[thing], buffer);
+            free_lbuf(buff);
+        }
     }
+
 #ifndef MEMORY_BASED
     if (!names[thing]) {
-	buff = atr_get(thing, A_NAME, &aowner, &aflags);
-	set_string(&names[thing], buff);
-	free_lbuf(buff);
+        buff = atr_get(thing, A_NAME, &aowner, &aflags);
+        set_string(&names[thing], buff);
+        free_lbuf(buff);
     }
     return names[thing];
 #endif
@@ -625,9 +612,7 @@ dbref thing;
     return ((char *) tbuff);
 }
 
-INLINE char *PureName(thing)
-dbref thing;
-{
+INLINE char *PureName(dbref thing) {
     dbref aowner;
     int aflags;
     char *buff;
@@ -635,40 +620,40 @@ dbref thing;
 
 #ifndef MEMORY_BASED
     if (!names[thing]) {
-	buff = atr_get(thing, A_NAME, &aowner, &aflags);
-	set_string(&names[thing], buff);
-	free_lbuf(buff);
+        buff = atr_get(thing, A_NAME, &aowner, &aflags);
+        set_string(&names[thing], buff);
+        free_lbuf(buff);
     }
 #endif
 
     if (mudconf.cache_names) {
-	if (!purenames[thing]) {
-	    buff = atr_get(thing, A_NAME, &aowner, &aflags);
-	    set_string(&purenames[thing], strip_ansi(buff));
-	    free_lbuf(buff);
-	}
-	return purenames[thing];
+        if (thing > mudstate.db_top || thing < 0) {
+            return "#-1 INVALID DBREF";
+        }
+        if (!purenames[thing]) {
+            buff = atr_get(thing, A_NAME, &aowner, &aflags);
+            set_string(&purenames[thing], strip_ansi(buff));
+            free_lbuf(buff);
+        }
+        return purenames[thing];
     }
 
     atr_get_str((char *) tbuff, thing, A_NAME, &aowner, &aflags);
     return (strip_ansi((char *) tbuff));
 }
 
-INLINE void s_Name(thing, s)
-dbref thing;
-char *s;
-{
+INLINE void s_Name(dbref thing, char *s) {
     /* Truncate the name if we have to */
 
     if (s && (strlen(s) > MBUF_SIZE))
-	s[MBUF_SIZE] = '\0';
+        s[MBUF_SIZE] = '\0';
 
     atr_add_raw(thing, A_NAME, (char *) s);
 #ifndef MEMORY_BASED
     set_string(&names[thing], (char *) s);
 #endif
     if (mudconf.cache_names) {
-	set_string(&purenames[thing], strip_ansi((char *) s));
+        set_string(&purenames[thing], strip_ansi((char *) s));
     }
 }
 
@@ -897,7 +882,7 @@ char *arg1, *arg2;
  * * init_attrtab: Initialize the attribute hash tables.
  */
 
-void NDECL(init_attrtab)
+void init_attrtab(void)
 {
     ATTR *a;
     char *buff, *p, *q;
@@ -1295,7 +1280,7 @@ char *astr;
  * al_store: Write modified attribute list 
  */
 
-void NDECL(al_store)
+void al_store(void)
 {
     if (mudstate.mod_al_id != NOTHING) {
 	if (mudstate.mod_alist && *mudstate.mod_alist) {
@@ -1494,164 +1479,6 @@ int flags, atr;
     return tprintf("%c%d:%d:%s", ATR_INFO_CHAR, owner, flags, iattr);
 }
 
-#ifdef RADIX_COMPRESSION
-
-/*
- * ---------------------------------------------------------------------------
- * * atr_get_raw_decode: Get an attribute string out of the DB, decompress and
- * * decode it in one shot. Since the decompression involves a copy, and we
- * * normally do decode/copy immediately after fetching the attribute, this is
- * * used to roll the two operations together.
- */
-
-static int atr_get_raw_decode(thing, oattr, owner, flags, atr)
-dbref thing;
-char *oattr;
-dbref *owner;
-int *flags, atr;
-{
-    Attr *a;
-    char *cp;
-    int neg;
-    int len;
-
-#ifdef MEMORY_BASED
-    if (!Good_obj(thing))
-	return 0;
-
-    a = (char *) atr_get_raw(thing, atr);
-#else
-    Aname okey;
-
-    if (!Good_obj(thing))
-	return 0;
-
-    if (atr == A_LIST) {	/*
-				 * This is not supposed to be compressed! 
-				 */
-	abort();
-    }
-    makekey(thing, atr, &okey);
-    a = FETCH(&okey);
-#endif				/*
-				 * * MEMORY_BASED  
-				 */
-
-    if (!a) {
-	*owner = Owner(thing);
-	*flags = 0;
-	if (oattr) {
-	    *oattr = '\0';
-	}
-	return 0;
-    }
-#ifndef MEMORY_BASED
-    /*
-     * We now have a compressed attribute, decompress it into oattr 
-     */
-    /*
-     * and decode it. 
-     */
-
-    if (oattr == NULL) {
-	len = string_decompress(a, decomp_buff);
-	cp = decomp_buff;
-    } else {
-	len = string_decompress(a, oattr);
-	cp = oattr;
-    }
-#else
-    /*
-     * Already uncompressed 
-     */
-
-    if (oattr == NULL) {
-	len = strlen(a) + 1;
-	StringCopy(decomp_buff, a);
-	cp = decomp_buff;
-    } else {
-	len = strlen(a) + 1;
-	StringCopy(oattr, a);
-	cp = oattr;
-    }
-#endif				/*
-				 * * MEMORY_BASED  
-				 */
-
-    if (*cp == ATR_INFO_CHAR) {
-
-	/*
-	 * Get the attribute owner 
-	 */
-
-	cp++;			/*
-				 * Skip magic character 
-				 */
-	*owner = 0;
-	neg = 0;
-	if (*cp == '-') {
-	    neg = 1;
-	    cp++;
-	}
-	while (isdigit(*cp)) {
-	    *owner = (*owner * 10) + (*cp++ - '0');
-	}
-	if (neg)
-	    *owner = 0 - *owner;
-
-	/*
-	 * If delimiter is not ':', just return attribute 
-	 */
-
-	if (*cp++ != ':') {
-	    *owner = Owner(thing);
-	    *flags = 0;
-	    return 1;
-	}
-	/*
-	 * Get the attribute flags 
-	 */
-
-	*flags = 0;
-	while (isdigit(*cp)) {
-	    *flags = (*flags * 10) + (*cp++ - '0');
-	}
-
-	/*
-	 * If delimiter is not ':', just return attribute 
-	 */
-
-	if (*cp++ != ':') {
-	    *owner = Owner(thing);
-	    *flags = 0;
-	    return 1;
-	}
-	/*
-	 * Get the attribute text 
-	 */
-
-	if (oattr != NULL)
-	    bcopy(cp, oattr, len - (cp - oattr));
-
-	if (*owner == NOTHING)
-	    *owner = Owner(thing);
-
-    } else {
-
-	/*
-	 * Not the special character, return normal info 
-	 */
-
-	*owner = Owner(thing);
-	*flags = 0;
-    }
-
-    return 1;
-}
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
-
 /*
  * ---------------------------------------------------------------------------
  * * atr_decode: Decode an attribute string.
@@ -1829,172 +1656,102 @@ int atr;
  * * atr_add_raw, atr_add: add attribute of type atr to list
  */
 
-void atr_add_raw(thing, atr, buff)
-dbref thing;
-int atr;
-char *buff;
-{
+void atr_add_raw(dbref thing, int atr, char *buff) {
 #ifdef MEMORY_BASED
     ATRLIST *list;
     char *text;
     int found = 0;
     int hi, lo, mid;
 
-#ifdef RADIX_COMPRESSION
-    int len;
-
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
 
     if (!buff || !*buff) {
-	atr_clr(thing, atr);
-	return;
+        atr_clr(thing, atr);
+        return;
     }
     if (strlen(buff) >= LBUF_SIZE) {
-	buff[LBUF_SIZE - 1] = '\0';
+        buff[LBUF_SIZE - 1] = '\0';
     }
-#ifdef RADIX_COMPRESSION
-    len = string_compress(buff, compress_buff);
-    if ((text = (char *) malloc(len)) == NULL) {
-	return;
-    }
-    bcopy(compress_buff, text, len);
-#else
     if ((text = (char *) malloc(strlen(buff) + 1)) == NULL) {
-	return;
+        return;
     }
     StringCopy(text, buff);
-#endif
 
     if (!db[thing].ahead) {
-	if ((list = (ATRLIST *) malloc(sizeof(ATRLIST))) == NULL) {
-	    free(text);
-	    return;
-	}
-	db[thing].ahead = list;
-	db[thing].at_count = 1;
-	list[0].number = atr;
-	list[0].data = text;
-#ifdef RADIX_COMPRESSION
-	list[0].size = len;
-#else
-	list[0].size = strlen(text) + 1;
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
-	found = 1;
+        if ((list = (ATRLIST *) malloc(sizeof(ATRLIST))) == NULL) {
+            free(text);
+            return;
+        }
+        db[thing].ahead = list;
+        db[thing].at_count = 1;
+        list[0].number = atr;
+        list[0].data = text;
+        list[0].size = strlen(text) + 1;
+        found = 1;
     } else {
 
-	/*
-	 * Binary search for the attribute 
-	 */
-	lo = 0;
-	hi = db[thing].at_count - 1;
+        /*
+         * Binary search for the attribute 
+         */
+        lo = 0;
+        hi = db[thing].at_count - 1;
 
-	list = db[thing].ahead;
-	while (lo <= hi) {
-	    mid = ((hi - lo) >> 1) + lo;
-	    if (list[mid].number == atr) {
-		free(list[mid].data);
-		list[mid].data = text;
-#ifdef 	RADIX_COMPRESSION
-		list[mid].size = len;
-#else
-		list[mid].size = strlen(text) + 1;
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
-		found = 1;
-		break;
-	    } else if (list[mid].number > atr) {
-		hi = mid - 1;
-	    } else {
-		lo = mid + 1;
-	    }
-	}
+        list = db[thing].ahead;
+        while (lo <= hi) {
+            mid = ((hi - lo) >> 1) + lo;
+            if (list[mid].number == atr) {
+                free(list[mid].data);
+                list[mid].data = text;
+                list[mid].size = strlen(text) + 1;
+                found = 1;
+                break;
+            } else if (list[mid].number > atr) {
+                hi = mid - 1;
+            } else {
+                lo = mid + 1;
+            }
+        }
 
 
-	if (!found) {
-	    /*
-	     * If we got here, we didn't find it, so lo = hi + 1, 
-	     * and the attribute should be inserted between them. 
-	     */
+        if (!found) {
+            /*
+             * If we got here, we didn't find it, so lo = hi + 1, 
+             * and the attribute should be inserted between them. 
+             */
 
-	    list =
-		(ATRLIST *) realloc(db[thing].ahead,
-		(db[thing].at_count + 1) * sizeof(ATRLIST));
+            list =
+                (ATRLIST *) realloc(db[thing].ahead,
+                                    (db[thing].at_count + 1) * sizeof(ATRLIST));
 
-	    if (!list)
-		return;
+            if (!list)
+                return;
 
-	    /*
-	     * Move the stuff upwards one slot 
-	     */
-	    if (lo < db[thing].at_count)
-		bcopy((char *) (list + lo), (char *) (list + lo + 1),
-		    (db[thing].at_count - lo) * sizeof(ATRLIST));
+            /*
+             * Move the stuff upwards one slot 
+             */
+            if (lo < db[thing].at_count)
+                bcopy((char *) (list + lo), (char *) (list + lo + 1),
+                        (db[thing].at_count - lo) * sizeof(ATRLIST));
 
-	    list[lo].data = text;
-	    list[lo].number = atr;
-#ifdef RADIX_COMPRESSION
-	    list[lo].size = len;
-#else
-	    list[lo].size = strlen(text) + 1;
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
-	    db[thing].at_count++;
-	    db[thing].ahead = list;
-	}
+            list[lo].data = text;
+            list[lo].number = atr;
+            list[lo].size = strlen(text) + 1;
+            db[thing].at_count++;
+            db[thing].ahead = list;
+        }
     }
 #else
     Attr *a;
     Aname okey;
 
-#ifdef RADIX_COMPRESSION
-    int len;
-
-#endif
-
     makekey(thing, atr, &okey);
     if (!buff || !*buff) {
-	DELETE(&okey);
-	al_delete(thing, atr);
-	return;
+        DELETE(&okey);
+        al_delete(thing, atr);
+        return;
     }
-#ifdef RADIX_COMPRESSION
-    /*
-     * A_LIST is never compressed 
-     */
 
-    if (atr == A_LIST) {
-	if (!(a = (Attr *) XMALLOC(strlen(buff) + 1, "atr_add_raw"))) {
-	    return;
-	}
-	strcpy(a, buff);
-	len = strlen(a) + 1;
-    } else {
-
-	/*
-	 * It's not an A_LIST, so compress it into a buffer and store 
-	 * 
-	 * *  * *  * *  * *  * * that 
-	 */
-
-	len = string_compress(buff, compress_buff);
-	if (!(a = (Attr *) XMALLOC(len, "atr_add_raw"))) {
-	    return;
-	}
-	bcopy(compress_buff, a, len);
-	al_add(thing, atr);
-    }
-    STORE(&okey, a, len);
-#else				/*
-				 * * Not RADIX_COMPRESSION  
-				 */
     if ((a = (Attr *) malloc(strlen(buff) + 1)) == (char *) 0) {
-	return;
+        return;
     }
     StringCopy(a, buff);
 
@@ -2002,34 +1759,31 @@ char *buff;
     al_add(thing, atr);
 
 #endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
-#endif				/*
-				 * * MEMORY_BASED  
-				 */
+                     * * MEMORY_BASED  
+                     */
     switch (atr) {
-    case A_STARTUP:
-	s_Flags(thing, Flags(thing) | HAS_STARTUP);
-	break;
-    case A_DAILY:
-	s_Flags2(thing, Flags2(thing) | HAS_DAILY);
-	break;
-    case A_HOURLY:
-	s_Flags2(thing, Flags2(thing) | HAS_HOURLY);
-	break;
-    case A_FORWARDLIST:
-	s_Flags2(thing, Flags2(thing) | HAS_FWDLIST);
-	break;
-    case A_LISTEN:
-	s_Flags2(thing, Flags2(thing) | HAS_LISTEN);
-	break;
+        case A_STARTUP:
+            s_Flags(thing, Flags(thing) | HAS_STARTUP);
+            break;
+        case A_DAILY:
+            s_Flags2(thing, Flags2(thing) | HAS_DAILY);
+            break;
+        case A_HOURLY:
+            s_Flags2(thing, Flags2(thing) | HAS_HOURLY);
+            break;
+        case A_FORWARDLIST:
+            s_Flags2(thing, Flags2(thing) | HAS_FWDLIST);
+            break;
+        case A_LISTEN:
+            s_Flags2(thing, Flags2(thing) | HAS_LISTEN);
+            break;
 #ifndef STANDALONE
-    case A_TIMEOUT:
-	desc_reload(thing);
-	break;
-    case A_QUEUEMAX:
-	pcache_reload(thing);
-	break;
+        case A_TIMEOUT:
+            desc_reload(thing);
+            break;
+        case A_QUEUEMAX:
+            pcache_reload(thing);
+            break;
 #endif
     }
 }
@@ -2116,14 +1870,7 @@ int atr;
 	mid = ((hi - lo) >> 1) + lo;
 	if (list[mid].number == atr) {
 
-#ifdef RADIX_COMPRESSION
-	    (void) string_decompress(list[mid].data, decomp_buff);
-	    return decomp_buff;
-#else
 	    return list[mid].data;
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
 	} else if (list[mid].number > atr) {
 	    hi = mid - 1;
 	} else {
@@ -2142,17 +1889,7 @@ int atr;
 
     makekey(thing, atr, &okey);
     a = FETCH(&okey);
-#ifdef RADIX_COMPRESSION
-    if (!a || atr == A_LIST) {
-	return a;
-    }
-    (void) string_decompress(a, decomp_buff);
-    return decomp_buff;
-#else
     return a;
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
 }
 #endif				/*
 				 * * MEMORY_BASED  
@@ -2163,9 +1900,6 @@ char *s;
 dbref thing, *owner;
 int atr, *flags;
 {
-#ifdef RADIX_COMPRESSION
-    (void) atr_get_raw_decode(thing, s, owner, flags, atr);
-#else
     char *buff;
 
     buff = atr_get_raw(thing, atr);
@@ -2176,9 +1910,6 @@ int atr, *flags;
     } else {
 	atr_decode(buff, s, thing, owner, flags, atr);
     }
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
     return s;
 }
 
@@ -2196,12 +1927,6 @@ int atr_get_info(thing, atr, owner, flags)
 dbref thing, *owner;
 int atr, *flags;
 {
-#ifdef RADIX_COMPRESSION
-    int retval;
-
-    retval = atr_get_raw_decode(thing, NULL, owner, flags, atr);
-    return retval;
-#else
     char *buff;
 
     buff = atr_get_raw(thing, atr);
@@ -2212,9 +1937,6 @@ int atr, *flags;
     }
     atr_decode(buff, NULL, thing, owner, flags, atr);
     return 1;
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
 }
 
 #ifndef STANDALONE
@@ -2228,30 +1950,15 @@ int atr, *flags;
     dbref parent;
     int lev;
 
-#ifdef RADIX_COMPRESSION
-    int retval;
-
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
     ATTR *ap;
 
     ITER_PARENTS(thing, parent, lev) {
-#ifdef RADIX_COMPRESSION
-	retval = atr_get_raw_decode(parent, s, owner, flags, atr);
-	if (retval && ((lev = 0) || !(*flags & AF_PRIVATE))) {
-	    return s;
-	}
-#else
 	buff = atr_get_raw(parent, atr);
 	if (buff && *buff) {
 	    atr_decode(buff, s, thing, owner, flags, atr);
 	    if ((lev == 0) || !(*flags & AF_PRIVATE))
 		return s;
 	}
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
 	if ((lev == 0) && Good_obj(Parent(parent))) {
 	    ap = atr_num(atr);
 	    if (!ap || ap->flags & AF_PRIVATE)
@@ -2444,7 +2151,7 @@ char **attrp;
  * * atr_push, atr_pop: Push and pop attr lists.
  */
 
-void NDECL(atr_push)
+void atr_push(void)
 {
 #ifndef MEMORY_BASED
     ALIST *new_alist;
@@ -2463,7 +2170,7 @@ void NDECL(atr_push)
 				 */
 }
 
-void NDECL(atr_pop)
+void atr_pop(void)
 {
 #ifndef MEMORY_BASED
     ALIST *old_alist;
@@ -2823,7 +2530,7 @@ dbref newtop;
     mudstate.markbits = newmarkbuf;
 }
 
-void NDECL(db_free)
+void db_free(void)
 {
     char *cp;
 
@@ -2839,7 +2546,7 @@ void NDECL(db_free)
 }
 
 #ifndef STANDALONE
-void NDECL(db_make_minimal)
+void db_make_minimal(void)
 {
     dbref obj;
 
@@ -3184,9 +2891,6 @@ void dump_restart_db()
        so we can restart even if the format of the restart db
        has been changed in the new executable. */
 
-#ifdef CONCENTRATE
-    version |= RS_CONCENTRATE;
-#endif
     version |= RS_RECORD_PLAYERS;
     version |= RS_NEW_STRINGS;
     version |= RS_HUDKEY;
@@ -3196,9 +2900,6 @@ void dump_restart_db()
     putref(f, sock);
     putref(f, mudstate.start_time);
     putstring(f, mudstate.doing_hdr);
-#ifdef CONCENTRATE
-    putref(f, conc_pid);
-#endif
     putref(f, mudstate.record_players);
     DESC_ITER_ALL(d) {
 	putref(f, d->descriptor);
@@ -3215,156 +2916,129 @@ void dump_restart_db()
 	putstring(f, d->doing);
 	putstring(f, d->username);
 	putstring(f, d->hudkey);
-#ifdef CONCENTRATE
-	putref(f, d->concid);
-	putref(f, d->cstatus);
-#endif
     }
     putref(f, 0);
 
     fclose(f);
 }
 
-void load_restart_db()
-{
+void accept_client_input(int fd, short event, void *arg);
+
+void load_restart_db() {
     FILE *f;
     DESC *d;
     DESC *p;
 
-#ifdef CONCENTRATE
-    DESC *k;
-#endif
 
     int val, version, new_strings = 0;
     char *temp, buf[8];
 
     f = fopen("restart.db", "r");
     if (!f) {
-	mudstate.restarting = 0;
-	return;
+        mudstate.restarting = 0;
+        return;
     }
     mudstate.restarting = 1;
 
     fgets(buf, 3, f);
     if (strncmp(buf, "+V", 2)) {
-	abort();
+        abort();
     }
     version = getref(f);
     sock = getref(f);
 
     if (version & RS_NEW_STRINGS)
-	new_strings = 1;
+        new_strings = 1;
 
     maxd = sock + 1;
     mudstate.start_time = getref(f);
     time(&mudstate.restart_time);
     strcpy(mudstate.doing_hdr, getstring_noalloc(f, new_strings));
 
-    if (version & RS_CONCENTRATE) {
-#ifdef CONCENTRATE
-	conc_pid = getref(f);
-#else
-	(void) getref(f);
-#endif
-    }
-
     if (version & RS_RECORD_PLAYERS) {
-	mudstate.record_players = getref(f);
+        mudstate.record_players = getref(f);
     }
 
     while ((val = getref(f)) != 0) {
-	ndescriptors++;
-	d = alloc_desc("restart");
-	d->descriptor = val;
-	d->flags = getref(f);
-	d->connected_at = getref(f);
-	d->command_count = getref(f);
-	d->timeout = getref(f);
-	d->host_info = getref(f);
-	d->player = getref(f);
-	d->last_time = getref(f);
-	temp = (char *) getstring_noalloc(f, new_strings);
-	if (*temp) {
-	    d->output_prefix = alloc_lbuf("set_userstring");
-	    strcpy(d->output_prefix, temp);
-	} else {
-	    d->output_prefix = NULL;
-	}
-	temp = (char *) getstring_noalloc(f, new_strings);
-	if (*temp) {
-	    d->output_suffix = alloc_lbuf("set_userstring");
-	    strcpy(d->output_suffix, temp);
-	} else {
-	    d->output_suffix = NULL;
-	}
+        ndescriptors++;
+        d = alloc_desc("restart");
+        d->descriptor = val;
+        d->flags = getref(f);
+        d->connected_at = getref(f);
+        d->command_count = getref(f);
+        d->timeout = getref(f);
+        d->host_info = getref(f);
+        d->player = getref(f);
+        d->last_time = getref(f);
+        temp = (char *) getstring_noalloc(f, new_strings);
+        if (*temp) {
+            d->output_prefix = alloc_lbuf("set_userstring");
+            strcpy(d->output_prefix, temp);
+        } else {
+            d->output_prefix = NULL;
+        }
+        temp = (char *) getstring_noalloc(f, new_strings);
+        if (*temp) {
+            d->output_suffix = alloc_lbuf("set_userstring");
+            strcpy(d->output_suffix, temp);
+        } else {
+            d->output_suffix = NULL;
+        }
 
-	strcpy(d->addr, getstring_noalloc(f, new_strings));
-	strcpy(d->doing, getstring_noalloc(f, new_strings));
-	strcpy(d->username, getstring_noalloc(f, new_strings));
+        strcpy(d->addr, getstring_noalloc(f, new_strings));
+        strcpy(d->doing, getstring_noalloc(f, new_strings));
+        strcpy(d->username, getstring_noalloc(f, new_strings));
 
-	if (version & RS_HUDKEY)
-	    strncpy(d->hudkey, getstring_noalloc(f, new_strings), HUDKEYLEN);
-	else
-	    d->hudkey[0] = '\0';
+        if (version & RS_HUDKEY)
+            strncpy(d->hudkey, getstring_noalloc(f, new_strings), HUDKEYLEN);
+        else
+            d->hudkey[0] = '\0';
 
-	if (version & RS_CONCENTRATE) {
-#ifdef CONCENTRATE
-	    d->concid = getref(f);
-	    d->cstatus = getref(f);
-#else
-	    (void) getref(f);
-	    (void) getref(f);
+
+        d->output_size = 0;
+        d->output_tot = 0;
+        d->output_lost = 0;
+#if 0
+        d->output_head = NULL;
+        d->output_tail = NULL;
 #endif
-	}
-	d->output_size = 0;
-	d->output_tot = 0;
-	d->output_lost = 0;
-	d->output_head = NULL;
-	d->output_tail = NULL;
-	d->input_head = NULL;
-	d->input_tail = NULL;
-	d->input_size = 0;
-	d->input_tot = 0;
-	d->input_lost = 0;
-	d->raw_input = NULL;
-	d->raw_input_at = NULL;
-	d->quota = mudconf.cmd_quota_max;
-	d->program_data = NULL;
-	d->hashnext = NULL;
+        d->input_head = NULL;
+        d->input_tail = NULL;
+        d->input_size = 0;
+        d->input_tot = 0;
+        d->input_lost = 0;
+        d->raw_input = NULL;
+        d->raw_input_at = NULL;
+        d->quota = mudconf.cmd_quota_max;
+        d->program_data = NULL;
+        d->hashnext = NULL;
 
-	if (descriptor_list) {
-	    for (p = descriptor_list; p->next; p = p->next);
-	    d->prev = &p->next;
-	    p->next = d;
-	    d->next = NULL;
-	} else {
-	    d->next = descriptor_list;
-	    d->prev = &descriptor_list;
-	    descriptor_list = d;
-	}
+        if (descriptor_list) {
+            for (p = descriptor_list; p->next; p = p->next);
+            d->prev = &p->next;
+            p->next = d;
+            d->next = NULL;
+        } else {
+            d->next = descriptor_list;
+            d->prev = &descriptor_list;
+            descriptor_list = d;
+        }
 
-	if (d->descriptor >= maxd)
-	    maxd = d->descriptor + 1;
-	desc_addhash(d);
-#ifdef CONCENTRATE
-	if (!(d->cstatus & C_CCONTROL))
-#endif
-	    if (isPlayer(d->player))
-		s_Flags2(d->player, Flags2(d->player) | CONNECTED);
+        event_set(&d->sock_ev, d->descriptor, EV_READ | EV_PERSIST, 
+                accept_client_input, d);
+        event_add(&d->sock_ev, NULL);
+
+        if (d->descriptor >= maxd)
+            maxd = d->descriptor + 1;
+        desc_addhash(d);
+        if (isPlayer(d->player))
+            s_Flags2(d->player, Flags2(d->player) | CONNECTED);
     }
 
     DESC_ITER_CONN(d) {
-	if (!isPlayer(d->player)) {
-	    shutdownsock(d, R_QUIT);
-	}
-#ifdef CONCENTRATE
-	if (d->cstatus & C_REMOTE) {
-	    DESC_ITER_ALL(k) {
-		if (k->descriptor = d->descriptor)
-		    d->parent = k;
-	    }
-	}
-#endif
+        if (!isPlayer(d->player)) {
+            shutdownsock(d, R_QUIT);
+        }
 
     }
 
@@ -3373,5 +3047,5 @@ void load_restart_db()
     raw_broadcast(0, "Game: Restart finished.");
 }
 #endif				/*
-				 * * STANDALONE  
-				 */
+                     * * STANDALONE  
+                     */

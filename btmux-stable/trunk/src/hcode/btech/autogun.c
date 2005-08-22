@@ -628,7 +628,7 @@ void auto_gun_event(EVENT * e)
             }
     }
 
-    if (((event_tick % 4) != 0) || (MechType(mech) == CLASS_MECH && 
+    if (((muxevent_tick % 4) != 0) || (MechType(mech) == CLASS_MECH && 
             (MechPlusHeat(mech) - MechActiveNumsinks(mech)) > MAXHEAT)) {
         AUTOEVENT(a, EVENT_AUTOGUN, auto_gun_event, AUTOGUN_TICK, 0);
         return;

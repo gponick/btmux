@@ -6,7 +6,7 @@
 
   2.15.93- rdm created
 
-* $Id: debug.c,v 1.1.1.1 2005/01/11 21:17:58 kstevens Exp $
+* $Id: debug.c,v 1.1 2005/06/13 20:50:49 murrayma Exp $
 * Last modified: Sun Jun 28 20:54:06 1998 fingon
 
   Serious knifing / new functions by Markus Stenberg <fingon@iki.fi>
@@ -16,6 +16,7 @@
 #include "externs.h"
 #include "debug.h"
 #include "glue.h"
+#include "muxevent.h"
 #include "mech.h"
 #include "create.h"
 #include "mux_tree.h"

@@ -88,9 +88,9 @@ void bridge_set_elevation(MECH * mech)
 
 int DSOkToNotify(MECH * mech)
 {
-    if (DSLastMsg(mech) > event_tick ||
-	(event_tick - DSLastMsg(mech)) >= DS_SPAM_TIME) {
-	DSLastMsg(mech) = event_tick;
+    if (DSLastMsg(mech) > muxevent_tick ||
+	(muxevent_tick - DSLastMsg(mech)) >= DS_SPAM_TIME) {
+	DSLastMsg(mech) = muxevent_tick;
 	return 1;
     }
     return 0;
@@ -992,9 +992,9 @@ void HandleOverheat(MECH * mech)
     if (MechHeat(mech) < 14.)
 	return;
     /* Has it been a TURN already ? */
-    if ((MechHeatLast(mech) + TURN) > event_tick)
+    if ((MechHeatLast(mech) + TURN) > muxevent_tick)
 	return;
-    MechHeatLast(mech) = event_tick;
+    MechHeatLast(mech) = muxevent_tick;
 #ifdef BT_EXILE_MW3STATS
   if (!isPlayer(MechPilot(mech))) {
 #endif
@@ -1205,7 +1205,7 @@ void UpdateHeat(MECH * mech)
     if (MechHeat(mech) < 0.0)
 	MechHeat(mech) = 0.0;
 
-    if ((event_tick % TURN) == 0)
+    if ((muxevent_tick % TURN) == 0)
 	if (MechCritStatus(mech) & LIFE_SUPPORT_DESTROYED ||
 	    (MechHeat(mech) > 30. && Number(0, 1) == 0)) {
 	    if (MechHeat(mech) > 25.) {
@@ -1260,15 +1260,15 @@ int recycle_weaponry(MECH * mech)
     unsigned char weapdata[MAX_WEAPS_SECTION];
     char location[20];
 
-    int diff = (event_tick - MechLWRT(mech)) / WEAPON_TICK;
+    int diff = (muxevent_tick - MechLWRT(mech)) / WEAPON_TICK;
     int lowest = 0;
 
     if (diff < 1) {
 	if (diff < 0)
-	    MechLWRT(mech) = event_tick;
+	    MechLWRT(mech) = muxevent_tick;
 	return 1;
     }
-    MechLWRT(mech) = event_tick;
+    MechLWRT(mech) = muxevent_tick;
 
     if (!Started(mech) || Destroyed(mech))
 	return 0;
@@ -2046,7 +2046,7 @@ void CheckDamage(MECH * wounded)
 {
     /* should be called from UpdatePilotSkillRolls */
     /* this is so that a roll will be made only when the mech takes damage */
-    int now = event_tick % TURN;
+    int now = muxevent_tick % TURN;
     int staggerLevel = 0;
     int headingChange = 0;
 
@@ -2166,7 +2166,7 @@ void UpdatePilotSkillRolls(MECH * mech)
     int makeroll = 0, grav = 0;
     float maxspeed;
 
-    if (((event_tick % TURN) == 0) && !Fallen(mech) && !Jumping(mech) &&
+    if (((muxevent_tick % TURN) == 0) && !Fallen(mech) && !Jumping(mech) &&
 	!OODing(mech))
 	/* do this once a turn (30 secs), only if mech is standing */
     {
@@ -2230,7 +2230,7 @@ void UpdatePilotSkillRolls(MECH * mech)
 	CheckDamage(mech);
     else
 	MechTurnDamage(mech) = 0;
-    if ((event_tick % TURN) == 0) {
+    if ((muxevent_tick % TURN) == 0) {
 	if (Started(mech) && MechMove(mech) != MOVE_NONE)
 	    CheckGenericFail(mech, -1, NULL, NULL);
     }

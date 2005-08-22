@@ -283,7 +283,7 @@ void bomb_drop(MECH * mech, int player, int bn)
     s->type = k;
     s->map = map;
     SetCargoWeight(mech);
-    event_add(MAX(1, t), 0, EVENT_DHIT, bomb_hit_event, (void *) s, NULL);
+    muxevent_add(MAX(1, t), 0, EVENT_DHIT, bomb_hit_event, (void *) s, NULL);
 }
 
 void mech_bomb(dbref player, void *data, char *buffer)

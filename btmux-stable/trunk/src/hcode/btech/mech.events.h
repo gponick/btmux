@@ -19,7 +19,8 @@
 #define MECH_EVENTS_H
 
 #include "mech.h"
-#include "event.h"
+#include "muxevent.h"
+#include "p.event.h"
 
 /* Semi-combat-related events */
 #define EVENT_MOVE         1	/* mech */

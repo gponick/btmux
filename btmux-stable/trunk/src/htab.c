@@ -3,7 +3,7 @@
   */
 
 /*
- * $Id: htab.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: htab.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -781,7 +781,7 @@ char *prefix;
  * * cf_ntab_access: Change the access on a nametab entry.
  */
 
-extern void FDECL(cf_log_notfound, (dbref, char *, const char *, char *));
+extern void cf_log_notfound(dbref, char *, const char *, char *);
 
 CF_HAND(cf_ntab_access)
 {

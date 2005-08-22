@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: cque.c,v 1.2 2005/06/24 04:39:04 av1-op Exp $ 
+ * $Id: cque.c,v 1.4 2005/08/08 09:43:06 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -13,6 +13,7 @@
 #include <signal.h>
 
 #include "mudconf.h"
+#include "config.h"
 #include "db.h"
 #include "htab.h"
 #include "interface.h"
@@ -25,9 +26,9 @@
 #include "alloc.h"
 #include "functions.h"
 
-extern int FDECL(a_Queue, (dbref, int));
-extern void FDECL(s_Queue, (dbref, int));
-extern int FDECL(QueueMax, (dbref));
+extern int a_Queue(dbref, int);
+extern void s_Queue(dbref, int);
+extern int QueueMax(dbref);
 
 /*
  * ---------------------------------------------------------------------------
@@ -636,7 +637,7 @@ char *event, *cmd, *cargs[];
  * * run from the queue.
  */
 
-int NDECL(que_next)
+int que_next(void)
 {
     int min, this;
     BQUE *point;
@@ -692,7 +693,7 @@ int NDECL(que_next)
  * * do_second: Check the wait and semaphore queues for commands to remove.
  */
 
-void NDECL(do_second)
+void do_second(void)
 {
     BQUE *trail, *point, *next;
     char *cmdsave;

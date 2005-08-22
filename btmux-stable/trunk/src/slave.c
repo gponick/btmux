@@ -5,7 +5,7 @@
  * The philosophy is to keep this program as simple/small as possible.
  * It does normal fork()s, so the smaller it is, the faster it goes.
  * 
- * $Id: slave.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $
+ * $Id: slave.c,v 1.2 2005/08/08 09:43:07 murrayma Exp $
  */
 
 #include "config.h"

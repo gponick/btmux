@@ -4,13 +4,14 @@
  */
 
 /*
- * $Id: player.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: player.c,v 1.7 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
 #include "config.h"
 
 #include "mudconf.h"
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "externs.h"
@@ -41,20 +42,8 @@ struct logindata {
     int new_bad;
 };
 
-#ifndef VMS
-extern char *FDECL(crypt, (const char *, const char *));
-
-#else
-char *crypt(const char *inptr, const char *inkey)
-{
-    return (char *) inptr;
-}
-
-#endif				/*
-				 * VMS 
-				 */
-
-extern time_t FDECL(time, (time_t *));
+extern char *crypt(const char *, const char *);
+extern time_t time(time_t *);
 
 /*
  * ---------------------------------------------------------------------------
@@ -220,30 +209,31 @@ char *ldate, *lhost, *lusername;
  * * check_pass: Test a password to see if it is correct.
  */
 
-int check_pass(player, password)
-dbref player;
-const char *password;
-{
+int check_pass(dbref player, const char *password) {
     dbref aowner;
     int aflags;
     char *target;
+    char *hashed;
 
     target = atr_get(player, A_PASS, &aowner, &aflags);
-    if (*target && strcmp(target, password) &&
-	strcmp(crypt(password, "XX"), target)) {
-	free_lbuf(target);
-	return 0;
+    hashed = crypt(password, "XX");
+    if (*target && strcmp(target, password) && strcmp(hashed, target)) {
+        free_lbuf(target);
+        return 0;
     }
     free_lbuf(target);
 
     /*
      * This is needed to prevent entering the raw encrypted password from
      * * * working.  Do it better if you like, but it's needed. 
+     *
+     * Not really, you should just not really allow unencrypted passwords.
+     * -Hag
      */
 
     if ((strlen(password) == 13) && (password[0] == 'X') &&
-	(password[1] == 'X'))
-	return 0;
+            (password[1] == 'X'))
+        return 0;
 
     return 1;
 }
@@ -253,9 +243,7 @@ const char *password;
  * * connect_player: Try to connect to an existing player.
  */
 
-dbref connect_player(name, password, host, username)
-char *name, *password, *host, *username;
-{
+dbref connect_player(char *name, char *password, char *host, char *username) {
     dbref player, aowner;
     int aflags;
     time_t tt;
@@ -266,10 +254,10 @@ char *name, *password, *host, *username;
     time_str[strlen(time_str) - 1] = '\0';
 
     if ((player = lookup_player(NOTHING, name, 0)) == NOTHING)
-	return NOTHING;
+        return NOTHING;
     if (!check_pass(player, password)) {
-	record_login(player, 0, time_str, host, username);
-	return NOTHING;
+        record_login(player, 0, time_str, host, username);
+        return NOTHING;
     }
     time(&tt);
     time_str = ctime(&tt);
@@ -280,12 +268,12 @@ char *name, *password, *host, *username;
      */
     player_last = atr_get(player, A_LAST, &aowner, &aflags);
     if (strncmp(player_last, time_str, 10) != 0) {
-	allowance = atr_pget(player, A_ALLOWANCE, &aowner, &aflags);
-	if (*allowance == '\0')
-	    giveto(player, mudconf.paycheck);
-	else
-	    giveto(player, atoi(allowance));
-	free_lbuf(allowance);
+        allowance = atr_pget(player, A_ALLOWANCE, &aowner, &aflags);
+        if (*allowance == '\0')
+            giveto(player, mudconf.paycheck);
+        else
+            giveto(player, atoi(allowance));
+        free_lbuf(allowance);
     }
     atr_add_raw(player, A_LAST, time_str);
     free_lbuf(player_last);
@@ -558,7 +546,7 @@ int check_who;
     return thing;
 }
 
-void NDECL(load_player_names)
+void load_player_names(void)
 {
     dbref i, j, aowner;
     int aflags;

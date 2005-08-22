@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: mkindx.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: mkindx.c,v 1.2 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"

@@ -125,7 +125,7 @@ void artillery_shoot(MECH * mech, int targx, int targy, int windex,
 	    artillery_type(s), artillery_direction(s)));
     MapCoordToRealCoord(s->from_x, s->from_y, &fx, &fy);
     MapCoordToRealCoord(s->to_x, s->to_y, &tx, &ty);
-    event_add(artillery_round_flight_time(fx, fy, tx, ty), 0, EVENT_DHIT,
+    muxevent_add(artillery_round_flight_time(fx, fy, tx, ty), 0, EVENT_DHIT,
 	artillery_hit_event, (void *) s, NULL);
 }
 

@@ -1,6 +1,6 @@
 
 /*
- * $Id: event_test.c,v 1.1.1.1 2005/01/11 21:17:31 kstevens Exp $
+ * $Id: event_test.c,v 1.2 2005/06/22 22:07:15 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *
@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-#include "event.h"
+#include "muxevent.h"
 
 #define number(a,b) (a+rand()%(b-a+1))
 
@@ -54,7 +54,7 @@ void hellow(EVENT * e)
     printf("Hello, world!(%d) - %d\n", d1, d2);
     n = number(0, 10);
 #endif
-    event_add_simple_arg(!n ? number(1, LONG_TIME) : number(1, SHORT_TIME),
+    muxevent_add_simple_arg(!n ? number(1, LONG_TIME) : number(1, SHORT_TIME),
 	hellow, (int *) (d + 1));
 }
 
@@ -62,13 +62,13 @@ void main()
 {
     int i;
 
-    event_initialize();
+    muxevent_initialize();
     for (i = 0; i < SIMULTANEOUS_EVENTS; i++)
-	event_add_simple_arg(i + 1, hellow, (int *) (LARGE_NUMBER * i));
+	muxevent_add_simple_arg(i + 1, hellow, (int *) (LARGE_NUMBER * i));
     for (i = 0; i < TEST_ITERATIONS; i++) {
 #ifdef TEST_TIME
 	usleep(TEST_MSECS);
 #endif
-	event_run();
+	muxevent_run();
     }
 }

@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: version.c,v 1.3 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: version.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -67,7 +67,7 @@ int extra;
     free_mbuf(buff);
 }
 
-void NDECL(init_version)
+void init_version(void)
 {
 char mux_version[MBUF_SIZE] = MUX_VERSION;
 

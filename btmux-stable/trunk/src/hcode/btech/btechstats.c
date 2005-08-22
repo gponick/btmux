@@ -26,11 +26,12 @@
 #include "mycool.h"
 #include "mech.events.h"
 #define BTECHSTATS_C
+#include "btmacros.h"
 #include "btechstats.h"
 #include "mux_tree.h"
 #include "htab.h"
 #include "create.h"
-#include "event.h"
+#include "muxevent.h"
 #include "extern.h"
 #include "glue.h"
 #include "p.mechfile.h"
@@ -434,7 +435,7 @@ int char_getskillsuccess(dbref player, char *name, int modifier, int loud)
 	roll = char_rollunskilled();
     else
 	roll = char_rollskilled();
-#ifndef BT_EXILE_MW3STATS
+#ifdef BT_EXILE_MW3STATS
     if (loud)
         {
         notify(player, tprintf("You make a %s skill roll!", name));

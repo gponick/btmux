@@ -16,6 +16,7 @@
 #define MIN_TAKEOFF_SPEED 3
 
 #include <math.h>
+#include "muxevent.h"
 #include "mech.h"
 #include "mech.events.h"
 #include "p.mech.sensor.h"
@@ -395,7 +396,7 @@ void aero_ControlEffect(MECH * mech)
     mech_notify(mech, MECHALL, "You lose control of your craft!");
     MechLOSBroadcast(mech, "spins out of control!");
     StartSpinning(mech);
-    MechStartSpin(mech) = event_tick;
+    MechStartSpin(mech) = muxevent_tick;
 }
 
 void ds_BridgeHit(MECH * mech)
@@ -594,7 +595,7 @@ void aero_update(MECH * mech)
     }
     if (Started(mech) || MechPlusHeat(mech) > 0.)
 	UpdateHeat(mech);
-    if (!(event_tick / 3 % 5)) {
+    if (!(muxevent_tick / 3 % 5)) {
 	if (!Spinning(mech))
 	    return;
 	if (Destroyed(mech))
@@ -602,7 +603,7 @@ void aero_update(MECH * mech)
 	if (Landed(mech))
 	    return;
 	if (MadePilotSkillRoll(mech,
-		(MechStartSpin(mech) - event_tick) / 15 + 8)) {
+		(MechStartSpin(mech) - muxevent_tick) / 15 + 8)) {
 	    mech_notify(mech, MECHALL,
 		"You recover control of your craft.");
 	    StopSpinning(mech);

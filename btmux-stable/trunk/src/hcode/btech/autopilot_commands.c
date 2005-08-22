@@ -178,7 +178,7 @@ int AutoPilotOn(AUTO * a)
     int i, j, count = 0;
 
     for (i = FIRST_AUTO_EVENT; i <= LAST_AUTO_EVENT; i++)
-        if ((j = event_count_type_data(i, (void *) a)))
+        if ((j = muxevent_count_type_data(i, (void *) a)))
             count += j;
 
     if (!count)
@@ -194,7 +194,7 @@ void StopAutoPilot(AUTO * a)
     a->flags &=
             ~(AUTOPILOT_AUTOGUN | AUTOPILOT_GUNZOMBIE | AUTOPILOT_PILZOMBIE);
     for (i = FIRST_AUTO_EVENT; i <= LAST_AUTO_EVENT; i++)
-        event_remove_type_data(i, (void *) a);
+        muxevent_remove_type_data(i, (void *) a);
 }
 
 /* Main idea: Set up all variables to current (if possible),

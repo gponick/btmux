@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: object.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: object.c,v 1.4 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -150,14 +150,14 @@ const char *errtype;
  * * Routines for validating and determining homes.
  */
 
-dbref NDECL(start_home)
+dbref start_home(void)
 {
     if (mudconf.start_home != NOTHING)
 	return mudconf.start_home;
     return mudconf.start_room;
 }
 
-dbref NDECL(default_home)
+dbref default_home(void)
 {
     if (mudconf.default_home != NOTHING)
 	return mudconf.default_home;
@@ -555,7 +555,7 @@ dbref player, obj;
  * * make_freelist: Build a freelist
  */
 
-static void NDECL(make_freelist)
+static void make_freelist(void)
 {
     dbref i;
 
@@ -694,7 +694,7 @@ dbref victim;
 #endif
 }
 
-static void NDECL(purge_going)
+static void purge_going(void)
 {
     dbref i;
 
@@ -766,7 +766,7 @@ const char *qual;
     }
 }
 
-static NDECL(void check_dead_refs)
+static void check_dead_refs(void)
 {
     dbref targ, owner, i, j;
     int aflags, dirty;
@@ -1280,7 +1280,7 @@ dbref loc;
     return;
 }
 
-static void NDECL(check_exit_chains)
+static void check_exit_chains(void)
 {
     dbref i;
 
@@ -1312,7 +1312,7 @@ static void NDECL(check_exit_chains)
  * *      Location of member is not specified location    - reset it.
  */
 
-static void FDECL(check_loc_contents, (dbref));
+static void check_loc_contents(dbref);
 
 static void check_misplaced_obj(obj, back, loc)
 dbref *obj, back, loc;
@@ -1489,7 +1489,7 @@ dbref loc;
     return;
 }
 
-static void NDECL(check_contents_chains)
+static void check_contents_chains(void)
 {
     dbref i;
 
@@ -1534,7 +1534,7 @@ dbref loc;
     }
 }
 
-static NDECL(void check_floating)
+static void check_floating(void)
 {
     dbref owner, i;
 

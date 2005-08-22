@@ -1,6 +1,6 @@
 
 /*
- * $Id: macros.h,v 1.2 2005/01/15 16:57:15 kstevens Exp $
+ * $Id: macros.h,v 1.1 2005/06/13 20:50:52 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *

@@ -31,7 +31,7 @@
 #include "p.mech.build.h"
 
 dbref match_thing(dbref player, char *name);
-void event_remove_data(void *data);
+void muxevent_remove_data(void *data);
 
 /* Basically: 
 
@@ -1039,7 +1039,7 @@ static int do_changes(CUSTOM * cu, dbref player, MECH * from, MECH * to)
 
 /*   silly_atr_set(cu->mynum, A_MECHCUSTOM, tprintf("Approved by %s(#%d)", Name(player), player)); */
     do_magic(from);
-    event_remove_data((void *) from);
+    muxevent_remove_data((void *) from);
     return last_change;
 }
 

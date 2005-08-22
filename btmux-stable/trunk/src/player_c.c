@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: player_c.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: player_c.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -36,7 +36,7 @@ PCACHE *pcache_head;
 #define	PF_MONEY_CH	0x0004
 #define	PF_QMAX_CH	0x0008
 
-void NDECL(pcache_init)
+void pcache_init(void)
 {
     pool_init(POOL_PCACHE, sizeof(PCACHE));
     nhashinit(&pcache_htab, 15 * HASH_FACTOR);
@@ -117,7 +117,7 @@ PCACHE *pp;
     pp->cflags &= ~(PF_MONEY_CH | PF_QMAX_CH);
 }
 
-void NDECL(pcache_trim)
+void pcache_trim(void)
 {
     PCACHE *pp, *pplast, *ppnext;
 
@@ -145,7 +145,7 @@ void NDECL(pcache_trim)
     }
 }
 
-void NDECL(pcache_sync)
+void pcache_sync(void)
 {
     PCACHE *pp;
 

@@ -4,13 +4,14 @@
  */
 
 /*
- * $Id: file_c.c,v 1.2 2005/06/24 04:39:04 av1-op Exp $ 
+ * $Id: file_c.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include <dirent.h>
 #include "copyright.h"
 #include "config.h"
 
+#include "config.h"
 #include "interface.h"
 #include "mudconf.h"
 #include "command.h"
@@ -326,7 +327,7 @@ dbref player;
     free_sbuf(sbuf);
 }
 
-void NDECL(fcache_init)
+void fcache_init(void)
 {
     FCACHE *fp;
 

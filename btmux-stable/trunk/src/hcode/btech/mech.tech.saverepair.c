@@ -30,7 +30,7 @@ static void save_event(EVENT * e)
     int data = (int) e->data2;
     int t;
 
-    t = e->tick - event_tick;
+    t = e->tick - muxevent_tick;
     t = MAX(1, t);
     if (e->function == very_fake_func)
 	t = 0 - t;
@@ -48,7 +48,7 @@ void saverepairs(FILE * f)
     cheat_file = f;
     for (i = FIRST_TECH_EVENT; i <= LAST_TECH_EVENT; i++) {
 	ev_type = i;
-	event_gothru_type(i, save_event);
+	muxevent_gothru_type(i, save_event);
     }
     CHESA(d);
 }
@@ -82,50 +82,50 @@ void loadrepairs(FILE * f)
 	else
 	    switch (type) {
 	    case EVENT_REPAIR_MOB:
-		FIXEVENT(time, mech, data, event_mech_mountbomb, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_mountbomb, type);
 		break;
 	    case EVENT_REPAIR_UMOB:
-		FIXEVENT(time, mech, data, event_mech_umountbomb, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_umountbomb, type);
 		break;
 	    case EVENT_REPAIR_REPL:
-		FIXEVENT(time, mech, data, event_mech_repairpart, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_repairpart, type);
 		break;
 	    case EVENT_REPAIR_REPLG:
-		FIXEVENT(time, mech, data, event_mech_replacegun, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_replacegun, type);
 		break;
 	    case EVENT_REPAIR_REPAP:
-		FIXEVENT(time, mech, data, event_mech_repairpart, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_repairpart, type);
 		break;
 	    case EVENT_REPAIR_REPENHCRIT:
-		FIXEVENT(time, mech, data, event_mech_repairenhcrit, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_repairenhcrit, type);
 		break;
 	    case EVENT_REPAIR_REPAG:
-		FIXEVENT(time, mech, data, event_mech_repairgun, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_repairgun, type);
 		break;
 	    case EVENT_REPAIR_REAT:
-		FIXEVENT(time, mech, data, event_mech_reattach, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_reattach, type);
 		break;
 	    case EVENT_REPAIR_RELO:
-		FIXEVENT(time, mech, data, event_mech_reload, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_reload, type);
 		break;
 	    case EVENT_REPAIR_FIX:
-		FIXEVENT(time, mech, data, event_mech_repairarmor, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_repairarmor, type);
 		break;
 	    case EVENT_REPAIR_FIXI:
-		FIXEVENT(time, mech, data, event_mech_repairinternal,
+		FIXEVENT(time, mech, data, muxevent_tickmech_repairinternal,
 		    type);
 		break;
 	    case EVENT_REPAIR_SCRL:
-		FIXEVENT(time, mech, data, event_mech_removesection, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_removesection, type);
 		break;
 	    case EVENT_REPAIR_SCRG:
-		FIXEVENT(time, mech, data, event_mech_removegun, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_removegun, type);
 		break;
 	    case EVENT_REPAIR_SCRP:
-		FIXEVENT(time, mech, data, event_mech_removepart, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_removepart, type);
 		break;
 	    case EVENT_REPAIR_REPSUIT:
-		FIXEVENT(time, mech, data, event_mech_replacesuit, type);
+		FIXEVENT(time, mech, data, muxevent_tickmech_replacesuit, type);
 		break;
 	    }
 	CHELO(d);

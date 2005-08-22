@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: macro.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: macro.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -12,6 +12,7 @@
 #include "macro.h"
 #include "commac.h"
 
+#include "config.h"
 #include "flags.h"
 #include "powers.h"
 #include "db.h"
@@ -38,7 +39,7 @@ MACENT macro_table[] = {
     {(char *) NULL, NULL}
 };
 
-void NDECL(init_mactab)
+void init_mactab(void)
 {
     MACENT *mp;
 

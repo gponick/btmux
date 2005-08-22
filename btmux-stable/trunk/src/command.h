@@ -1,7 +1,7 @@
 
 /* command.h - declarations used by the command processor */
 
-/* $Id: command.h,v 1.3 2005/06/24 04:39:04 av1-op Exp $ */
+/* $Id: command.h,v 1.4 2005/08/08 09:43:05 murrayma Exp $ */
 
 #include "copyright.h"
 #include "config.h"
@@ -13,19 +13,19 @@
 
 
 #define CMD_NO_ARG(name) \
-    extern void FDECL(name, (dbref, dbref, int))
+    extern void name(dbref, dbref, int)
 #define CMD_ONE_ARG(name) \
-    extern void FDECL(name, (dbref, dbref, int, char *))
+    extern void name(dbref, dbref, int, char *)
 #define CMD_ONE_ARG_CMDARG(name) \
-    extern void FDECL(name, (dbref, dbref, int, char *, char *[], int))
+    extern void name(dbref, dbref, int, char *, char *[], int)
 #define CMD_TWO_ARG(name) \
-    extern void FDECL(name, (dbref, dbref, int, char *, char *))
+    extern void name(dbref, dbref, int, char *, char *)
 #define CMD_TWO_ARG_CMDARG(name) \
-    extern void FDECL(name, (dbref, dbref, int, char *, char *, char*[], int))
+    extern void name(dbref, dbref, int, char *, char *, char*[], int)
 #define CMD_TWO_ARG_ARGV(name) \
-    extern void FDECL(name, (dbref, dbref, int, char *, char *[], int))
+    extern void name(dbref, dbref, int, char *, char *[], int)
 #define CMD_TWO_ARG_ARGV_CMDARG(name) \
-    extern void FDECL(name, (dbref, dbref, int, char *, char *[], int, char*[], int))
+    extern void name(dbref, dbref, int, char *, char *[], int, char*[], int)
 
 /* Command function handlers */
 
@@ -238,8 +238,7 @@ struct addedentry {
 #define CA_PLAYER	0x40000000	/* Invoker must be a player */
 #define CF_DARK		0x80000000	/* Command doesn't show up in list */
 
-extern int FDECL(check_access, (dbref, int));
-extern void FDECL(process_command, (dbref, dbref, int, char *, char *[],
-	int));
+extern int check_access(dbref, int);
+extern void process_command(dbref, dbref, int, char *, char *[], int);
 
 #endif

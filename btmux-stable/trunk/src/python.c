@@ -1,6 +1,6 @@
 
 /*
- * $Id: python.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $
+ * $Id: python.c,v 1.2 2005/08/08 09:43:07 murrayma Exp $
  *
  * Author: Thomas Wouters <thomas@xs4all.net>
  *
@@ -14,6 +14,7 @@
 #include "db.h"
 #include "externs.h"
 #include "mudconf.h"
+#include "config.h"
 
 #ifdef USE_PYTHON
 #include "Python.h"

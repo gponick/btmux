@@ -12,9 +12,10 @@
  * * This code is hereby placed under GNU copyleft,
  * * see copyright.h for details.
  * *
- * * $Id: wild.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $
+ * * $Id: wild.c,v 1.2 2005/08/08 09:43:07 murrayma Exp $
  */
 #include "copyright.h"
+#include "config.h"
 
 #include "config.h"
 #include "db.h"

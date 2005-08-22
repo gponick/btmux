@@ -1,6 +1,6 @@
 
 /*
- * $Id: glue.c,v 1.5 2005/07/26 18:39:52 av1-op Exp $
+ * $Id: glue.c,v 1.4 2005/08/08 09:43:09 murrayma Exp $
  *
  * Original author: unknown
  *
@@ -363,7 +363,7 @@ static int load_update1(Node * tmp)
 	}
 	MechCocoon(mech) = 0;
 	MechStatus(mech) &= ~(BLINDED | UNCONSCIOUS | JUMPING | TOWED);
-	MechStatus2(mech) &=
+	MechSpecials2(mech) &=
 	    ~(ECM_ENABLED | ECM_DISTURBANCE | ECM_PROTECTED |
 	    ECCM_ENABLED | ANGEL_ECM_ENABLED | ANGEL_ECCM_ENABLED |
 	    ANGEL_ECM_PROTECTED | ANGEL_ECM_DISTURBED);
@@ -514,8 +514,8 @@ void LoadSpecialObjects(void)
     int type;
     void *tmpdat;
 
-    event_initialize();
-    event_count_initialize();
+    muxevent_initialize();
+    muxevent_count_initialize();
 #ifdef BT_ENABLED
     init_stat();
     initialize_partname_tables();
@@ -712,7 +712,7 @@ static int UpdateSpecialObject_func(Node * tmp)
     i = WhichType(tmp);
     if (!SpecialObjects[i].updateTime)
 	return 1;
-    if ((event_tick % SpecialObjects[i].updateTime))
+    if ((muxevent_tick % SpecialObjects[i].updateTime))
 	return 1;
     SpecialObjects[i].updatefunc(NodeKey(tmp), NodeData(tmp));
     return 1;
@@ -736,7 +736,7 @@ void UpdateSpecialObjects(void)
     cmdsave = mudstate.debug_cmd;
     for (i = 0; i < times; i++) {
 	mudstate.debug_cmd = (char *) "< Generic hcode event handler>";
-	event_run();
+	muxevent_run();
 	mudstate.debug_cmd = (char *) "< Generic hcode update handler>";
 	GoThruTree(xcode_tree, UpdateSpecialObject_func);
     }
@@ -830,7 +830,7 @@ void DisposeSpecialObject(dbref player, dbref key)
 	    typeOfObject->allocfreefunc(key, &NodeData(tmp), SPECIAL_FREE);
 	NodeData(tmp) = NULL;
 	DeleteEntry(&xcode_tree, key);
-	event_remove_data(t);
+	muxevent_remove_data(t);
 	free(t);
     } else if (typeOfObject->datasize > 0) {
 	notify(player, "This object is not in the special object DBASE.");
@@ -945,13 +945,11 @@ int IsMech(dbref num)
     return WhichSpecial(num) == GTYPE_MECH;
 }
 
-int IsAuto(dbref num)
-{
+int IsAuto(dbref num) {
     return WhichSpecial(num) == GTYPE_AUTO;
 }
 
-int IsMap(dbref num)
-{
+int IsMap(dbref num) {
     return WhichSpecial(num) == GTYPE_MAP;
 }
 
@@ -1438,10 +1436,10 @@ void ResetSpecialObjects()
     int i;
 
     for (i = FIRST_TECH_EVENT; i <= LAST_TECH_EVENT; i++)
-	while (event_run_by_type(i));
+	while (muxevent_run_by_type(i));
 #endif
-    event_run_by_type(EVENT_HIDE);
-    event_run_by_type(EVENT_BLINDREC);
+    muxevent_run_by_type(EVENT_HIDE);
+    muxevent_run_by_type(EVENT_BLINDREC);
 }
 
 

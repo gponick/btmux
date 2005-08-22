@@ -4,7 +4,7 @@
  */
 
 /*
- * $Id: timer.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: timer.c,v 1.5 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
@@ -13,21 +13,26 @@
 #include <signal.h>
 
 #include "mudconf.h"
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "match.h"
 #include "externs.h"
 #include "command.h"
 
-extern void NDECL(pool_reset);
-extern void NDECL(do_second);
-extern void FDECL(fork_and_dump, (int key));
-extern unsigned int FDECL(alarm, (unsigned int seconds));
-extern void NDECL(pcache_trim);
+extern void pool_reset(void);
+extern void do_second(void);
+extern void fork_and_dump(int key);
+extern unsigned int alarm(unsigned int seconds);
+extern void pcache_trim(void);
 extern void check_events(void);
 
+void timer_callback(int fd, short event, void *arg);
 
-void NDECL(init_timer)
+static struct timeval tv = { 0, 100000 };
+static struct event timer_event;
+
+void init_timer()
 {
     mudstate.now = time(NULL);
     mudstate.dump_counter =
@@ -41,7 +46,9 @@ void NDECL(init_timer)
     mudstate.idle_counter = mudconf.idle_interval + mudstate.now;
     mudstate.mstats_counter = 15 + mudstate.now;
     mudstate.events_counter = 900 + mudstate.now;
-    alarm(1);
+    // alarm(1);
+    evtimer_set(&timer_event, timer_callback, NULL);
+    evtimer_add(&timer_event, &tv);
 }
 
 #undef DISPATCH_DEBUG
@@ -52,8 +59,7 @@ void NDECL(init_timer)
 #define DPSET(n)
 #endif
 
-void NDECL(dispatch)
-{
+void dispatch() {
     char *cmdsave;
 
 #ifdef USE_PYTHON
@@ -94,17 +100,16 @@ void NDECL(dispatch)
 				 * MEMORY_BASED 
 				 */
 	pcache_trim();
-	pool_reset();
     }
     /*
      * Database dump routines 
      */
 
     if ((mudconf.control_flags & CF_CHECKPOINT) &&
-	(mudstate.dump_counter <= mudstate.now)) {
-	mudstate.dump_counter = mudconf.dump_interval + mudstate.now;
-	DPSET("< dump >");
-	fork_and_dump(0);
+            (mudstate.dump_counter <= mudstate.now)) {
+        mudstate.dump_counter = mudconf.dump_interval + mudstate.now;
+        DPSET("< dump >");
+        fork_and_dump(0);
     }
     /*
        Mech stuff ; hopefully it means once ~per sec, although you
@@ -169,9 +174,16 @@ void NDECL(dispatch)
      * reset alarm 
      */
 
-    alarm(1);
+    // alarm(1);
     mudstate.debug_cmd = cmdsave;
 }
+
+void timer_callback(int fd, short event, void *arg) {
+    mudstate.alarm_triggered = 1;
+    evtimer_add(&timer_event, &tv);
+    dispatch();
+}
+
 
 /*
  * ---------------------------------------------------------------------------

@@ -4,13 +4,14 @@
  */
 
 /*
- * $Id: look.c,v 1.2 2005/06/24 04:39:05 av1-op Exp $ 
+ * $Id: look.c,v 1.3 2005/08/08 09:43:07 murrayma Exp $ 
  */
 
 #include "copyright.h"
 #include "config.h"
 
 #include "mudconf.h"
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "match.h"
@@ -22,7 +23,7 @@
 #include "alloc.h"
 #include "ansi.h"
 
-extern void FDECL(ufun, (char *, char *, int, int, int, dbref, dbref));
+extern void ufun(char *, char *, int, int, int, dbref, dbref);
 
 static void look_exits(player, loc, exit_name)
 dbref player, loc;

@@ -2,12 +2,13 @@
 /* command.c - command parser and support routines */
 
 /*
- * $Id: command.c,v 1.5 2005/07/18 17:03:29 av1-op Exp $ 
+ * $Id: command.c,v 1.6 2005/08/08 10:30:11 murrayma Exp $ 
  */
 
 #include "copyright.h"
 #include "config.h"
 
+#include "config.h"
 #include "db.h"
 #include "interface.h"
 #include "mudconf.h"
@@ -26,19 +27,17 @@
 #include "macro.h"
 #include "p.comsys.h"
 
-extern void FDECL(list_cf_access, (dbref));
-extern void FDECL(list_siteinfo, (dbref));
-extern void FDECL(logged_out, (dbref, dbref, int, char *));
-extern void NDECL(boot_slave);
+extern void list_cf_access(dbref);
+extern void list_siteinfo(dbref);
+extern void logged_out(dbref, dbref, int, char *);
+extern void boot_slave(void);
 #ifdef SQL_SUPPORT
-#ifndef NO_SQLSLAVE
-extern void NDECL(boot_sqlslave);
-#endif
+extern void boot_sqlslave(void);
 #endif
 #if ARBITRARY_LOGFILES_MODE==2
-extern void NDECL(boot_fileslave);
+extern void boot_fileslave(void);
 #endif
-extern void NDECL(vattr_clean_db);
+extern void vattr_clean_db(void);
 
 #define CACHING "object"
 
@@ -754,11 +753,9 @@ CMDENT command_table[] = {
 {(char *)"@query",              query_sw,
 	CA_WIZARD, 
 	0,              CS_TWO_ARG,     		do_query},
-#ifndef NO_SQLSLAVE
 {(char *)"@startsqlslave",      NULL,
 	CA_WIZARD,
         0,              CS_NO_ARGS,                     boot_sqlslave},
-#endif
 #endif
 #if ARBITRARY_LOGFILES_MODE==2
 {(char *)"@startfileslave",	NULL,
@@ -781,7 +778,7 @@ CMDENT *prefix_cmds[256];
 
 CMDENT *goto_cmdp;
 
-void NDECL(init_cmdtab)
+void init_cmdtab(void)
 {
     CMDENT *cp;
     ATTR *ap;
@@ -1978,7 +1975,7 @@ dbref player;
  * * cf_access: Change command or switch permissions.
  */
 
-extern void FDECL(cf_log_notfound, (dbref, char *, const char *, char *));
+extern void cf_log_notfound(dbref, char *, const char *, char *);
 
 CF_HAND(cf_access)
 {
@@ -2556,7 +2553,7 @@ dbref player;
     list_hashstat(player, "Attr names", &mudstate.attr_name_htab);
     list_hashstat(player, "Vattr names", &mudstate.vattr_name_htab);
     list_hashstat(player, "Player Names", &mudstate.player_htab);
-    list_nhashstat(player, "Net Descriptors", &mudstate.desc_htab);
+    //list_nhashstat(player, "Net Descriptors", &mudstate.desc_htab);
     list_nhashstat(player, "Forwardlists", &mudstate.fwdlist_htab);
     list_nhashstat(player, "Overlaid $-cmds", &mudstate.parent_htab);
     list_nhashstat(player, "Mail messages", &mudstate.mail_htab);
@@ -2649,33 +2646,6 @@ extern int cs_objects;		/*
 				 * * MEMORY_BASED  
 				 */
 
-#ifdef RADIX_COMPRESSION
-extern int strings_compressed;	/*
-
-
-				 * * Total number of compressed strings  
-				 */
-extern int strings_decompressed;	/*
-
-
-					 * * Total number of decompressed * 
-					 * * *  * *  * *  * *  * * strings  
-					 */
-extern int chars_in;		/*
-
-
-				 * * Total characters compressed  
-				 */
-extern int symbols_out;		/*
-
-
-				 * * Total symbols emitted  
-				 */
-
-#endif				/*
-				 * * RADIX_COMPRESSION  
-				 */
-
 /*
  * ---------------------------------------------------------------------------
  * * list_db_stats: Get useful info from the DB layer about hash stats, etc.
@@ -2703,17 +2673,6 @@ dbref player;
     raw_notify(player, tprintf("Cache Size %12d", cs_objects));
 #endif				/*
 				 * * MEMORY_BASED  
-				 */
-#ifdef RADIX_COMPRESSION
-    raw_notify(player, "Compression statistics:");
-    raw_notify(player, tprintf("Strings compressed %d",
-	    strings_compressed));
-    raw_notify(player, tprintf("Strings decompressed %d",
-	    strings_decompressed));
-    raw_notify(player, tprintf("Compression ratio %d:%d", chars_in,
-	    symbols_out + (symbols_out >> 1)));
-#endif				/*
-				 * * RADIX_COMPRESSION  
 				 */
 }
 

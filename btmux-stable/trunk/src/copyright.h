@@ -3,7 +3,7 @@
 
 /* -*-C-*- */
 
-/* $Id: copyright.h,v 1.4 2005/06/24 00:23:04 gregtaylor Exp $ */
+/* $Id: copyright.h,v 1.1 2005/06/13 20:50:47 murrayma Exp $ */
 
 /*
  * TinyMUX 1.0, 1.1 and 1.2 Source code is maintained by David Passmore
@@ -92,6 +92,7 @@
   * BT_ADVANCED_ECON 
   * BT_FREETECHTIME
   * BT_COMPLEXREPAIRS
+  * BT_MECHDEST_TRIGGER
   *
   * Under the /hcode, /hcode/btech, and hcode/btech/include tree all code
   * pertaining to Kevin Stevens copyright in any headers is related to the
@@ -101,6 +102,7 @@
   * BT_ADVANCED_ECON_INIT
   * EXILE_FUNCS_SUPPORT
   * BT_CALCULATE_BV
+  * BT_MECHDEST_TRIGGER
   * BT_EXILE_SKILLS
   * BT_EXILE_MW3STATS
   * BT_EXTENDED_ADVANTAGES

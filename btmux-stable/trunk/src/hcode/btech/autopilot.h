@@ -83,8 +83,8 @@ typedef struct {
         a->flags &= ~AUTOPILOT_GUNZOMBIE; } while (0)
 
 #define TrulyStopGun(a) \
-    do { event_remove_type_data(EVENT_AUTOGUN, a); \
-        event_remove_type_data(EVENT_AUTOGS, a); } while (0)
+    do { muxevent_remove_type_data(EVENT_AUTOGUN, a); \
+        muxevent_remove_type_data(EVENT_AUTOGS, a); } while (0)
 
 #define DoStopGun(a)        \
     do { StopGun(a); TrulyStopGun(a); } while (0)

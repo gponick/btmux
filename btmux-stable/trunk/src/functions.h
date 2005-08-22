@@ -1,7 +1,7 @@
 
 /* functions.h - declarations for functions & function processing */
 
-/* $Id: functions.h,v 1.1.1.1 2005/01/11 21:17:44 kstevens Exp $ */
+/* $Id: functions.h,v 1.3 2005/06/23 02:59:58 murrayma Exp $ */
 
 #include "copyright.h"
 
@@ -30,8 +30,8 @@ typedef struct ufun {
 #define	FN_PRIV		4	/* Perform user-def function as holding obj */
 #define FN_PRES		8	/* Preseve r-regs before user-def functions */
 
-extern void NDECL(init_functab);
-extern void FDECL(list_functable, (dbref));
-extern dbref FDECL(match_thing, (dbref, char *));
+extern void init_functab(void);
+extern void list_functable(dbref);
+extern dbref match_thing(dbref, char *);
 
 #endif

@@ -10,8 +10,6 @@
 #define SQLDB_SLOT_DBNAME	2
 #define SQLDB_SLOT_USERNAME	3
 #define SQLDB_SLOT_PASSWORD	4
-#define SQLDB_SLOT_SOCKET   5
-#define SQLDB_SLOT_PORT     6
-#define SQLDB_SLOT_DBTYPE   7	
+#define SQLDB_SLOT_DBTYPE	5
 
 #endif

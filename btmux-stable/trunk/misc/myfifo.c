@@ -1,6 +1,6 @@
 
 /* 
- * $Id: myfifo.c,v 1.3 2005/06/24 04:39:03 av1-op Exp $
+ * $Id: myfifo.c,v 1.3 2005/08/08 09:43:05 murrayma Exp $
  *
  * Author: Markus Stenberg <fingon@iki.fi>
  *
@@ -13,8 +13,8 @@
  */
 
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "myfifo.h"
 
 /* A little shortcut to save me some typing */

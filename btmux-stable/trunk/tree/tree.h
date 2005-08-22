@@ -3,7 +3,7 @@
  * vix 27jun86 [broken out of tree.c]
  * vix 22jan93 [revisited; uses RCS, ANSI, POSIX; has bug fixes]
  *
- * $Id: tree.h,v 1.1.1.1 2005/01/11 21:18:35 kstevens Exp $
+ * $Id: tree.h,v 1.1 2005/06/13 20:50:53 murrayma Exp $
  */
 
 

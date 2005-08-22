@@ -1189,9 +1189,9 @@ void sendchannelstuff(MECH * mech, int freq, char *msg)
     
             mech_notify(tempMech, MECHALL, buf);
             if (isxp && In_Character(tempMech->mynum))
-                if ((MechCommLast(tempMech) + 60) < event_tick) {
+                if ((MechCommLast(tempMech) + 60) < muxevent_tick) {
                     AccumulateCommXP(MechPilot(tempMech), tempMech);
-                    MechCommLast(tempMech) = event_tick;
+                    MechCommLast(tempMech) = muxevent_tick;
                 }
 
         }
