@@ -171,6 +171,10 @@ You may connect using the two character's dbref like this:
 
 connect #1 btmuxr0x
 
+Note that the same password is used for both #1 and #2, you will
+need to change these using the @password command as soon as
+possible! 
+
 You should now be set to start tinkering! Good luck :)
 
 S8: GETTING FURTHER HELP
