@@ -11,8 +11,11 @@ PATH=/usr/ucb:/bin:/usr/bin:.; export PATH
 #	Make sure there isn't aready a MUX running.
 #
 
-nmux=`ps -C netmux l | egrep "netmux netmux.conf"`
+#nmux=`ps -C netmux l | egrep "netmux netmux.conf"`
+numx=`ps -ax | sed -e '/grep/d' | grep "netmux netmux.conf"`
 if [ "$?" -ne 1 ]; then
+    echo "Another copy of netmux is running"
+    echo "Check ps -ax"
 	exit 0
 fi
 #
