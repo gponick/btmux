@@ -12,10 +12,10 @@ PATH=/usr/ucb:/bin:/usr/bin:.; export PATH
 #
 
 #nmux=`ps -C netmux l | egrep "netmux netmux.conf"`
-numx=`ps -ax | sed -e '/grep/d' | grep "netmux netmux.conf"`
+numx=`ps ax | sed -e '/grep/d' | grep "netmux netmux.conf"`
 if [ "$?" -ne 1 ]; then
     echo "Another copy of netmux is running"
-    echo "Check ps -ax"
+    echo "Check ps ax"
 	exit 0
 fi
 #
