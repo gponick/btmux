@@ -12,7 +12,10 @@
  XCODE		- Xcode Data
  WIZRULES	- Need to knew rules of behaviour.
  RESOURCES      - Where to go for help.
-
+ ----------------------------------------------------------------------------
+ NOTE: These files are very much out of date. Your best bet is to check
+ the documentation wiki at http://docs.btmux or the Community portal at
+ http://portal.btmux.com for additional help.
  ----------------------------------------------------------------------------
 
 & resources
@@ -31,8 +34,8 @@
  BTMux Mailing Lists:
   http://sourceforge.net/mail/?group_id=128056
 
- BTMux Forums:
-  http://sourceforge.net/forum/?group_id=128056
+ BTMux Forums/Portal:
+  http://portal.btmux.com
  ----------------------------------------------------------------------------
 
 & autopilot
