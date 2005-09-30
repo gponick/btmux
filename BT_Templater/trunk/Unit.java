@@ -1,20 +1,25 @@
-//-------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 // Unit.java
 // ---------
 // Master class to be inherited by specific unit types (Mech, Tank, VTOL,
 // etc.)
-//-------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 
 import java.util.*;
 
 public class Unit {
-   private String unitReference; // The reference of the unit.
-   private String unitName;      // The full name of the unit.
-   private int unitTonnage;      // Tonnage
-   private int unitWalkMP;       // Walk Movement Points
-   private int unitJumpMP;       // Unit's jump MP.
-   private int unitHeatSinks;    // Number of HeatSinks
-   private int unitEngineType;   // Holds engine type number.
+   private String unitReference; 	// The reference of the unit.
+   private String unitName;      	// The full name of the unit.
+   private int    unitTonnage;      // Tonnage
+   private int    unitWalkMP;       // Walk Movement Points
+   private int    unitJumpMP;       // Unit's jump MP.
+   private int    unitHeatSinks;    // Number of HeatSinks
+   private int    unitEngineType;   // Holds engine type number.
+   
+   // Unit sections.
+   UnitSection 	  head, 
+   				  leftTorso, centerTorso, rightTorso,
+   				  leftLeg, rightLeg;
    
    // Holds the unit's special tech listing.
    private Vector<String> unitTechs = new Vector<String>();
@@ -99,6 +104,14 @@ public class Unit {
       unitWalkMP     = 0;           // Nothing Just Yet
       unitHeatSinks  = 10;          // Default Heatsink Loadout
       unitEngineType = 0;           // Standard Fusion Engine
+      
+      // Set up the sections. Need to ponder a better way to do this.
+      head        = new UnitSection(this);
+      leftTorso   = new UnitSection(this);
+      centerTorso = new UnitSection(this);
+      rightTorso  = new UnitSection(this);
+      leftLeg     = new UnitSection(this);
+      rightLeg    = new UnitSection(this);
    } // end constructor unit
    
 /*-----------------------------------------------------------*
@@ -210,6 +223,15 @@ public class Unit {
       }
    } // end addTech
    
+   // Returns true if the unit has the specified tech.
+   public boolean hasTech(String techToFind) {
+	   if (unitTechs.indexOf(techToFind) != -1) {
+		   return true;
+	   } else {
+		   return false;
+	   }
+   } // end hasTech
+   
  /*-----------------------------------------------------------*
    Private Helper Functions
  *-----------------------------------------------------------*/
@@ -229,6 +251,11 @@ public class Unit {
                + engineTable[x] * .25);
       } // end for
    } // end printEngTable
+   
+   // Shows a string representation of the unit's techs.
+   public void listTechs() {
+	   System.out.println("TECHS: " + unitTechs.toString());
+   } // end listTechs
 
 /*-----------------------------------------------------------*
    Main Method - For Testing Only
@@ -243,6 +270,9 @@ public class Unit {
       test.setJumpMP(2);
       test.setHeatSinks(20);
       test.setEngType(2);
+      test.addTech("Radar");
+      test.addTech("ECM");
+      test.listTechs();
       System.out.println("Name: " + test.getName() + "("
       + test.getReference() + ")");
       System.out.println("Tonnage: " + test.getTonnage());

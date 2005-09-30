@@ -1,0 +1,13 @@
+BT_Templater
+------------
+Thus begin my tinkerings to create a group of classes that accurately depicts one of
+the various unit types in Battletech. I may eventually write a GUI that uses the
+class if someone else doesn't.
+
+NOTE: This is mostly just a tinker project for me to play around and learn the
+nuances of Java, as my work as a student requires me to know it. This is a good
+way to learn and pursue an interest of mine at the same time. As is such, don't
+expect this code to be top notch, it's an experiment in which I'm trying to use
+a variety of techniques for better understanding.
+
+-- Greg Taylor / Kelvin McCorvin
