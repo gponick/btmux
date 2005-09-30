@@ -7,6 +7,7 @@
 
 public class UnitSection {
 	private int	armor;				// Number of armor points in this section.
+	private int rearArmor;			// In case the section has rear armor.
 	Crit[]		sectionCrits;		// The array of crits in the section.
 	Unit		unit;				// Holds reference to the unit.
 	
@@ -44,6 +45,16 @@ public class UnitSection {
 	public void setArmor(int newArmorVal) {
 		armor = newArmorVal;
 	} // end getArmor
+	
+	// Returns the amount of rear armor in this section.
+	public int getRearArmor() {
+		return rearArmor;
+	} // end getRearArmor
+	
+	// Sets the section's rear armor level.
+	public void setRearArmor(int newRearArmorVal) {
+		rearArmor = newRearArmorVal;
+	} // end getRearArmor
 
 /*-----------------------------------------------------------*
 	Mid-Level Methods

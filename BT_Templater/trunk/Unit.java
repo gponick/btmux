@@ -16,10 +16,13 @@ public class Unit {
    private int    unitHeatSinks;    // Number of HeatSinks
    private int    unitEngineType;   // Holds engine type number.
    
+   // Class identifier.
+   public final String TYPE = "Mech";
+   
    // Unit sections.
-   UnitSection 	  head, 
-   				  leftTorso, centerTorso, rightTorso,
-   				  leftLeg, rightLeg;
+   public UnitSection 	  head, 
+   				  		  leftTorso, centerTorso, rightTorso,
+   				  		  leftLeg, rightLeg;
    
    // Holds the unit's special tech listing.
    private Vector<String> unitTechs = new Vector<String>();
