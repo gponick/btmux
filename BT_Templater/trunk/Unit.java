@@ -16,14 +16,11 @@ public class Unit {
    private int    unitHeatSinks;    // Number of HeatSinks
    private int    unitEngineType;   // Holds engine type number.
    
-<<<<<<< .mine
    Hashtable sectionList = new Hashtable();
    
-=======
    // Class identifier.
    public final String TYPE = "Mech";
    
->>>>>>> .r155
    // Unit sections.
    public UnitSection 	  head, 
    				  		  leftTorso, centerTorso, rightTorso,
