@@ -5,10 +5,7 @@
 //----------------------------------------------------------------------------
 
 public class Weapon extends Crit {
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
-}
+	Weapon(String name) {
+		super(name, "Weapon");
+	} // end constructor Weapon
+} // end class Weapon

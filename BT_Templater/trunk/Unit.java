@@ -16,9 +16,14 @@ public class Unit {
    private int    unitHeatSinks;    // Number of HeatSinks
    private int    unitEngineType;   // Holds engine type number.
    
+<<<<<<< .mine
+   Hashtable sectionList = new Hashtable();
+   
+=======
    // Class identifier.
    public final String TYPE = "Mech";
    
+>>>>>>> .r155
    // Unit sections.
    public UnitSection 	  head, 
    				  		  leftTorso, centerTorso, rightTorso,
@@ -115,6 +120,12 @@ public class Unit {
       rightTorso  = new UnitSection(this);
       leftLeg     = new UnitSection(this);
       rightLeg    = new UnitSection(this);
+      sectionList.put("head", head);
+      sectionList.put("leftTorso", leftTorso);
+      sectionList.put("centerTorso", centerTorso);
+      sectionList.put("rightTorso", rightTorso);
+      sectionList.put("leftLeg", leftLeg);
+      sectionList.put("rightLeg", rightLeg);
    } // end constructor unit
    
 /*-----------------------------------------------------------*
@@ -214,6 +225,18 @@ public class Unit {
    public int getRunMP() {
       return (int) Math.round(unitWalkMP * 1.5);
    } // end getRunMP
+   
+   // Sets the amount of armor on a particular section.
+   public void setArmor(String location, int armorValue) {
+	   UnitSection temp = (UnitSection) sectionList.get(location);
+	   temp.setArmor(armorValue);
+   } // end setArmor
+   
+   // Retrieves the armor value of a particular section.
+   public int getArmor(String location) {
+	   UnitSection temp = (UnitSection) sectionList.get(location);
+	   return temp.getArmor();
+   } // end getArmor
 
 /*-----------------------------------------------------------*
    Special Tech Management Functions
@@ -259,32 +282,4 @@ public class Unit {
    public void listTechs() {
 	   System.out.println("TECHS: " + unitTechs.toString());
    } // end listTechs
-
-/*-----------------------------------------------------------*
-   Main Method - For Testing Only
- *-----------------------------------------------------------*/
-   
-   public static void main(String args[]) {
-      Unit test = new Unit();
-      test.setReference("TST-1");
-      test.setName("Test Unit");
-      test.setTonnage(80);
-      test.setWalkMP(3);
-      test.setJumpMP(2);
-      test.setHeatSinks(20);
-      test.setEngType(2);
-      test.addTech("Radar");
-      test.addTech("ECM");
-      test.listTechs();
-      System.out.println("Name: " + test.getName() + "("
-      + test.getReference() + ")");
-      System.out.println("Tonnage: " + test.getTonnage());
-      System.out.println("Movement: " + test.getWalkMP() + "/"
-            + test.getRunMP() + "/" + test.getJumpMP());
-      System.out.println("Engine Rating: "
-            + test.getEngRating() + "  Engine Tonnage: "
-            + test.getEngTonnage());
-      System.out.println("HeatSinks: " + test.getHeatSinks());
-      //test.printEngTable();
-   } // end main   
 } // end class Unit

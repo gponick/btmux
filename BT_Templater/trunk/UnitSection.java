@@ -89,12 +89,6 @@ public class UnitSection {
  *-----------------------------------------------------------*/
 	
 	public static void main(String[] args) {
-		UnitSection testSection = new UnitSection();
-		Crit crit1 = new Crit("Some Multi-Crit");
-		Crit crit2 = new Crit("Some Single-Crit");
-		testSection.addCrit(crit1,5);
-		testSection.addCrit(crit1,6);
-		testSection.addCrit(crit2,8);
-		System.out.println(testSection.toString());
+		
 	} // end main
 } // end class UnitSection
