@@ -4,6 +4,8 @@
 // Generic crit class.
 //----------------------------------------------------------------------------
 
+package crits;
+
 public class Crit {
 	public static int totalCrits;		// Total number of crits.
 				  int critNumber;		// Unique crit number. This is used

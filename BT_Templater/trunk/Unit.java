@@ -5,6 +5,7 @@
 // etc.)
 //----------------------------------------------------------------------------
 
+package units;
 import java.util.*;
 
 public class Unit {
@@ -101,7 +102,7 @@ public class Unit {
    }; // end engineTable
    
    // Default unit constructor.
-   Unit() {
+   public Unit() {
       // Initialize default values.
       unitReference  = "NEW";       // Fill with Something
       unitName       = "New Unit";  // Fill with Something

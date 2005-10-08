@@ -4,6 +4,11 @@
 // Main class for the templater.
 //----------------------------------------------------------------------------
 
+package main;
+
+import units.*;
+import crits.*; 	// This only needs to be here while we're debugging.
+
 public class Templater {
 
 	public static void main(String[] args) {

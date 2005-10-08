@@ -5,12 +5,14 @@
 // insanely messy, but we'll worry about it later :)
 //----------------------------------------------------------------------------
 
+package crits;
+
 import java.util.Hashtable;
 
-public final class PartData {
+public class PartData {
 	static Hashtable partInfo = new Hashtable();
 	
-	PartData() {
+	public PartData() {
 		// Damage, Heat, MinRange, ShortRange, MediumRange, LongRange, Crits,
 		// AmmoPT, Weight, BV
 		partInfo.put("IS.LargeLaser", new part(8, 8, 0, 5, 10, 15, 2, -1, 5, 124));
