@@ -8,6 +8,6 @@ package crits;
 
 public class Ammo extends Crit {
 	Ammo(String name) {
-		super(name, "Ammo");
+		super(name);
 	} // end constructor Ammo
 } // end class Ammo

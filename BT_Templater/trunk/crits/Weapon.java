@@ -8,6 +8,7 @@ package crits;
 
 public class Weapon extends Crit {
 	Weapon(String name) {
-		super(name, "Weapon");
+      // Weapons are type 1.
+		super(name);
 	} // end constructor Weapon
 } // end class Weapon

@@ -1,6 +1,3 @@
-package units;
-import crits.Crit;
-
 //----------------------------------------------------------------------------
 // UnitSection.java
 // ----------------
@@ -8,11 +5,14 @@ import crits.Crit;
 // crits and armor values.
 //----------------------------------------------------------------------------
 
+package units;
+import crits.Crit;
+
 public class UnitSection {
 	private int	armor;				// Number of armor points in this section.
 	private int rearArmor;			// In case the section has rear armor.
 	Crit[]		sectionCrits;		// The array of crits in the section.
-	Unit		unit;				// Holds reference to the unit.
+	Unit		   unit;				   // Holds reference to the unit.
 	
 	// Default default constructor. Don't use it!
 	UnitSection() {
@@ -66,8 +66,16 @@ public class UnitSection {
 	// Adds a crit to the section's crit array. Currently just
 	// over-writes existing crits if you specify an occupied.
 	public void addCrit(Crit newCrit, int location) {
-		sectionCrits[location] = newCrit;
+		int numCrits = newCrit.getNumCrits();
+      
+      for (int x = 0; x < numCrits; x++) {
+         sectionCrits[location + x] = newCrit;
+      }
 	} // end addCrit
+   
+   public void setCrit(Crit newCrit, int location) {
+      sectionCrits[location] = newCrit;
+   } // end setCrit
 	
 	// Returns a string representation of the section.
 	public String toString() {
@@ -92,6 +100,9 @@ public class UnitSection {
  *-----------------------------------------------------------*/
 	
 	public static void main(String[] args) {
-		
+      UnitSection test = new UnitSection();
+      test.addCrit(new Crit("IS.LargeLaser"), 5);
+      test.addCrit(new Crit("IS.MediumLaser"), 8);
+      System.out.println(test);
 	} // end main
 } // end class UnitSection

@@ -8,6 +8,8 @@
 package units;
 import java.util.*;
 
+import crits.Crit;
+
 public class Unit {
    private String unitReference; 	// The reference of the unit.
    private String unitName;      	// The full name of the unit.
@@ -17,15 +19,7 @@ public class Unit {
    private int    unitHeatSinks;    // Number of HeatSinks
    private int    unitEngineType;   // Holds engine type number.
    
-   Hashtable sectionList = new Hashtable();
-   
-   // Class identifier.
-   public final String TYPE = "Mech";
-   
-   // Unit sections.
-   public UnitSection 	  head, 
-   				  		  leftTorso, centerTorso, rightTorso,
-   				  		  leftLeg, rightLeg;
+   Hashtable<String,UnitSection> sectionList = new Hashtable<String,UnitSection>();
    
    // Holds the unit's special tech listing.
    private Vector<String> unitTechs = new Vector<String>();
@@ -112,18 +106,12 @@ public class Unit {
       unitEngineType = 0;           // Standard Fusion Engine
       
       // Set up the sections. Need to ponder a better way to do this.
-      head        = new UnitSection(this);
-      leftTorso   = new UnitSection(this);
-      centerTorso = new UnitSection(this);
-      rightTorso  = new UnitSection(this);
-      leftLeg     = new UnitSection(this);
-      rightLeg    = new UnitSection(this);
-      sectionList.put("head", head);
-      sectionList.put("leftTorso", leftTorso);
-      sectionList.put("centerTorso", centerTorso);
-      sectionList.put("rightTorso", rightTorso);
-      sectionList.put("leftLeg", leftLeg);
-      sectionList.put("rightLeg", rightLeg);
+      sectionList.put("head",        new UnitSection(this));
+      sectionList.put("leftTorso",   new UnitSection(this));
+      sectionList.put("centerTorso", new UnitSection(this));
+      sectionList.put("rightTorso",  new UnitSection(this));
+      sectionList.put("leftLeg",     new UnitSection(this));
+      sectionList.put("rightLeg",    new UnitSection(this));
    } // end constructor unit
    
 /*-----------------------------------------------------------*
@@ -196,6 +184,12 @@ public class Unit {
       unitEngineType = newEngType;
    } // end setEngType
    
+   // Given a string, returns a section.
+   public UnitSection getSection(String sectionStr) {
+      UnitSection section = (UnitSection) sectionList.get(sectionStr);
+      return section;
+   } // end UnitSection
+   
 /*-----------------------------------------------------------*
    Mid-Level Methods - Requires some computation
  *-----------------------------------------------------------*/
@@ -236,6 +230,16 @@ public class Unit {
 	   return temp.getArmor();
    } // end getArmor
 
+/*-----------------------------------------------------------*
+   Part Adding/Removing
+*-----------------------------------------------------------*/
+   
+   // Adds a the specified crit to the specified section/critNum.
+   public void addCrit(Crit newCrit, String sectionStr, int critNum) {
+      UnitSection section = (UnitSection) sectionList.get(sectionStr);
+      section.addCrit(newCrit, critNum);
+   } // end addCrit
+   
 /*-----------------------------------------------------------*
    Special Tech Management Functions
  *-----------------------------------------------------------*/

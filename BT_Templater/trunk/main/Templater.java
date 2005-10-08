@@ -10,11 +10,12 @@ import units.*;
 import crits.*; 	// This only needs to be here while we're debugging.
 
 public class Templater {
+   
+   public static PartData pdata = new PartData();
 
 	public static void main(String[] args) {
 		Unit test = new Unit();
-		PartData pdata = new PartData();
-		PartData.getWeight("IS.MediumLaser");
+		
 		/*
 		UnitSection testSection = new UnitSection();
 		Crit crit1 = new Weapon("Some Multi-Crit");
@@ -45,7 +46,8 @@ public class Templater {
           + test.getEngTonnage());
         System.out.println("HeatSinks: " + test.getHeatSinks());
         test.setArmor("head",5);
-        System.out.println(test.getArmor("head"));
+        test.addCrit(new Crit("IS.LargeLaser"), "head", 1);
+        System.out.println(test.getSection("head"));
         //test.printEngTable();
 	} // end main
 } // end class Templater
