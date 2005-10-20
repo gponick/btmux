@@ -3,27 +3,28 @@ Reference        { Sloth }
 Type             { Battlesuit }
 Move_Type        { Biped }
 Tons             { 1 }
-Mech_BV          { 109 }
+Comment          { Saved by: Captain QB(#198) at Mon Oct 17 21:16:19 2005 }
+Mech_BV          { 203 }
+Cargo_Space      { 0 }
 Max_Suits        { 4 }
 Max_Speed        { 32.25 }
-Jump_Speed       { 00.00 }
 Suit_1
   Armor            { 5 }
   Internals        { 1 }
-    CRIT_1		  { IS.SmallLaser - - 3 }
-    CRIT_2		  { IS.SmallLaser - - 3 }
+    CRIT_1		  { IS.SmallLaser - - }
+    CRIT_2		  { IS.SmallLaser - - }
 Suit_2
   Armor            { 5 }
   Internals        { 1 }
-    CRIT_1		  { IS.SmallLaser - - 3 }
-    CRIT_2		  { IS.SmallLaser - - 3 }
+    CRIT_1		  { IS.SmallLaser - - }
+    CRIT_2		  { IS.SmallLaser - - }
 Suit_3
   Armor            { 5 }
   Internals        { 1 }
-    CRIT_1		  { IS.SmallLaser - - 3 }
-    CRIT_2		  { IS.SmallLaser - - 3 }
+    CRIT_1		  { IS.SmallLaser - - }
+    CRIT_2		  { IS.SmallLaser - - }
 Suit_4
   Armor            { 5 }
   Internals        { 1 }
-    CRIT_1		  { IS.SmallLaser - - 3 }
-    CRIT_2		  { IS.SmallLaser - - 3 }
+    CRIT_1		  { IS.SmallLaser - - }
+    CRIT_2		  { IS.SmallLaser - - }

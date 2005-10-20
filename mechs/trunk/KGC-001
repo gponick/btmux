@@ -8,7 +8,7 @@ Computer         { 4 }
 Radio            { 4 }
 Heat_Sinks       { 13 }
 Mech_BV          { 1714 }
-Max_Speed        { 53.75 }
+Max_Speed        { 49.50 }
 Specials         { FlipArms }
 Left_Arm
   Armor            { 34 }
