@@ -2,25 +2,43 @@ Name             { RadioTower }
 Reference        { RadioTower }
 Type             { Vehicle }
 Move_Type        { None }
-Tons             { 35 }
-Comment          { Saved by: Wizard(#2) at Tue Jun 21 15:28:10 2005 }
-Mech_BV          { 554 }
+Tons             { 100 }
+Comment          { Saved by: Captain QB(#198) at Tue Oct 18 22:03:50 2005 }
+Tac_Range        { 24 }
+LRS_Range        { 30 }
+Scan_Range       { 17 }
+RadioType        { 4 }
+Mech_BV          { 923 }
 Cargo_Space      { 0 }
 Max_Suits        { 0 }
 Max_Speed        { 0.00 }
-Specials         { CritProof_Tech }
+Specials         { AntiAircraft CritProof_Tech }
 Left_Side
   Armor            { 99 }
-  Internals        { 4 }
+  Internals        { 10 }
+    CRIT_1-6		  { Ammo_IS.NarcBeacon 6 - - }
 Right_Side
   Armor            { 99 }
-  Internals        { 4 }
+  Internals        { 10 }
+    CRIT_1-6		  { Ammo_IS.NarcBeacon 6 - - }
 Front_Side
   Armor            { 99 }
-  Internals        { 4 }
+  Internals        { 10 }
+    CRIT_1-4		  { Ammo_IS.SRM-6 15 Inferno - }
 Aft_Side
   Armor            { 99 }
-  Internals        { 4 }
+  Internals        { 10 }
+    CRIT_1-6		  { Ammo_IS.LRM-5 24 Narc/Smoke - }
+    CRIT_7-10		  { Ammo_IS.AC/2 45 - - }
+    CRIT_11-12		  { Ammo_IS.LRM-5 24 - - }
 Turret
-  Armor            { 70 }
-  Internals        { 4 }
+  Armor            { 30 }
+  Internals        { 10 }
+    CRIT_1		  { IS.AC/2 - - }
+    CRIT_2		  { IS.LRM-5 - Narc/Smoke }
+    CRIT_3		  { IS.MediumLaser - - }
+    CRIT_4		  { IS.MediumLaser - - }
+    CRIT_5		  { IS.HeavyFlamer - - }
+    CRIT_6		  { IS.SRM-6 - Inferno }
+    CRIT_7		  { IS.NarcBeacon - - }
+    CRIT_8-12		  { Ammo_IS.AC/2 45 - - }
