@@ -29,10 +29,10 @@
   http://docs.btmux.com
 
  BTMux SF Site:
-  http://sourceforge.net/projects/btonline-btech/
+  http://sf.btmux.com
 
  BTMux Mailing Lists:
-  http://sourceforge.net/mail/?group_id=128056
+  http://lists.btmux.com
 
  BTMux Forums/Portal:
   http://portal.btmux.com
