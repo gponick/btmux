@@ -1,0 +1,120 @@
+Btech-Online BattletechMUX v0.x Beta
+------------------------------------       
+________________________________________
+=              Contents                =
+========================================
+* S1: Build Dependencies               *
+* S2: Compiling and Running the Source *
+* S3: Compile-Time Directives          *
+* S4: Game Configuration File          *
+* S5: Starting and Connecting          *
+* S6: Getting Further help             *
+========================================
+
+ S1: BUILD DEPENDENCIES
+ ----------------------
+ Before you even attempt to compile the source, you'll need to make sure that
+ your machine has the following packages installed:
+
+ * crypt (libcrypt/lcrypt)
+ * libevent (http://www.monkey.org/~provos/libevent/)
+ * libdbi (If SQL support is enabled)
+ * autoconf
+ * Subversion (If you didn't download a complete packaged BTMux)
+
+ S2: COMPILING AND RUNNING THE SOURCE
+ ------------------------------------
+ To compile the Battletech MUX source, 'cd' into your root BTMux dir and type
+ './configure'. If you downloaded the Subversion trunk, you'll need to do
+ a 'make -f Makefile.dist' prior to that.
+
+ NOTE: If you'd like to change the default configuration values, issue a
+ './configure --help' to see the various features that may be enabled or
+ disabled. More about this in Section 5. When you've got your configuration
+ how you like it, proceed with compiling the source by typing './configure'
+ followed by any flags you need, then 'make install'.
+
+ Make sure that you already have a /game directory present or the binaries
+ won't be moved and you will not have a working game. See Sections 1 and 2
+ for details on setting your game directory up. In general, 'make install'
+ will pull the latest version of everything you need as long as you
+ have Subversion installed.
+
+ To run the example database, cd into the /game.run directory after running
+ 'make install', and run './Startmux'. Also see the README in the 'game'
+ directory.
+
+ A quick note on the 'game' directory: For those of you who have used
+ older versions of BTMux source, the /game directory is not where the
+ actual game directory you want to run is. When you 'make install',
+ the script checks to see if there is a /game.run present. If there
+ isn't, it copies /game to /game.run. This is done so you have a template
+ (/game) and a working copy (/game.run). Once you have a /game.run, you
+ may safely delete /game if you so wish.
+
+ S3: COMPILE-TIME DIRECTIVES
+ ---------------------------
+ There are a number of compile-time directives available for you to further
+ customize your game to your tastes. You may view these at:
+
+ http://docs.btmux.com/index.php/Compile_Time_Options
+
+ You may set these by issuing a './configure' with the needed flags. See
+ './configure --help' for an up-to-date list.
+
+ Most of these require a 'make clean' before re-compiling. Some may also
+ require a hcode.db rebuild which means you'll need to remove your
+ /game/hcode.db file and setup all of your xcode objects again.
+
+ S4: GAME CONFIGURATION FILE
+ ---------------------------
+ If you look under /game.run, you'll see some file with a .conf extension.
+ This is generally netmux.conf if you are using BTMux in a Box. You'll 
+ need to look through this file and change whichever options you want. 
+ Most importantly, change the 'port' config directive as you will most 
+ likely want to choose something unique. Documentation on config 
+ directives may be found at:
+
+ http://docs.btmux.com/index.php/Config_Directives
+
+ Note that you'll need to do a @restart for most of these config
+ directives to take effect. You may use the @admin command with your
+ #1 character to do most of these but anything set by @admin won't
+ be saved across restarts unless it's also in your <gamename>.conf
+ file.
+
+ S5: STARTING AND CONNECTING TO YOUR GAME
+ ----------------------------------------
+ Once your game is compiled and your game.run directory is populated,
+ cd to game.run and type:
+
+ ./Startmux &
+
+ This will kick off your MUX. You should see 'netmux' and a few other
+ processes related to the game under the Linux/Unix command, 'ps'.
+ Try connecting to the port you specified in netmux.conf and see if
+ you are greeted with a connection screen.
+
+ IMPORTANT: The default wiz characters both have the same password:
+
+ btmuxr0x
+
+ You may connect with the #1 character (The god character, only use
+ it when you have to change config directives or @set other players
+ WIZARD) and the #2 character (Your new head wiz character). 
+
+ You may connect using the two character's dbref like this:
+
+ connect #1 btmuxr0x
+
+ Note that the same password is used for both #1 and #2, you will
+ need to change these using the @password command as soon as
+ possible! 
+
+ You should now be set to start tinkering! Good luck :)
+
+ S6: GETTING FURTHER HELP
+ ------------------------
+ For more information on the support available to you, check out the
+ SUPPORT file included in your root BTMux directory. This lists
+ all of the resources available.
