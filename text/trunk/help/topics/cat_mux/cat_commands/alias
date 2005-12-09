@@ -1,13 +1,13 @@
-& alias
+& @alias
  
-  Command: <channel alias> <on|off|who|message|:pose|;pose>
-   
-  'on' allows you to turn an alias on.
-  'off' lets you temporarily leave that channel.
-  'who' shows you who is on that channel.
+  Command: @alias <player> = <name>
+  Attribute: Alias
  
-  You may send a message over the channel with <alias> <text>, where <text>
-  is the message to be sent, or you can pose on a channel with
-  <alias> :<text> or <alias> ;<text>
-  
-  See also: allcom, comlist, addcom, delcom.
+  Provides an alternate name by which the player is known.  The alternate
+  name is only used for players when referenced as '*<name>' or by commands
+  that only take playernames (such as page or @stats).  You may not set
+  an alias on any other object type.
+ 
+  When setting an alias, the alias is checked to see that it is both a legal
+  player name and not already in use.  Only if both checks succeed is the
+  alias set.

@@ -1,0 +1,8 @@
+& say
+ 
+  Command: say <message>
+ 
+  Says <message> out loud to everyone in your current room. You can also
+  use '"<message>'.
+ 
+  See also: page, pose, whisper, :, ;, "

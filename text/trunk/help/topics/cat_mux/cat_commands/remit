@@ -1,0 +1,7 @@
+& @remit
+ 
+  Command: @remit <room dbref#> = <message>
+ 
+  Sends <message> to the contents of <room>.
+ 
+  See also: @femit, @oemit, @pemit, @npemit, @emit, SPOOFING
