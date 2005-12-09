@@ -1,0 +1,6 @@
+& FLOATING
+ 
+  Flag: FLOATING(F)
+ 
+  If a room is set floating, you will not be notified every 10 
+  minutes or so that you have a disconnected room.

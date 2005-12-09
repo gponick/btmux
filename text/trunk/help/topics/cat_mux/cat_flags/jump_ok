@@ -1,0 +1,8 @@
+& JUMP_OK
+ 
+  Flag: JUMP_OK(J)
+ 
+  When a room or thing is set JUMP_OK, then that location can be teleported
+  into by anyone. 
+ 
+  See also: @teleport

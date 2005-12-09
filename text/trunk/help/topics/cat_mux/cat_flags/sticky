@@ -1,0 +1,10 @@
+& STICKY
+
+  Flag: STICKY(S)
+ 
+  If a thing is STICKY, it goes home when dropped 
+  (See HOMES). If a room is STICKY, its drop-to is delayed until the 
+  last person leaves (See DROP-TOs). Only meaningful for things and 
+  rooms.
+ 
+  See also: HOMES, DROP-TOS
