@@ -23,18 +23,4 @@
   in the new attribute, otherwise the new object is set HALTED.  Exits and
   contents of cloned objects are not cloned, and LOCKED attributes are not copied.
  
-{ 'help @clone2' for more }
-
-& @clone2
- 
-  The following switches are available:
-     /cost       - Treat the argument after the = as the cost of the new
-                   object, not the name.
-     /inherit    - Don't reset the INHERIT bit on the new object.
-     /inventory  - Create the new object in your inventory (or your exitlist,
-                   in the case of cloning exits).
-     /location   - Create the new object in your location (default).
-     /parent     - Set the new object's parent to be the template object and
-                   don't copy the attributes.
- 
-  See also: @create, @decompile, @destroy, VISUAL
+  { 'help @clone2' for more }

@@ -18,17 +18,4 @@
   inventory.  <object> must be ENTER_OK and <sub-object> must not be locked
   against you for this to work.  The lock on <object> is not checked.
  
-{ 'help take2' for more }
-
-& take2
- 
-  The following switch is recognized:
-     /quiet   - Don't perform the @osucc/@asucc or @ofail/@afail attributes
-                on the target object.  This switch only works if you control
-                the object.
- 
-  <object> and <sub-object> may be either players or things.
-  'get' is the same as 'take'.
- 
-  See also: drop, @afail, @asucc, @fail, @ofail, @osucc, @succ, ENTER_OK,
-            FAILURE, SUCCESS
+  { 'help take2' for more }
