@@ -1,0 +1,213 @@
+*** Begin CHANNELS ***
+14
+1 4
+bthd BTHDebug
+dbi DBInfo
+mdi MechDebugInfo
+pub Public
+2 20
+bth BTHDebug
+dsi DSInfo
+evi EventInfo
+mae MechAttackEmits
+mai MechAI
+matt MechAttacks
+maxp MechAttackXP
+mbth MechBTHDebug
+mcus MechCustom
+mdi MechDebugInfo
+merr MechErrors
+mfreq MechFreqs
+mpxp MechPilotXP
+msen MechSensor
+mtrig MineTriggers
+mtxp MechTechXP
+mxp MechXP
+pub Public
+scene ScenErrors
+scens ScenStatus
+76 1
+chan MechAI
+77 1
+chan MechXP
+78 1
+chan MechErrors
+80 1
+chan MineTriggers
+81 1
+chan MechSensor
+83 1
+chan MechDebugInfo
+84 1
+chan Public
+690 1
+chan DBInfo
+1851 1
+chan DSInfo
+1852 1
+chan EventInfo
+1854 1
+chan MechEconInfo
+1855 1
+chan MechCustom
+*** Begin COMSYS ***
++V3
+22
+MechErrors
+[1m[MechErrors][0m
+127 0 0 0 1 0 105 -1
+2
+2 1 1
+t:
+78 1 1
+t:
+DSInfo
+[1m[DSInfo][0m
+127 0 0 0 1 0 100 -1
+2
+2 1 1
+t:
+1851 1 1
+t:
+MechEconInfo
+[1m[MechEconInfo][0m
+127 0 0 0 2 0 59 -1
+1
+1854 1 1
+t:
+MechCustom
+[1m[MechCustom][0m
+127 0 0 0 1 0 98 -1
+2
+2 1 1
+t:
+1855 1 1
+t:
+MechPilotXP
+[1m[MechPilotXP][0m
+127 0 0 0 1 0 1 -1
+1
+2 1 1
+t:
+MechAttackXP
+[1m[MechAttackXP][0m
+127 0 0 0 1 0 1 -1
+1
+2 1 1
+t:
+BTHDebug
+[1m[BTHDebug][0m
+127 0 0 0 1 0 4 -1
+2
+1 1 1
+t:
+2 1 1
+t:
+MechAI
+[1m[MechAI][0m
+127 0 0 0 1 0 587 -1
+2
+2 1 1
+t:
+76 1 1
+t:
+MechAttacks
+[1m[MechAttacks][0m
+127 0 0 0 1 0 96 -1
+1
+2 1 1
+t:
+MineTriggers
+[1m[MineTriggers][0m
+127 0 0 0 1 0 98 -1
+2
+2 1 1
+t:
+80 1 1
+t:
+MechXP
+[1m[MechXP][0m
+127 0 0 0 1 0 98 -1
+2
+2 1 1
+t:
+77 1 1
+t:
+MechTechXP
+[1m[MechTechXP][0m
+127 0 0 0 1 0 1 -1
+1
+2 1 1
+t:
+Public
+[1m[Public][0m
+127 0 0 0 1 0 99 -1
+3
+1 1 1
+t:
+2 1 1
+t:
+84 1 1
+t:
+ScenErrors
+[1m[ScenErrors][0m
+127 0 0 0 1 0 1 -1
+1
+2 1 1
+t:
+MechDebugInfo
+[1m[MechDebugInfo][0m
+127 0 0 0 1 0 7437 -1
+3
+1 1 1
+t:
+2 1 1
+t:
+83 1 1
+t:
+DBInfo
+[1m[DBInfo][0m
+127 0 0 0 2 0 59 -1
+1
+690 1 1
+t:
+MechAttackEmits
+[1m[MechAttackEmits][0m
+127 0 0 0 1 0 1 -1
+1
+2 1 1
+t:
+MechSensor
+[1m[MechSensor][0m
+127 0 0 0 1 0 98 -1
+2
+2 1 1
+t:
+81 1 1
+t:
+ScenStatus
+[1m[ScenStatus][0m
+127 0 0 0 1 0 1 -1
+1
+2 1 1
+t:
+EventInfo
+[1m[EventInfo][0m
+127 0 0 0 1 0 100 -1
+2
+2 1 1
+t:
+1852 1 1
+t:
+MechBTHDebug
+[1m[MechBTHDebug][0m
+127 0 0 0 1 0 4062 -1
+1
+2 0 1
+t:
+MechFreqs
+[1m[MechFreqs][0m
+127 0 0 0 1 0 1 -1
+1
+2 1 1
+t:
