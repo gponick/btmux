@@ -1,0 +1,9 @@
+& children()
+ 
+  Function: children(<object>)
+ 
+  Returns a list of objects that are parented to <object>. Currently 
+  a WIZARD/ROYALTY only function.
+  
+  See Also: parent().
+  

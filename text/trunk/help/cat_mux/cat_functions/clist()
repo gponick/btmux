@@ -1,0 +1,9 @@
+& clist()
+ 
+  Function: Clist(<channel>)
+ 
+  Gives you a listing of Connected users on the channel selected. 
+  Limited to WIZARDs only.
+  
+  See Also: cwho(), cobj(), cemit().
+  
