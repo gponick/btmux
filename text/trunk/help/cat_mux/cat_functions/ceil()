@@ -1,6 +1,6 @@
 & ceil()
  
-  Function: ceil(<number>)
+  Syntax: ceil(<number>)
  
   Returns the smallest integer greater than or equal to <number>. 
   <number> may be a floating point number, and an integer result is 

@@ -1,6 +1,6 @@
 & ansisecure()
  
-  Function: ansisecure(string)
+  Syntax: ansisecure(string)
  
   Works exactly like 'secure(<string>)', but does not eradicate ANSI 
   escape sequences.

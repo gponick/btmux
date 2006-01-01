@@ -1,6 +1,6 @@
 & convsecs()
  
-  Function: convsecs(<seconds>)
+  Syntax: convsecs(<seconds>)
  
   This function converts seconds to a time string, based on how many 
   seconds the number is after Jan 1, 1970.

@@ -1,6 +1,6 @@
 & before()
  
-  Function: before(<string1>, <string2>)
+  Syntax: before(<string1>, <string2>)
  
   Returns the portion of <string1> that occurs before <string2>. If 
   <string2> does not occur in <string1>, the entire string is 

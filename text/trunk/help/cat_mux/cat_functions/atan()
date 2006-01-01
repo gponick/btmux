@@ -1,6 +1,6 @@
 & atan()
  
-  Function: atan(<number>)
+  Syntax: atan(<number>)
  
   Returns the arctangent of <number>, expressed in radians.
  

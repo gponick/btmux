@@ -1,6 +1,6 @@
 & con()
  
-  Function: con(<object>)
+  Syntax: con(<object>)
  
   This function returns the first object in the list of objects carried 
   by thing. Just the first, and only the first.

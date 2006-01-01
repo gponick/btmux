@@ -1,6 +1,6 @@
 & conn()
  
-  Function: conn(<player>)
+  Syntax: conn(<player>)
  
   Returns the number of seconds that <player> has been connected. 
   If <player> is not connected then -1 is returned. If <player> is 

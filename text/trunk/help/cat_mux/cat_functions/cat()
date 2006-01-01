@@ -1,6 +1,6 @@
 & cat()
  
-  Function: cat(<string>[,<stringN>])
+  Syntax: cat(<string>[,<stringN>])
  
   This function returns a string made up of the contents of <string1> 
   through <stringN>, with each string separated from its neighbors by 

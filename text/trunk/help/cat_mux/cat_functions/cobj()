@@ -1,6 +1,6 @@
 & cobj()
  
-  Function: cobj(<Channel>)
+  Syntax: cobj(<Channel>)
  
   This function returns the #dbref of the channel object for <Channel>.
  

@@ -1,6 +1,6 @@
 & abs()
  
-  Function: abs(<number>)
+  Syntax: abs(<number>)
  
   This function returns the absolute value of its argument. 
   The <number> may be a floating point number, as well as return a 

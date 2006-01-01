@@ -1,6 +1,6 @@
 & after()
  
-  Function: after(<string1>, <string2>)
+  Syntax: after(<string1>, <string2>)
  
   This function returns the portion of <string1> that occurs after <
   string2>. If <string2> does not occur in <string1>, a null string is 

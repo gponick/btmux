@@ -1,6 +1,6 @@
 & asin()
  
-  Function: asin(<number>)
+  Syntax: asin(<number>)
  
   Returns the arcsine of <number>, expressed in radians.
  

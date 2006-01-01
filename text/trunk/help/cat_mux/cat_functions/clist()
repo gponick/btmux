@@ -1,6 +1,6 @@
 & clist()
  
-  Function: Clist(<channel>)
+  Syntax: Clist(<channel>)
  
   Gives you a listing of Connected users on the channel selected. 
   Limited to WIZARDs only.

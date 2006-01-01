@@ -1,6 +1,6 @@
 & andflags()
  
-  Function: andflags(<object>,<list of flags>)
+  Syntax: andflags(<object>,<list of flags>)
  
   This function returns 1 if <object> has all the flags specified,
   and 0 if it does not. The list is specified with a single letter 

@@ -1,6 +1,6 @@
 & colorpairs()
  
-  Function: colorpairs(obj/attr)
+  Syntax: colorpairs(obj/attr)
  
   This function returns the specified attribute on object with all 
   'brackets' colored.

@@ -1,6 +1,6 @@
 & cemit()
  
-  Function: cemit(<channel>, <message>)
+  Syntax: cemit(<channel>, <message>)
  
   This function emits <message> on <channel>
 	

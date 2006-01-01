@@ -1,6 +1,6 @@
 & cos()
  
-  Function: cos(<number>)
+  Syntax: cos(<number>)
  
   Returns the cosine of <number>, expressed in radians.
  

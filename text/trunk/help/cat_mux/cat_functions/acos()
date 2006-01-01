@@ -1,6 +1,6 @@
 & acos()
  
-  Function: acos(<number>)
+  Syntax: acos(<number>)
  
   This function returns the arc-cosine of <number>, expressed in 
   radians.

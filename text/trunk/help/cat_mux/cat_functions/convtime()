@@ -1,6 +1,6 @@
 & convtime()
  
-  Function: convtime(<time string>)
+  Syntax: convtime(<time string>)
  
   This functions converts a time string to the number of seconds since 
   Jan 1, 1970. A time string is formatted: Ddd MMM DD HH:MM:SS YYYY 

@@ -1,6 +1,6 @@
 & capstr()
  
-  Function: capstr(<string>)
+  Syntax: capstr(<string>)
  
   Returns <string> with the first character capitalized. If the first 
   character is not a letter, this function returns the string 

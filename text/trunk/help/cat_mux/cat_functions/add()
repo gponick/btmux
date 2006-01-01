@@ -1,6 +1,6 @@
 & add()
  
-  Function: add(<number1>,<number2>[,<numberN>]...)
+  Syntax: add(<number1>,<number2>[,<numberN>]...)
  
   This function returns the result of adding its arguments together. 
   You may add up to 30 numbers in one add() call. 

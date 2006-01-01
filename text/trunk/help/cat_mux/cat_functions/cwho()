@@ -1,6 +1,6 @@
 & cwho()
  
-  Function: cwho(<channel>)
+  Syntax: cwho(<channel>)
  
   Returns a list of dbrefs who are connected, and on the specified 
   channel. This is limited to WIZARD and channel owners.

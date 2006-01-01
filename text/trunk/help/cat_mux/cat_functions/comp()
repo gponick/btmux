@@ -1,6 +1,6 @@
 & comp()
  
-  Function: comp(<string1>, <string2>)
+  Syntax: comp(<string1>, <string2>)
  
   This function compares two strings. It returns 0 if they are the 
   same, 1 if <string2> is less than/precedes alphabetically <string1>, 

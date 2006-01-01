@@ -1,6 +1,6 @@
 & controls()
  
-  Function: controls(<object>,<victim>)
+  Syntax: controls(<object>,<victim>)
  
   Returns 1 if <object> controls <victim>, 0 otherwise.
  

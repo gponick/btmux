@@ -1,6 +1,6 @@
 & ansi()
  
-  Function: ansi(<codes>,<string>)
+  Syntax: ansi(<codes>,<string>)
  
   This function allows you to highlight a string using ANSI terminal 
   effects. 

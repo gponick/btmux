@@ -1,6 +1,6 @@
 & center()
  
-  Function: center(<string>,<width>[,<fill>])
+  Syntax: center(<string>,<width>[,<fill>])
  
   This function will center a string in a string <width> characters 
   wide, using <fil> characters for padding on either end of the string 
