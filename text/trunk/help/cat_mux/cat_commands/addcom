@@ -1,8 +1,9 @@
 & addcom
  
-  Command: addcom <alias>=<channel>
+  Syntax: addcom <alias>=<channel>
         
-  This command joins you to an existing channel with <alias>. You should
-  avoid having multiple aliases for a channel, although it is allowed.
-  
+  This command joins you to an existing channel with <alias>. You
+  should avoid having multiple aliases for a channel, although it is 
+  allowed.
+ 
   See also: delcom, comlist, alias, comtitle.

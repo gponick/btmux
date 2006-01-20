@@ -1,6 +1,6 @@
 & @otfail
  
-  Command: @otfail <object> = <message>
+  Syntax: @otfail <object> = <message>
   Attribute: Otfail
  
   Sets the message (prefixed by the player's name) that is shown to others in

@@ -1,9 +1,11 @@
 & @idle
  
-  Command: @idle <object> = <message>
+  Syntax: @idle <object> = <message>
   Attribute: Idle
  
-  This attribute is sent as a message to anyone who successfully pages you.
+  This attribute is sent as a message to anyone who successfully pages
+  you.
+ 
   It can be used to tell someone who pages you when you will return
   (if you are going to be away for a while).
  

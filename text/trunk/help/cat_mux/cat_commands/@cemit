@@ -1,6 +1,6 @@
 & @cemit
  
-  Command: @cemit[/<switches>] <channel>=<message>
+  Syntax: @cemit[/<switches>] <channel>=<message>
  
   Sends <message> over <channel> prefixed by the channel's name. You must
   own or control the channel to do this.

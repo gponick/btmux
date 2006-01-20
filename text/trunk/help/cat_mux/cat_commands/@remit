@@ -1,6 +1,6 @@
 & @remit
  
-  Command: @remit <room dbref#> = <message>
+  Syntax: @remit <room dbref#> = <message>
  
   Sends <message> to the contents of <room>.
  

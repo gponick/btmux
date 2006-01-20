@@ -1,43 +1,25 @@
 & @program
  
-  Command: @program <player>=<obj/attr>[:<prefix>]
+  Syntax: @program <player>=<obj/attr>[:<prefix>]
   
-  This command allows for small 'programs' within MUX. To understand this
-  command, you must first understand the fact that it completely bypasses any
-  commands, built-in or otherwise, and allows you to send user-input directly
-  into your code.
- 
+  This command allows for small 'programs' within MUX. To understand
+  this command, you must first understand the fact that it 
+  completely bypasses any commands, built-in or otherwise, and 
+  allows you to send user-input directly into your code.
+
   A simple example:
  
   @vb me=$start:@prog %#=me/vb:Please enter a word:
-  @vb me=@emit You entered %0!;@prog %#=me/vc:Please enter another word:
+  @vb me=@emit You entered %0!;@prog %#=me/vc:Please enter another
+  word:
   @vc me=@emit This time, you entered %0. You're done!
  
   > start
   Please enter a word:
-  > foobar			(Note that @program literally gives you a '>'
-                                 prompt.)
+  > foobar		(Note that @program literally gives you a '>' prompt.)
   You entered foobar!
   Please enter another word:
   > hoopla
   This time you entered hoopla. You're done!
- 
+
 { 'help @program2' for more }
- 
-& @program2
- 
-  As you can see, this command basically takes what a user types at the
-  prompt, stuffs it into %0 in the code in <obj/attr>, and then triggers
-  that attribute. Note that when @program triggers an attribute, the enactor
-  of that triggered attribute is <player>, and is inserted into %#.
-  r-registers are preserved when @program triggers an attribute.
- 
-  An optional message, <prefix>, may be specified and will be output before
-  the @program prompt. This is useful for telling the user what information
-  they need to supply.
- 
-  A player caught in @program may send a command through to the normal
-  command processor at the @program prompt by prefixing it with the '|'
-  character, for example, '|WHO'.
- 
-  See also: @quitprogram

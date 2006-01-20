@@ -1,11 +1,11 @@
 & @inprefix
  
-  Command: @inprefix <object> = <prefix text>
+  Syntax: @inprefix <object> = <prefix text>
   Attribute: Inprefix
  
-  This attribute, when set, will prefix all text that is sent to the contents
-  of <object> by @listen.  The default is to have no prefix, the text is
-  forwarded unadorned.
+  This attribute, when set, will prefix all text that is sent to the
+  contents of <object> by @listen.  The default is to have no 
+  prefix, the text is forwarded unadorned.
  
   Example:
     > @listen sports car=*

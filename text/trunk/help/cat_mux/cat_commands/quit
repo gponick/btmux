@@ -1,7 +1,8 @@
-& QUIT    
+& QUIT   
  
-  Command: QUIT
+  Syntax: QUIT
  
-  Logs you out and disconnects you from the game. Must be in all capitals.  
+  Logs you out and disconnects you from the game. Must be in all
+  capitals. 
  
   See also: LOGOUT
