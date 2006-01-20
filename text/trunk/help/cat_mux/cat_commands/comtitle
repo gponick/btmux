@@ -1,8 +1,9 @@
 & comtitle
  
-  Command: comtitle <alias>=<title>
+  Syntax: comtitle <alias>=<title>
  
-  This command allows you to prefix your name on a channel with a title.
+  This command allows you to prefix your name on a channel with a
+  title.
  
   For example:
   > comtitle pub=The Great and Powerful

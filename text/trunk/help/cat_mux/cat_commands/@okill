@@ -1,14 +1,15 @@
 & @okill
  
-  Command: @okill <object> = <message>
+  Syntax: @okill <object> = <message>
   Attribute: Okill
  
-  Sets the message (prefixed by the player's name) that is shown to others in
-  the room when someone kills <object>.
+  Sets the message (prefixed by the player's name) that is shown to
+  others in the room when someone kills <object>.
  
-  This attribute is meaningful for players, things, and rooms, and will never
-  be automatically triggered on exits.
+  This attribute is meaningful for players, things, and rooms, and
+  will never be automatically triggered on exits.
  
-  Example: @okill guard = bashes in the guard's skull, killing him.
+  Example: 
+  @okill guard = bashes in the guard's skull, killing him.
  
   See also: kill, @akill, @kill, BEING KILLED, IMMORTAL, WIZARD

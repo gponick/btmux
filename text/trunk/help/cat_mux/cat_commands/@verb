@@ -1,69 +1,30 @@
 & @verb
  
-  Command: @verb <victim>=<actor>,<what>,<def>,<owhat>,<odef>,<awhat>,<args>
+  Syntax: @verb <victim>=<actor>, <what>, <def>, <owhat>, <odef>, 
+  <awhat>, <args>
  
   This command provides a way to do user-defined verbs with associated
   @attr/@oattr/@aattr groups. Invoking it does the following:
   
   <actor> sees the contents of <victim>'s <what> attribute, or
-    the <def> string if you can't read <victim>'s <what> attribute.
+  the <def> string if you can't read <victim>'s <what>        
+  attribute.
+  
   Everyone in the same room as <actor> sees the contents of
-    <victim>'s <owhat> attribute, with <actor>'s name prepended,
-    or <odef>, also with <actor>'s name prepended, if you can't read
-    <victim>'s <owhat> attribute.
-  If you control <victim>, then he executes the contents of his <awhat>
-    attribute.
+  <victim>'s <owhat> attribute, with <actor>'s name prepended,
+  or <odef>, also with <actor>'s name prepended, if you can't read
+  <victim>'s <owhat> attribute.
+  
+  If you control <victim>, then he executes the contents of his
+  <awhat> attribute.
   
   By supplying up to nine <args>, you may pass those values on
   the stack (i.e. %0, %1, %2, etc. up through %9).
- 
-  You must control the actor, but need not control the victim.  Note that
-  if you don't have the ability to read the appropriate attributes (whether
-  because you control the victim, he is VISUAL, or the attributes are set
-  VISUAL), the default messages will be used.
- 
+
+  You must control the actor, but need not control the victim.  Note
+  that if you don't have the ability to read the appropriate 
+  attributes (whether because you control the victim, he is VISUAL, 
+  or the attributes are set VISUAL), the default messages will be 
+  used.
+
 { 'help @verb2' for more }
-
-& @verb2
- 
-  Here is a description of the arguments to @verb:
-    victim - The object that is searched for attributes, and which runs the
-             <awhat> attribute if it is found.
-    actor  - The object that 'did' the verb, this is the value for %#/%n/etc
-             in substitutions, and this object's name is included in the
-             message to others in the same location.
-    what   - The name of the attribute containing the message to be delivered
-             to the actor.
-    whatd  - The message to deliver to the actor if the victim does not have a
-             <what> attribute, or if it cannot be read.
-    owhat  - The name of the attribute containing the message (prefixed by the
-             actor's name) that is sent to everyone in the room with the actor.
-    owhatd - The message (prefixed by the actor's name) to deliver to others
-             in the room with the actor if the victim does not have an <owhat>
-             attribute, or it cannot be read.
-    awhat  - The name of the attribute that is to be executed by the victim.
-    args   - The comma-separated arguments to be passed for substitution
-             (%0-%9).  If there is more than one argument, enclose all the
-             arguments within curly braces.  Any argument that contains an
-             embedded comma needs to be enclosed in curly braces as well.
-  
-{ 'help @verb3' for more }
-
-& @verb3
- 
-  Examples:
-    > &xtest test1=You just xtested test1.
-    > &oxtest test1=just xtested test1.
-    > &axtest test1="I was xtested.  Yikes.  Arg1=%0, Arg2=%1, Arg3=%2.
-    > @verb test1=me,xtest,XTEST DFLT,oxtest,OXTEST DFLT,axtest,{a,b c,de}
-    You just xtested test1.
-    test1 says "I was xtested. Yikes. Arg1=a, Arg2=b c, Arg3=de."
-    > &xtest test1
-    > @verb test1=me,xtest,XTEST DFLT,oxtest,OXTEST DFLT,axtest,{a,b c,de}
-    XTEST DFLT
-    test1 says "I was xtested. Yikes. Arg1=a, Arg2=b c, Arg3=de."
-    > @fo test1={@verb test1=me,xtest,XTEST D,oxtest,OXTEST D,axtest,{a,b,de}} 
-    test1 just xtested test1.
-    test1 says "I was xtested. Yikes. Arg1=a, Arg2=b, Arg3=de."
- 
-  See also: locate()

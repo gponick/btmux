@@ -1,11 +1,11 @@
 & @adescribe
  
-  Command: @adescribe <object> = <command-list>
+  Syntax: @adescribe <object> = <command-list>
   Attribute: Adescribe
  
   Sets the actions to be taken when <object> is looked at.
  
-  Example: @adesc kitten = :rubs against %n's legs affectionately.
-  See also: look, @desc, @idesc, @odesc.
+  Example: 
+  @adesc kitten = :rubs against %n's legs affectionately.
  
-  See also: think
+  See also: look, @desc, @idesc, @odesc, think

@@ -1,9 +1,9 @@
 & use
  
-  Command: use <object>
+  Syntax: use <object>
  
-  Uses <object>.  Some objects will do interesting, useful, or dangerous
-  things when used, for instance, using a camera should result in a 
-  picture being taken.
+  Uses <object>.  Some objects will do interesting, useful, or
+  dangerous things when used, for instance, using a camera should 
+  result in a picture being taken.
  
   See also: @ause, @ouse, @use

@@ -1,11 +1,12 @@
 & @agfail
  
-  Command: @agfail <object> = <command-list>
+  Syntax: @agfail <object> = <command-list>
   Attribute: Agfail
  
-  Sets the action to be taken by an object when someone tries to give it
-  away but fails because they didn't pass the object's give lock.
+  Sets the action to be taken by an object when someone tries to give
+  it away but fails because they didn't pass the object's give lock.
  
-  Example: @agfail sword = @name me=Cursed Sword;:laughs maniacally.
+  Example: 
+  @agfail sword = @name me=Cursed Sword;:laughs maniacally.
  
   See also: give, @gfail, @ogfail, @lock

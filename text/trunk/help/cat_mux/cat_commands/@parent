@@ -1,8 +1,9 @@
 & @parent
  
-  Command: @parent <object> [=<parent>]
+  Syntax: @parent <object> [=<parent>]
  
-  This command sets the parent of <object> to <parent> (or clears the parent
-  if <parent> is omitted.  You must control <object>, and must own <parent>.
+  This command sets the parent of <object> to <parent> (or clears the
+  parent if <parent> is omitted.  You must control <object>, and 
+  must own <parent>.
  
   See also: PARENT OBJECTS

@@ -1,12 +1,15 @@
 & @amail
  
-  Command: @amail <player> = <command-list>
+  Syntax: @amail <player> = <command-list>
   Attribute: Amail
  
-  Sets the actions to be taken after a player receives @mail. This should
-  *never* @mail another player, as this could cause an infinite loop.
- 
-  Example: @amail me=@mail/file [mail()]=2
-           This would place all incoming messages in folder #2.
+  Sets the actions to be taken after a player receives @mail. This
+ should *never* @mail another player, as this could cause an 
+ infinite loop.
+
+  Example: 
+  @amail me=@mail/file [mail()]=2
+  
+  This would place all incoming messages in folder #2.
  
   See also: @mailsucc, @signature, @mail

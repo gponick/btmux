@@ -1,7 +1,7 @@
 & @daily
   
-  Command: @daily <object>=<command-list>
+  Syntax: @daily <object>=<command-list>
   Attribute: Daily
  
-  This attribute is automatically triggered once per day. No guarantees are
-  made as to what time it will execute.
+  This attribute is automatically triggered once per day. No
+  guarantees are made as to what time it will execute.

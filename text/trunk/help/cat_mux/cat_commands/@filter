@@ -1,6 +1,6 @@
 & @filter
  
-  Command: @filter <object> = <pattern>[, <pattern>...]
+  Syntax: @filter <object> = <pattern>[, <pattern>...]
   Attribute: Filter
  
   This attribute specifies a series of patterns to be used to suppress

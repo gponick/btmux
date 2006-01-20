@@ -1,7 +1,7 @@
 & @cchown
  
-  Command: @cchown <channel>=<player>
+  Syntax: @cchown <channel>=<player>
  
   Changes ownership of <channel> to <player>.
   
-  See also: @clist, @cwho
+  See also: @clist, @cwho.
