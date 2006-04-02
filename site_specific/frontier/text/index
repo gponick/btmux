@@ -1,0 +1,19 @@
+& help
+ 
+                -=< BattleTech: Frontier Lands Help Index >=-
+ 
+ You may view the help entry for any of the topics below by using the 'help'
+ command followed by the topic name. The documentation provided here is
+ mostly on commands, for documentation on the workings of the game such as
+ economic models, refer to http://docs.frontiermux.com
+ 
+ Topics
+ ----------------------------------------------------------------------------
+ Newbie        Communication   Generators   Skills       Donating
+ Commands      Factions        Warps        Piloting     Volunteering
+ Agreement     Outfits         Economy      Training
+ Website       Bases           Units        Spawning
+ MUX           Relays          Caches       Bounties
+ ----------------------------------------------------------------------------
+ To view a topic, type 'help <topic>' without the <>'s.
+  
