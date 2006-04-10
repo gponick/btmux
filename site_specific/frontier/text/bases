@@ -1,0 +1,15 @@
+& bases
+ 
+ >> Help: Bases
+ -----------------------------------------------------------------------------
+ Bases are the basic unit of territory in the game. Factions battle to capture
+ and control bases in order to achieve victory. Bases are also used as
+ points for units to deploy from, having more bases gives your faction more
+ room for tactical maneuvering.
+
+ * You may see the location, owner, and fuel levels of each base by typing
+   'baselist'.
+ 
+ For a detailed look at bases, see our online documentation:
+ http://docs.btmux.com/index.php/Site_Frontier:Bases
+ 

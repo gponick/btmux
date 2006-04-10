@@ -1,0 +1,16 @@
+& relays
+ 
+ >> Help: Relays
+ -----------------------------------------------------------------------------
+ Relays are small towers that serve a dual purpose. They relay all radio
+ communications they pick up on your faction's channel around the map,
+ therefore extending the radio range of your faction's chatter. This is
+ very helpful on large maps, where individual units aren't likely to be able
+ to broadcast to even a portion of the map.
+ 
+ Relays are also armed with some limited defenses that help in keeping the
+ immediate area around it guarded.
+ 
+ For a detailed look at relays, see our online documentation:
+ http://docs.btmux.com/index.php/Site_Frontier:Relays
+  

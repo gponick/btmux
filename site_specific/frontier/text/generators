@@ -1,0 +1,15 @@
+& generators 
+ 
+ >> Help: Generators
+ -----------------------------------------------------------------------------
+ Generators are similar to relays in appearance and identical as far as
+ claiming them goes except for one thing: Generators are capable of providing
+ fuel for your faction's bases. Every 15-30 minutes, for each generator your
+ faction has, a certain amount of fuel is deposited in each of your bases.
+ 
+ * You may see what each generator's payout, location, owner, and condition
+   is via the 'genlist' command.
+ 
+ For a detailed look at bases, see our online documentation:
+ http://docs.btmux.com/index.php/Site_Frontier:Generators
+  
