@@ -1,0 +1,9 @@
+& config
+ 
+ >> Help: Config (Misc Command)
+ -----------------------------------------------------------------------------
+ Syntax: Config
+ 
+ Shows a command listing for various configuration related things. For
+ example, changing passwords/emails, and etc.
+ 

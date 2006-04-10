@@ -1,0 +1,12 @@
+& ofc
+ 
+ >> Help: OFC (Factional Command)
+ -----------------------------------------------------------------------------
+ Syntax: OFC
+ 
+ This is the front-end to the officer/commander order system. You can set
+ things like hot-bases and rally hexes using these commands. See the 'ofc'
+ command for a listing of sub-commands.
+ 
+ NOTE: These commands require commander or officer status
+ 
