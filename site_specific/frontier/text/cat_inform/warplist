@@ -1,0 +1,9 @@
+& warplist
+ 
+ >> Help: Warplist (Informational Command)
+ -----------------------------------------------------------------------------
+ Syntax: Warplist
+ 
+ The 'Warplist' command lists all of the warp gates and their destinations.
+ You may use any of them by simply walking in to the listed hex.
+ 

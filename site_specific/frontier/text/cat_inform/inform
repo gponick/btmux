@@ -1,0 +1,14 @@
+& inform
+ 
+ >> Help: Inform (Informational Commands)
+ -----------------------------------------------------------------------------
+ Factions               Time                    Uptime
+ Stats                  Ranklist                Staff
+ Activity               Warplist                Genlist
+ Baselist               Relaylist               Viewref
+ Finger                 Weather                 Rankings
+ Weaplist               Weapstats               Lastkills
+ Lastdeaths             Topkillers              Outfits
+ -----------------------------------------------------------------------------
+ To view specifics about each command, use 'help <topic>' without the <>'s.
+ 

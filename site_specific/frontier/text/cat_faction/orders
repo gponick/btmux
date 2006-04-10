@@ -1,0 +1,10 @@
+& orders
+ 
+ >> Help: Orders (Factional Command)
+ -----------------------------------------------------------------------------
+ Syntax: Orders
+ 
+ This command shows you the current orders that your faction's high command
+ has sent. If it's been a long time since an order has been given in a
+ particular field, 'None' is shown since the old order is likely outdated.
+ 

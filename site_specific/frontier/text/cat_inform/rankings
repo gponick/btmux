@@ -1,0 +1,15 @@
+& rankings
+ 
+ >> Help: Rankings (Informational Command0
+ ----------------------------------------------------------------------------
+ Syntax: Rankings <totalxp|recentxp|kills|baseclaims|objclaims|opoints>
+ Syntax: Rankings <referrals|dpoints>
+ 
+ Returns a rank list for the specified category. Can be any of the above
+ mentioned.
+ 
+ NOTE: recentxp is the total XP earned over the last 7 days.
+ 
+ The second form returns ranks for total number of referrals and total
+ donation points respectively.
+ 

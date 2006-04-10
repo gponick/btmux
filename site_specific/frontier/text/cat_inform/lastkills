@@ -1,0 +1,12 @@
+& lastkills
+ 
+ >> Help: Lastkills (Informational Command)
+ -----------------------------------------------------------------------------
+ Syntax: Lastkills
+ Syntax: Lastkills/mine
+ 
+ The first form of this command shows the last handful of kills that took
+ place, who killed who, and the units of the killer and the victim.
+ 
+ The second form shows your last kills with the same information.
+ 

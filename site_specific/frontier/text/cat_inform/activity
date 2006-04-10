@@ -1,0 +1,15 @@
+& activity
+ 
+ >> Help: Activity (Informational Command)
+ -----------------------------------------------------------------------------
+ Syntax: Activity
+ Syntax: Activity/Max
+ Syntax: Activity/Con
+ 
+ The 'Activity' command in its various forms shows statistical information
+ about the MUX's activity.
+ 
+ - The first form shows a per-hour graph of average people connected.
+ - The second form shows the record connected for each hour.
+ - The third shows how many players have connected today.
+ 

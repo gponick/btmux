@@ -1,0 +1,15 @@
+& genlist
+ 
+ >> Help: Genlist (Informational Command)
+ -----------------------------------------------------------------------------
+ Syntax: Genlist
+ Syntax: Genlist/map
+ 
+ The 'Genlist' command lists all of the generators on the map along with some
+ basic information about each. Refer to the documentation on the website for
+ more information on how they work.
+ 
+ The second form of this command shows a graphical representation of the map
+ with color-coded letters displaying the current owners of the generators.
+ Any generators under attack are italicized.
+ 
