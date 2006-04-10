@@ -1,0 +1,15 @@
+& warps 
+ 
+ >> Help: Warps
+ -----------------------------------------------------------------------------
+ Warp Gates are strange structures of unknown origin scattered about the map
+ that have the ability to instantly teleport anything that passes through
+ them to a corresponding gate on the other end. One must simply pass through
+ a warp hex to end up on the other side.
+ 
+ * Type 'warplist' to see a list of warp pairs. You may enter from either
+   side and end up on the opposite.
+ 
+ For a detailed look at warp gates, see our online documentation:
+ http://docs.btmux.com/index.php/Site_Frontier:Warp_Gates
+  
