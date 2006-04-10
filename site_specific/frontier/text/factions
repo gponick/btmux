@@ -1,0 +1,16 @@
+& factions 
+ 
+ >> Help: Factions
+ -----------------------------------------------------------------------------
+ Factions are the large powers battling for dominance on the Frontier Lands.
+ They are more or less 'teams' for our purpose. Factions are typically
+ comprised of a number of Outfits and independent players. 
+ 
+ * To talk to people in your faction, type 'fa <message>'.
+ * To see who is currently connected, type 'census'.
+ * To see a list of factions, type 'factions'.
+ 
+ Related Topics (Type 'help <topic>' to view any of the following.)
+ ------------------------------
+ outfits, census, communication
+ 
