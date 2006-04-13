@@ -1,10 +1,10 @@
 & btmakepilotroll()2
- 
+
   Error Messages:
- 
-    * If <UnitDB> is not a unit, the function returns #-1 INVALID MECH 
- 
-  Example: Given that #1234 is a unit piloted by a player with +4 
+
+    * If <UnitDB> is not a unit, the function returns #-1 INVALID MECH
+
+  Example: Given that #1234 is a unit piloted by a player with +4
   pilot stats
 
   think btmakepilotroll(#1234,1,1)
@@ -15,7 +15,7 @@
   You make a piloting skill roll!
   Modified Pilot Skill: BTH 5     Roll: 6
 
-  In the event that the pilot fails the roll, but makes the damage 
+  In the event that the pilot fails the roll, but makes the damage
   roll, he/she will see:
 
   You make a piloting skill roll!

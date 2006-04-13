@@ -1,34 +1,21 @@
 & btloadmap()
- 
+
   Syntax: btloadmap(<MapOBJ>,<mapname>[,<clear>])
- 
-  This function loads <mapname> on <MapOBJ> and optionally clears the 
+
+  This function loads <mapname> on <MapOBJ> and optionally clears the
   map of RS units.
- 
+
   The function returns 1 if successful.
- 
+
   Arguments:
- 
+
   * If <clear> > 0 the function will clear the map of units.
-  * If <clear> = 0 the function will not clear the map of units. 
- 
-	Note: The <clear> argument is optional, and if not stated the default is to 
-	not clear the map.
+  * If <clear> = 0 the function will not clear the map of units.
+
+	Note: The <clear> argument is optional, and if not stated the
+  default is to not clear the map.
 
 	Note: The argument for <mapname> is case sensitive.
- 
-  Error Messages:
- 
-  * If <MapOBJ> is not a valid map object the function will return #-
-    1 INVALID TARGET
-  * If <mapname> is not a valid map the function will return #-1 MAP 
-     NOT FOUND 
- 
-  Example:
-  Given that #100 is a valid Map Object, FAL.hills is a valid map, and 
-  2 units #1234 and #2345 are on the map before the command is run:
- 
-  > think btloadmap(#100,FAL.hills,1)
-  Shutting down Mech #1234 and restting map index to -1....
-  Shutting down Mech #2345 and restting map index to -1....
-  1
+
+  Continued in btloadmap()2
+  
