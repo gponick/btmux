@@ -1,7 +1,7 @@
 & btdamagemech()2
- 
+
   Hit Locations
- 
+
   MECHS
   * 0 = Left Arm
   * 1 = Right Arm
@@ -18,7 +18,7 @@
   * 12 = Center Torso (Rear)
   * 13 = Left Leg (Rear)
   * 14 = Right Leg (Rear)
-  * 15 = Head (Rear) 
+  * 15 = Head (Rear)
 
   VEHICLES
   * 0 = Left Side
@@ -26,4 +26,4 @@
   * 2 = Front
   * 3 = Aft
   * 4 = Turret
-  * 5 = Rotor 
+  * 5 = Rotor
