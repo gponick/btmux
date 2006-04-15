@@ -1,0 +1,10 @@
+& quota_cost
+ 
+  Config parameter: quota_cost <amount>.  
+  Default: 1
+ 
+  Indicates how much adding one object to the database charges against
+  the player's quota.
+ 
+  See also: @create, @destroy, @dig, @open, @quota, QUOTAS.
+ 
