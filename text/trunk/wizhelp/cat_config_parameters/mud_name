@@ -1,0 +1,5 @@
+& mud_name
+
+  Config parameter: mud_name <string>. 
+  Default: TinyMUX
+ 

@@ -1,0 +1,7 @@
+& dig_cost
+
+  Config parameter: dig_cost <amount>. 
+  Default: 1
+
+  Specifies how much the @dig command costs.
+ 
