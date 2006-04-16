@@ -11,7 +11,7 @@
     * C3I_Tech            * C3MasterTech        * C3SlaveTech
     * CargoTech           * CL_AMS              * Clan
     * CompactEngine_Tech  * CritProof_Tech      * DoubleHS
-    * ECM                 * EndoSteel_Tech     
+    * ECM                 * EndoSteel_Tech    
     * FerroFibrous_Tech   * FlipArms            * ICEEngine_Tech
     * IS_AMS              * LightEngine_Tech    * Masc
     * OmniMech_Tech       * SalvageTech         * SearchLight
@@ -24,4 +24,4 @@
   src/hcode/btech/template.c
 
   Continued in bttechstatus()2
-  
+ 
