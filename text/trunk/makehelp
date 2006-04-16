@@ -49,7 +49,8 @@ def build_mkindx(buildfile):
 #----------------------------------------------------------------------------
 
 # List of targets. Safe to add on to without further modification.
-valid_targets = ['help', 'wizhelp']
+valid_targets = ['help', 'wizhelp', 'news', 'wiznews', 'plushelp']
+other_files = ['connect', 'down', 'newuser']
 mkindx_note = "Don't forget to @readcache if your game is still running!"
 
 # Show this if no arguments are given.
@@ -74,7 +75,8 @@ if build_targ == 'all':
 		build_help(buildfile)
 elif build_targ == 'mkindx':
 # ----> Call mkindx on everything.
-	for buildfile in valid_targets:
+	mkindx_list = valid_targets + other_files
+	for buildfile in mkindx_list:
 		build_mkindx(buildfile)
 	print mkindx_note
 elif build_targ in valid_targets:
