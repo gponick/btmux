@@ -9,6 +9,10 @@
 import os, glob, sys
 from stat import *
 
+# Routine for recursing the directories and subdirectories of the build
+# target. Theoretically can be of unlimited depth at the expense of
+# host machine resources.
+#----------------------------------------------------------------------------
 def recurse_dir(dir, targetfile):
 	if not os.path.isdir(dir):
 		print 'Not a directory!'
@@ -17,43 +21,68 @@ def recurse_dir(dir, targetfile):
 
 	for file in contents:
 		if os.path.isdir(file):
-#			print file, "is a directory"
+# --------------------> We're dealing with a directory, recurse it.
 			recurse_dir(file, targetfile)
 		else:
-			if not (file == 'compile.py' or file == 'compile.pyc'):
-#				print file, "is a file"
-				os.popen('cat "' + file + '" >> ' + targetfile)
+# --------------------> We've got a file, cat it into our final .txt.
+			os.popen('cat "' + file + '" >> ' + targetfile)
 
-# Main
+# Top level function that calls recurse_dir() on the build target.
+#----------------------------------------------------------------------------
+def build_help(build_targ):
+        buildfile = build_targ + '.txt'
+        os.popen('rm ' + buildfile)
+        print 'Building ' + buildfile + '...'
+        recurse_dir(build_targ, buildfile)
+        print 'Finished building ' + buildfile + '.'
+
+# Calls mkindx assuming it's in ../bin/mkindx. We may need to adjust this
+# once we start packaging BTMux. Right now this is called every time we
+# build a help file.
+#----------------------------------------------------------------------------
+def build_mkindx(buildfile):
+	print 'mkindx target ' + buildfile + '.txt'
+	os.popen('../bin/mkindx ' + buildfile + '.txt ' + buildfile + '.indx')
+
+#----------------------------------------------------------------------------
+# Begin Main Program Logic
+#----------------------------------------------------------------------------
+
+# List of targets. Safe to add on to without further modification.
 valid_targets = ['help', 'wizhelp']
+mkindx_note = "Don't forget to @readcache if your game is still running!"
 
+# Show this if no arguments are given.
 if len(sys.argv) < 2:
 	print '-'*78
 	print ' Syntax: makehelp <helptarget>\n'
 	print ' Input desired helpfile to build. May be any of the following:'
 	for target in valid_targets:
 		print '  ' + target
+	print '  all (Builds all of the above targets)'
 	print '-'*78
-	print ' NOTE: You will still need to mkindx and @readcache.'
+	print ' NOTE: You will need @readcache if your game is running.'
 	print '-'*78
 	sys.exit(2)
 
+# Grab the first argument and check against it.
 build_targ = sys.argv[1]
 
-if build_targ in valid_targets:
-	buildfile = build_targ + '.txt'
-	os.popen('rm ' + buildfile)
-	print 'Building ' + buildfile + '...'
-	recurse_dir(build_targ, buildfile)
-	print 'Finished building ' + buildfile + '.'
-#if buildfile == 'help':
-#	print 'Building help.txt...'
-#	recurse_dir('help', 'help_test.txt')
-#	print 'Finished building help.txt.'
-#elif buildfile == 'wizhelp':
-#	print 'Building wizhelp.txt...'
-#	recurse_dir('wizhelp', 'wizhelp_test.txt')
-#	print 'Finished building wizhelp.txt.'
+if build_targ == 'all':
+# ----> Build everything from valid_targets.
+	for buildfile in valid_targets:
+		build_help(buildfile)
+elif build_targ == 'mkindx':
+# ----> Call mkindx on everything.
+	for buildfile in valid_targets:
+		build_mkindx(buildfile)
+	print mkindx_note
+elif build_targ in valid_targets:
+# ----> Build only the specified target.
+	build_help(build_targ)
+	build_mkindx(build_targ)
+	print mkindx_note
 else:
-	print 'Invalid build target! Valid targets are: help, wizhelp'
+# ----> Invalid argument.
+	print 'Invalid build target! Issue the command with no arguments for syntax.'
 	sys.exit(2)
