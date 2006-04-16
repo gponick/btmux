@@ -1,0 +1,59 @@
+#!/usr/bin/python
+
+#----------------------------------------------------------------------------
+# Script to compile monolithic help .txt files from individual, categorized
+# files. Run with no args to see details on usage.
+# - Greg
+#----------------------------------------------------------------------------
+
+import os, glob, sys
+from stat import *
+
+def recurse_dir(dir, targetfile):
+	if not os.path.isdir(dir):
+		print 'Not a directory!'
+
+	contents = glob.glob(dir + "/*")
+
+	for file in contents:
+		if os.path.isdir(file):
+#			print file, "is a directory"
+			recurse_dir(file, targetfile)
+		else:
+			if not (file == 'compile.py' or file == 'compile.pyc'):
+#				print file, "is a file"
+				os.popen('cat "' + file + '" >> ' + targetfile)
+
+# Main
+valid_targets = ['help', 'wizhelp']
+
+if len(sys.argv) < 2:
+	print '-'*78
+	print ' Syntax: makehelp <helptarget>\n'
+	print ' Input desired helpfile to build. May be any of the following:'
+	for target in valid_targets:
+		print '  ' + target
+	print '-'*78
+	print ' NOTE: You will still need to mkindx and @readcache.'
+	print '-'*78
+	sys.exit(2)
+
+build_targ = sys.argv[1]
+
+if build_targ in valid_targets:
+	buildfile = build_targ + '.txt'
+	os.popen('rm ' + buildfile)
+	print 'Building ' + buildfile + '...'
+	recurse_dir(build_targ, buildfile)
+	print 'Finished building ' + buildfile + '.'
+#if buildfile == 'help':
+#	print 'Building help.txt...'
+#	recurse_dir('help', 'help_test.txt')
+#	print 'Finished building help.txt.'
+#elif buildfile == 'wizhelp':
+#	print 'Building wizhelp.txt...'
+#	recurse_dir('wizhelp', 'wizhelp_test.txt')
+#	print 'Finished building wizhelp.txt.'
+else:
+	print 'Invalid build target! Valid targets are: help, wizhelp'
+	sys.exit(2)
