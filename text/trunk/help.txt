@@ -14,7 +14,8 @@
  MISC		- Commands that don't fit under the other categories.
  AGREEMENT      - What you agree to by completing registration.
  MUX		- The old MUX codebase help entries.
- & time
+ BTMUXCREDITS   - The authors of BTMux. 
+& time
  
  >> Help: Time (Informational Command)
  ------------------------------------------------------------------------------
@@ -61,7 +62,8 @@
  
  You may set the following fields using these commands:
  EMail       - &FINGER_EMAIL me=<email address>
- & inform
+ 
+& inform
  
  >> Help: Inform (Informational Commands)
  -----------------------------------------------------------------------------
@@ -71,7 +73,8 @@
  Weapstats
  -----------------------------------------------------------------------------
  To view specifics about each command, use 'help <topic>' without the <>'s.
- & uptime
+ 
+& uptime
  
  >> Help: Uptime (Informational command)
  -----------------------------------------------------------------------------
@@ -196,7 +199,27 @@
  leftover from being disconnected or having more than one window open. You
  have multiple connections open if your name appears more than once on the
  WHO list.
- & mux
+ 
+& btmuxcredits
+ 
+ >> Help: BTMux Credits
+ ----------------------------------------------------------------------------
+ BattletechMUX is a project maintained by the community. A number of people
+ are involved in the production, maintenance, and improvement of the
+ codebase. While it would be difficult to name every person taking a role
+ in what you now see before you, below are the individuals that have
+ made large contributions towards the progression of BTMux. 
+ 
+ * Dany@Frontier - Hardcode
+ * Fingon@3030 - Hardcode
+ * Focus@3030 - Hardcode
+ * Hagbard@Frontier - Hardcode
+ * Kelvin McCorvin@Frontier - Project Director, Softcode, Documentation
+ * Null@3029 - Original Exile codebase developer
+ * Power_Shaper@Frontier - Hardcode
+ * Scotty@Frontier - Documentation
+  
+& mux
  
   This is the MUX online help facility.
  
@@ -8095,7 +8118,8 @@ delicious!"
   Example: 
   @tfail here = A psychic barrier prevents you from teleporting there.
  
-  See also: @teleport, @atfail, @otfail, @lock& facroster
+  See also: @teleport, @atfail, @otfail, @lock
+& facroster
  
  >> Help: Facroster (Factional Command)
  -----------------------------------------------------------------------------
@@ -8103,16 +8127,19 @@ delicious!"
  
  Displays a list of your faction's current active members (less than 14 days
  idle) along with their dbref, rank, XP, and last time they were connected. 
- & faction
+
+& faction
  
- >> Help: Faction (Factionl Commands)
+ >> Help: Faction (Factional Commands)
  -----------------------------------------------------------------------------
  Census			Ranklist	
  ---<Rank-Locked Commands (Require Officer/Commander Status)>-----------------
  Facroster		
  -----------------------------------------------------------------------------
  To view specifics about each command, use 'help <topic>' without the <>'s.
- & census
+ 
+ 
+& census
  
  >> Help: Census (Factional Command)
  -----------------------------------------------------------------------------
@@ -8130,7 +8157,9 @@ delicious!"
  The third form is similar to the first but shows people in your squad. All
  members are shown whether they're connected or not, but those who aren't
  appear in dark gray and have a dark red DC in their 'RS' field.
- & ranklist
+
+
+& ranklist
   
  >> Help: Ranklist (Factional Command)
  -----------------------------------------------------------------------------
@@ -8138,7 +8167,9 @@ delicious!"
  
  The 'Ranklist' command displays all of your faction's ranks and their
  names, along with how much XP is needed to reach each of these ranks.
- & agreement
+ 
+
+& agreement
  
  >> Help: Agreement
  -----------------------------------------------------------------------------
