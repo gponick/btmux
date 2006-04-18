@@ -1,6 +1,6 @@
 +X992001
 +S1857
-+N77837
++N77849
 -R85
 +A76546
 "1:A.0001.D"
@@ -36144,10 +36144,22 @@
 "1:FAC/REMOVE.C"
 +A77392
 "1:FAC/REMOVE.CDESC"
++A77846
+"1:FAC/SETALIAS.C"
++A77848
+"1:FAC/SETALIAS.CDESC"
++A77837
+"1:FAC/SETFH.C"
++A77839
+"1:FAC/SETFH.CDESC"
 +A77393
 "1:FAC/SETHIDDEN.C"
 +A77394
 "1:FAC/SETHIDDEN.CDESC"
++A77844
+"1:FAC/SETNAME.C"
++A77845
+"1:FAC/SETNAME.CDESC"
 +A17787
 "1:FACBBS_CANREAD.F"
 +A17786
@@ -36264,6 +36276,8 @@
 "1:FAIL_RECYCLE.D"
 +A76849
 "1:FAIL_TIMER.D"
++A77847
+"1:FALIAS.L"
 +A2296
 "1:FALL.PATTERNS"
 +A17773
@@ -38676,6 +38690,8 @@
 "1:GETFORUM.FIL"
 +A2375
 "1:GETICE.F"
++A77843
+"1:GETLIST.F"
 +A2142
 "1:GETMECHLIST.F"
 +A1889
@@ -43154,6 +43170,8 @@
 "1:IS_TOWER"
 +A50223
 "1:IS_TPRUNNING"
++A77838
+"1:IS_VALID_FOBJ.F"
 +A1214
 "1:IS_VEHICLE"
 +A25888
@@ -49294,6 +49312,10 @@
 "1:POSITION.AIC"
 +A2772
 "1:POSITION.C"
++A77841
+"1:POSTSET_COMMANDER.DB.T"
++A77842
+"1:POSTSET_FNAME.L.T"
 +A54878
 "1:POST_PLAYERDUMP.T"
 +A54874
@@ -53400,6 +53422,8 @@
 "1:SETFIELD.T"
 +A3298
 "1:SETLASTCLAIM.T"
++A77840
+"1:SETLIST.T"
 +A8783
 "1:SETLOADPREFS.T"
 +A8788
@@ -62973,7 +62997,7 @@
 -1
 1000
 4194323
-1077414400
+3672576
 0
 0
 0
@@ -63050,7 +63074,7 @@
 >5
 "XX7DbTAaRPsgU"
 >30
-"Mon Apr 17 14:20:26 2006"
+"Mon Apr 17 22:21:06 2006"
 >38
 "-200"
 >49
@@ -63062,7 +63086,7 @@
 >62
 "(#2)"
 >84
-"#1091;130.127.134.74;Mon Apr 17 14:20:26 2006;130-127-134-74.wireless.clemson.edu;Mon Apr 17 13:56:34 2006;130.127.66.32;Fri Oct 28 11:21:25 2005;localhost;Fri Oct 28 11:09:49 2005;0;20;130.127.44.164;Fri Oct 21 21:45:24 2005;130.127.66.32;Mon Sep 26 12:10:55 2005;130.127.136.5;Wed May  4 19:56:44 2005;"
+"#1092;130.127.134.74;Mon Apr 17 22:21:06 2006;130.127.134.74;Mon Apr 17 14:20:26 2006;130-127-134-74.wireless.clemson.edu;Mon Apr 17 13:56:34 2006;130.127.66.32;Fri Oct 28 11:21:25 2005;0;20;130.127.44.164;Fri Oct 21 21:45:24 2005;130.127.66.32;Mon Sep 26 12:10:55 2005;130.127.136.5;Wed May  4 19:56:44 2005;"
 >88
 "130.127.134.74"
 >200
@@ -63082,7 +63106,7 @@
 >231
 "Admin"
 >232
-"15"
+"10"
 >233
 "0,0"
 >234
@@ -63105,8 +63129,6 @@
 "17:0:#8"
 >2645
 "17:0:325178"
->4245
-"17:0:1127865937"
 >24049
 "2:64:1070314841"
 >50135
@@ -63115,12 +63137,6 @@
 "17:0:#1828"
 >77415
 "3430000000160940"
->77488
-"17:0:#1813"
->77821
-" 5|7 5|7"
->77822
-" 0 0"
 <
 !3
 "[31mSYSTEM: [0mGarbage Compactor"
@@ -63236,7 +63252,7 @@ Faction:Admin
 >1156
 "17:256:Mon Apr 17 14:28:19 2006"
 >38538
-"1130511619"
+"1145326399"
 >50191
 "2:0:@dol [lattr(%0/*.F)] [lattr(%0/*.D)] [lattr(%0/*.L)]={@set %0/##=NO_COMMAND}"
 <
@@ -64006,7 +64022,7 @@ Faction:Admin
 >1166
 "2:0:$staff:@dolist [get(#150/SHOWLISTS.L)]={@pemit %#=[u(SHOWSTAFF.F,##,#@)]};@wait 0=@pemit %#=[ansi(hb,repeat(=,78))]"
 >1874
-"2:0:$ranklist:@pemit %#=%r[setq(1,get(%#/Ranknum))][center(%chRank listing for [ansi(h[get(setr(0,fobj(get(%#/faction)))/FACTION_COLOR.D)],get(%#/Faction))]%cn,40)]%r[ansi(hb,repeat(-,40))]%r%ch[rjust(Num,4)]%cb|%cw Rank Name%cn%r[ansi(hb,repeat(-,40))][iter(get(%q0/RANKS.L),%r%b[rjust(ansi(ifelse(eq(get(%#/Ranknum),#@),hy,g),#@),2,.)] [ansi(hb,|)] ##,|)]"
+"2:0:$ranklist:@pemit %#=%r[setq(1,get(%#/Ranknum))][center(%chRank listing for [ansi(h[get(setr(0,zone(%#))/FACTION_COLOR.D)],get(%#/Faction))]%cn,40)]%r[ansi(hb,repeat(-,40))]%r%ch[rjust(Num,4)]%cb|%cw Rank Name%cn%r[ansi(hb,repeat(-,40))][iter(get(%q0/RANKS.L),%r%b[rjust(ansi(ifelse(eq(get(%#/Ranknum),#@),hy,g),#@),2,.)] [ansi(hb,|)] ##,|)]"
 >2141
 "2:0:$listrefs *:@pemit %#=%r[setq(0,u(GETMECHLIST.F,secure(%0)))][center(ansi(hw,Dynamic Ref Listing),78)]%r[center(This ref list contains %ch%cy[words(%q0)]%cn units,78)]%r[ansi(hb,repeat(-,78))]%r[columns(%q0,26)]%r[ansi(hb,repeat(-,78))]"
 >2143
@@ -64260,7 +64276,7 @@ Faction:Admin
 >215
 "MAP"
 >240
-"35 2 0 0 164"
+"41 2 127 0 90"
 >246
 "@fo me={FIXMAP};@tri me/SAVEMAP.T"
 >2292
@@ -64270,21 +64286,21 @@ Faction:Admin
 >2294
 "4"
 >2299
-"Rain2"
+"Clear2"
 >2303
 "Day"
 >2351
-"6"
+"3"
 >2367
-"35"
+"41"
 >2368
 "0"
 >2369
-"27"
+"30"
 >2370
-"0"
+"127"
 >2374
-"6"
+"7"
 >73360
 "100"
 <
@@ -64939,32 +64955,18 @@ Faction:Admin
 -1
 1
 301993985
-4202496
+8192
 0
 0
 0
->246
-"@dol [children(#89)]=@wait [mul(#@,10)]={@tri ##/CAL_ROSTER.T}l"
->792
-"@set %!=ROSTER.L:[setr(0,filter(%!/ROSTER.FIL,search(type=player)))]"
 >794
 "[and(hasflag(%0,IN_CHARACTER),hastype(%0,Player),teammates(%!,%0))]"
+>1011
+"@set %!=%0:%1;@tri %!/postset_%0.T=%1"
 >1181
-"Rank 1|Rank 2|Rank 3|Rank 4|Rank 5|Rank 6|Rank 7|Rank 8|Rank 9"
->3013
-"1|1|1|1|1|2|2|2|2|2|3|3|3|3|3"
->3014
-"1|1|1|2|2|2|3|3|3|4|4|4|5|5|5"
->3015
-"3|4|4|20|21|22|53|54|55|56|57|124|125|126|127"
->3021
-"20|25|30|35|40|45|50|55|60|65|70|75|80|85|90"
->3022
-"80|90|100|110|120|130|140|150|160|170|180|190|200|210|220"
->3023
-"15|16|17|18|19|20|21|22|23|24|25|26|27|28|30"
->3024
-"20|22|24|26|28|30|32|34|36|38|40|42|44|46|48"
+"Rank 1|Rank 2|Rank 3|Rank 4|Rank 5|Rank 6|Rank 7|Rank 8|Rank 9|Rank 10"
+>77841
+"@ranknum %0=10"
 <
 !91
 "[36mFaction:[0m Capellan Confederation"
@@ -65012,7 +65014,7 @@ Faction:Admin
 >62
 "IS_FACMGR.F/1"
 >668
-"Admin2:Unaffiliated:Capellan Confederation:Lyran Commonwealth:Federated Commonwealth:Draconis Combine"
+"Admin:Unaffiliated:Capellan Confederation:Lyran Commonwealth:Federated Commonwealth:Draconis Combine"
 >669
 "#93:#1835:#91:#94:#808:#839"
 >670
@@ -65026,13 +65028,13 @@ Faction:Admin
 >77389
 "+fac/list|Lists all factions and some basic information about each."
 >77390
-"$+fac/list:@pemit %#=%r%ch[center(Faction List,78)]%cn%r%ch%cb[repeat(-,78)]%cn%r%chNum [ljust(FObj,8)][ljust(Faction Name,26)]FCode%b%bColor%b%b%b[ljust(Hidden,8)]Members%cn[iter(v(FOBJ.L),%r[rjust(#@,2)] %b[ljust(##,7)] [ljust(get(##/FACTION),28)][ljust(fconvert(get(##/FACTION)),5)][ljust(ansi(setr(0,get(##/FACTION_COLOR.D)),%q0),10)][ljust(ifelse(get(##/IS_HIDDENFAC),ansi(hr,*),),8)][words(get(##/ROSTER.L))],:)]%r%ch%cb[repeat(-,78)]%cn"
+"$+fac/list:@pemit %#=%r%ch[center(Faction List,78)]%cn%r%ch%cb[repeat(-,78)]%cn%r%chNum [ljust(FObj,8)][ljust(Faction Name,26)]FCode%b%bColor%b%b%b[ljust(Hidden,8)]Members%cn[iter(v(FOBJ.L),%r[rjust(#@,2)] %b[ljust(##,7)] [ljust(get(##/FACTION),28)][ljust(u(GETLIST.F,FCODE.L,#@),5)][ljust(ansi(setr(0,get(##/FACTION_COLOR.D)),%q0),10)][ljust(ifelse(get(##/IS_HIDDENFAC),ansi(hr,*),),8)][words(get(##/ROSTER.L))],:)]%r%ch%cb[repeat(-,78)]%cn"
 >77391
-"$+fac/remove *:@switch/first 0=[strmatch(parent(setr(0,fobj(%0))),#89)],{@pemit %#=Invalid faction object.},{@set me=FNAME.L:[remove(v(FNAME.L),get(%q0/FACTION),:)];@set me=FCODE.L:[remove(v(FCODE.L),get(%q0/FACTION_ALIAS.D),:)];@set me=ACTIVEFACS.L:[remove(v(ACTIVEFACS.L),%q0)];@set me=FOBJ.L:[remove(v(FOBJ.L),%q0,:)];@pemit %#=Faction object [name(%q0)]%(%q0%) removed.;@dest/override %q0}"
+"$+fac/remove *:@switch/first 0=[setq(0,fobj(%0))][u(IS_VALID_FOBJ.F,%q0)],{@pemit %#=Invalid faction object.},{@set me=FNAME.L:[remove(v(FNAME.L),get(%q0/FACTION),:)];@set me=FCODE.L:[remove(v(FCODE.L),get(%q0/FACTION_ALIAS.D),:)];@set me=ACTIVEFACS.L:[remove(v(ACTIVEFACS.L),%q0)];@set me=FOBJ.L:[remove(v(FOBJ.L),%q0,:)];@pemit %#=Faction object [name(%q0)]%(%q0%) removed.;@dest/override %q0}"
 >77392
 "+fac/remove <FName/FAlias/FDBRef>|Removes a faction."
 >77393
-"$+fac/sethidden *=*:@switch/first 0=[strmatch(parent(setr(0,fobj(%0))),#89)],{@pemit %#=Invalid faction object.},[and(isnum(%1),gte(%1,0),lte(%1,1))],{@pemit %#=Invalid hidden value! Must be 0 (Visible) or 1 (Hidden).},{@set %q0=IS_HIDDENFAC:%1;@pemit %#=You have set %ch[get(%q0/FACTION)]%cn's visibility to [ifelse(%1,%ch%crhidden,%ch%cgvisible)]%cn.}"
+"$+fac/sethidden *=*:@switch/first 0=[setq(0,fobj(%0))][u(IS_VALID_FOBJ.F,%q0)],{@pemit %#=Invalid faction object.},[and(isnum(%1),gte(%1,0),lte(%1,1))],{@pemit %#=Invalid hidden value! Must be 0 (Visible) or 1 (Hidden).},{@tri %q0/SETFIELD.T=IS_HIDDENFAC,%1;@pemit %#=You have set %ch[get(%q0/FACTION)]%cn's visibility to [ifelse(%1,%ch%crhidden,%ch%cgvisible)]%cn.}"
 >77394
 "+fac/sethidden <Faction>=<0/1> (0=Visible, 1=Hidden)|Sets a faction as hidden or visible."
 >77395
@@ -65041,9 +65043,29 @@ Faction:Admin
 "@set me=FCODE.L:[replace(v(FCODE.L),match(v(FCODE.L),fconvert(get(fobj(%0)/FACTION)),:),%1,:)]"
 >77828
 "@chzone %0=[setr(0,ifelse(isdbref(%1),%1,fobj(%1)))];@faction %0=[get(%q0/FACTION)]"
+>77837
+"$+fac/setfh *=*:@switch/first 0=[setq(0,fobj(%0))][u(IS_VALID_FOBJ.F,%q0)],{@pemit %#=Invalid faction object.},[u(vdb(SILENT_FUNCTIONS.DB)/IS_PLAYER.FIL,setr(1,pmatch(%1)))],{@pemit %#=Invalid player!},{@tri %q0/SETFIELD.T=COMMANDER.DB,%1;@pemit %#=You have %ch[name(%q1)]%cn as the commander of %ch[get(%q0/FACTION)]%cn.}"
+>77838
+"[strmatch(parent(%0),vdb(FACTION_PARENT.DB))]"
+>77839
+"+fac/setfh <Faction>=<Player>|Sets a faction's commander."
+>77840
+"@set me=%0:[replace(v(%0),match(v(FOBJ.L),fobj(%1),:),%2,:)];@tri me/postset_%0.T=%1,%2"
+>77842
+"@faction %0=%1;@name %0=%ccFaction:%cn %1"
+>77843
+"[extract(v(%0),%1,1,:)]"
+>77844
+"$+fac/setname *=*:@switch/first 0=[setq(0,fobj(%0))][u(IS_VALID_FOBJ.F,%q0)],{@pemit %#=Invalid faction object.},{@tri me/SETLIST.T=FNAME.L,%0,%1;@pemit %#=You have renamed faction %ch%q0%cn to %ch%cy%1%cn.}"
+>77845
+"+fac/setname <Faction>=<Name>|Sets a faction's name."
+>77846
+"$+fac/setalias *=*:@switch/first 0=[setq(0,fobj(%0))][u(IS_VALID_FOBJ.F,%q0)],{@pemit %#=Invalid faction object.},{@tri me/SETLIST.T=FCODE.L,%0,[ucstr(%1)];@pemit %#=You have set [get(%q0/FACTION)]'s alias to %ch%cy%1%cn.}"
+>77848
+"+fac/setalias <Faction>=<Alias>|Sets a faction's alias (faction code)."
 <
 !93
-"[36mFaction:[0m Admin"
+"[36mFaction:[0m Test"
 85
 -1
 -1
@@ -65054,13 +65076,13 @@ Faction:Admin
 2
 89
 0
-301993985
+301989889
 8192
 0
 0
 0
 >230
-"Admin"
+"Test"
 >793
 "#1 #2 #108"
 >799
@@ -65070,7 +65092,7 @@ Faction:Admin
 >802
 "h"
 >1181
-"Peon|Staff PC|Tester|Support Staff-1|Support Staff-2|Support Staff-3|Royalty-1|Royalty-2|Royalty-3|Coder-Training|Coder-Junior|Coder-Senior|Admin-Junior|Admin-Senior|Admin-Head"
+"Peon|Tester|Support Staff|Royalty|Coder-Training|Coder-Junior|Coder-Senior|Admin-Junior|Admin-Senior|Admin-Head"
 >1281
 "1"
 <
@@ -69972,7 +69994,7 @@ This game is under construction! Tell the staff to update the MOTD on #182.
 >215
 "2:0:MAP"
 >240
-"44 2 134 0 182"
+"45 2 108 0 76"
 >263
 "2:0:%tWelcome to the public sims. Here you may practice with any mech on%r'listrefs' on a number of different maps. Try to be courteous in doing so,%rtwinks will be hit with a wet trout."
 >2292
@@ -69986,17 +70008,17 @@ This game is under construction! Tell the staff to update the MOTD on #182.
 >2303
 "Day"
 >2351
-"4"
+"3"
 >2367
-"44"
+"45"
 >2368
 "0"
 >2369
-"-7"
+"-8"
 >2370
-"134"
+"108"
 >2374
-"1"
+"2"
 >3033
 "2:0:250 250"
 >3034
@@ -73439,7 +73461,7 @@ Faction:Admin
 >55423
 "2:0:@dol/delimit | [v(MIN_[extract(extract(time(),4,1),2,1,:)])]={@tri [loc(me)]/##.T}"
 >55425
-"1145298480"
+"1145327760"
 <
 !1171
 "Randis IV Game Center"

@@ -312,10 +312,7 @@ LC-Main
 1145298499 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 0
 MUXConnections
-8 0 0 0 17 0 576 1850 20
-1129846163 [MUXConnections] * Daniel MacGregor has disconnected *
-1129865173 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
-1129865184 [MUXConnections] * Daniel MacGregor has connected from CPE-65-25-160-205.wi.res.rr.com *
+8 0 0 0 17 0 579 1850 20
 1129865734 [MUXConnections] * Daniel MacGregor has disconnected *
 1129917091 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
 1129917195 [MUXConnections] * Kelvin McCorvin has connected from 130.127.44.164 *
@@ -333,6 +330,9 @@ MUXConnections
 1145297483 [MUXConnections] * GeeOhDee has connected from 130-127-134-74.wireless.clemson.edu *
 1145298026 [MUXConnections] * Wizard has connected from 130.127.134.74 *
 1145298499 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1145299517 [MUXConnections] * GeeOhDee has disconnected *
+1145301224 [MUXConnections] * Wizard has disconnected *
+1145326866 [MUXConnections] * Wizard has connected from 130.127.134.74 *
 0
 MechAI
 8 0 0 0 17 0 131 76 20
