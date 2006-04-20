@@ -1,6 +1,6 @@
 & number_guests
 
-  Config directive: number_guests <num>.
+  Config parameter: number_guests <num>
   Default: 30
 
   How many guests should we allow at any one time?

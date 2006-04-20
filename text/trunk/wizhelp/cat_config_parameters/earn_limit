@@ -1,6 +1,6 @@
 & earn_limit
 
-  Config parameter: earn_limit <amount>. 
+  Config parameter: earn_limit <amount>
   Default: 10000
 
   Specifies the threshold at which earning additional money becomes

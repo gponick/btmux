@@ -1,6 +1,6 @@
 & have_comsys
 
-  Config parameter: have_comsys <yes/no>. 
+  Config parameter: have_comsys <yes/no>
   Default: yes
 
   Specifies whether or not the comsystem should be active.

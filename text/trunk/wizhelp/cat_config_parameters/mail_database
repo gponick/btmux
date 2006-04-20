@@ -1,6 +1,6 @@
 & mail_database
 
-  Config parameter: mail_database <path>. 
+  Config parameter: mail_database <path>
   Default: mail.db
 
   Sets the file that @mail information is to be stored in. The

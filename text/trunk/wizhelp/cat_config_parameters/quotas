@@ -1,6 +1,6 @@
 & quotas
 
-  Config parameter: quotas <yes/no>. 
+  Config parameter: quotas <yes/no>
   Default: no
 
   Indicates whether or not building quotas are enforced and
@@ -14,4 +14,4 @@
   @destroying that occurs in the interim does not affect the quotas.
 
   See also: @allquota, @create, @destroy, @dig, @open, @quota, QUOTAS.
-  
+ 

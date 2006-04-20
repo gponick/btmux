@@ -1,7 +1,7 @@
 & events_daily_hour
 
-  Config parameter: events_daily_hour <hour>. 
-  Default: 7.
+  Config parameter: events_daily_hour <hour>
+  Default: 3
 
   Specifies the hour that @daily is executed. No guarantee is made as
   to what time during this hour it is executed. This should be a

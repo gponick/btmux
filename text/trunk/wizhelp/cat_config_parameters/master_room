@@ -1,7 +1,7 @@
 & master_room
 
-  Config parameter: master_room <roomnum>. 
-  Default: (none)
+  Config parameter: master_room <roomnum>
+  Default: none
 
   Specifies the room that is searched for exits if a command does not
   match an exit in the current room, and for $-command if a command

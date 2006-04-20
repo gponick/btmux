@@ -1,6 +1,6 @@
 & help_index
 
-  Config parameter: help_index <path>. 
+  Config parameter: help_index <path>
   Default: text/help.indx
 
   Specifies the name of the index file used by the help command.  This

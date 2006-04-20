@@ -1,6 +1,6 @@
 & create_min_cost
 
-  Config directive: create_min_cost <amount>. 
+  Config parameter: create_min_cost <amount>
   Default: 10
 
   Specifies the minimum (and default) cost for creating an object.

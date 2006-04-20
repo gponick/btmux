@@ -1,6 +1,6 @@
 & match_own_commands
 
-  Config parameter: match_own_commands <yes/no>. 
+  Config parameter: match_own_commands <yes/no>
   Default: NO
 
   Specifies whether or not objects search themselves for $-commands

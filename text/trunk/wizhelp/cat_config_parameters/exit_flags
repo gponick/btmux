@@ -1,7 +1,7 @@
 & exit_flags
 
-  Config parameter: exit_flags <flags>. 
-  Default: blank
+  Config parameter: exit_flags <flags>
+  Default: none
 
   Modifies the set of flags that an exit receives when it is created
   via the @open command or via the optional exit creation parameters

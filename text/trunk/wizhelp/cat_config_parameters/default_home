@@ -1,6 +1,6 @@
 & default_home
 
-  Config directive: default_home <location>. 
+  Config parameter: default_home <location>
   Default (player_starting_home)
 
   Sets the home location for objects which have an invalid home

@@ -1,6 +1,6 @@
 & guests_channel
 
-  Config parameter: guests_channel <name>.
+  Config parameter: guests_channel <name>
   Default: Guests
 
   Specifies the name of the channel that guests join when they

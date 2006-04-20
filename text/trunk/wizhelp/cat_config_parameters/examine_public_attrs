@@ -1,6 +1,6 @@
 & examine_public_attrs
 
-  Config parameter: examine_public_attrs <yes/no>. 
+  Config parameter: examine_public_attrs <yes/no>
   Default: yes
 
   Indicate whether or not the examine command should display the

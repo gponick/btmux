@@ -1,6 +1,6 @@
 & mail_expiration
 
-  Config parameter: mail_expiration <number of days>.
+  Config parameter: mail_expiration <number of days>
   Default: 14
 
   Sets the number of days that a @mail message should last before it

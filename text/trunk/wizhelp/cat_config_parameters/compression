@@ -1,6 +1,6 @@
 & compression
 
-  Config parameter: compress <yes/no>. 
+  Config parameter: compress <yes/no>
   Default: no
 
   Indicates whether or not the database is to be compressed using the

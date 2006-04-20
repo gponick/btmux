@@ -1,6 +1,6 @@
 & idle_timeout
 
-  Config parameter: idle_timeout <secs>. 
+  Config parameter: idle_timeout <secs>
   Default: 3600 (one hour)
 
   Sets the amount of time that a player may remain idle before being

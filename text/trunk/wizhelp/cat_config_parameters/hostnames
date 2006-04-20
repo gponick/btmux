@@ -1,6 +1,6 @@
 & hostnames
 
-  Config parameter: hostnames <yes/no>. 
+  Config parameter: hostnames <yes/no>
   Default: yes
 
   Indicates whether or not IP addresses should be replaced with host

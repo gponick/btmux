@@ -1,9 +1,9 @@
 & page_cost
- 
-  Config parameter: page_cost <amount>.  
-  Default: 10
- 
+
+  Config parameter: page_cost <amount>
+  Default: 0
+
   Specifies the cost of using the page command.
- 
+
   See also: page.
  

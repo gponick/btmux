@@ -1,6 +1,6 @@
 & idle_interval
 
-  Config parameter: idle_interval <secs>. 
+  Config parameter: idle_interval <secs>
   Default: 60
 
   Sets the interval between checks for idle users.

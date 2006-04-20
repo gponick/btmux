@@ -1,7 +1,7 @@
 & command_quota_increment
 
-  Config parameter: command_quota_increment <amount>. 
-  Default: 1
+  Config parameter: command_quota_increment <amount>
+  Default: 5
 
   Specifies the number of commands by which the command quota for
   connected users each timeslice.  Each command a user types in

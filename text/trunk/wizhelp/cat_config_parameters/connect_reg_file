@@ -1,6 +1,6 @@
 & connect_reg_file
 
-  Config parameter: connect_reg_file <path>. 
+  Config parameter: connect_reg_file <path>
   Default: text/register.txt
 
   Specifies the name of the file that a user sees immediately after

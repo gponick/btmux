@@ -1,7 +1,7 @@
 & dump_message
 
-  Config parameter: dump_message <message>. 
-  Default: blank
+  Config parameter: dump_message <message>
+  Default: none
 
   Sets the message that is sent to everyone before the database is
   being dumped to disk, whether automatically or via the @dump

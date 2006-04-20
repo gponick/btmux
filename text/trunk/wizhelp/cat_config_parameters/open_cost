@@ -1,6 +1,6 @@
 & open_cost
 
-  Config parameter: open_cost <amount>. 
+  Config parameter: open_cost <amount>
   Default: 1
 
   Indicates the cost of using the @open command to open a new exit.

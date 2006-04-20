@@ -1,6 +1,6 @@
 & full_file
 
-  Config parameter: down_file <pathname>. 
+  Config parameter: down_file <pathname>
   Default: text/full.txt
 
   Specifies the name of the file that is displayed when players

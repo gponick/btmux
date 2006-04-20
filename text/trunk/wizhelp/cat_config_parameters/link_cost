@@ -1,7 +1,7 @@
 & link_cost
 
-  Config parameter: link_cost <amount>. 
-  Default: 1.
+  Config parameter: link_cost <amount>
+  Default: 1
 
   Specifies the cost of using the @link command to establish or change
   the link of an exit to its destination, the home of a player or an

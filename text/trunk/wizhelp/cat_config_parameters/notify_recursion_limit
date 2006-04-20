@@ -1,6 +1,6 @@
 & notify_recursion_limit
 
-  Config directive: notify_recursion_limit <num>. 
+  Config parameter: notify_recursion_limit <num>
   Default: 20
 
   Sets the maximum number of times that the notify() routine may be

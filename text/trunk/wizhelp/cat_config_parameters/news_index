@@ -1,6 +1,6 @@
 & news_index
 
-  Config parameter: news_index <path>. 
+  Config parameter: news_index <path>
   Default: text/news.indx
 
   Specifies the name of the index file used by the news command.  This
