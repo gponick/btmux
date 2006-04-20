@@ -1,7 +1,7 @@
 & check_offset
 
-  Config parameter: check_offset <secs>.  
-  Default: 300.
+  Config parameter: check_offset <secs> 
+  Default: 300
 
   Specifies how long after startup the first automatic database check
   is to be performed.  Subsequent checks are performed every

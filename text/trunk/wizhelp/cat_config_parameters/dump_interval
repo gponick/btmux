@@ -1,6 +1,6 @@
 & dump_interval
 
-  Config parameter: dump_interval <amount>. 
+  Config parameter: dump_interval <amount>
   Default: 3600
 
   Specifies the time in seconds between automatic database dumps.

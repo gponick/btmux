@@ -1,6 +1,6 @@
 & kill_min_cost
 
-  Config parameter: kill_min_cost <amount>. 
+  Config parameter: kill_min_cost <amount>
   Default: 10
 
   Specifies the minimum (and default) cost for attempting to kill

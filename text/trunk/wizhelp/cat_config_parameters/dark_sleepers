@@ -1,6 +1,6 @@
 & dark_sleepers
 
-  Config directive: dark_sleepers <yes/no>.  
+  Config parameter: dark_sleepers <yes/no>
   Default: yes
 
   Indicates whether or not disconnected players are to be considered

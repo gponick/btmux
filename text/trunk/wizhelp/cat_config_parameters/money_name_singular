@@ -1,6 +1,6 @@
 & money_name_singular
 
-  Config parameter: money_name_singular <string>. 
+  Config parameter: money_name_singular <string>
   Default: penny
 
   Specifies the string to use to describe the coin of the realm when

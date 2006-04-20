@@ -1,6 +1,6 @@
 & fork_vfork
 
-  Config parameter: fork_vfork <yes/no>. 
+  Config parameter: fork_vfork <yes/no>
   Default: no
 
   Indicates whether or not the vfork() system call should be used in

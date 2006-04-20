@@ -1,6 +1,6 @@
 & machine_command_cost
 
-  Config parameter: machine_command_cost <number>. 
+  Config parameter: machine_command_cost <number>
   Default: 64
 
   Sets the cost for running a command from a machine, as opposed to

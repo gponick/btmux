@@ -1,6 +1,6 @@
 & wiznews_file
 
-  Config parameter: wiznews_file <path>. 
+  Config parameter: wiznews_file <path>
   Default: text/wiznews.txt
 
   Specifies the name of the file containing the text used by the

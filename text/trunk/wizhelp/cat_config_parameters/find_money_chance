@@ -1,6 +1,6 @@
 & find_money_chance
 
-  Config parameter: find_money_chance <amount>. 
+  Config parameter: find_money_chance <amount>
   Default: 0
 
   Indicates the chance that players have of finding money when

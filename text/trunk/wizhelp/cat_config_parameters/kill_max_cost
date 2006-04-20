@@ -1,6 +1,6 @@
 & kill_max_cost
 
-  Config parameter: kill_max_cost <amount>. 
+  Config parameter: kill_max_cost <amount>
   Default: 100
 
   Specifies the maximum amount of money that may be usefully spent on

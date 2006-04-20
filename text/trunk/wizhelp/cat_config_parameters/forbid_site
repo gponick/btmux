@@ -1,9 +1,9 @@
 & forbid_site
 
-  Config parameter: forbid_site <addr> <mask>.
+  Config parameter: forbid_site <addr> <mask>
 
   Indicates that connections are to be rejected from sites whose
-  address  matches the specified address when ANDed with the mask. 
+  address  matches the specified address when ANDed with the mask.
   The contents of the file specified by badsite_file is sent
   immediately before closing the connection.  This directive may be
   used to restrict access to just the local network, or to prevent

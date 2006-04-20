@@ -1,6 +1,6 @@
 & examine_flags
 
-  Config parameter: examine_flags <yes/no>. 
+  Config parameter: examine_flags <yes/no>
   Default: yes
 
   Indicates whether or not the examine command should include an

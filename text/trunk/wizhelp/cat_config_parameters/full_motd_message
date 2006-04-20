@@ -1,6 +1,6 @@
 & full_motd_message
 
-  Config parameter: full_motd_message <message>. 
+  Config parameter: full_motd_message <message>
   Default: blank
 
   Sets the message that is displayed when a player attempts to connect

@@ -1,6 +1,6 @@
 & fascist_teleport
 
-  Config parameter: fascist_teleport <yes/no>. 
+  Config parameter: fascist_teleport <yes/no>
   Default: no
 
   If this parameter is set to yes, then players (and objects) may not

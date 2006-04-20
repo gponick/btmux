@@ -1,6 +1,6 @@
 & dump_offset
 
-  Config parameter: dump_offset <amount>.  
+  Config parameter: dump_offset <amount> 
   Default: 0
 
   Specifies the time in seconds between startup and the first database

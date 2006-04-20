@@ -1,6 +1,6 @@
 & exit_quota
 
-  Config parameter: exit_quota <amount>. 
+  Config parameter: exit_quota <amount>
   Default: 1
 
   Sets how much quota it costs to create an exit (and also how much

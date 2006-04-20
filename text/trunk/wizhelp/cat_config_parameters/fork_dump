@@ -1,6 +1,6 @@
 & fork_dump
 
-  Config parameter: fork_dump <yes/no>. 
+  Config parameter: fork_dump <yes/no>
   Default: yes
 
   Indicates whether or not database dumps are to be done by fork()ing

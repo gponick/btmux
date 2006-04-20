@@ -1,6 +1,6 @@
 & idle_wiz_dark
 
-  Config parameter: idle_wiz_dark <yes/no>. 
+  Config parameter: idle_wiz_dark <yes/no>
   Default: no
 
   Indicates whether or not wizards or players with the idle power who

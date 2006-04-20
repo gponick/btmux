@@ -1,6 +1,6 @@
 & motd_file
 
-  Config parameter: motd_file <pathname>. 
+  Config parameter: motd_file <pathname>
   Default: text/motd.txt
 
   Specifies the name of the file to be shown to players immediately

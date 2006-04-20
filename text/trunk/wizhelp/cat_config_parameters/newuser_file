@@ -1,6 +1,6 @@
 & newuser_file
 
-  Config parameter: newuser_file <filename>. 
+  Config parameter: newuser_file <filename>.
   Default: text/newuser.txt
 
   Specifies the file to be shown to new players immediately after they

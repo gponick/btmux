@@ -1,7 +1,7 @@
 & guest_char_num
 
-  Config parameter: guest_char_num <number>. 
-  Default: (none)
+  Config parameter: guest_char_num <number>
+  Default: none
 
   Indicates the database number of the guest character.  If set, the
   specified guest character is subject to additional restrictions
