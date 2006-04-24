@@ -1,6 +1,7 @@
+ 
 & player_queue_limit
 
-  Config parameter: player_queue_limit 
+  Config parameter: player_queue_limit
   Default: 100
 
   Sets the maximum number of commands that non-wizard players may have

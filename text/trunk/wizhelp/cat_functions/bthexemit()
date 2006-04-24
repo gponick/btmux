@@ -1,3 +1,4 @@
+ 
 & bthexemit()
 
   Syntax: bthexemit(<MapDB>,<x>,<y>,<message>)

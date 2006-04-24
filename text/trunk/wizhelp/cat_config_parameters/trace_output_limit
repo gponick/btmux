@@ -1,6 +1,7 @@
+ 
 & trace_output_limit
 
-  Config parameter: trace_output_limit <amount> 
+  Config parameter: trace_output_limit <amount>
   Default: 200
 
   Specifies the maximum number of lines of trace output that will be

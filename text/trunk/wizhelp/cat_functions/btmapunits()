@@ -1,5 +1,6 @@
-& btmapunits()
  
+& btmapunits()
+
   Syntax: btmapunits(<MapOBJ>,[<x>,<y>,<z>,<range>])
 
   This function returns a space delimited list of the dbrefs of

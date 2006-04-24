@@ -1,10 +1,11 @@
+
 & btfasabasecost_ref()
 
   Syntax: btfasabasecost_ref(<UnitRef>)
 
   This function calculates the FASA cost for the reference unit
   <UnitRef> - ie the default templated unit.
- 
+
 	Note: The information returned by this function requires the bt-
 	advanced-econ compile-time directive.
 	
@@ -24,3 +25,4 @@
   15315135
 
   See also: btgetpartcost(), btsetpartcost()
+  

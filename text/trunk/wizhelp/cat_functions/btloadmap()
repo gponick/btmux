@@ -1,3 +1,4 @@
+ 
 & btloadmap()
 
   Syntax: btloadmap(<MapOBJ>,<mapname>[,<clear>])
@@ -18,4 +19,4 @@
 	Note: The argument for <mapname> is case sensitive.
 
   Continued in btloadmap()2
-  
+ 

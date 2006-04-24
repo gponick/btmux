@@ -1,6 +1,7 @@
+ 
 & cache_trim
 
-  Config parameter: cache_trim <yes/no> 
+  Config parameter: cache_trim <yes/no>
   Default: no
 
   When this parameter is 'yes', the cache will be periodically trimmed

@@ -1,3 +1,4 @@
+
 & btengrate()
 
   Syntax: btengrate(<UnitDB>)
@@ -16,4 +17,5 @@
   > think btengrate(#1234)
   390 0
 
-  See Also: btengrate_ref
+  See Also: btengrate_ref()
+  

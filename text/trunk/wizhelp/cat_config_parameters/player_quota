@@ -1,6 +1,7 @@
+ 
 & player_quota
 
-  Config parameter: player_quota <amount> 
+  Config parameter: player_quota <amount>
   Default: 1
 
   Sets how much quota it costs to create a robot player (and also how

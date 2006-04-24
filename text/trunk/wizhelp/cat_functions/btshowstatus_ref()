@@ -1,3 +1,4 @@
+
 & btshowstatus_ref()
 
   Syntax: btshowstatus_ref(<UnitRef>,<targetplayer>,<location>)
@@ -26,3 +27,4 @@
 
   Player #99 will see the same output as if he/she had run the command
   'critstatus ct' in an EXT-4D
+ 

@@ -1,8 +1,9 @@
+ 
 & have_mailer
 
   Config parameter: have_mailer <yes/no>
   Default: yes
- 
+
   Specifies whether @mail and mail aliases should be active.
 
   See also: mail_database

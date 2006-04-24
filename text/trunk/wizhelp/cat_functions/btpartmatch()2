@@ -1,3 +1,4 @@
+
 & btpartmatch()2
 
   Example:
@@ -16,3 +17,4 @@
 
 	Note: Placement position of wildcards is extremely critical. *LRM
 	does not equal LRM* or *LRM*
+	

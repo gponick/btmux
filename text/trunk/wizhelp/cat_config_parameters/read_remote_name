@@ -1,6 +1,7 @@
+ 
 & read_remote_name
 
-  Config parameter: read_remote_name <yes/no> 
+  Config parameter: read_remote_name <yes/no>
   Default: no
 
   Indicates whether or not the names of faraway objects are available

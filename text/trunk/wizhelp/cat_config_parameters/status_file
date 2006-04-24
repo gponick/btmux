@@ -1,6 +1,7 @@
+ 
 & status_file
 
-  Config parameter: status_file <filename> 
+  Config parameter: status_file <filename>
   Default: shutdown.status
 
   If you give an argument to the @shutdown command, that argument is

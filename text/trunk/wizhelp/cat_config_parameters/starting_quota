@@ -1,6 +1,7 @@
+ 
 & starting_quota
 
-  Config parameter: starting_quota <amount> 
+  Config parameter: starting_quota <amount>
   Default: 20
 
   Sets the building quota that players receive when they are created,

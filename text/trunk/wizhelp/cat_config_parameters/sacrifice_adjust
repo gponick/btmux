@@ -1,6 +1,7 @@
+ 
 & sacrifice_adjust
 
-  Config parameter: sacrifice_adjust <amount> 
+  Config parameter: sacrifice_adjust <amount>
   Default -1
 
   This parameter is part of the formula that is used to determine an

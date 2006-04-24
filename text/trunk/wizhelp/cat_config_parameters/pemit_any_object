@@ -1,6 +1,7 @@
+ 
 & pemit_any_object
 
-  Config parameter: pemit_any_object <yes/no> 
+  Config parameter: pemit_any_object <yes/no>
   Default: no
 
   Indicates whether or not players may @pemit to faraway objects they

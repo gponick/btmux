@@ -1,6 +1,7 @@
+ 
 & btcritslot_ref()2
 
-   
+  
   Error Messages:
 
   * If <UnitRef> is not a valid reference the function returns
@@ -23,7 +24,7 @@
   > think btcritslot_ref(CHP-1N,lt,1,data)
   0
   > think btcritslot_ref(CHP-1N,lt,1,mode)
-  
+ 
   > think btcritslot_ref(CHP-1N,lt,3,maxammo)
   15
  

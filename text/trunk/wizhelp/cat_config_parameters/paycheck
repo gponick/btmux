@@ -1,6 +1,7 @@
+ 
 & paycheck
 
-  Config parameter: paycheck <amount> 
+  Config parameter: paycheck <amount>
   Default: 0
 
   Specifies the default amount of money that players receive each day

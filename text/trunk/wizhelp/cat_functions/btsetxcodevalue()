@@ -1,3 +1,4 @@
+ 
 & btsetxcodevalue()
 
   Syntax: btsetxcodevalue(<ObjectDB>,<xcodevalue>,<value>)

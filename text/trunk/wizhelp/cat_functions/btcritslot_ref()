@@ -1,3 +1,4 @@
+ 
 & btcritslot_ref()
 
   Syntax: btcritslot_ref(<UnitRef>,<location>,<critslot>,<typeflag>)
@@ -5,7 +6,7 @@
   This function returns the details about the contents of the
   specified <critslot> in <location> on a reference unit ie the
   default templated value.
- 
+
 	Note: As this is a reference function, the return string will show
 	no damage unless the unit was actually templated with damage.
 

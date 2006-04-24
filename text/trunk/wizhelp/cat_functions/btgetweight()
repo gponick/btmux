@@ -1,3 +1,4 @@
+
 & btgetweight()
 
   Syntax: btgetweight(<partname>)
@@ -14,5 +15,6 @@
 
   > think btgetweight(xxl_engine)
   1.000
- 
+
   See Also: btpartweight()
+  

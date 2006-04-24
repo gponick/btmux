@@ -1,3 +1,4 @@
+ 
 & btsetpartcost()
 
   Syntax: btsetpartcost(<partname>,<cost>)

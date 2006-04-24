@@ -1,3 +1,4 @@
+ 
 & btech_explode_ammo
 
   Config parameter: btech_explode_ammo <0/1>
@@ -5,7 +6,7 @@
 
   Determines if players are permitted to use the 'explode ammo'
   command.
- 
-  See Also: btech_explode_reactor, btech_explode_stop, 
+
+  See Also: btech_explode_reactor, btech_explode_stop,
             btech_explode_time.
  
