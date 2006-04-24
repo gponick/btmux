@@ -1,4 +1,4 @@
- 
+
 & btweapstat()
 
   Syntax: btweapstat(<weaponname>,<stat>)

@@ -1,4 +1,4 @@
- 
+
 & btmapelev()
 
   Syntax: btmapelev(<MapDB>,<x>,<y>)

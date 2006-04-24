@@ -1,4 +1,4 @@
- 
+
 & btweaponstatus_ref()
 
   Syntax: btweaponstatus_ref(<UnitRef>[,<location>])

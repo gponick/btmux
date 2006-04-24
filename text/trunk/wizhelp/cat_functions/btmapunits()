@@ -1,4 +1,4 @@
- 
+
 & btmapunits()
 
   Syntax: btmapunits(<MapOBJ>,[<x>,<y>,<z>,<range>])

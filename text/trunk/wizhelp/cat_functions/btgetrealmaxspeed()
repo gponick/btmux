@@ -1,4 +1,4 @@
- 
+
 & btgetrealmaxspeed()
 
   Syntax: btgetrealmaxspeed(<UnitDB>)

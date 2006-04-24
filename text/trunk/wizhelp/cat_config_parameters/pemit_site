@@ -1,4 +1,4 @@
- 
+
 & permit_site
 
   Config parameter: permit_site <addr> <mask>
@@ -7,7 +7,7 @@
   not to be enforced from sites whose address matches the specified
   address when ANDed with the mask.  This directive is typically
   used to enable connections from a few selected hosts or subnets
-  that would otherwise be disallowed by a forbid_site directive. 
+  that would otherwise be disallowed by a forbid_site directive.
   The default is all sites permitted, none forbidden.
 
   See also: badsite_file, forbid_site, register_site, SITE LISTS.

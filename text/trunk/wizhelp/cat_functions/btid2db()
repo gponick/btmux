@@ -1,4 +1,4 @@
- 
+
 & btid2db()
 
   Syntax: btid2db(<UnitDB>,<target ID>)

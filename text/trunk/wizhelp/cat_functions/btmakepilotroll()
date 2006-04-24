@@ -1,4 +1,4 @@
- 
+
 & btmakepilotroll()
 
   Syntax: btmakepilotroll(<UnitDB>,<roll modifier>,<damage modifer>)

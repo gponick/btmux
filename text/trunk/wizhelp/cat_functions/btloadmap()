@@ -1,4 +1,4 @@
- 
+
 & btloadmap()
 
   Syntax: btloadmap(<MapOBJ>,<mapname>[,<clear>])

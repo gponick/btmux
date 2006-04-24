@@ -1,4 +1,4 @@
- 
+
 & btweaponstatus()
 
   Syntax: btweaponstatus(<UnitDB>[,<location>])

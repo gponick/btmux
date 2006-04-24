@@ -1,4 +1,4 @@
- 
+
 & btarmorstatus_ref()
 
   Syntax: btarmorstatus_ref(<UnitRef>,<location|All>)
@@ -11,7 +11,7 @@
   <current front armor>/<templated front armor>|
   <current internal>/<templated internal>|<current rear
   armor>/<templated rear armor>
- 
+
   Note: As this is a reference function, the return string will show
   no damage unless the unit was actually templated with damage.
 

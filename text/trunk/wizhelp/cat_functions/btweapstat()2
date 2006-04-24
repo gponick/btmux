@@ -1,4 +1,4 @@
- 
+
 & btweapstat()2
 
   Note: <type> will return 0 for energy weapons, 1 for missile

@@ -1,4 +1,4 @@
- 
+
 & have_mailer
 
   Config parameter: have_mailer <yes/no>

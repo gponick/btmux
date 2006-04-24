@@ -1,4 +1,4 @@
- 
+
 & btaddstores()
 
   Syntax: btaddstores(<ObjectDB>,<partname>,<quantity>)

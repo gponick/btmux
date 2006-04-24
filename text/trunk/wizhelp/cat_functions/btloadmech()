@@ -1,4 +1,4 @@
- 
+
 & btloadmech()
 
   Syntax: btloadmech(<MechOBJ>,<mechref>)
