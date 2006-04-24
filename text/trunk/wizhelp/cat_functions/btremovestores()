@@ -1,4 +1,4 @@
- 
+
 & btremovestores()
 
   Syntax: btremovestores(<ObjectDB>,<partname>,<quantity>)

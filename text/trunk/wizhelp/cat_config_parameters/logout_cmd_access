@@ -1,4 +1,4 @@
- 
+
 & logout_cmd_access
 
   Config parameter: logout_cmd_access <command> <permlist>

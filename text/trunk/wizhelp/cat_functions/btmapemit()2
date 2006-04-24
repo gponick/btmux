@@ -1,6 +1,6 @@
- 
+
 & btmapemit()
-  
+ 
   Error Messages:
 
   * If <MapDB> is not valid the function returns #-1 INVALID MAP

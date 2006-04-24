@@ -1,4 +1,4 @@
- 
+
 & btgetcharvalue()
 
   Syntax: btgetcharvalue(<ObjectDB>,<skill/attribute>,<mode>)

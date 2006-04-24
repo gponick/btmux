@@ -1,4 +1,4 @@
- 
+
 & btmapemit()
 
   Syntax: btmapemit(<MapDB>,[x, y, z, range,]<message>)

@@ -1,4 +1,4 @@
- 
+
 & btcritslot()
 
   Syntax: btcritslot(<UnitDB>,<location>,<critslot>,<typeflag>)

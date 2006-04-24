@@ -1,4 +1,4 @@
- 
+
 & btcritslot_ref()
 
   Syntax: btcritslot_ref(<UnitRef>,<location>,<critslot>,<typeflag>)
