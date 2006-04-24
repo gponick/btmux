@@ -1,6 +1,7 @@
+ 
 & wizard_help_file
 
-  Config parameter: wizard_help_file <path> 
+  Config parameter: wizard_help_file <path>
   Default: text/wizhelp.txt
 
   Specifies the name of the file containing the text used by the

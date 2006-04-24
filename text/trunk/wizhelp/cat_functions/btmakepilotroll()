@@ -1,3 +1,4 @@
+ 
 & btmakepilotroll()
 
   Syntax: btmakepilotroll(<UnitDB>,<roll modifier>,<damage modifer>)
@@ -14,7 +15,7 @@
   then the <damage modifier> is added to the pilot-skill base to
   provide the base-to-hit of a roll to determine if the player will
   suffer damage.
- 
+
   If the pilot makes the damage roll, the unit is damaged but not the
   player, and the event is complete.
 

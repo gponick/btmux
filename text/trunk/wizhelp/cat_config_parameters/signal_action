@@ -1,6 +1,7 @@
+ 
 & signal_action
 
-  Config parameter: signal_action <default|exit> 
+  Config parameter: signal_action <default|exit>
   Default: default
 
   Specifies what action to take when a fatal signal is received.  The

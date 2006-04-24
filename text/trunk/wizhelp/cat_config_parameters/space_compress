@@ -1,6 +1,7 @@
+ 
 & space_compress
 
-  Config parameter: space_compress <yes/no> 
+  Config parameter: space_compress <yes/no>
   Default: yes
 
   Specifies whether or not extra spaces are to be removed from user

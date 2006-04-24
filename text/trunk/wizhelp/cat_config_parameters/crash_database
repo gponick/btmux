@@ -1,6 +1,7 @@
+ 
 & crash_database
 
-  Config parameter: crash_database <path> 
+  Config parameter: crash_database <path>
   Default: none
 
   Specifies the name of the database file that should be written when

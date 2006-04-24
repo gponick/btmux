@@ -1,3 +1,4 @@
+ 
 & btmapemit()
 
   Syntax: btmapemit(<MapDB>,[x, y, z, range,]<message>)
@@ -16,7 +17,7 @@
     all units within <range> of <x>,<y>,<z>
 
 	Note: The function does not take the altitude of a unit into
-  consideration when ascertaining if it is within range UNLESS the 
+  consideration when ascertaining if it is within range UNLESS the
   third form is used (ie the <z> argument is included)
 
   Continued in btmapemit()2

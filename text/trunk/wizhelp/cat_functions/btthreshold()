@@ -1,3 +1,4 @@
+
 & btthreshold()
 
   Syntax: btthreshold(<skill>)
@@ -18,3 +19,4 @@
 	Note: The amount returned by btthreshold is NOT the only factor in
 	determining if a player will 'level up'. Further calculations
 	modify the required XP dynamically.
+ 

@@ -1,5 +1,6 @@
-& btmechfreqs()2
  
+& btmechfreqs()2
+
   Example: Given a unit #1234 with the following listchannels:
   # -- 	Mode -- 	Frequency -- 	Comtitle
   A 	DR-G 	123 	Title A

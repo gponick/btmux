@@ -1,6 +1,7 @@
+ 
 & see_owned_dark
 
-  Config parameters: see_owned_dark <yes/no> 
+  Config parameters: see_owned_dark <yes/no>
   Default: yes
 
   Specifies whether or not players see their own DARK objects when

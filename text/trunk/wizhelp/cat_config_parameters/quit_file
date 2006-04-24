@@ -1,6 +1,7 @@
+ 
 & quit_file
 
-  Config parameter: quit_file <filename> 
+  Config parameter: quit_file <filename>
   Default: text/quit.txt
 
   Specifies the name of the file that is displayed to users after they

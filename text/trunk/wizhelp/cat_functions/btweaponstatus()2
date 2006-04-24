@@ -1,5 +1,6 @@
-& btweaponstatus()2
  
+& btweaponstatus()2
+
   * 0 = Beam Weapon
   * 1 = Missile Weapon
   * 2 = Artillery Weapon

@@ -1,6 +1,7 @@
+ 
 & robot_flags
 
-  Config parameter: robot_flags <flags> 
+  Config parameter: robot_flags <flags>
   Default: ROBOT
 
   Modifies the set of flags that a robot receives when it is created

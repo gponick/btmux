@@ -1,6 +1,7 @@
+ 
 & conn_timeout
 
-  Config parameter: conn_timeout <num> 
+  Config parameter: conn_timeout <num>
   Default: 120
 
   Specifies how many seconds a new network connection may remain open

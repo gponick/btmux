@@ -1,6 +1,7 @@
+ 
 & badsite_file
 
-  Config parameter: badsite_file <path>  
+  Config parameter: badsite_file <path> 
   Default: text/badsite.txt
 
   Specifies the name of the file that is sent to new net connections

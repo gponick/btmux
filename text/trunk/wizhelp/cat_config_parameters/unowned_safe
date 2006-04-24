@@ -1,6 +1,7 @@
+ 
 & unowned_safe
 
-  Config parameter: unowned_safe <yes/no> 
+  Config parameter: unowned_safe <yes/no>
   Default: no
 
   Indicates whether or not objects not owned by you are automatically

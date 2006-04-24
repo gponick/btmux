@@ -1,7 +1,8 @@
+ 
 & attr_access
 
   Config parameter: attr_access
- 
+
   Changes the access rights to the named attribute.
 
   The following privileges may be used:

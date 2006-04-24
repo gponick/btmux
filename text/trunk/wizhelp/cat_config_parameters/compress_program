@@ -1,6 +1,7 @@
+ 
 & compress_program
 
-  Config parameter: compress_program <path> 
+  Config parameter: compress_program <path>
   Default: gzip
 
   Specifies the program to be run to compress the database file when

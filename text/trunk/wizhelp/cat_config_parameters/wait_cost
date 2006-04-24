@@ -1,6 +1,7 @@
+ 
 & wait_cost
 
-  Config parameter: wait_cost <amount> 
+  Config parameter: wait_cost <amount>
   Default: 10
 
   Sets the amount of money that it costs to run the @wait command and

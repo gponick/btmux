@@ -1,6 +1,7 @@
+ 
 & search_cost
 
-  Config parameter: search_cost <amount> 
+  Config parameter: search_cost <amount>
   Default: 100
 
   Specifies how much commands that scan the entire database (such as

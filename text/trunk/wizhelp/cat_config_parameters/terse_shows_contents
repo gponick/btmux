@@ -1,6 +1,7 @@
+ 
 & terse_shows_contents
 
-  Config parameter: terse_shows_contents <yes/no> 
+  Config parameter: terse_shows_contents <yes/no>
   Default yes
 
   Indicates whether or not to suppress the listing of a location's

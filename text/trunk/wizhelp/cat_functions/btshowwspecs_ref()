@@ -1,3 +1,4 @@
+
 & btshowwspecs_ref()
 
   Syntax: btshowwspecs_ref(<UnitRef>,<targetplayer>)
@@ -24,3 +25,4 @@
 
   Player #99 will see the same output as if he/she had run the command
   weaponspecs in an EXT-4D
+  

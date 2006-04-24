@@ -1,6 +1,7 @@
+ 
 & postdump_message
 
-  Config parameter: postdump_message <message> 
+  Config parameter: postdump_message <message>
   Default: none
 
   Sets the message that is sent to everyone after a database dump

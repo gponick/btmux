@@ -1,6 +1,7 @@
+ 
 & read_remote_desc
 
-  Config parameter: read_remote_desc <yes/no> 
+  Config parameter: read_remote_desc <yes/no>
   Default: no
 
   Indicates whether or not the descriptions of faraway objects are

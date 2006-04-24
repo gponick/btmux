@@ -1,6 +1,7 @@
+ 
 & player_starting_home
 
-  Config parameter: player_starting_home 
+  Config parameter: player_starting_home
   Default: <player_starting_room>
 
   Specifies the room to which the home of new players is set.  If this

@@ -1,3 +1,4 @@
+ 
 &  btcharlist()
 
   Syntax:
@@ -17,6 +18,6 @@
       attributes the function will return #-1 INVALID VALUE
     * If the optional argument specified is not a valid player name or
       #dbref the function returns #-1 INVALID TARGET
-  
+ 
   Continued in btcharlist()2
-  
+ 

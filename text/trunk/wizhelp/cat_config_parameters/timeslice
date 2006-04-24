@@ -1,6 +1,7 @@
+ 
 & timeslice
 
-  Config parameter: timeslice <amount> 
+  Config parameter: timeslice <amount>
   Default: 100
 
   Specifies the interval at which connected users' command quotas are
