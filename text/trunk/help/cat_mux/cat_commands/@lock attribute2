@@ -1,9 +1,10 @@
+
 & @lock attribute2
- 
-  Note: you may lock against any attribute, but the locked object 
-  must be able to read the attribute from the player attempting to 
+
+  Note: you may lock against any attribute, but the locked object
+  must be able to read the attribute from the player attempting to
   pass the lock or the lock will fail.
- 
+
   Examples:
     > @lock men's room=sex:m*
     > @lock a-f=name:<g

@@ -1,3 +1,4 @@
+
 & mail-sending
 
   @mail[/switch] <player-list> = <subject>
@@ -11,10 +12,10 @@
 	This sends the message that is currently in progress.
 	-- is the equivalent of @mail/send. @mail/urgent sends
 	the message as urgent, and should not be used often.
- 
+
   @mail/cc <player-list>
         This replaces the currect player list with a new one for
-        carbon copying. It does _not_ add onto the existing 
+        carbon copying. It does _not_ add onto the existing
         list.
 
 { 'help mail-sending2' for more }

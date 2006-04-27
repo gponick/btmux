@@ -1,8 +1,10 @@
-& QUIT   
  
+& QUIT  
+
   Syntax: QUIT
- 
+
   Logs you out and disconnects you from the game. Must be in all
-  capitals. 
- 
+  capitals.
+
   See also: LOGOUT
+  

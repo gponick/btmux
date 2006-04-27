@@ -1,18 +1,20 @@
-& @success
  
+& @success
+
   Syntax: @success <object> = <message>
   Attribute: Succ
- 
+
   Sets the message that is shown to the player who successfully picks
-  up the named player or thing, goes through the named exit, or 
+  up the named player or thing, goes through the named exit, or
   looks at the room and passes the room's lock.
- 
-  Example: 
-  <object> 
+
+  Example:
+  <object>
   @succ vase = You carefully pick up the delicate vase.
-  
-  <exit>   
+ 
+  <exit>  
   @succ doorway = You open the door and walk through the
   doorway.
- 
+
   See also: get, look, @asuccess, @osuccess, SUCCESS
+  

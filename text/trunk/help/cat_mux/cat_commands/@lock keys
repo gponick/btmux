@@ -1,8 +1,9 @@
+
 & @Lock keys
 
-  You may use the following keys when setting locks.  For information 
+  You may use the following keys when setting locks.  For information
   about a particular type of key, type 'help @lock <keytype>'.
- 
+
   Key Type    Form in @Lock Command
   ----------  ------------------------------
   Normal      <object>

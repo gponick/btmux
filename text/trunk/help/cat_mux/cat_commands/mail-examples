@@ -1,5 +1,6 @@
-& mail-examples
  
+& mail-examples
+
   Here is an example of mailing a player, where is the player will be
   "bob", and sending the mail.
 
@@ -12,3 +13,4 @@
   > @send                            - Basically, sends the @mail.
 
   MAIL: You sent your message to 'Bob'.
+  
