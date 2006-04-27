@@ -1,6 +1,7 @@
+ 
 & @cpattr
 
-  @cpattr <obj>/<attr> = <obj1>/<attr1> [,<obj2>/<attr2>, 
+  @cpattr <obj>/<attr> = <obj1>/<attr1> [,<obj2>/<attr2>,
   <obj3>/<attr3>,...]
   @cpattr <obj>/<attr> = <obj1> [,<obj2>,<obj3>,...]
   @cpattr <attr> = <obj1>/<attr1> [,<obj2>/<attr2>,<obj3>/<attr3>,...]
@@ -17,6 +18,7 @@
 
   The second form copies <attr> to the list of objects, with the name
   <attr>. The third form copies <attr> from the object that executes
-  the @cpattr, to the object-attribute pairs in the list. Finally, 
-  the third form copies <attr> from the object that executes the 
+  the @cpattr, to the object-attribute pairs in the list. Finally,
+  the third form copies <attr> from the object that executes the
   @cpattr to the objects in the list, with the name <attr>.
+  

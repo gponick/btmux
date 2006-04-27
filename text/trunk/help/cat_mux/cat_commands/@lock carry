@@ -1,11 +1,12 @@
+
 & @lock carry
- 
+
   CARRY LOCKS:
- 
+
   Key: +<object>
- 
+
   You pass a carry lock if you are carrying the named object.
- 
+
   Example:
     > @lock secret passage = +magic bus
     You can only traverse the secret passage if you are carrying the

@@ -1,10 +1,11 @@
+
 & mail-reading
- 
+
   @mail <msg #>
   @mail/read <msg-list>
         This displays messages which match the msg# or msg-list from
         your current folder.
- 
+
   @mail
   @mail <msg-list, but not a single msg #>
         This gives a brief list of all mail in the current folder,

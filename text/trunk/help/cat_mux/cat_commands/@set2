@@ -1,3 +1,4 @@
+ 
 & @set2
 
   The following flags may be set using the fourth form of the @set
@@ -20,3 +21,4 @@
      quiet      - Inhibit 'Set.' acknowledgement messages.
 
   See also: @lock, @lock, examine, FLAGS,&
+  
