@@ -62980,7 +62980,7 @@
 0
 0
 >220
-"ANV-8M"
+"Maxim"
 >263
 "2:0:%tThis is the hub of the guts of the MUX. From here you can get to the internals of the game, sorted into various different rooms. The bulk of the important stuff is located in the %chStorage Facility%cn. Please be sure to read the room descriptions for details on the contents of each area.%r%r%t%ch%crNOTE:%cw If you are a player and don't know why you're here, please contact a staffer immediately.%cn"
 <
@@ -63074,7 +63074,7 @@
 >5
 "XX7DbTAaRPsgU"
 >30
-"Mon Apr 17 22:21:06 2006"
+"Wed Apr 26 17:09:32 2006"
 >38
 "-200"
 >49
@@ -63086,9 +63086,9 @@
 >62
 "(#2)"
 >84
-"#1092;130.127.134.74;Mon Apr 17 22:21:06 2006;130.127.134.74;Mon Apr 17 14:20:26 2006;130-127-134-74.wireless.clemson.edu;Mon Apr 17 13:56:34 2006;130.127.66.32;Fri Oct 28 11:21:25 2005;0;20;130.127.44.164;Fri Oct 21 21:45:24 2005;130.127.66.32;Mon Sep 26 12:10:55 2005;130.127.136.5;Wed May  4 19:56:44 2005;"
+"#1094;130.127.131.30;Wed Apr 26 17:09:32 2006;localhost;Wed Apr 26 11:13:55 2006;130.127.134.74;Mon Apr 17 22:21:06 2006;130.127.134.74;Mon Apr 17 14:20:26 2006;0;20;130.127.44.164;Fri Oct 21 21:45:24 2005;130.127.66.32;Mon Sep 26 12:10:55 2005;130.127.136.5;Wed May  4 19:56:44 2005;"
 >88
-"130.127.134.74"
+"130.127.131.30"
 >200
 "1824"
 >205
@@ -63114,7 +63114,7 @@
 >238
 "Lives:1/TecApt:1/"
 >244
-"ComCon:1/Compu:2,1,1128192606/GunBal:2/GunLas:2/GunMis:2/Medte:2/Perce:1/PilAer:2/PilHov:2/PilTra:2/PilWhe:2/Resea:1/TecAer:2/TecBat:2/TecEle:2/TecMec:2/TecWea:2/Tinke:2/"
+"ComCon:1/Compu:2,2,1146103422/GunBal:2/GunLas:2/GunMis:2/Medte:2/Perce:1,4,1146171059/PilAer:2/PilHov:2/PilTra:2/PilWhe:2/Resea:1/TecAer:2/TecBat:2/TecEle:2/TecMec:2/TecWea:2/Tinke:2/"
 >526
 "2:64:#158 #101 #6 #4"
 >708
@@ -63126,7 +63126,7 @@
 >2019
 "17:0:2"
 >2258
-"17:0:#8"
+"17:0:#13"
 >2645
 "17:0:325178"
 >24049
@@ -63142,7 +63142,7 @@
 "[31mSYSTEM: [0mGarbage Compactor"
 24
 -1
--1
+4
 -1
 7
 -1
@@ -63161,6 +63161,42 @@
 "2:0:@dol [filter(DESTCHECK.FIL,filter(#11/ISMECH.F,lcon(me)))]={@set [setr(0,lcon(##))]=!XCODE;@nuke %q0;@nuke ##}"
 >55480
 "2:0:[gte(sub(secs(),get(%0/ENTER_STAMP.D)),60)]"
+<
+!4
+"[4m[1mTest[0m - [1m[32mLight[0m Mechwarrior [1m[37m   #4[0m MechWarrior"
+3
+-1
+-1
+-1
+62
+13
+4
+17
+66
+1
+42467329
+524288
+0
+0
+0
+>47
+"-1"
+>59
+"ELOCK/1"
+>60
+"LLOCK/1"
+>62
+"ULOCK/1"
+>215
+"MECH"
+>219
+"MechWarrior"
+>220
+"TestAero"
+>230
+"AD"
+>55481
+"1146171692"
 <
 !5
 "Limbo;o"
@@ -63218,6 +63254,44 @@ Faction:Admin
 >263
 "1:0:%tThis is the main nexus for the storage facility. Rooms branch off from here that contain various MUX internals. Please read the descriptions of each before messing with the objects included."
 <
+!8
+"[4m[1mDraconis Combine[0m - [1m[31mAssault[0m Mech [1m[37m   #8[0m AS7-D"
+3
+-1
+-1
+-1
+62
+-1
+8
+17
+66
+1
+42469377
+524288
+0
+0
+0
+>47
+"-1"
+>59
+"ELOCK/1"
+>60
+"LLOCK/1"
+>62
+"ULOCK/1"
+>214
+"2:0:0 0"
+>215
+"MECH"
+>219
+"Atlas"
+>220
+"KIM-2"
+>230
+"DC"
+>55481
+"1146171682"
+<
 !9
 "[1m[31mMaster Room[0m"
 -1
@@ -63250,9 +63324,9 @@ Faction:Admin
 >1155
 "2:256:1117159876"
 >1156
-"17:256:Mon Apr 17 14:28:19 2006"
+"17:256:Thu Apr 27 11:52:39 2006"
 >38538
-"1145326399"
+"1146168459"
 >50191
 "2:0:@dol [lattr(%0/*.F)] [lattr(%0/*.D)] [lattr(%0/*.L)]={@set %0/##=NO_COMMAND}"
 <
@@ -63434,6 +63508,42 @@ Faction:Admin
 >58115
 "334:0:[and(match(get(%0/XTYPE),AUTOPILOT),hasflag(%0,XCODE),not(hasflag(%0,GOING)))]"
 <
+!13
+"[4m[1mDraconis Combine[0m - [1m[32mLight[0m Vehicle [1m[37m  #13[0m J_Edgar"
+3
+-1
+-1
+-1
+62
+8
+13
+17
+66
+1
+42467329
+524288
+0
+0
+0
+>47
+"-1"
+>59
+"ELOCK/1"
+>60
+"LLOCK/1"
+>62
+"ULOCK/1"
+>215
+"MECH"
+>219
+"J Edgar"
+>220
+"TestAero"
+>230
+"DC"
+>55481
+"1146171688"
+<
 !14
 "[1m[31mMASTER: [0mWizard Globals"
 9
@@ -63614,7 +63724,7 @@ Faction:Admin
 >30
 "2:0:Mon Sep  8 21:23:54 2003"
 >38
-"-719"
+"-722"
 >49
 "0"
 >84
@@ -64276,31 +64386,31 @@ Faction:Admin
 >215
 "MAP"
 >240
-"41 2 127 0 90"
+"32 2 254 0 165 Your sensors detect a change in weather conditions."
 >246
 "@fo me={FIXMAP};@tri me/SAVEMAP.T"
 >2292
-"Fri Oct 28 03:00:19 2005"
+"Thu Apr 27 03:11:55 2006"
 >2293
-"6"
->2294
 "4"
+>2294
+"2"
 >2299
-"Clear2"
+"Rain1"
 >2303
 "Day"
 >2351
-"3"
+"4"
 >2367
-"41"
+"32"
 >2368
 "0"
 >2369
-"30"
+"35"
 >2370
-"127"
+"254"
 >2374
-"7"
+"8"
 >73360
 "100"
 <
@@ -64334,7 +64444,7 @@ Faction:Admin
 >219
 "17:0:Vedette"
 >220
-"Vedette-AC2"
+"TestAero"
 <
 !64
 "[31mSYSTEM: [0mMech Creation Object"
@@ -69894,7 +70004,7 @@ This game is under construction! Tell the staff to update the MOTD on #182.
 >2365
 "[switch(u(NEXTCYCLE.F),?*,1,0)]"
 >2366
-"&TIME me=[u(SETTIME.F)];@switch [u(CHECKNEXTCYCLE.F)]=1,&CYC# me=[inc(v(CYC#))],0,{&CURRENT.PATTERN me=[u(NEWPATTERN.F)];&CYC# me=1},&ERROR me=1;@wait 3={&CURRENT.WINDSPEED me=[u(GETWINDSPEED.F)];&CURRENT.TEMP me=[u(GETTEMP.F)];&CURRENT.WINDDIR me=[u(GETWINDDIR.F)];&CURRENT.VIS me=[u(GETVIS.F)];@MAPVIS me=[v(CURRENT.VIS)] [u(GETTIME.F)] [v(CURRENT.WINDDIR)] [v(CURRENT.WINDSPEED)] [u(GETCLOUD.F)];@fo me=SETCOND [get(me/GRAVITY.D)] [u(GETTEMP.F)] [u(GETCLOUD.F)]};@trigger me/NOTIFY;@wait 10={&ICE# me=[u(GETICE.F)];@fo me=[switch(sign(v(CURRENT.TEMP)),-1,ADDICE,0,ADDICE,1,DELICE,DELICE)] [v(ICE#)];@fo me=[u(SNOWCMD.F)] [u(SNOWVAL.F)]}"
+"@switch [u(CHECKNEXTCYCLE.F)]=1,&CYC# me=[inc(v(CYC#))],0,{&CURRENT.PATTERN me=[u(NEWPATTERN.F)];&CYC# me=1},&ERROR me=1;@wait 3={&CURRENT.WINDSPEED me=[u(GETWINDSPEED.F)];&CURRENT.TEMP me=[u(GETTEMP.F)];&CURRENT.WINDDIR me=[u(GETWINDDIR.F)];&CURRENT.VIS me=[u(GETVIS.F)];@MAPVIS me=[v(CURRENT.VIS)] [u(GETTIME.F)] [v(CURRENT.WINDDIR)] [v(CURRENT.WINDSPEED)] [u(GETCLOUD.F)] Your sensors detect a change in weather conditions.;@fo me=SETCOND [get(me/GRAVITY.D)] [V(CURRENT.TEMP)]};&TIME me=[u(SETTIME.F)];think [btsetxcodevalue(%!,maplight,u(GETTIME.F))];@wait 10={&ICE# me=[u(GETICE.F)];@fo me=[switch(sign(v(CURRENT.TEMP)),-1,ADDICE,0,ADDICE,1,DELICE,DELICE)] [v(ICE#)];@fo me=[u(SNOWCMD.F)] [u(SNOWVAL.F)]}"
 >2367
 "15"
 >2368
@@ -69994,31 +70104,31 @@ This game is under construction! Tell the staff to update the MOTD on #182.
 >215
 "2:0:MAP"
 >240
-"45 2 108 0 76"
+"40 2 132 0 146 Your sensors detect a change in weather conditions."
 >263
 "2:0:%tWelcome to the public sims. Here you may practice with any mech on%r'listrefs' on a number of different maps. Try to be courteous in doing so,%rtwinks will be hit with a wet trout."
 >2292
-"2:0:Fri Oct 28 03:00:19 2005"
+"2:0:Thu Apr 27 03:11:55 2006"
 >2293
-"2:0:3"
+"2:0:1"
 >2294
-"2:0:3"
+"2:0:1"
 >2299
-"Clear2"
+"Clear1"
 >2303
 "Day"
 >2351
-"3"
+"2"
 >2367
-"45"
+"40"
 >2368
 "0"
 >2369
-"-8"
+"50"
 >2370
-"108"
+"132"
 >2374
-"2"
+"12"
 >3033
 "2:0:250 250"
 >3034
@@ -73461,7 +73571,7 @@ Faction:Admin
 >55423
 "2:0:@dol/delimit | [v(MIN_[extract(extract(time(),4,1),2,1,:)])]={@tri [loc(me)]/##.T}"
 >55425
-"1145327760"
+"1146171721"
 <
 !1171
 "Randis IV Game Center"
