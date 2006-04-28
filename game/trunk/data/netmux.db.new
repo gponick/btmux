@@ -63114,7 +63114,7 @@
 >238
 "Lives:1/TecApt:1/"
 >244
-"ComCon:1/Compu:2,2,1146103422/GunBal:2/GunLas:2/GunMis:2/Medte:2/Perce:1,4,1146171059/PilAer:2/PilHov:2/PilTra:2/PilWhe:2/Resea:1/TecAer:2/TecBat:2/TecEle:2/TecMec:2/TecWea:2/Tinke:2/"
+"ComCon:1/Compu:2,2,1146103422/GunBal:2/GunLas:2/GunMis:2/Medte:2/Perce:1,4,1146171059/PilAer:2/PilBip:0,2,1146181822/PilHov:2/PilTra:2/PilWhe:2/Resea:1/TecAer:2/TecBat:2/TecEle:2/TecMec:2/TecWea:2/Tinke:2/"
 >526
 "2:64:#158 #101 #6 #4"
 >708
@@ -63126,7 +63126,7 @@
 >2019
 "17:0:2"
 >2258
-"17:0:#13"
+"17:0:#4"
 >2645
 "17:0:325178"
 >24049
@@ -63142,7 +63142,7 @@
 "[31mSYSTEM: [0mGarbage Compactor"
 24
 -1
-4
+-1
 -1
 7
 -1
@@ -63161,42 +63161,6 @@
 "2:0:@dol [filter(DESTCHECK.FIL,filter(#11/ISMECH.F,lcon(me)))]={@set [setr(0,lcon(##))]=!XCODE;@nuke %q0;@nuke ##}"
 >55480
 "2:0:[gte(sub(secs(),get(%0/ENTER_STAMP.D)),60)]"
-<
-!4
-"[4m[1mTest[0m - [1m[32mLight[0m Mechwarrior [1m[37m   #4[0m MechWarrior"
-3
--1
--1
--1
-62
-13
-4
-17
-66
-1
-42467329
-524288
-0
-0
-0
->47
-"-1"
->59
-"ELOCK/1"
->60
-"LLOCK/1"
->62
-"ULOCK/1"
->215
-"MECH"
->219
-"MechWarrior"
->220
-"TestAero"
->230
-"AD"
->55481
-"1146171692"
 <
 !5
 "Limbo;o"
@@ -63254,44 +63218,6 @@ Faction:Admin
 >263
 "1:0:%tThis is the main nexus for the storage facility. Rooms branch off from here that contain various MUX internals. Please read the descriptions of each before messing with the objects included."
 <
-!8
-"[4m[1mDraconis Combine[0m - [1m[31mAssault[0m Mech [1m[37m   #8[0m AS7-D"
-3
--1
--1
--1
-62
--1
-8
-17
-66
-1
-42469377
-524288
-0
-0
-0
->47
-"-1"
->59
-"ELOCK/1"
->60
-"LLOCK/1"
->62
-"ULOCK/1"
->214
-"2:0:0 0"
->215
-"MECH"
->219
-"Atlas"
->220
-"KIM-2"
->230
-"DC"
->55481
-"1146171682"
-<
 !9
 "[1m[31mMaster Room[0m"
 -1
@@ -63324,9 +63250,9 @@ Faction:Admin
 >1155
 "2:256:1117159876"
 >1156
-"17:256:Thu Apr 27 11:52:39 2006"
+"17:256:Thu Apr 27 20:49:26 2006"
 >38538
-"1146168459"
+"1146179259"
 >50191
 "2:0:@dol [lattr(%0/*.F)] [lattr(%0/*.D)] [lattr(%0/*.L)]={@set %0/##=NO_COMMAND}"
 <
@@ -63508,42 +63434,6 @@ Faction:Admin
 >58115
 "334:0:[and(match(get(%0/XTYPE),AUTOPILOT),hasflag(%0,XCODE),not(hasflag(%0,GOING)))]"
 <
-!13
-"[4m[1mDraconis Combine[0m - [1m[32mLight[0m Vehicle [1m[37m  #13[0m J_Edgar"
-3
--1
--1
--1
-62
-8
-13
-17
-66
-1
-42467329
-524288
-0
-0
-0
->47
-"-1"
->59
-"ELOCK/1"
->60
-"LLOCK/1"
->62
-"ULOCK/1"
->215
-"MECH"
->219
-"J Edgar"
->220
-"TestAero"
->230
-"DC"
->55481
-"1146171688"
-<
 !14
 "[1m[31mMASTER: [0mWizard Globals"
 9
@@ -63724,7 +63614,7 @@ Faction:Admin
 >30
 "2:0:Mon Sep  8 21:23:54 2003"
 >38
-"-722"
+"-719"
 >49
 "0"
 >84
@@ -64126,7 +64016,7 @@ Faction:Admin
 >1029
 "2:0:$viewref/specs *:@switch/first 0=[ulocal(#117/VALIDREF.F,setr(0,secure(%0)))],{@pemit %#=Invalid reference!},{@pemit %#=%r[ulocal(#98/HEADER.F,[ucstr(%0)] %cr[ulocal(#117/GETFIELD.F,%0,Mechname)])][u(REF_STATS.F,%0)][ansi(hb,repeat(-,78))]%r%b%ch%cy[ljust(Weapons,45)]Ammo%cn[ulocal(REF_WEAPLIST.F,%0)]%r[ansi(hb,repeat(-,78))]%r%b%ch%cySpecial Technology%cn[iter(setunion(bttechlist_ref(%0),ifelse(ulocal(#117/MECHCANTOW.F,%0),ifelse(match(Biped Quad,btgetxcodevalue_ref(%0,mechmovetype)),MTOW,SAL),)),%r%b%b[extract(get(#116/TECH_NAMES.L),match(get(#116/TECH.L),##),1,|)])]%r%ch%cb[repeat(=,78)]%cn}"
 >1153
-"2:0:$uptime:@pemit %#=%r[center(%ch[mudname()] Statistics%cn,76)]%r[ansi(hb,repeat(-,78))]%r%b[ljust([ljust(%ch%cyLast Startup%cn,21,.)] [starttime()],75)]%r%b[ljust(%ch%cy[ljust(Uptime%cn,21,.)] [convuptime(sub(secs(),time2secs(starttime())))].,75)]%r%b[ljust([ljust(%cy%chLast Restart%cn,21,.)] [convuptime(sub(secs(),time2secs(get(#9/startuptime.d))))].,75)]%r%b[ljust(%ch%cyLast Hourly%cn,21,.)] [convsecs(get(#9/LASTHOURLY.D))]%r%b[ljust(%ch%cyNext Hourly%cn,21,.)] [extract(convuptime(sub(add(3600,get(#9/LASTHOURLY.D)),secs())),1,2)]%r%b[ljust([ljust(%cy%chCurrent Time%cn,21,.)] [time()],75)]%r%b[ljust(%ch%cyMUX Version%cn,21,.)] [version()]%r%b[ljust([ljust(%ch%cyMUX Lifetime%cn,21,.)]%cn [before([convuptime(sub(secs(),get(here/MUXLIFE.D)))],and)],75)]%cn%r[ansi(hb,repeat(-,78))]"
+"2:0:$uptime:@pemit %#=%r[center(%ch[mudname()] Statistics%cn,76)]%r[ansi(hb,repeat(-,78))]%r%b[ljust([ljust(%ch%cyLast Startup%cn,21,.)] [starttime()],75)]%r%b[ljust(%ch%cy[ljust(Uptime%cn,21,.)] [convuptime(sub(secs(),time2secs(starttime())))].,75)]%r%b[ljust([ljust(%cy%chLast Restart%cn,21,.)] [convuptime(sub(secs(),time2secs(get(#9/startuptime.d))))].,75)]%r%b[ljust(%ch%cyLast Hourly%cn,21,.)] [convsecs(get(#9/LASTHOURLY.D))]%r%b[ljust(%ch%cyNext Hourly%cn,21,.)] [extract(convuptime(sub(add(3600,udefault(#9/LASTHOURLY.D,secs())),secs())),1,2)]%r%b[ljust([ljust(%cy%chCurrent Time%cn,21,.)] [time()],75)]%r%b[ljust(%ch%cyMUX Version%cn,21,.)] [extract(version(),2,5)]%r%b[ljust([ljust(%ch%cyMUX Lifetime%cn,21,.)]%cn [before([convuptime(sub(secs(),get(here/MUXLIFE.D)))],and)],75)]%cn%r[ansi(hb,repeat(-,78))]"
 >1161
 "2:0:$time:@pemit %#=%r%ch%cb[repeat(-,30)]%cw%[%cyCurrent MUX Time%cw%]%cb[repeat(-,30)]%cn%r[center(time(),78)]%r[center(u(#98/PBAR.F,round(mul(fdiv(extract(time(),4,1),24),100),0),60),78)]%r%ch%cb[center(repeat(-,30),78)]%cn%r[space(11)]%chPST:%cn [ljust(u(SHOWTIME.F,-7200),25)] %chMST:%cn [u(SHOWTIME.F,-3600)]%r[space(11)]%chCST:%cn [ljust(u(SHOWTIME.F,0),25)] %chEST:%cn [u(SHOWTIME.F,3600)]%r[space(11)]%chGMT:%cn [ljust(u(SHOWTIME.F,21600),25)] %chHST:%cn [u(SHOWTIME.F,-18000)]%r%ch%cb[repeat(-,78)]%cn"
 >1166
@@ -64386,7 +64276,7 @@ Faction:Admin
 >215
 "MAP"
 >240
-"32 2 254 0 165 Your sensors detect a change in weather conditions."
+"11 0 100 0 65 Your sensors detect a change in weather conditions."
 >246
 "@fo me={FIXMAP};@tri me/SAVEMAP.T"
 >2292
@@ -64396,21 +64286,21 @@ Faction:Admin
 >2294
 "2"
 >2299
-"Rain1"
+"Clear0"
 >2303
-"Day"
+"Night"
 >2351
-"4"
+"1"
 >2367
-"32"
+"11"
 >2368
 "0"
 >2369
-"35"
+"-1"
 >2370
-"254"
+"100"
 >2374
-"8"
+"0"
 >73360
 "100"
 <
@@ -64444,7 +64334,7 @@ Faction:Admin
 >219
 "17:0:Vedette"
 >220
-"TestAero"
+"AS7-ad"
 <
 !64
 "[31mSYSTEM: [0mMech Creation Object"
@@ -70104,7 +69994,7 @@ This game is under construction! Tell the staff to update the MOTD on #182.
 >215
 "2:0:MAP"
 >240
-"40 2 132 0 146 Your sensors detect a change in weather conditions."
+"10 0 116 0 62 Your sensors detect a change in weather conditions."
 >263
 "2:0:%tWelcome to the public sims. Here you may practice with any mech on%r'listrefs' on a number of different maps. Try to be courteous in doing so,%rtwinks will be hit with a wet trout."
 >2292
@@ -70114,21 +70004,21 @@ This game is under construction! Tell the staff to update the MOTD on #182.
 >2294
 "2:0:1"
 >2299
-"Clear1"
+"Clear0"
 >2303
-"Day"
+"Night"
 >2351
-"2"
+"1"
 >2367
-"40"
+"10"
 >2368
 "0"
 >2369
-"50"
+"34"
 >2370
-"132"
+"116"
 >2374
-"12"
+"8"
 >3033
 "2:0:250 250"
 >3034
@@ -73571,7 +73461,7 @@ Faction:Admin
 >55423
 "2:0:@dol/delimit | [v(MIN_[extract(extract(time(),4,1),2,1,:)])]={@tri [loc(me)]/##.T}"
 >55425
-"1146171721"
+"1146186540"
 <
 !1171
 "Randis IV Game Center"

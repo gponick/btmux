@@ -1,10 +1,11 @@
 *** Begin COMMAC ***
 35
 1 0 0 -1 -1 -1 -1 0
-2 8 0 -1 -1 -1 -1 0
+2 9 0 -1 -1 -1 -1 0
 el EconLog
 mat MechAttackEmits
 mdb MechDebugInfo
+mine MineTriggers
 mons Mon-SCode
 pub Public
 roy Royalty
@@ -80,14 +81,7 @@ chan HighCommand
 +V2
 32
 CC-Main
-8 0 0 0 17 0 227 1663 20
-1146112720 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
-1146112915 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
-1146121931 [CC-Main] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121937 [CC-Main] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
-1146150751 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
-1146150798 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+8 0 0 0 17 0 234 1663 20
 1146150831 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 1146150862 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 1146151174 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
@@ -101,16 +95,16 @@ CC-Main
 1146152931 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 1146153028 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 1146153159 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1146181498 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1146181777 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1146181862 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1146181894 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1146183346 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1146183537 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
+1146185366 [CC-Main] [1m[32mChannelObj:[0m CC-Main has joined this channel.
 0
 DBInfo
-8 0 0 0 17 0 227 690 20
-1146112720 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
-1146112915 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
-1146121928 [DBInfo] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121934 [DBInfo] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
-1146150751 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
-1146150798 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+8 0 0 0 17 0 234 690 20
 1146150831 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 1146150862 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 1146151174 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
@@ -124,16 +118,16 @@ DBInfo
 1146152931 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 1146153028 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 1146153159 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1146181498 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1146181777 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1146181862 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1146181894 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1146183346 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1146183537 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
+1146185366 [DBInfo] [1m[32mChannelObj:[0m DBInfo has joined this channel.
 0
 DC-Main
-8 0 0 0 17 0 227 1621 20
-1146112720 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
-1146112915 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
-1146121930 [DC-Main] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121936 [DC-Main] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
-1146150751 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
-1146150798 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+8 0 0 0 17 0 234 1621 20
 1146150831 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 1146150862 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 1146151174 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
@@ -147,16 +141,16 @@ DC-Main
 1146152931 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 1146153028 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 1146153159 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1146181498 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1146181777 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1146181862 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1146181894 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1146183346 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1146183537 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
+1146185366 [DC-Main] [1m[32mChannelObj:[0m DC-Main has joined this channel.
 0
 DSInfo
-8 0 0 0 17 0 223 1851 20
-1146112720 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
-1146112915 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
-1146121944 [DSInfo] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121950 [DSInfo] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
-1146150751 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
-1146150798 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+8 0 0 0 17 0 230 1851 20
 1146150831 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 1146150862 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 1146151174 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
@@ -170,16 +164,16 @@ DSInfo
 1146152931 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 1146153028 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 1146153159 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1146181498 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1146181777 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1146181862 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1146181894 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1146183346 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1146183537 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
+1146185366 [DSInfo] [1m[32mChannelObj:[0m DSInfo has joined this channel.
 0
 EconLog
-520 0 0 0 17 0 195 1797 20
-1146112720 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
-1146112915 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
-1146121933 [EconLog] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121939 [EconLog] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
-1146150751 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
-1146150798 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
+520 0 0 0 17 0 202 1797 20
 1146150831 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
 1146150862 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
 1146151174 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
@@ -193,18 +187,18 @@ EconLog
 1146152931 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
 1146153028 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
 1146153159 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
+1146181498 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
+1146181777 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
+1146181862 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
+1146181894 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
+1146183346 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
+1146183537 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
+1146185366 [EconLog] [1m[32mChannelObj:[0m EconLog has joined this channel.
 1
 2 1
 t:
 EventInfo
-8 0 0 0 17 0 223 1852 20
-1146112720 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
-1146112915 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
-1146121944 [EventInfo] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121951 [EventInfo] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
-1146150751 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
-1146150798 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+8 0 0 0 17 0 230 1852 20
 1146150831 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 1146150862 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 1146151174 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
@@ -218,16 +212,16 @@ EventInfo
 1146152931 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 1146153028 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 1146153159 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1146181498 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1146181777 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1146181862 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1146181894 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1146183346 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1146183537 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
+1146185366 [EventInfo] [1m[32mChannelObj:[0m EventInfo has joined this channel.
 0
 FAQ
-520 0 0 0 17 0 294 103 20
-1146112720 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
-1146112915 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
-1146121924 [FAQ] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121931 [FAQ] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
-1146150751 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
-1146150798 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+520 0 0 0 17 0 301 103 20
 1146150831 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 1146150862 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 1146151174 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
@@ -241,16 +235,16 @@ FAQ
 1146152931 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 1146153028 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 1146153159 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1146181498 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1146181777 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1146181862 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1146181894 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1146183346 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1146183537 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
+1146185366 [FAQ] [1m[32mChannelObj:[0m FAQ has joined this channel.
 0
 FC-Main
-8 0 0 0 17 0 227 1623 20
-1146112720 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
-1146112915 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
-1146121931 [FC-Main] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121937 [FC-Main] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
-1146150751 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
-1146150798 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+8 0 0 0 17 0 234 1623 20
 1146150831 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 1146150862 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 1146151174 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
@@ -264,16 +258,16 @@ FC-Main
 1146152931 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 1146153028 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 1146153159 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1146181498 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1146181777 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1146181862 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1146181894 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1146183346 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1146183537 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
+1146185366 [FC-Main] [1m[32mChannelObj:[0m FC-Main has joined this channel.
 0
 HighCommand
-8 0 0 0 17 0 227 428 20
-1146112720 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
-1146112915 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
-1146121926 [HighCommand] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121932 [HighCommand] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
-1146150751 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
-1146150798 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+8 0 0 0 17 0 234 428 20
 1146150831 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 1146150862 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 1146151174 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
@@ -287,16 +281,16 @@ HighCommand
 1146152931 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 1146153028 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 1146153159 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1146181498 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1146181777 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1146181862 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1146181894 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1146183346 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1146183537 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
+1146185366 [HighCommand] [1m[32mChannelObj:[0m HighCommand has joined this channel.
 0
 LC-Main
-8 0 0 0 17 0 227 1809 20
-1146112720 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
-1146112915 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
-1146121933 [LC-Main] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121940 [LC-Main] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
-1146150751 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
-1146150798 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+8 0 0 0 17 0 234 1809 20
 1146150831 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 1146150862 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 1146151174 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
@@ -310,16 +304,16 @@ LC-Main
 1146152931 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 1146153028 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 1146153159 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1146181498 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1146181777 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1146181862 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1146181894 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1146183346 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1146183537 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
+1146185366 [LC-Main] [1m[32mChannelObj:[0m LC-Main has joined this channel.
 0
 MUXConnections
-8 0 0 0 17 0 690 1850 20
-1146112720 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
-1146112915 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
-1146121943 [MUXConnections] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121949 [MUXConnections] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
-1146150751 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
-1146150798 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+8 0 0 0 17 0 697 1850 20
 1146150831 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
 1146150862 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
 1146151174 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
@@ -333,16 +327,16 @@ MUXConnections
 1146152931 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
 1146153028 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
 1146153159 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1146181498 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1146181777 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1146181862 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1146181894 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1146183346 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1146183537 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
+1146185366 [MUXConnections] [1m[32mChannelObj:[0m MUXConnections has joined this channel.
 0
 MechAI
-8 0 0 0 17 0 240 76 20
-1146112720 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
-1146112915 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
-1146121916 [MechAI] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121922 [MechAI] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
-1146150751 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
-1146150798 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+8 0 0 0 17 0 247 76 20
 1146150831 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 1146150862 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 1146151174 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
@@ -356,16 +350,16 @@ MechAI
 1146152931 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 1146153028 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 1146153159 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1146181498 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1146181777 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1146181862 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1146181894 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1146183346 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1146183537 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
+1146185366 [MechAI] [1m[32mChannelObj:[0m MechAI has joined this channel.
 0
 MechAttackEmits
-8 0 0 0 17 0 260 1847 20
-1146112720 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
-1146112915 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
-1146121940 [MechAttackEmits] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121946 [MechAttackEmits] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
-1146150751 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
-1146150798 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+8 0 0 0 17 0 267 1847 20
 1146150831 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
 1146150862 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
 1146151174 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
@@ -379,18 +373,18 @@ MechAttackEmits
 1146152931 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
 1146153028 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
 1146153159 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1146181498 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1146181777 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1146181862 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1146181894 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1146183346 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1146183537 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
+1146185366 [MechAttackEmits] [1m[32mChannelObj:[0m MechAttackEmits has joined this channel.
 1
 2 1
 t:
 MechAttackXP
-8 0 0 0 17 0 204 1846 20
-1146112720 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
-1146112915 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
-1146121939 [MechAttackXP] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121945 [MechAttackXP] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
-1146150751 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
-1146150798 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+8 0 0 0 17 0 211 1846 20
 1146150831 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
 1146150862 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
 1146151174 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
@@ -404,16 +398,16 @@ MechAttackXP
 1146152931 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
 1146153028 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
 1146153159 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1146181498 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1146181777 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1146181862 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1146181894 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1146183346 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1146183537 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
+1146185366 [MechAttackXP] [1m[32mChannelObj:[0m MechAttackXP has joined this channel.
 0
 MechBTHDebug
-8 0 0 0 17 0 815 1844 20
-1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
-1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
-1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
-1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
-1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
-1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
-1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
+8 0 0 0 17 0 822 1844 20
 1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
 1146171164 [MechBTHDebug] #8 -> #12: Base 0, TargetMove: -4.
 1146171221 [MechBTHDebug] #8 -> #4: Base 0, Range: +2, TargetMove: -4.
@@ -427,16 +421,16 @@ MechBTHDebug
 1146171265 [MechBTHDebug] #8 -> #4: Base 0, Range: +2, TargetMove: -4.
 1146171266 [MechBTHDebug] #8 -> #4: Base 0, Range: +2, TargetMove: -4.
 1146171629 [MechBTHDebug] #8 -> #4: Base 0, Range: +2.
+1146181498 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
+1146181777 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
+1146181862 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
+1146181894 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
+1146183346 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
+1146183537 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
+1146185366 [MechBTHDebug] [1m[32mChannelObj:[0m MechBTHDebug has joined this channel.
 0
 MechCustom
-8 0 0 0 17 0 223 1855 20
-1146112720 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
-1146112915 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
-1146121947 [MechCustom] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121953 [MechCustom] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
-1146150751 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
-1146150798 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+8 0 0 0 17 0 230 1855 20
 1146150831 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 1146150862 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 1146151174 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
@@ -450,16 +444,16 @@ MechCustom
 1146152931 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 1146153028 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 1146153159 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1146181498 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1146181777 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1146181862 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1146181894 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1146183346 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1146183537 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
+1146185366 [MechCustom] [1m[32mChannelObj:[0m MechCustom has joined this channel.
 0
 MechDebugInfo
-8 0 0 0 17 0 327 83 20
-1146112915 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
-1146121922 [MechDebugInfo] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121928 [MechDebugInfo] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
-1146150751 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
-1146150798 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
-1146150831 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+8 0 0 0 17 0 334 83 20
 1146150862 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1146151174 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1146151192 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
@@ -473,18 +467,18 @@ MechDebugInfo
 1146153028 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1146153159 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1146171164 [MechDebugInfo] #12 has been killed by #8
+1146181498 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+1146181777 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+1146181862 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+1146181894 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+1146183346 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+1146183537 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
+1146185366 [MechDebugInfo] [1m[32mChannelObj:[0m MechDebugInfo has joined this channel.
 1
 2 0
 t:
 MechEconInfo
-8 0 0 0 17 0 225 1854 20
-1146112720 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
-1146112915 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
-1146121946 [MechEconInfo] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121952 [MechEconInfo] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
-1146150751 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
-1146150798 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+8 0 0 0 17 0 232 1854 20
 1146150831 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 1146150862 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 1146151174 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
@@ -498,18 +492,16 @@ MechEconInfo
 1146152931 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 1146153028 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 1146153159 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1146181498 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1146181777 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1146181862 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1146181894 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1146183346 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1146183537 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
+1146185366 [MechEconInfo] [1m[32mChannelObj:[0m MechEconInfo has joined this channel.
 0
 MechErrors
-8 0 0 0 17 0 1032 78 20
-1146121924 [MechErrors] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
-1146150751 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
-1146150798 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
-1146150831 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
-1146150862 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
-1146151174 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
-1146151192 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
-1146151458 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+8 0 0 0 17 0 1041 78 20
 1146151518 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
 1146151562 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
 1146151686 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
@@ -521,16 +513,18 @@ MechErrors
 1146171056 [MechErrors] Error in KIM-2 template: 44.2 tons of 'stuff', yet 45 ton frame.
 1146171186 [MechErrors] Error in TestAero template: 0.0 tons of 'stuff', yet 50 ton frame.
 1146171204 [MechErrors] Error in TestAero template: 0.0 tons of 'stuff', yet 50 ton frame.
+1146181498 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+1146181521 [MechErrors] Error in MCY-98 template: 19.6 tons of 'stuff', yet 20 ton frame.
+1146181777 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+1146181862 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+1146181894 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+1146183346 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+1146183537 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
+1146183547 [MechErrors] Error in TestAero template: 0.0 tons of 'stuff', yet 50 ton frame.
+1146185366 [MechErrors] [1m[32mChannelObj:[0m MechErrors has joined this channel.
 0
 MechFreqs
-8 0 0 0 17 0 220 1843 20
-1146112720 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
-1146112915 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
-1146121936 [MechFreqs] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121943 [MechFreqs] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
-1146150751 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
-1146150798 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+8 0 0 0 17 0 227 1843 20
 1146150831 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
 1146150862 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
 1146151174 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
@@ -544,18 +538,16 @@ MechFreqs
 1146152931 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
 1146153028 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
 1146153159 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1146181498 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1146181777 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1146181862 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1146181894 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1146183346 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1146183537 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
+1146185366 [MechFreqs] [1m[32mChannelObj:[0m MechFreqs has joined this channel.
 0
 MechPilotXP
-8 0 0 0 17 0 204 1842 20
-1146112720 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
-1146112915 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
-1146121936 [MechPilotXP] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121942 [MechPilotXP] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
-1146150751 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
-1146150798 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
-1146150831 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
-1146150862 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+8 0 0 0 17 0 213 1842 20
 1146151174 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
 1146151192 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
 1146151458 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
@@ -567,16 +559,18 @@ MechPilotXP
 1146152931 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
 1146153028 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
 1146153159 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1146181498 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1146181648 [MechPilotXP] Wizard gained 1 Piloting-Biped XP
+1146181777 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1146181822 [MechPilotXP] Wizard gained 1 Piloting-Biped XP
+1146181862 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1146181894 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1146183346 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1146183537 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
+1146185366 [MechPilotXP] [1m[32mChannelObj:[0m MechPilotXP has joined this channel.
 0
 MechSensor
-8 0 0 0 17 0 227 81 20
-1146112720 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
-1146112915 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
-1146121920 [MechSensor] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121927 [MechSensor] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
-1146150751 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
-1146150798 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+8 0 0 0 17 0 234 81 20
 1146150831 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 1146150862 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 1146151174 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
@@ -590,16 +584,16 @@ MechSensor
 1146152931 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 1146153028 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 1146153159 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1146181498 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1146181777 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1146181862 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1146181894 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1146183346 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1146183537 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
+1146185366 [MechSensor] [1m[32mChannelObj:[0m MechSensor has joined this channel.
 0
 MechTechXP
-8 0 0 0 17 0 204 1841 20
-1146112720 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
-1146112915 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
-1146121935 [MechTechXP] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121941 [MechTechXP] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
-1146150751 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
-1146150798 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+8 0 0 0 17 0 211 1841 20
 1146150831 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
 1146150862 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
 1146151174 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
@@ -613,16 +607,16 @@ MechTechXP
 1146152931 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
 1146153028 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
 1146153159 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1146181498 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1146181777 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1146181862 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1146181894 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1146183346 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1146183537 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
+1146185366 [MechTechXP] [1m[32mChannelObj:[0m MechTechXP has joined this channel.
 0
 MechXP
-8 0 0 0 17 0 229 77 20
-1146112720 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
-1146112915 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
-1146121917 [MechXP] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121923 [MechXP] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
-1146150751 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
-1146150798 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+8 0 0 0 17 0 236 77 20
 1146150831 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 1146150862 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 1146151174 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
@@ -636,39 +630,41 @@ MechXP
 1146152931 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 1146153028 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 1146153159 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1146181498 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1146181777 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1146181862 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1146181894 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1146183346 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1146183537 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
+1146185366 [MechXP] [1m[32mChannelObj:[0m MechXP has joined this channel.
 0
 MineTriggers
-8 0 0 0 17 0 247 80 20
-1146112720 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146112915 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146121919 [MineTriggers] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121926 [MineTriggers] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146150751 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146150798 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146150831 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146150862 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146151174 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146151192 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146151458 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146151518 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146151562 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-1146151686 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+8 0 0 0 17 0 262 80 20
 1146151749 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 1146152901 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 1146152931 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 1146153028 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
 1146153159 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
-0
+1146181498 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1146181560 [MineTriggers] Wizard has joined this channel.
+1146181633 [MineTriggers] #4 Mercury [LK] activated trigger at 5,5.
+1146181648 [MineTriggers] #4 Mercury [LK] activated trigger at 5,5.
+1146181777 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1146181792 [MineTriggers] #4 Mercury [LK] activated trigger at 5,5.
+1146181802 [MineTriggers] #4 Mercury [LK] activated trigger at 5,5.
+1146181812 [MineTriggers] #4 Mercury [LK] activated trigger at 5,5.
+1146181862 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1146181875 [MineTriggers] #4 Mercury [LK] activated trigger at 5,5.
+1146181894 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1146181905 [MineTriggers] #4 Mercury [LK] activated trigger at 5,5.
+1146183346 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1146183537 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1146185366 [MineTriggers] [1m[32mChannelObj:[0m MineTriggers has joined this channel.
+1
+2 1
+t:
 Mon-SCode
-8 0 0 0 17 0 306 79 20
-1146112720 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1146112915 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1146121919 [Mon-SCode] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121925 [Mon-SCode] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1146150751 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
-1146150798 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
+8 0 0 0 17 0 313 79 20
 1146150831 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
 1146150862 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
 1146151174 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
@@ -682,18 +678,18 @@ Mon-SCode
 1146152931 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
 1146153028 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
 1146153159 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
+1146181498 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
+1146181777 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
+1146181862 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
+1146181894 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
+1146183346 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
+1146183537 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
+1146185366 [Mon-SCode] [1m[32mChannelObj:[0m Mon-SCode has joined this channel.
 1
 2 1
 t:
 Mon-SQL
-8 0 0 0 17 0 494 1582 20
-1146112720 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
-1146112915 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
-1146121929 [Mon-SQL] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121935 [Mon-SQL] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
-1146150751 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
-1146150798 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+8 0 0 0 17 0 501 1582 20
 1146150831 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
 1146150862 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
 1146151174 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
@@ -707,18 +703,18 @@ Mon-SQL
 1146152931 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
 1146153028 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
 1146153159 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1146181498 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1146181777 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1146181862 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1146181894 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1146183346 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1146183537 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
+1146185366 [Mon-SQL] [1m[32mChannelObj:[0m Mon-SQL has joined this channel.
 1
 2 1
 t:
 Public
-520 0 0 0 17 0 596 84 20
-1146112720 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
-1146112915 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
-1146121923 [Public] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121929 [Public] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
-1146150751 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
-1146150798 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+520 0 0 0 17 0 603 84 20
 1146150831 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 1146150862 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 1146151174 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
@@ -732,20 +728,20 @@ Public
 1146152931 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 1146153028 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 1146153159 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1146181498 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1146181777 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1146181862 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1146181894 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1146183346 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1146183537 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
+1146185366 [Public] [1m[32mChannelObj:[0m Public has joined this channel.
 2
 2 1
 t:
 1836 1
 t:
 Royalty
-8 0 0 0 17 0 376 96 20
-1146112720 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
-1146112915 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
-1146121924 [Royalty] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121930 [Royalty] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
-1146150751 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
-1146150798 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+8 0 0 0 17 0 383 96 20
 1146150831 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1146150862 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1146151174 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
@@ -759,18 +755,18 @@ Royalty
 1146152931 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1146153028 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1146153159 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1146181498 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1146181777 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1146181862 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1146181894 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1146183346 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1146183537 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
+1146185366 [Royalty] [1m[32mChannelObj:[0m Royalty has joined this channel.
 1
 2 1
 t:
 Suspect
-8 0 0 0 17 0 223 1849 20
-1146112720 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
-1146112915 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
-1146121941 [Suspect] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121948 [Suspect] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
-1146150751 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
-1146150798 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+8 0 0 0 17 0 230 1849 20
 1146150831 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 1146150862 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 1146151174 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
@@ -784,16 +780,16 @@ Suspect
 1146152931 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 1146153028 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 1146153159 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1146181498 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1146181777 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1146181862 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1146181894 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1146183346 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1146183537 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
+1146185366 [Suspect] [1m[32mChannelObj:[0m Suspect has joined this channel.
 0
 SuspectsLog
-8 0 0 0 17 0 223 1848 20
-1146112720 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
-1146112915 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
-1146121941 [SuspectsLog] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121947 [SuspectsLog] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
-1146150751 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
-1146150798 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+8 0 0 0 17 0 230 1848 20
 1146150831 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 1146150862 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 1146151174 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
@@ -807,16 +803,16 @@ SuspectsLog
 1146152931 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 1146153028 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 1146153159 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1146181498 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1146181777 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1146181862 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1146181894 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1146183346 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1146183537 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
+1146185366 [SuspectsLog] [1m[32mChannelObj:[0m SuspectsLog has joined this channel.
 0
 Wizard
-8 0 0 0 17 0 441 523 20
-1146112720 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
-1146112915 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
-1146121926 [Wizard] Channel Manager: Channel sweep by [1m[33mPARENT: [0mChannel Object Parent.
-1146121933 [Wizard] Channel Manager: Channel sweep complete. Have a nice day!
-1146150247 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
-1146150751 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
-1146150798 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+8 0 0 0 17 0 448 523 20
 1146150831 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1146150862 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1146151174 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
@@ -830,12 +826,19 @@ Wizard
 1146152931 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1146153028 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1146153159 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1146181498 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1146181777 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1146181862 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1146181894 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1146183346 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1146183537 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
+1146185366 [Wizard] [1m[32mChannelObj:[0m Wizard has joined this channel.
 1
 2 1
 t:
 *** Begin MACRO ***
 1
-2 135 2
+2 137 2
 D:Generic Macros
 0 fire 0 *
 1 fire 1 *
@@ -950,9 +953,11 @@ sct setchanneltitle *
 se sensor *
 sp speed *
 spec weaponspecs
+sr speed run
 ss status s
 st status *
 stf staff
+sw speed walk
 t tactical *
 th thrust *
 thr thrash *
