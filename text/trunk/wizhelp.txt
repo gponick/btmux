@@ -1,3 +1,4 @@
+
 & log
 
   Config parameter: log [!]<logoption> [[!]<logoption>]...
@@ -24,42 +25,55 @@
     wizard         - Record uses of dangerous commands like @toad.
 
   See also: log_options.
- & register_create_file
  
+& register_create_file
+
   Config parameter: register_create_file <filename>
   Default: text/create_reg.txt
- 
+
   Specifies the name of the file that is shown to players who attempt
   to create a new character when registration is in force from their
   site.
- 
-  See also: @list_file, @readcache, register_site.
- & down_motd_message
 
-  Config parameter: down_motd_message <message>. 
-  Default: text/down.txt
+  See also: @list_file, @readcache, register_site.
+ 
+& down_motd_message
+
+  Config parameter: down_motd_message <message>
+  Default: none
 
   Sets the message that is displayed when a player attempts to connect
   to a non-wizard character when logins are disabled.  This message
   is displayed in addition to the contents of the down.txt file.
 
   See also: @disable, down_motd_file.
- & port
  
-  Config parameter: port <port>.  
+& port
+
+  Config parameter: port <port>
   Default: 6250
- 
+
   Specifies the IP port on which the game listens for new connections.
- & quota_cost
  
-  Config parameter: quota_cost <amount>.  
-  Default: 1
+& btech_complexrepair
+
+  Config parameter: btech_complexrepair <0/1>
+  Default: 0
+
+  Determines if complex repairs are to be implemented on the Mux. When
+  enabled parts for RS units will be weight specific - ie a hand
+  actuator for a 70 ton mech cannot be used to repair an 80 ton mech.
+
+  See Also: bt-complexrepairs.
+& btech_phys_use_pskill
+
+  Config parameter: btech_phys_use_pskill <0/1>
+  Default 1
+
+  Determines if the game rolls against the players piloting skill for
+  physical attacks
  
-  Indicates how much adding one object to the database charges against
-  the player's quota.
- 
-  See also: @create, @destroy, @dig, @open, @quota, QUOTAS.
- & config_access
+& config_access
 
   Config parameter: config_access <param> [!]<privilege>
   [[!]<privilege>]...
@@ -71,19 +85,41 @@
   unless the restriction on the @admin command is weakened.
 
   See also: @admin, @list config_permissions, PERMISSIONS.
- & permit_site
  
+& btech_defaultweapbv
+
+  Config parameter: btech_defaultweapbv <num>
+  Default: 120
+
+  Weapons with a BV higher than the specified figure give less XP than
+  those weapons with a BV which is lower.
+ 
+& permit_site
+
   Config parameter: permit_site <addr> <mask>
- 
+
   Indicates that connections are to be accepted and registration is
-  not to be enforced from sites whose address matches the specified 
-  address when ANDed with the mask.  This directive is typically 
-  used to enable connections from a few selected hosts or subnets 
-  that would otherwise be disallowed by a forbid_site directive.  
+  not to be enforced from sites whose address matches the specified
+  address when ANDed with the mask.  This directive is typically
+  used to enable connections from a few selected hosts or subnets
+  that would otherwise be disallowed by a forbid_site directive.
   The default is all sites permitted, none forbidden.
- 
+
   See also: badsite_file, forbid_site, register_site, SITE LISTS.
- & log_options
+ 
+& btech_fasacrit
+
+  Config parameter: btech_fasacrit <-1/0/1>
+  Default: -1
+
+  Select crit system to use.
+
+  Arguments:
+  Maxtech       -1
+  Semi-FASA      0
+  FASA           1
+ 
+& log_options
 
   Config parameter: log_options [!]<option> [[!]<option>]...
 
@@ -97,19 +133,21 @@
     timestamp   - Include a timestamp in each log entry.
 
   See also: log.
- & initial_size
+ 
+& initial_size
 
-  Config parameter: initial_size <number>. 
+  Config parameter: initial_size <number>
   Default: 1000
 
   This is the number of objects that can be created before the
   database structure has to be reallocated again. This is needed
   since MUX allocates space for the database in large chunks, the
   size of which depends on this parameter.
- & exit_flags
+ 
+& exit_flags
 
-  Config parameter: exit_flags <flags>. 
-  Default: blank
+  Config parameter: exit_flags <flags>
+  Default: none
 
   Modifies the set of flags that an exit receives when it is created
   via the @open command or via the optional exit creation parameters
@@ -117,61 +155,57 @@
   indicated flag from the set.
 
   See also: @list, player_flags, robot_flags, room_flags, thing_flags.
- & public_flags
  
-  Config parameter: public_flags <yes/no>.  
+& public_flags
+
+  Config parameter: public_flags <yes/no>
   Default: yes
- 
+
   If enabled, indicates that players may get the flags of any object
-  with the flags() function call.  Otherwise, they may only get the 
+  with the flags() function call.  Otherwise, they may only get the
   flags for objects that are examinable by them.
- 
+
   See also: flags().
- & robot_speech
  
-  Config parameter: robot_speech: <yes/no>.  
+& robot_speech
+
+  Config parameter: robot_speech: <yes/no>
   Default: yes
- 
+
   Indicates whether or not robot characters are allowed to use the
-  speech, pose, and emit commands in areas not controlled by their 
+  speech, pose, and emit commands in areas not controlled by their
   owner.
- 
+
   See also: @robot, ROBOT.
- & have_plushelp
+ 
+& exit_quota
 
-  Config parameter: have_plushelp <yes/no>.
-  Default: yes
-
-  This specifies whether the indexed +help file should be used.
-  It should be set to no if a softcoded +help command is present.
-
-  See also: plushelp_file, plushelp_index.
- & exit_quota
-
-  Config parameter: exit_quota <amount>. 
+  Config parameter: exit_quota <amount>
   Default: 1
 
   Sets how much quota it costs to create an exit (and also how much
   the remaining quota is increased when an exit is @destroyed.
 
   See also: @quota, player_quota, room_quota, thing_quota, QUOTAS.
- & wizard_motd_file
  
-  Config parameter: wizard_motd_file <path>.  
-  Default: text/wizmotd.txt
- 
-  Specifies the name of the file that contains the wizard MOTD message
-  that is displayed to wizards when they log in.  This message is 
-  displayed in addition to the wizard MOTD message that is set by 
-  the @motd/wiz command or the wizard_motd_message config parameter.  
- 
-  The contents of the file are read in to a cache when the game is 
-  started and whenever a @readcache command is executed.
- 
-  See also: @readcache, wizard_motd_message.
- & examine_public_attrs
+& wizard_motd_file
 
-  Config parameter: examine_public_attrs <yes/no>. 
+  Config parameter: wizard_motd_file <path>
+  Default: text/wizmotd.txt
+
+  Specifies the name of the file that contains the wizard MOTD message
+  that is displayed to wizards when they log in.  This message is
+  displayed in addition to the wizard MOTD message that is set by
+  the @motd/wiz command or the wizard_motd_message config parameter.
+
+  The contents of the file are read in to a cache when the game is
+  started and whenever a @readcache command is executed.
+
+  See also: @readcache, wizard_motd_message.
+ 
+& examine_public_attrs
+
+  Config parameter: examine_public_attrs <yes/no>
   Default: yes
 
   Indicate whether or not the examine command should display the
@@ -181,26 +215,39 @@
   the long form with examine/long.
 
   See also: examine.
- & uncompress_program
  
-  Config parameter: uncompress_program <path>.  
-  Default: gunzip
+& retry_limit
+
+  Config paramater: retry_limit <count>
+  Default: 3
+
+  Specifies the number of times that a user is allowed to try to
+  connect to an existing player before being disconnected.
+
+  See also: conn_timeout.
  
+& uncompress_program
+
+  Config parameter: uncompress_program <path>
+  Default: gzip -d
+
   Specifies the program to be run to uncompress compressed database
   files when reading them in at startup.
- 
-  See also: compress_program, compresion.
- & dump_interval
 
-  Config parameter: dump_interval <amount>. 
+  See also: compress_program, compresion.
+ 
+& dump_interval
+
+  Config parameter: dump_interval <amount>
   Default: 3600
 
   Specifies the time in seconds between automatic database dumps.
 
   See also: dump_offset, output_database.
- & compress_program
+ 
+& compress_program
 
-  Config parameter: compress_program <path>.  
+  Config parameter: compress_program <path>
   Default: gzip
 
   Specifies the program to be run to compress the database file when
@@ -208,15 +255,24 @@
   dumps are piped through this program on their way out to disk.
 
   See also: compresion, uncompress_program.
- & dig_cost
+ 
+& dig_cost
 
-  Config parameter: dig_cost <amount>. 
-  Default: 1
+  Config parameter: dig_cost <amount>
+  Default: 10
 
   Specifies how much the @dig command costs.
- & dump_offset
+  
+& btech_stackdamage
+ 
+  Config parameter: btech_stackdamage <num>
+  Default: 100
+  
+  Sets the damage modifier for units stacking
+  
+& dump_offset
 
-  Config parameter: dump_offset <amount>.  
+  Config parameter: dump_offset <amount>
   Default: 0
 
   Specifies the time in seconds between startup and the first database
@@ -225,18 +281,20 @@
   If zero, the value of the dump_interval parameter is used.
 
   See also: dump_interval.
- & wiznews_file
+ 
+& wiznews_file
 
-  Config parameter: wiznews_file <path>. 
+  Config parameter: wiznews_file <path>
   Default: text/wiznews.txt
 
   Specifies the name of the file containing the text used by the
   wiznews command.
 
   See also: wiznews_index
- & find_money_chance
+ 
+& find_money_chance
 
-  Config parameter: find_money_chance <amount>. 
+  Config parameter: find_money_chance <amount>
   Default: 0
 
   Indicates the chance that players have of finding money when
@@ -244,9 +302,10 @@
   that finding money is disabled if this parameter is set to zero.
 
   See also: earn_limit, paycheck.
- & help_index
+ 
+& help_index
 
-  Config parameter: help_index <path>. 
+  Config parameter: help_index <path>
   Default: text/help.indx
 
   Specifies the name of the index file used by the help command.  This
@@ -255,18 +314,19 @@
   and whenever a @readcache command is executed.
 
   See also: help, @readcache, help_file
- & max_players
+ 
+& max_players
 
-  Config directive: max_players <num>. 
+  Config parameter: max_players <num>
   Default: -1 (unlimited)
 
   Sets the maximum number of players that may be connected at any one
   time.
- 
+
   Note that wizards are allowed to login even if they would
   exceed the limit, and that this limit does not override any limits
   imposed by the system running the MUX (such as the maximum number
-  of net connections a process may have). 
+  of net connections a process may have).
 
   Players connecting when there are max_players players connected
   receive the contents of the file named by the full_file directive,
@@ -274,23 +334,33 @@
   disconnected.
 
   See also: @motd, full_file, full_motd_message.
- & alias
+  
+& btech_inferno_penalty
+ 
+  Config parameter: btech_inferno_penalty <0/1>
+  Default: 1
+  
+  Apply the FASA Inferno Ammo penalty (+30 heat and ammo explodes)
+ 
+& alias
 
   Config parameter: alias <new> <old>
- 
-  Defines the command <new> to be an alias of the command <old>.& cache_trim
 
-  Config parameter: cache_trim <yes/no>.  
-  Default: no.
+  Defines the command <new> to be an alias of the command <old>.
+& cache_trim
+
+  Config parameter: cache_trim <yes/no>
+  Default: no
 
   When this parameter is 'yes', the cache will be periodically trimmed
   to eliminate unused space. It is especially useful when your cache
   tends to stretch because it cannot hold all the objects being
   accessed at once.
- & command_quota_increment
+ 
+& command_quota_increment
 
-  Config parameter: command_quota_increment <amount>. 
-  Default: 1
+  Config parameter: command_quota_increment <amount>
+  Default: 5
 
   Specifies the number of commands by which the command quota for
   connected users each timeslice.  Each command a user types in
@@ -299,19 +369,21 @@
   greater than zero.
 
   See also: command_quota_max, timeslice.
- & check_offset
+ 
+& check_offset
 
-  Config parameter: check_offset <secs>.  
-  Default: 300.
+  Config parameter: check_offset <secs>
+  Default: 300
 
   Specifies how long after startup the first automatic database check
   is to be performed.  Subsequent checks are performed every
   check_interval seconds.
 
   See also: check_interval, @dbck.
- & guests_channel
+ 
+& guests_channel
 
-  Config parameter: guests_channel <name>.
+  Config parameter: guests_channel <name>
   Default: Guests
 
   Specifies the name of the channel that guests join when they
@@ -319,61 +391,63 @@
   this feature, simply set this parameter to nothing.
 
   See also: public_channel.
- & starting_money
  
-  Config parameter: starting_money <amount>.  
+& starting_money
+
+  Config parameter: starting_money <amount>
   Default: 0
- 
+
   Sets the amount of money that new players start out with.
- 
+
   See also: paycheck.
- & comsys_database
-
-  Config parameter: comsys_database <path>.  
-  Default: comsys.db
-
-  Specifies the file that comsystem and macro information is stored
-  in.
-
-  This database is loaded at startup if either have_comsys or
-  have_macros are on.
-
-  See also: have_comsys, have_macros.
- & starting_quota
  
-  Config parameter: starting_quota <amount>.  
+& starting_quota
+
+  Config parameter: starting_quota <amount>
   Default: 20
- 
+
   Sets the building quota that players receive when they are created,
   whether by @pcreate or the connection screen.
- 
-  See also: @quota, quotas.
- & attr_alias
 
-  Config parameter: attr_alias <alias> <attr>.
+  See also: @quota, quotas.
+ 
+& attr_alias
+
+  Config parameter: attr_alias <alias> <attr>
 
   Makes <alias> an alias for the attribute <attr>.
- & pemit_far_players
  
-  Config parameter: pemit_far_players <yes/no>.  
+& pemit_far_players
+
+  Config parameter: pemit_far_players <yes/no>
   Default: no
- 
+
   Controls whether or not players may use the @pemit command to send
-  messages to other connected players that are not in the same room.  
-  The rules and costs for this form of @pemit are the same as for 
+  messages to other connected players that are not in the same room.
+  The rules and costs for this form of @pemit are the same as for
   page.
- 
+
   See also: pemit_any_object.
- & output_limit
+  
+& btech_ice_causes_fire
+  
+  Config parameter: btech_ice_causes_fire <0/1>
+  Default: 1
+  
+  Enables code which causes VTOL's with ICE engines to cause fire upon 
+  crash or explosion of that unit.
  
-  Config parameter: output_limit <amount>. 
-  Default: 16200
- 
+& output_limit
+
+  Config parameter: output_limit <amount>
+  Default: 16384
+
   Specifies how many bytes should be output before the output is
   flushed, and characters are lost.
- & default_home
+ 
+& default_home
 
-  Config directive: default_home <location>. 
+  Config parameter: default_home <location>
   Default (player_starting_home)
 
   Sets the home location for objects which have an invalid home
@@ -383,9 +457,10 @@
   player_starting_home is used instead.
 
   See also: player_starting_home.
- & dark_sleepers
+ 
+& dark_sleepers
 
-  Config directive: dark_sleepers <yes/no>.  
+  Config parameter: dark_sleepers <yes/no>
   Default: yes
 
   Indicates whether or not disconnected players are to be considered
@@ -393,46 +468,33 @@
   room that they are in.  Disconnected players can still be found by
   examining the room or by using [next()] to follow the contents
   chain for the room.
- & examine_flags
+  
+& btech_roll_on_backwalk
+ 
+  Config parameter: btech_roll_on_backwalk <0/1>
+  Default: 1
+  
+  Determines if a piloting skill roll is made when a mech is walking 
+  backwards over a change in elevation.
+  
+& examine_flags
 
-  Config parameter: examine_flags <yes/no>. 
+  Config parameter: examine_flags <yes/no>
   Default: yes
 
   Indicates whether or not the examine command should include an
   expanded flags list in the description of the object.
 
   See also: examine.
- & mud_name
+ 
+& mud_name
 
-  Config parameter: mud_name <string>. 
+  Config parameter: mud_name <string>
   Default: TinyMUX
- & forbid_site
-
-  Config parameter: forbid_site <addr> <mask>.
-
-  Indicates that connections are to be rejected from sites whose
-  address  matches the specified address when ANDed with the mask. 
-  The contents of the file specified by badsite_file is sent
-  immediately before closing the connection.  This directive may be
-  used to restrict access to just the local network, or to prevent
-  access from troublemaking sites.
-
-  The default is for all sites to be allowed to connect, none
-  forbidden.
-
-  See also: badsite_file, permit_site, register_site, SITE LISTS.
- & retry_limit
  
-  Config paramater: retry_limit <count>.  
-  Default: 3
- 
-  Specifies the number of times that a user is allowed to try to
-  connect to an existing player before being disconnected.
- 
-  See also: conn_timeout.
- & down_file
+& down_file
 
-  Config parameter: down_file <pathname>. 
+  Config parameter: down_file <pathname>
   Default: text/down.txt
 
   Specifies the name of the file that is displayed when players
@@ -440,7 +502,8 @@
   disabled.
 
   See also: @disable, down_motd_message.
- & wiznews_index
+ 
+& wiznews_index
 
   Config parameter: wiznews_index <path>
   Default: text/wiznews.indx
@@ -451,9 +514,10 @@
   started and whenever a @readcache command is executed.
 
   See also: @readcache, wiznews_file
- & idle_wiz_dark
+ 
+& idle_wiz_dark
 
-  Config parameter: idle_wiz_dark <yes/no>. 
+  Config parameter: idle_wiz_dark <yes/no>
   Default: no
 
   Indicates whether or not wizards or players with the idle power who
@@ -464,15 +528,24 @@
   Wizards  already set DARK are not automatically unDARKed. Any
   player who is set dark by this action will have a 'd' instead of a
   'D' by their idle time in the privileged WHO listing.
- & events_daily_hour
+ 
+& events_daily_hour
 
-  Config parameter: events_daily_hour <hour>. 
-  Default: 7.
+  Config parameter: events_daily_hour <hour>
+  Default: 3
 
   Specifies the hour that @daily is executed. No guarantee is made as
   to what time during this hour it is executed. This should be a
   number between 0 and 23.
- & function_access
+ 
+& btech_tankshield
+
+  Config paramaters: btech_tankshield <>
+  Default 0
+
+  Save tanks from crash damage
+ 
+& function_access
 
   Config parameter: function_access <function> [!]<priv>
   [[!]<priv>]...
@@ -483,63 +556,100 @@
   would normally return.
 
   See also: @list functions, FUNCTION LIST, PERMISSIONS.
- & wizard_help_file
  
-  Config parameter: wizard_help_file <path>.  
+& btech_divrotordamage
+
+  Config parameter: btech_divrotordamage <num>
+  Default: 0
+
+  Provides an amount to divide damage to vtol rotors by, should it be
+  desired.
+ 
+& wizard_help_file
+
+  Config parameter: wizard_help_file <path>
   Default: text/wizhelp.txt
- 
+
   Specifies the name of the file containing the text used by the
   wizhelp command.
- 
+
   See also: wizhelp, wizard_help_index
- & terse_shows_move_messages
  
-  Config parameter: terse_shows_move_messages <yes/no>.  
+& terse_shows_move_messages
+
+  Config parameter: terse_shows_move_messages <yes/no>
   Default yes
- 
+
   Indicates whether or not to suppress messages related to moving
-  about produced by locations and exits.  These messages are the 
-  ENTER and LEAVE messages on locations, and the SUCC and DROP 
+  about produced by locations and exits.  These messages are the
+  ENTER and LEAVE messages on locations, and the SUCC and DROP
   messages on exits.
-  
+
   The messages seen by others (Oxxx attributes) and the actions to be
   performed (Axxx attributes) are unaffected.
 
   See also: look_obey_terse, terse_shows_contents, terse_shows_exits.
- & timeslice
  
-  Config parameter: timeslice <amount>.  
-  Default: 1000
+& btech_fasaadvvhlcrit
+
+  Config parameter: btech_fasaadvvhlcrit <0/1>
+  Default: 0
+
+  Enables FASA Level 3 ground vehicle crits and hit locations.
  
+& btech_fasaadvvhlfire
+
+  Config parameter: btech_fasaadvvhlfire <0/1>
+  Default: 0
+
+  Enables FASA Level 3 ground vehicle fire rules
+ 
+& timeslice
+
+  Config parameter: timeslice <amount>
+  Default: 100
+
   Specifies the interval at which connected users' command quotas are
   increased.  Each command a user types in (commands executed by
-  machines do not count) decreases that user's quota by 1, and the 
-  user's commands are only executed if the quota is greater than 
+  machines do not count) decreases that user's quota by 1, and the
+  user's commands are only executed if the quota is greater than
   zero.
- 
+
   See also: command_quota_incr, command_quota_max.
- & public_channel
  
-  Config parameter: public_channel <name>. 
+& public_channel
+
+  Config parameter: public_channel <name>
   Default: Public
- 
+
   Specifies the name of the channel that new players join when they
-  are created. You must have previously created the channel. To 
+  are created. You must have previously created the channel. To
   disable this feature, simply set this parameter to nothing.
- 
+
   See also: guests_channel.
- & postdump_message
  
-  Config parameter: postdump_message <message>.  
-  Default: blank
+& bt_xp_ammomod
+
+  Config parameter: bt_xp_ammomod <num>
+  Default: 100
+  
+  Modifies the XP gained from ammunition based weapons.
+  
+  Note - Does not include missile based weapons
  
+& postdump_message
+
+  Config parameter: postdump_message <message>
+  Default: none
+
   Sets the message that is sent to everyone after a database dump
   whether automatically or via the @dump command.
- 
-  See also: @dump, dump_message.
- & fork_vfork
 
-  Config parameter: fork_vfork <yes/no>. 
+  See also: @dump, dump_message.
+ 
+& fork_vfork
+
+  Config parameter: fork_vfork <yes/no>
   Default: no
 
   Indicates whether or not the vfork() system call should be used in
@@ -548,20 +658,37 @@
   yes.
 
   See also: fork_dump.
- & plushelp_index
-
-  Config parameter: plushelp_index <path>. 
-  Default: text/plushelp.indx
  
+& allow_chanlurking
+
+  Config parameter: allow_chanlurking <on/off>
+  Default: off
+
+  Permits use of the 'who' and 'last' commands on a channel that you
+  currently do not have 'on'
+ 
+& plushelp_index
+
+  Config parameter: plushelp_index <path>
+  Default: text/plushelp.indx
+
   Specifies the name of the index file used by the +help command.
   This file must be generated by mkindx from the plushelp file.  The
   contents of this file are read in to a hash table when the game is
   started and whenever a @readcache command is executed.
 
   See also: @readcache, plushelp_file
- & crash_database
+ 
+& btech_tankfriendly
 
-  Config parameter: crash_database <path>.  
+  Config paramater: btech_tankfriendly <>
+  Default: 0
+
+  Reduces speed rather than immobilising the vehicle for most crits.
+ 
+& crash_database
+
+  Config parameter: crash_database <path>
   Default: none
 
   Specifies the name of the database file that should be written when
@@ -570,17 +697,19 @@
   the middle of moving links about.
 
   Dumping a crash database is currently not implemented.
- & page_cost
  
-  Config parameter: page_cost <amount>.  
-  Default: 10
- 
-  Specifies the cost of using the page command.
- 
-  See also: page.
- & function_invocation_limit
+& page_cost
 
-  Config directive: function_invocation_limit <num>. 
+  Config parameter: page_cost <amount>
+  Default: 0
+
+  Specifies the cost of using the page command.
+
+  See also: page.
+ 
+& function_invocation_limit
+
+  Config parameter: function_invocation_limit <num>
   Default: 2500
 
   This directive sets the maximum number of times that a command may
@@ -588,32 +717,42 @@
   string '#-1 FUNCTION INVOCATION LIMIT EXCEEDED' is returned.  This
   limit is  intended to prevent long hangs from creative uses of u()
   and iter().
- 
+
   Note: @search is treated specially, each object examined with the
   eval=<arg> parameter is treated as a separate command for the
   purposes of the function invocation limit.
- & paranoid_allocate
  
-  Config parameter: paranoid_allocate <yes/no>.  
-  Default: no
- 
-  Controls whether or not the game performs a consistency check on the
-  entire set of xbuf buffers each time one is allocated or freed.  
-  This check involves making sure that nobody has written to the 
-  memory immediately before and after each buffer.  Normally, only 
-  the buffer being allocated or freed is checked.
- & have_zones
+& paranoid_allocate
 
-  Config parameter: have_zones <yes/no>. 
+  Config parameter: paranoid_allocate <yes/no>
+  Default: no
+
+  Controls whether or not the game performs a consistency check on the
+  entire set of xbuf buffers each time one is allocated or freed.
+  This check involves making sure that nobody has written to the
+  memory immediately before and after each buffer.  Normally, only
+  the buffer being allocated or freed is checked.
+ 
+& have_zones
+
+  Config parameter: have_zones <yes/no>
   Default: yes
 
   Specifies whether zones should be active. If this is off, zone
   connects and disconnects, zone commands, and the control aspects
   will all be disabled.
- & check_interval
+ 
+& btech_defaultweapdam
 
-  Config parameter: check_interval <secs>.  
-  Default: 600.
+  Config parameter: btech_defaultweapdam <num>
+  Default: 5
+
+  Modifies the default weapon BV
+ 
+& check_interval
+
+  Config parameter: check_interval <secs>
+  Default: 600
 
   Specifies how often (in seconds) the database is to be automatically
   scanned for inconsistencies and purged of references to destroyed
@@ -623,9 +762,10 @@
   file.
 
   See also: check_offset, @dbck.
- & function_recursion_limit
+ 
+& function_recursion_limit
 
-  Config directive: function_recursion_limit <num>. 
+  Config parameter: function_recursion_limit <num>
   Default: 50
 
   This directive sets the maximum number of nested function calls that
@@ -633,25 +773,72 @@
   '#-1 FUNCTION RECURSION LIMIT EXCEEDED' is returned.  Normally this
   is not a problem, but the u() function can be used to cause
   infinite recursion (unless blocked by a recursion limit)
- & notify_recursion_limit
+ 
+& notify_recursion_limit
 
-  Config directive: notify_recursion_limit <num>. 
+  Config parameter: notify_recursion_limit <num>
   Default: 20
 
   Sets the maximum number of times that the notify() routine may be
   called recursively.  A recursive call is made whenever a message
   heard by an object is to be forwarded to its contents.
- & concentrator_port
+ 
+& concentrator_port
 
-  Config parameter: concentrator_port <port number>.  
+  Config parameter: concentrator_port <port number>
   Default: 6251
 
   Specifies the port number that the MUX will expect the concentrator
   to use when it is active. This parameter is meaningless if you do
   not have concentrator support compiled into the server.
- & full_file
+ 
+& btech_explode_ammo
 
-  Config parameter: down_file <pathname>. 
+  Config parameter: btech_explode_ammo <0/1>
+  Default: 1
+
+  Determines if players are permitted to use the 'explode ammo'
+  command.
+
+  See Also: btech_explode_reactor, btech_explode_stop,
+            btech_explode_time.
+ 
+& btech_explode_time
+
+  Config parameter: btech_explode_time <secs>
+  Default: 120
+
+  Determined the number of seconds which will be counted down for the
+  command 'explode reactor'.
+
+  The command 'explode ammo' will take one half the number of seconds
+  specified.
+
+  See Also: btech_explode_reactor, btech_explode_ammo,
+            btech_explode_stop.
+& btech_explode_stop
+
+  Config parameter: btech_explode_stop <0/1>
+  Default: 0
+
+  Determines if players are able to use the 'explode stop' command to
+  abort their self-destruct sequences.
+
+  See Also: btech_explode_reactor, btech_explode_ammo,
+            btech_explode_time.
+ 
+& btech_limited_repairs
+
+  Config parameter: btech_limited_repairs <0/1>
+  Default: 0
+  
+  When enabled requires that all tech activities be carried out in 
+  stalls, otherwise armor fixes and ammo reloads can be carried out on 
+  the Repair Bay floor.
+ 
+& full_file
+
+  Config parameter: down_file <pathname>
   Default: text/full.txt
 
   Specifies the name of the file that is displayed when players
@@ -660,36 +847,40 @@
   by the max_players directive.
 
   See also: full_motd_message, max_players.
- & have_comsys
+ 
+& have_comsys
 
-  Config parameter: have_comsys <yes/no>. 
+  Config parameter: have_comsys <yes/no>
   Default: yes
 
   Specifies whether or not the comsystem should be active.
 
   See also: comsys_database, have_macros.
- & quit_file
  
-  Config parameter: quit_file <filename>.  
+& quit_file
+
+  Config parameter: quit_file <filename>
   Default: text/quit.txt
- 
+
   Specifies the name of the file that is displayed to users after they
   QUIT but before the network connection is closed.
- 
-  See also: QUIT, @readcache.
- & idle_interval
 
-  Config parameter: idle_interval <secs>. 
+  See also: QUIT, @readcache.
+ 
+& idle_interval
+
+  Config parameter: idle_interval <secs>
   Default: 60
 
   Sets the interval between checks for idle users.
 
   See also: conn_timeout, idle_timeout.
- & look_obey_terse
-
-  Config parameter: look_obey_terse <yes/no>. 
-  Default: YES
  
+& look_obey_terse
+
+  Config parameter: look_obey_terse <yes/no>
+  Default: Yes
+
   Indicates whether or not the 'look' command obeys the TERSE flag
   when deciding how much information to display.  If set to yes, the
   terse_shows_contents, terse_shows_exits, and
@@ -698,102 +889,120 @@
 
   See also: terse_shows_contents, terse_shows_exits,
             terse_shows_move_messages.
- & attr_cmd_access
+ 
+& attr_cmd_access
 
   Config parameter: attr_cmd_access [!]<privilege> [[!]<privilege>]...
 
   Changes the access rights on all attribute-setting commands in
   parallel.
- 
+
   Use this parameter to allow or deny access to the attribute-setting
   commands as a group.  This directive should normally be followed
   by access directives to properly set access to restricted
   attributes.
 
   See also: access, PERMISSIONS.
- & access
+ 
+& access
 
   Config parameter: access <command> <permlist>
- 
+
   Modifies the permissions needed to execute the indicated command.
- 
+
   Specifying a permission adds it to the list of permissions required;
   to remove a permission prefix it with a ! character.
- 
-  See also: PERMISSIONS, @list.
- & cache_depth
 
-  Config parameter: cache_depth <depth>.  
-  Default: 10.
+  See also: PERMISSIONS, @list.
+ 
+& cache_depth
+
+  Config parameter: cache_depth <depth>.
+  Default: 10
 
   Specifies the depth of the database cache.  Each bucket in the cache
   is allowed to have this many entries before it will try to remove
   old entries.
 
   See also: cache_width.
- & fixed_home_message
+ 
+& fixed_home_message
 
-  Config parameter: fixed_home_message <string>. 
+  Config parameter: fixed_home_message <string>
   Default: none
 
   Specifies the string that is sent to a player when they try to go
   home while they are set with the FIXED flag.
 
   See also: fixed_tel_message.
- & space_compress
  
-  Config parameter: space_compress <yes/no>.  
-  Default: yes
- 
-  Specifies whether or not extra spaces are to be removed from user
-  input as it is processed.  If enabled, multiple spaces are 
-  compressed to a single space, and spaces at the ends of strings 
-  are removed.
- & player_match_own_commands
- 
-  Config parameter: player_match_own_commands <yes/no>.  
-  Default: no
- 
-  Specifies whether or not players should check themselves for
-  $-commands. This parameter is only checked if the  
-  match_own_commands parameter is set to yes.
- 
-  See also: match_own_commands.
- & guest_nuker
+& space_compress
 
-  Config parameter: guest_nuker <num>.
-  Default: 1.
+  Config parameter: space_compress <yes/no>
+  Default: yes
+
+  Specifies whether or not extra spaces are to be removed from user
+  input as it is processed.  If enabled, multiple spaces are
+  compressed to a single space, and spaces at the ends of strings
+  are removed.
+ 
+& player_match_own_commands
+
+  Config parameter: player_match_own_commands <yes/no>.
+  Default: no
+
+  Specifies whether or not players should check themselves for
+  $-commands. This parameter is only checked if the
+  match_own_commands parameter is set to yes.
+
+  See also: match_own_commands.
+ 
+& guest_nuker
+
+  Config parameter: guest_nuker <dbref>
+  Default: 1
 
   Specifies who is to nuke guests when they log off. If it is not a
   good object or a wizard, it defaults to #1.
 
   See also: guest_char_num, guest_prefix, number_guests.
- & player_queue_limit
+  
+& btech_stacking
  
-  Config parameter: player_queue_limit.  
-  Default: 100
- 
-  Sets the maximum number of commands that non-wizard players may have
-  on the queue at one time.  An attempt to queue more commands than 
-  allowed will halt the object performing the command.
- & indent_desc
+  Config parameter: btech_stacking <0/2>
+  Default: 2
+  
+  Determines if the mux checks for stacking.
+  
+& player_queue_limit
 
-  Config parameter: indent_desc <yes/no>.
+  Config parameter: player_queue_limit
+  Default: 100
+
+  Sets the maximum number of commands that non-wizard players may have
+  on the queue at one time.  An attempt to queue more commands than
+  allowed will halt the object performing the command.
+ 
+& indent_desc
+
+  Config parameter: indent_desc <yes/no>
   Default: no
 
   Places a blank row before and after every room, object, and exit
   description when looked at.
- & cache_width
+ 
+& cache_width
 
-  Config parameter: cache_width <depth>.  
-  Default: ??
+  Config parameter: cache_width <depth>
+  Default: 20
 
   Specifies the number of buckets in the database cache.  A hashing
   function is used to assign objects or attributes to a particular
   bucket, where a linear search is performed.
- & money_name_singular
+ 
+& money_name_singular
 
-  Config parameter: money_name_singular <string>. 
+  Config parameter: money_name_singular <string>
   Default: penny
 
   Specifies the string to use to describe the coin of the realm when
@@ -801,19 +1010,21 @@
   penny!').
 
   See also: money_name_plural.
- & paycheck
  
-  Config parameter: paycheck <amount>.  
-  Default: 0
- 
-  Specifies the default amount of money that players receive each day
-  they connect.  This parameter may be overridden by setting the 
-  ALLOWANCE attribute on the player to a different value.
- 
-  See also: @allowance, earn_limit, starting_money.
- & compression
+& paycheck
 
-  Config parameter: compress <yes/no>. 
+  Config parameter: paycheck <amount>
+  Default: 0
+
+  Specifies the default amount of money that players receive each day
+  they connect.  This parameter may be overridden by setting the
+  ALLOWANCE attribute on the player to a different value.
+
+  See also: @allowance, earn_limit, starting_money.
+ 
+& compression
+
+  Config parameter: compress <yes/no>
   Default: no
 
   Indicates whether or not the database is to be compressed using the
@@ -821,37 +1032,41 @@
   a compressed database to uncompress at startup.
 
   See also: compress_program, uncompress_program.
- & mail_expiration
+ 
+& mail_expiration
 
-  Config parameter: mail_expiration <number of days>.
+  Config parameter: mail_expiration <number of days>
   Default: 14
 
   Sets the number of days that a @mail message should last before it
   is automatically deleted by the system. If this parameter is set
   to a negative number, this feature will be disabled.
- & site_chars
  
-  Config parameter: site_chars <number>:  
+& site_chars
+
+  Config parameter: site_chars <number>
   Default: 25.
- 
+
   Specifies the length of the hostname that is shown in a wizard WHO
   listing. If <number> is 0, then the hostname will be shown in full.
- & motd_message
+ 
+& motd_message
 
-  Config parameter: motd_message <message>. 
-  Default: blank
+  Config parameter: motd_message <message>
+  Default: none
 
   Sets the MOTD message that is displayed to all characters when they
   log in.
- 
+
   This message is displayed in addition to the contents of the
   motd.txt file.  It can be changed with the @motd command and
   examined by the @listmotd command.
 
   See also: @listmotd, @motd, motd_file.
- & idle_timeout
+ 
+& idle_timeout
 
-  Config parameter: idle_timeout <secs>. 
+  Config parameter: idle_timeout <secs>
   Default: 3600 (one hour)
 
   Sets the amount of time that a player may remain idle before being
@@ -859,18 +1074,42 @@
   are disconnected when the next check for idle players is done.
 
   See also: conn_timeout, idle_interval.
- & plushelp_file
+ 
+& plushelp_file
 
-  Config parameter: plushelp_file <path>. 
+  Config parameter: plushelp_file <path>
   Default: text/plushelp.txt
 
   Specifies the name of the file containing the text used by the +help
   command.
 
   See also: plushelp_index
- & earn_limit
+  
+& btech_freetechtime
+ 
+  Config paramater: btech_freetechtime <0/1>
+  Default: 0
+  
+  Enables carrying out of repairs and tech activities virtually
+  instantly.
+  
+  See Also: bt-freetechtime
+ 
+& btech_ic
 
-  Config parameter: earn_limit <amount>. 
+  Config parameter: btech_ic <0/1>
+  Default 1
+
+  Determines if the Mux is 'in character' and therefore if a player
+  can disembark a unit onto the map.
+
+  Arguments:
+  * 0 - The player cannot disembark
+  * 1 - The player can disembark
+ 
+& earn_limit
+
+  Config parameter: earn_limit <amount>
   Default: 10000
 
   Specifies the threshold at which earning additional money becomes
@@ -880,31 +1119,34 @@
   the streets.
 
   See also: find_money_chance, paycheck.
- & signal_action
  
-  Config parameter: signal_action <default|exit>.  
+& signal_action
+
+  Config parameter: signal_action <default|exit>
   Default: default
- 
+
   Specifies what action to take when a fatal signal is received.  The
   possibilities are:
- 
+
      default  - Log the error, produce a panic dump, dump a core file,
-                and restart the game using the last reliably saved 
-                database. For a description of the restart process, 
+                and restart the game using the last reliably saved
+                database. For a description of the restart process,
                 see @restart.
      exit     - Log the error, and exit, hopefully with a core file.
- & master_room
+ 
+& master_room
 
-  Config parameter: master_room <roomnum>. 
-  Default: (none)
+  Config parameter: master_room <roomnum>
+  Default: none
 
   Specifies the room that is searched for exits if a command does not
   match an exit in the current room, and for $-command if a command
   does not match any $-commands that are available to the player in
   his current location.
- & kill_guarantee_cost
+ 
+& kill_guarantee_cost
 
-  Config parameter: kill_guarantee_cost <amount>. 
+  Config parameter: kill_guarantee_cost <amount>
   Default: 100
 
   Specifies the amount of money you have to spend (ie. kill target =
@@ -912,29 +1154,74 @@
   are no other factors, such as the victim being immortal or in a
   HAVEN room, etc).  The chance of a successful kill is <amount
   spent> / <kill_guarantee_cost>.
- 
+
   See also: kill, kill_max_cost, kill_min_cost, HAVEN, IMMORTAL,
             KILLING.
- & money_name_plural
-
-  Config parameter: money_name_plural <string>.  
-  Default: pennies
  
+& money_name_plural
+
+  Config parameter: money_name_plural <string>
+  Default: pennies
+
   Specifies the string to use to describe the coin of the realm when
   they are being referred to plurally (such as: 'You have <number>
   pennies.', where <number> is not 1).
 
   See also: money_name_singular.
- & quiet_look
  
-  Config parameter: quiet_look <yes/no>.  
+& quiet_look
+
+  Config parameter: quiet_look <yes/no>
   Default: yes
- 
+
   Indicates whether or not players are shown the attributes set on an
   object when they look at it.  Not recommended.
- & connect_reg_file
+ 
+& have_macros
 
-  Config parameter: connect_reg_file <path>. 
+  Config parameter: have_macros <yes/no>
+  Default: yes
+
+  Specifies whether or not the macro system should be active.
+
+  See also: comsys_database, have_comsys.
+ 
+& have_mailer
+
+  Config parameter: have_mailer <yes/no>
+  Default: yes
+
+  Specifies whether @mail and mail aliases should be active.
+
+  See also: mail_database
+ 
+& robot_cost
+
+  Config paramater: robot_cost <amount>
+  Default: 1000
+
+  Specifies the cost of using the @robot command to create a robot.
+
+  See also: @robot, ROBOT.
+  
+& btech_ooc_comsys
+ 
+  Config parameter: btech_occ_comsys <0/1>
+  Default: 0
+  
+  Enables code which bypasses checks to block use of the comsys from 
+  IC locations
+  
+& btech_fasaadvvtolcrit
+
+  Config parameter: btech_fasaadvvtolcrit <0/1>
+  Default: 0
+
+  Enable FASA Level 3 rules for VTOL crits and hit locations.
+ 
+& connect_reg_file
+
+  Config parameter: connect_reg_file <path>
   Default: text/register.txt
 
   Specifies the name of the file that a user sees immediately after
@@ -944,52 +1231,31 @@
   existing character, as well as the WHO and QUIT commands.
 
   See also: connect_file
- & have_macros
+ 
+& unowned_safe
 
-  Config parameter: have_macros <yes/no>. 
-  Default: yes
-
-  Specifies whether or not the macro system should be active.
- 
-  See also: comsys_database, have_comsys.
- & have_mailer
-
-  Config parameter: have_mailer <yes/no>. 
-  Default: yes
-  
-  Specifies whether @mail and mail aliases should be active.
-
-  See also: mail_database
- & robot_cost
- 
-  Config paramater: robot_cost <amount>.  
-  Default: 1000
- 
-  Specifies the cost of using the @robot command to create a robot.
- 
-  See also: @robot, ROBOT.
- & unowned_safe
- 
-  Config parameter: unowned_safe <yes/no>.  
+  Config parameter: unowned_safe <yes/no>
   Default: no
- 
+
   Indicates whether or not objects not owned by you are automatically
   considered SAFE.  (This parameter only affects wizards)  Note that
-  players are always considered SAFE, and DESTROY_OK things are 
+  players are always considered SAFE, and DESTROY_OK things are
   never considered SAFE.
- 
-  See also: @destroy, DESTROY_OK, SAFE.
- & conn_timeout
 
-  Config parameter: conn_timeout <num>.  
-  Default: 60
+  See also: @destroy, DESTROY_OK, SAFE.
+ 
+& conn_timeout
+
+  Config parameter: conn_timeout <num>
+  Default: 120
 
   Specifies how many seconds a new network connection may remain open
   before connecting to a character before being automatically
   disconnected.
- & open_cost
+ 
+& open_cost
 
-  Config parameter: open_cost <amount>. 
+  Config parameter: open_cost <amount>
   Default: 1
 
   Indicates the cost of using the @open command to open a new exit.
@@ -997,9 +1263,17 @@
   successful, then the link_cost is also charged.
 
   See also: @open, link_cost.
- & full_motd_message
+  
+& btech_xp_usepilotbvmod
+ 
+  Config parameter: btech_xp_usePilotBVmod <0/1>
+  Default: 1
+  
+  Use the pilot's skills to modify the BV of the RS unit.
+ 
+& full_motd_message
 
-  Config parameter: full_motd_message <message>. 
+  Config parameter: full_motd_message <message>
   Default: blank
 
   Sets the message that is displayed when a player attempts to connect
@@ -1009,20 +1283,22 @@
   of the full.txt file.
 
   See also: down_motd_file, max_players.
- & terse_shows_contents
  
-  Config parameter: terse_shows_contents <yes/no>.  
+& terse_shows_contents
+
+  Config parameter: terse_shows_contents <yes/no>
   Default yes
- 
+
   Indicates whether or not to suppress the listing of a location's
-  contents when producing TERSE output (whether from an automatic 
+  contents when producing TERSE output (whether from an automatic
   look or a 'real' look if look_obey_terse is turned on.
- 
+
   See also: look_obey_terse, terse_shows_exits,
             terse_shows_move_messages.
- & badsite_file
+ 
+& badsite_file
 
-  Config parameter: badsite_file <path>  
+  Config parameter: badsite_file <path>
   Default: text/badsite.txt
 
   Specifies the name of the file that is sent to new net connections
@@ -1030,7 +1306,8 @@
   connection is closed immediately after the file is sent.
 
   See also: forbid_site, permit_site.
- & logout_cmd_access
+ 
+& logout_cmd_access
 
   Config parameter: logout_cmd_access <command> <permlist>
 
@@ -1038,65 +1315,71 @@
   SESSION, QUIT, OUTPUTPREFIX, and OUTPUTSUFFIX.
 
   See also: access.
- & queue_active_chunk
  
-  Config parameter: queue_active_chunk <num>.  
-  Default: 0
- 
-  Specifies the number of commands to be run from the player queue
-  when the check for network traffic indicates that there is data 
-  needing to be read from or written to the network.
- 
-  See also: queue_idle_chunk.
- & input_database
+& queue_active_chunk
 
-  Config parameter: input_database. 
-  Default: tinymux.db
+  Config parameter: queue_active_chunk <num>
+  Default: 10
+
+  Specifies the number of commands to be run from the player queue
+  when the check for network traffic indicates that there is data
+  needing to be read from or written to the network.
+
+  See also: queue_idle_chunk.
+ 
+& input_database
+
+  Config parameter: input_database
+  Default: netmux.db
 
   Specifies the name of the database file that is read in at startup.
- 
+
   This file is used only as an input file, the parameter
   output_database controls where updated copies of the database are
   written.
 
   See also: crash_database, gdbm_database, output_database.
- & clone_copies_cost
+ 
+& clone_copies_cost
 
-  Config parameter: clone_copies_cost <yes/no>.  
+  Config parameter: clone_copies_cost <yes/no>
   Default: NO
 
   Indicates whether or not @cloned objects inherit the cost of the
   original.
- 
+
   If disabled, @cloned objects cost the same as a @create that doesn't
   specify the object cost.  The new owner is charged the correct
   amount in either case.
 
   See also: @clone.
- & player_starting_home
  
-  Config parameter: player_starting_home.  
+& player_starting_home
+
+  Config parameter: player_starting_home
   Default: <player_starting_room>
- 
+
   Specifies the room to which the home of new players is set.  If this
-  parameter has not been set, then the value of the 
+  parameter has not been set, then the value of the
   player_starting_room parameter is used instead.
- 
+
   See also: default_home, player_starting_room, @pcreate,
             player_flags.
- & player_starting_room
  
-  Config parameter: player_starting_room.  
+& player_starting_room
+
+  Config parameter: player_starting_room
   Default: 0
- 
+
   Specifies the room that new players start out in.  If the
   player_starting_home parameter has not been set, then
   player_starting_room is used for both.
- 
-  See also: player_starting_home, @pcreate, player_flags.
- & fork_dump
 
-  Config parameter: fork_dump <yes/no>. 
+  See also: player_starting_home, @pcreate, player_flags.
+ 
+& fork_dump
+
+  Config parameter: fork_dump <yes/no>
   Default: yes
 
   Indicates whether or not database dumps are to be done by fork()ing
@@ -1106,29 +1389,31 @@
   second copy of the running game.
 
   See also: fork_vfork.
- & trace_output_limit
  
-  Config parameter: trace_output_limit <amount>.  
-  Default: 200
- 
-  Specifies the maximum number of lines of trace output that will be
-  displayed when using top-down format.  Bottom-up format output is 
-  not affected by this parameter.
- 
-  Note that this parameter is intended as a limit on the amount of
-  memory used to store intermediate data and not on the quantity of 
-  trace output, top-down format needs to keep all intermediate 
-  results in memory before displaying them, while bottom-up format 
-  displays them immediately after generating them.
- 
-  When trace output lines are discarded, only the last
-  (trace_output_limit) lines are kept.  These lines contain 
-  information about the evaluations done earliest in the process of 
-  evaluating the expression (usually the innermost evaluations and 
-  earlier arguments of outer functions).
- & match_own_commands
+& trace_output_limit
 
-  Config parameter: match_own_commands <yes/no>. 
+  Config parameter: trace_output_limit <amount>
+  Default: 200
+
+  Specifies the maximum number of lines of trace output that will be
+  displayed when using top-down format.  Bottom-up format output is
+  not affected by this parameter.
+
+  Note that this parameter is intended as a limit on the amount of
+  memory used to store intermediate data and not on the quantity of
+  trace output, top-down format needs to keep all intermediate
+  results in memory before displaying them, while bottom-up format
+  displays them immediately after generating them.
+
+  When trace output lines are discarded, only the last
+  (trace_output_limit) lines are kept.  These lines contain
+  information about the evaluations done earliest in the process of
+  evaluating the expression (usually the innermost evaluations and
+  earlier arguments of outer functions).
+ 
+& match_own_commands
+
+  Config parameter: match_own_commands <yes/no>
   Default: NO
 
   Specifies whether or not objects search themselves for $-commands
@@ -1138,85 +1423,102 @@
   yes.
 
   See also: player_match_own_commands.
- & player_listen
  
-  Config parameter: player_listen.  
+& player_listen
+
+  Config parameter: player_listen
   Default: no
- 
+
   Indicates whether the Listen, Aahear, Ahear, and Amhear attributes
   on player objects are to be obeyed.
- & guest_file
+ 
+& guest_file
 
-  Config parameter: guest_file <path>. 
-  Default: text/guest.txt.
+  Config parameter: guest_file <path>
+  Default: text/guest.txt
 
   Specifies the file that is to be shown to people connecting to the
   guest character in place of the motd file.
 
   See also: guest_char_num.
- & player_flags
  
-  Config parameter: player_flags <flags>.  
-  Default: blank
- 
-  Modifies the set of flags that a player receives when it is created
-  via the @pcreate command or via the connection screen.  Flags 
-  prefixed by a ! remove the indicated flag from the set.
- 
-  See also: @list, exit_flags, robot_flags, room_flags, thing_flags.
- & good_name
+& player_flags
 
-  Config parameter: good_name <name>.
+  Config parameter: player_flags <flags>
+  Default: none
+
+  Modifies the set of flags that a player receives when it is created
+  via the @pcreate command or via the connection screen.  Flags
+  prefixed by a ! remove the indicated flag from the set.
+
+  See also: @list, exit_flags, robot_flags, room_flags, thing_flags.
+ 
+& good_name
+
+  Config parameter: good_name <name>
 
   Removes <name> from the list of names that may not be used as a
   player name, reversing the effect of a bad_name directive.  The
   name must match exactly (wildcard matching is not performed).
- & status_file
  
-  Config parameter: status_file <filename>.  
+& status_file
+
+  Config parameter: status_file <filename>
   Default: shutdown.status
- 
+
   If you give an argument to the @shutdown command, that argument is
-  written out to the file named by this directive.  The file can be 
-  used by an auto-restart script to decide whether or not to bring 
+  written out to the file named by this directive.  The file can be
+  used by an auto-restart script to decide whether or not to bring
   the MUX back up, for instance.
- & player_quota
  
-  Config parameter: player_quota <amount>.  
+& player_quota
+
+  Config parameter: player_quota <amount>
   Default: 1
- 
+
   Sets how much quota it costs to create a robot player (and also how
   much the remaining quota is increased when a robot is @destroyed.
- 
-  See also: @quota, exit_quota, room_quota, thing_quota, QUOTAS.
- & robot_flags
- 
-  Config parameter: robot_flags <flags>.  
-  Default: ROBOT
- 
-  Modifies the set of flags that a robot receives when it is created
-  via the @robot command.  Flags prefixed by a ! remove the 
-  indicated flag from the set.
- 
-  See also: @list, exit_flags, player_flags, room_flags, thing_flags.
- & gdbm_database
 
-  Config parameter: gdbm_database <path>. 
-  Default: none.
+  See also: @quota, exit_quota, room_quota, thing_quota, QUOTAS.
+ 
+& btech_xp_missilemod
+
+  Config parameter: bt_xp_missilemod <>
+  Default: 100
+  
+  Modifies the XP gained from missile based weapons.
+   
+& robot_flags
+
+  Config parameter: robot_flags <flags>
+  Default: ROBOT
+
+  Modifies the set of flags that a robot receives when it is created
+  via the @robot command.  Flags prefixed by a ! remove the
+  indicated flag from the set.
+
+  See also: @list, exit_flags, player_flags, room_flags, thing_flags.
+ 
+& gdbm_database
+
+  Config parameter: gdbm_database <path>
+  Default: none
 
   Specifies the name of the file that stores the text portion of the
   database.  The text strings are stored in a binary format optimized
   for fast retrieval and storage rather than access with programs
   such as more.
- & stack_limit
  
-  Config parameter: stack_limit <number>.  
-  Default: 50.
- 
+& stack_limit
+
+  Config parameter: stack_limit <number>
+  Default: 50
+
   The number of items that are allowed on an object's stack. You
-  should be sparse with this parameter, as stack items are retained 
+  should be sparse with this parameter, as stack items are retained
   until they are removed.
- & list_access
+ 
+& list_access
 
   Config parameter: list_access <param> [!]<privilege>
   [[!]<privilege>]...
@@ -1225,88 +1527,103 @@
   command.
 
   See also: @list, PERMISSIONS.
- & quotas
  
-  Config parameter: quotas <yes/no>.  
+& quotas
+
+  Config parameter: quotas <yes/no>
   Default: no
- 
+
   Indicates whether or not building quotas are enforced and
   maintained.
- 
+
   Quotas are stored as a relative number, ie. number of objects that
-  the player may create, not the total number that the player may 
+  the player may create, not the total number that the player may
   create.
- 
+
   If quotas are turned off and turned back on later, any building or
   @destroying that occurs in the interim does not affect the quotas.
+
+  See also: @allquota, @create, @destroy, @dig, @open, @quota, QUOTAS.
  
-  See also: @allquota, @create, @destroy, @dig, @open, @quota, QUOTAS,
-            quota_cost.
- & user_attr_access
- 
+& user_attr_access
+
   Config parameter: user_attr_access [!]<privilege>
   [[!]<privilege>]...
- 
-  Changes the access flags that new user-named attributes receive when
-  they are created.  By default, user attributes are invisible to 
-  others.
- & number_guests
 
-  Config directive: number_guests <num>.
+  Changes the access flags that new user-named attributes receive when
+  they are created.  By default, user attributes are invisible to
+  others.
+ 
+& number_guests
+
+  Config parameter: number_guests <num>
   Default: 30
 
   How many guests should we allow at any one time?
 
   See also: guest_char_num, guest_nuker, guest_prefix.
- & queue_idle_chunk
  
-  Config parameter: queue_idle_chunk <num>.  
-  Default: 3
- 
+& queue_idle_chunk
+
+  Config parameter: queue_idle_chunk <num>
+  Default: 10
+
   Specifies the number of commands to be run from the player queue
-  when the check for network traffic indicates that there is no data 
+  when the check for network traffic indicates that there is no data
   needing to be read from or written to the network.
- 
+
   See also: queue_active_chunk.
- & quiet_whisper
  
-  Config parameter: quiet_whisper <yes/no>.  
+& quiet_whisper
+
+  Config parameter: quiet_whisper <yes/no>
   Default: yes
- 
+
   Indicates whether or not whispers are completely invisible except to
-  the whispered-to player, or if a '<whisperer> whispers something 
+  the whispered-to player, or if a '<whisperer> whispers something
   to <recipient>.' message is displayed to everyone else in the same
   room.
- 
+
   See also: whisper.
- & pemit_any_object
  
-  Config parameter: pemit_any_object <yes/no>.  
+& pemit_any_object
+
+  Config parameter: pemit_any_object <yes/no>
   Default: no
- 
+
   Indicates whether or not players may @pemit to faraway objects they
-  do not control.  It does not affect @pemits to faraway players, 
+  do not control.  It does not affect @pemits to faraway players,
   the pemit_far_players directive is used for that purpose.
- 
+
   See also: pemit_far_players.
- & logout_cmd_alias
+ 
+& logout_cmd_alias
 
   Config parameter: logout_cmd_alias <alias> <command>
-  
+
   Makes <alias> an alias for <command>, where <command> is one of WHO,
   DOING, SESSION, QUIT, OUTPUTPREFIX, and OUTPUTSUFFIX.
- & sweep_dark
  
-  Config parameter: sweep_dark <yes/no>.  
+& sweep_dark
+
+  Config parameter: sweep_dark <yes/no>
   Default: no
- 
+
   Indicates whether or not players are allowed to @sweep dark places
   they do not control.
- 
-  See also: @sweep.
- & fascist_teleport
 
-  Config parameter: fascist_teleport <yes/no>. 
+  See also: @sweep.
+  
+& btech_idf_requires_spotter
+ 
+  Config parameters: btech_idf_requires_spotter <0/1>
+  Default: 1
+  
+  Enable code which requires a spotter for Indirect Fire
+ 
+& fascist_teleport
+
+  Config parameter: fascist_teleport <yes/no>
   Default: no
 
   If this parameter is set to yes, then players (and objects) may not
@@ -1314,18 +1631,20 @@
   set JUMP_OK.  If the teleporting player is inside an object, the
   room that ultimately contains the object is checked.  Going home
   is unaffected.
- & wizard_help_index
  
-  Config parameter: wizard_help_index <path>.  
+& wizard_help_index
+
+  Config parameter: wizard_help_index <path>
   Default: text/wizhelp.indx
- 
+
   Specifies the name of the index file used by the wizhelp command.
-  This file must be generated by mkindex from the wizard help file.  
-  The contents of this file are read in to a hash table when the 
+  This file must be generated by mkindex from the wizard help file.
+  The contents of this file are read in to a hash table when the
   game is started and whenever a @readcache command is executed.
- 
+
   See also: wizhelp, @readcache, wizard_help_file
- & bad_name
+ 
+& bad_name
 
   Config parameter: bad_name <wildcarded-name>
 
@@ -1335,32 +1654,49 @@
   rejected.  Normally, words that lead off messages from MUX are
   disallowed, some sites may wish to disallow some obscene names as
   well.
- & flag_alias
+ 
+& flag_alias
 
   Config parameter: flag_alias <alias> <flagname>
 
   Defines <alias> as a synonym for the flag <flagname>.
- & mail_database
+ 
+& mail_database
 
-  Config parameter: mail_database <path>. 
+  Config parameter: mail_database <path>
   Default: mail.db
 
   Sets the file that @mail information is to be stored in. The
   database is only loaded or saved if have_mailer is set to yes.
 
   See also: have_mailer.
- & room_flags
-
-  Config parameter: room_flags <flags>.  
-  Default: blank
  
+& btech_stackpole
+
+  Config parameter: btech_stackpole <0/1>
+  Default: 1
+ 
+  Determines if a unit will explode on triple engine crits
+ 
+& room_flags
+
+  Config parameter: room_flags <flags>
+  Default: none
+
   Modifies the set of flags that a room receives when it is @dug.
   Flags prefixed by a ! remove the indicated flag from the set.
- 
-  See also: @list, exit_flags, player_flags, robot_flags, thing_flags.
- & news_index
 
-  Config parameter: news_index <path>. 
+  See also: @list, exit_flags, player_flags, robot_flags, thing_flags.
+ 
+& btech_critlevel
+
+  Config parameter: btech_critlevel <number>
+  Default: 100
+
+  Specifies the percentage of armor below which TAC's can occur.
+& news_index
+
+  Config parameter: news_index <path>
   Default: text/news.indx
 
   Specifies the name of the index file used by the news command.  This
@@ -1369,10 +1705,11 @@
   started and whenever a @readcache command is executed.
 
   See also: news, @readcache, news_file
- & attr_access
+ 
+& attr_access
 
   Config parameter: attr_access
- 
+
   Changes the access rights to the named attribute.
 
   The following privileges may be used:
@@ -1381,19 +1718,28 @@
   internal    - The attribute is not visible to anyone.
   wizard      - Only wizards may change the attribute.
   hidden      - The attribute is visible only to wizards.
- & trace_topdown
  
-  Config parameter: trace_topdown <yes/no>.  
+& trace_topdown
+
+  Config parameter: trace_topdown <yes/no>
   Default: yes
- 
+
   Specifies whether TRACE output is displayed top-down (complete
   evaluation shown first, followed by sub-evaluations), or bottom-up
-(sub-evaluations shown first, followed by the larger evaluation of 
-which they are a part).
- & guest_char_num
+  (sub-evaluations shown first, followed by the larger evaluation of
+  which they are a part).
+ 
+& btech_usedmechstore
 
-  Config parameter: guest_char_num <number>. 
-  Default: (none)
+  Config parameter: btech_usedmechstore <#dbref>
+  Default 0
+
+  #dbref of the room/object used to store destroyed RS units.
+  
+& guest_char_num
+
+  Config parameter: guest_char_num <number>
+  Default: none
 
   Indicates the database number of the guest character.  If set, the
   specified guest character is subject to additional restrictions
@@ -1402,54 +1748,60 @@ which they are a part).
   parameter using the no_guest permission.
 
   See also: guest_prefix, guest_nuker, number_guests, access.
- & room_quota
  
-  Config parameter: room_quota <amount>.  
+& room_quota
+
+  Config parameter: room_quota <amount>
   Default: 1
- 
+
   Sets how much quota it costs to dig a room (and also how much the
   remaining quota is increased when a room is @destroyed.
- 
+
   See also: @quota, exit_quota, player_quota, thing_quota, QUOTAS.
- & see_owned_dark
  
-  Config parameters: see_owned_dark <yes/no>.  
+& see_owned_dark
+
+  Config parameters: see_owned_dark <yes/no>
   Default: yes
- 
+
   Specifies whether or not players see their own DARK objects when
   they look at a room.  It does not affect the inventory or examine
   commands, both of which show all objects.
- & terse_shows_exits
  
-  Config parameter: terse_shows_exits <yes/no>.  
+& terse_shows_exits
+
+  Config parameter: terse_shows_exits <yes/no>
   Default yes
- 
+
   Indicates whether or not to suppress the listing of a location's
-  obvious exits when producing TERSE output (whether from an 
+  obvious exits when producing TERSE output (whether from an
   automatic look or a 'real' look if look_obey_terse is turned on.
- 
+
   See also: look_obey_terse, terse_shows_contents,
             terse_shows_move_messages.
+
 & motd_file
 
-  Config parameter: motd_file <pathname>. 
+  Config parameter: motd_file <pathname>
   Default: text/motd.txt
 
   Specifies the name of the file to be shown to players immediately
   after they connect to their characters.
 
   See also: @readcache, newuser_file, motd_message.
- & lock_recursion_limit
+ 
+& lock_recursion_limit
 
-  Config directive: lock_recursion_limit <num>. 
+  Config parameter: lock_recursion_limit <num>
   Default: 20
 
   Sets the maximum number of levels of indirection that may be used
   when using indirect locks.  If more than this many levels are
   used, the lock fails and the user gets an error message.
- & kill_max_cost
+ 
+& kill_max_cost
 
-  Config parameter: kill_max_cost <amount>. 
+  Config parameter: kill_max_cost <amount>
   Default: 100
 
   Specifies the maximum amount of money that may be usefully spent on
@@ -1460,59 +1812,65 @@ which they are a part).
 
   See also: kill, kill_guarantee_cost, kill_min_cost, HAVEN, IMMORTAL,
             KILLING.
- & wait_cost
  
-  Config parameter: wait_cost <amount>.  
+& wait_cost
+
+  Config parameter: wait_cost <amount>
   Default: 10
- 
+
   Sets the amount of money that it costs to run the @wait command and
-  other actions that add commands to the queue.  The money is 
-  refunded when the command is removed from the queue (either when 
+  other actions that add commands to the queue.  The money is
+  refunded when the command is removed from the queue (either when
   it is executed or by @halt).
- 
+
   See also: @wait.
- & read_remote_desc
  
-  Config parameter: read_remote_desc <yes/no>.  
+& read_remote_desc
+
+  Config parameter: read_remote_desc <yes/no>
   Default: no
- 
+
   Indicates whether or not the descriptions of faraway objects are
-  available to players that don't control them via the examine 
+  available to players that don't control them via the examine
   command and get() function.
- 
+
   See also: examine, get().
- & read_remote_name
  
-  Config parameter: read_remote_name <yes/no>.  
+& read_remote_name
+
+  Config parameter: read_remote_name <yes/no>
   Default: no
- 
+
   Indicates whether or not the names of faraway objects are available
   to players that don't control them via the examine command and get()
   function.
- 
+
   See also: examine, get().
- & use_http
  
-  Config parameter: use_http <yes/no>.  
+& use_http
+
+  Config parameter: use_http <yes/no>
   Default: no
- 
+
   Indicates whether or not http access is allowed.
- & wizard_motd_message
  
-  Config parameter: wizard_motd_message <message>.  
-  Default: blank
- 
+& wizard_motd_message
+
+  Config parameter: wizard_motd_message <message>
+  Default: none
+
   Sets the wizard MOTD message that is displayed to wizards when they
   log in.
-  
-  This message is displayed in addition to the contents of the
-  wizmotd.txt file.  It can be changed with the @motd/wiz command 
-  and examined by the @listmotd command.
- 
-  See also: @listmotd, @motd, motd_message, wizard_motd_file.
- & kill_min_cost
 
-  Config parameter: kill_min_cost <amount>. 
+  This message is displayed in addition to the contents of the
+  wizmotd.txt file.  It can be changed with the @motd/wiz command
+  and examined by the @listmotd command.
+
+  See also: @listmotd, @motd, motd_message, wizard_motd_file.
+ 
+& kill_min_cost
+
+  Config parameter: kill_min_cost <amount>
   Default: 10
 
   Specifies the minimum (and default) cost for attempting to kill
@@ -1520,54 +1878,102 @@ which they are a part).
 
   See also: kill, kill_guarantee_cost, kill_max_cost, HAVEN, IMMORTAL,
             KILLING.
- & link_cost
+ 
+& forbid_site
 
-  Config parameter: link_cost <amount>. 
-  Default: 1.
+  Config parameter: forbid_site <addr> <mask>
+
+  Indicates that connections are to be rejected from sites whose
+  address  matches the specified address when ANDed with the mask.
+  The contents of the file specified by badsite_file is sent
+  immediately before closing the connection.  This directive may be
+  used to restrict access to just the local network, or to prevent
+  access from troublemaking sites.
+
+  The default is for all sites to be allowed to connect, none
+  forbidden.
+
+  See also: badsite_file, permit_site, register_site, SITE LISTS.
+ 
+& btech_hotloadaddshalfbthmod
+
+  Config parameter: btech_hotloadaddshalfbthmod <0/1>
+  Default: 0
+
+  When enabled the BTH for hotloaded LRM's is reduced to 50 percent
+  of that BTH which would apply to the same weapon if it were NOT
+  hotloaded.
+ 
+& link_cost
+
+  Config parameter: link_cost <amount>
+  Default: 1
 
   Specifies the cost of using the @link command to establish or change
   the link of an exit to its destination, the home of a player or an
   object, or the drop-to of a room.
 
   See also: @link.
- & zone_recursion_limit
  
-  Config directive: zone_recursion_limit <num>. 
+& allow_unloggedwho
+
+  Config parameter: allow_unloggedwho <0/1>
+  Default: 0
+
+  Determines whether to permit clients who have not logged in to use
+  the WHO, DOING, and SESSION commands from the login screen.
+
+  See Also: WHO, DOING, SESSION.
+  
+& btech_mw_losmap
+ 
+  Config parameter: btech_mw_losmap <0/1>
+  Default: 1
+  
+  Determines if MechWarriors always get a LOS map.
+ 
+& zone_recursion_limit
+
+  Config parameter: zone_recursion_limit <num>
   Default: 20
- 
+
   This directive specifies how far back to check a zone tree for
   control and commands.
- & search_cost
  
-  Config parameter: search_cost <amount>.  
+& search_cost
+
+  Config parameter: search_cost <amount>
   Default: 100
- 
+
   Specifies how much commands that scan the entire database (such as
   @find, @search, and stats with a playername) cost.
- 
-  See also: stats, @find, @search.
- & dump_message
 
-  Config parameter: dump_message <message>. 
-  Default: blank
+  See also: stats, @find, @search.
+ 
+& dump_message
+
+  Config parameter: dump_message <message>
+  Default: none
 
   Sets the message that is sent to everyone before the database is
   being dumped to disk, whether automatically or via the @dump
   command.
 
   See also: @dump, postdump_message.
- & thing_flags
  
-  Config parameter: thing_flags <flags>.  
-  Default: blank
- 
+& thing_flags
+
+  Config parameter: thing_flags <flags>
+  Default: none
+
   Modifies the set of flags that a thing receives when it is @created.
   Flags prefixed by a ! remove the indicated flag from the set.
- 
-  See also: @list, exit_flags, player_flags, robot_flags, room_flags.
- & newuser_file
 
-  Config parameter: newuser_file <filename>. 
+  See also: @list, exit_flags, player_flags, robot_flags, room_flags.
+ 
+& newuser_file
+
+  Config parameter: newuser_file <filename>.
   Default: text/newuser.txt
 
   Specifies the file to be shown to new players immediately after they
@@ -1576,25 +1982,28 @@ which they are a part).
   help.
 
   See also: @readcache, motd_file.
- & register_site
  
+& register_site
+
   Config parameter: register_site <addr> <mask>
- 
+
   Indicates that registration is to be enforced for sites whose
   address matches the specified address when ANDed with the mask.
- 
+
   See also: forbid_site, permit_site, REGISTRATION, SITE LISTS.
- & trust_site
  
-  Config parameter: trust_site <addr> <mask>.
- 
+& trust_site
+
+  Config parameter: trust_site <addr> <mask>
+
   Indicates that sites whose address matches the specified address
   when ANDed with the mask are not to be considered suspect.
- 
-  See also: suspect_site, SITE LISTS.
- & connect_file
 
-  Config parameter: connect_file <path>.  
+  See also: suspect_site, SITE LISTS.
+ 
+& connect_file
+
+  Config parameter: connect_file <path>
   Default: text/connect.txt
 
   Specifies the name of the file that a user sees immediately after
@@ -1603,33 +2012,36 @@ which they are a part).
   as well as the WHO and QUIT commands.
 
   See also: connect_reg_file
- & thing_quota
  
-  Config parameter: thing_quota <amount>.  
+& thing_quota
+
+  Config parameter: thing_quota <amount>
   Default: 1
-  
+
   Sets how much quota it costs to create a thing (and also how much
   the remaining quota is increased when a thing is @destroyed.
- 
+
   See also: @quota, exit_quota, player_quota, room_quota, QUOTAS.
- & sacrifice_adjust
  
-  Config parameter: sacrifice_adjust <amount>.  
-  Default -1.
- 
+& sacrifice_adjust
+
+  Config parameter: sacrifice_adjust <amount>
+  Default -1
+
   This parameter is part of the formula that is used to determine an
-  object's value given the amount spent on its creation.  The 
+  object's value given the amount spent on its creation.  The
   formula is:
 
      value = (cost / sacrifice_factor) + sacrifice_adjust.
 
   The inverse formula is used to determine how much the owner receives
   when @destroying an object.
- 
-  See also: @create, @destroy, SACRIFICING, sacrifice_factor.
- & create_max_cost
 
-  Config directive: create_max_cost <amount>.  
+  See also: @create, @destroy, SACRIFICING, sacrifice_factor.
+ 
+& create_max_cost
+
+  Config directive: create_max_cost <amount>
   Default: 505
 
   Specifies the maximum amount of money that is used in calculating
@@ -1637,129 +2049,382 @@ which they are a part).
   of money in a @create command will cause the excess to be wasted.
 
   See also: create_min_cost, sacrifice_adjust, sacrifice_factor.
- & machine_command_cost
+ 
+& machine_command_cost
 
-  Config parameter: machine_command_cost <number>. 
+  Config parameter: machine_command_cost <number>
   Default: 64
 
   Sets the cost for running a command from a machine, as opposed to
   running it interactively.  Each command run has a one in <number>
   chance of being charged one coin for machine overhead.
- & include
+  
+& btech_extendedmovemod
+ 
+  Config parameter: btech_extendedmovemod <0/1>
+  Default: 1
+  
+  Determines whether to use the Maxtech extended target movement 
+  modifiers.
+ 
+& include
 
-  Config parameter: include <path>. 
+  Config parameter: include <path>
   Default: none
 
   Reads and processes configuration directives from the named file.
 
   This directive is only valid during startup.
- & command_quota_max
+ 
+& command_quota_max
 
-  Config parameter: command_quota_max <amount>. 
+  Config parameter: command_quota_max <amount>
   Default: 100
 
   Specifies the maximum value for the command quota for connected
   users.
- 
+
   A user's command quota is only increased if it is below this value.
   Each command a user types in (commands executed by machines do not
   count) decreases the quota by 1, and the user's commands are only
   executed if the quota is greater than zero.
 
   See also: command_quota_increment, timeslice.
- & create_min_cost
+ 
+& create_min_cost
 
-  Config directive: create_min_cost <amount>. 
+  Config parameter: create_min_cost <amount>
   Default: 10
 
   Specifies the minimum (and default) cost for creating an object.
 
   See also: create_max_cost, sacrifice_adjust, sacrifice_factor.
- & parent_recursion_limit
+ 
+& parent_recursion_limit
 
-  Config directive: parent_recursion_limit <num>. 
+  Config parameter: parent_recursion_limit <num>
   Default: 10
 
   This directive specifies how far back to check parents for commands
   and attributes.
- & output_database
  
-  Config parameter: output_database <pathname>.  
-  Default: none
- 
-  Specifies the file to which the database is to be written when
-  writing checkpoint dumps or writing the final dump after receiving 
-  a @shutdown command.
-  
-  See also: @dump, @shutdown, checkpoint_database, input_database.
- & help_file
+& output_database
 
-  Config parameter: help_file <path>. 
+  Config parameter: output_database <pathname>
+  Default: none
+
+  Specifies the file to which the database is to be written when
+  writing checkpoint dumps or writing the final dump after receiving
+  a @shutdown command.
+
+  See also: @dump, @shutdown, checkpoint_database, input_database.
+ 
+& btech_explode_reactor
+
+  Config parameter: btech_explode_reactor <0/1>
+  Default: 1
+
+  Determines if players are able to use the 'explode reactor' command
+  to self-destruct their unit.
+
+  See Also: btech_explode_stop, btech_explode_ammo.
+ 
+& btech_failures
+
+  Config parameter: btech-failures <0/1>
+  Default: 1
+
+  Determines if RS units will suffer random failure of components.
+ 
+& help_file
+
+  Config parameter: help_file <path>
   Default: text/help.txt
 
   Specifies the name of the file containing the text used by the help
   command.
 
   See also: help, help_index
- & switch_default_all
  
-  Config parameter: switch_default_all <yes/no>.  
+& switch_default_all
+
+  Config parameter: switch_default_all <yes/no>
   Default: yes
- 
+
   Indicates whether the @switch command should perform the commands
-  for all targets that match or just the first one that matches if 
+  for all targets that match or just the first one that matches if
   you don't specify either /all or /first as a command switch.
- & sacrifice_factor
  
-  Config parameter: sacrifice_factor <amount>.  
-  Default 5.
+& btech_exile_stun_code
+
+  Config parameter: btech_exile_stun_code <0/1>
+  Default: 0
+
+  Enables the head hit stun code originally implemented on Exile Mux.
  
+& sacrifice_factor
+
+  Config parameter: sacrifice_factor <amount>
+  Default 5
+
   This parameter is part of the formula that is used to determine an
-  object's value given the amount spent on its creation.  The 
+  object's value given the amount spent on its creation.  The
   formula is:
 
      value = (cost / sacrifice_factor) + sacrifice_adjust.
 
   The inverse formula is used to determine how much the owner receives
   when   @destroying an object.
- 
-  See also: @create, @destroy, SACRIFICING, sacrifice_adjust.
- & suspect_site
- 
-  Config parameter: suspect_site <addr> <mask>
- 
-  Indicates that sites whose address matches the specified address
-  when ANDed with the mask are to be considered suspect, and any 
-  player creates, connects and disconnects are to be reported to all 
-  logged-in wizards.
- 
-  See also: trust_site, SITE LISTS.
- & fixed_tel_message
 
-  Config parameter: fixed_tel_message <string>. 
+  See also: @create, @destroy, SACRIFICING, sacrifice_adjust.
+  
+& btech_seismic_see_stopped
+ 
+  Config parameter: btech_seismic_see_stopped
+  Default: 0
+  
+  Determines if seismic sensors can detect a unit which is not moving.
+  
+& suspect_site
+
+  Config parameter: suspect_site <addr> <mask>
+
+  Indicates that sites whose address matches the specified address
+  when ANDed with the mask are to be considered suspect, and any
+  player creates, connects and disconnects are to be reported to all
+  logged-in wizards.
+
+  See also: trust_site, SITE LISTS.
+ 
+& fixed_tel_message
+
+  Config parameter: fixed_tel_message <string>
   Default: none
 
   Specifies the string that is sent to a player when they try to
   teleport while they are set with the FIXED flag.
 
   See also: fixed_home_message.
- & news_file
+ 
+& btech_afterlife_dbref
 
-  Config parameter: news_file <path>. 
+  Config parameter: btech_afterlife_dbref <#dbref>
+  Default: 220
+
+  The room to which a player is moved after suffering death
+ 
+& btech_glancing_blows
+
+  Config parameter: btech_glancing_blows <0/1/2>
+  Default: 1
+
+  Arguments:
+  0   Don't permit glancing blows
+  1   Use Maxtech rules (BTH)
+  2   Use Exile rules (BTH-1)
+& news_file
+
+  Config parameter: news_file <path>
   Default: text/news.txt
 
   Specifies the name of the file containing the text used by the news
   command. You may use ANSI color sequences in news.
- 
-  See also: news, news_index
- & hostnames
 
-  Config parameter: hostnames <yes/no>. 
+  See also: news, news_index
+ 
+& btech_moddamagewithrange
+
+  Config parameter: btech_moddamagewithrange <0/1>
+  Default: 0
+ 
+  Enables a modifier which varies damage from energy weapons by
+  range.
+
+  When enabled damage is increased by +1 for ranges <=1 hex and
+  reduced by -1 for ranges which are 'long' for that weapon.
+ 
+& hostnames
+
+  Config parameter: hostnames <yes/no>
   Default: yes
 
   Indicates whether or not IP addresses should be replaced with host
   names where possible in the log file and wizard WHO report.
- & btarmorstatus_ref()
+ 
+& btech_moddamagewithwoods
+
+  Config parameter: btech_moddamagewithrange <0/1>
+  Default: 0
+
+  Enables a modifier which varies damage to a unit if it occupies
+  a hex with light or heavy woods.
+
+  When enabled damage is reduced by -2 for light woods and
+  by -4 for heavy woods.
+
+  Note: The modifier does not affect the BTH for the shot. Nor does
+  the terrain type of any intervening hexes (ie hexes the shot must
+  pass through to reach the target).
+  
+& bt-mechfreqs
+
+  Compile option: --disable-bt-mwfreqs
+  Default: enabled
+ 
+  Disabled the code which copies a units frequencies to a disembarking
+  player.
+  
+& bt-advanced-econ
+
+  Compile option: --disable-bt-advanced-econ
+ 
+  Disabled the advanced econ system
+ 
+  See Also: btsetpartcost(), btgetpartcost(), btfasabasecost() 
+& bt-scaled-infrared
+
+  Compile option: --disable-scaled-infrared
+  Default: enabled
+ 
+  Use a scaled BTH system that increases chance to hit on infrared
+  sensors as targets get hotter. When disabled, a unit is either hot
+  (-1 BTH) or not (>= +0 BTH).
+  
+& bt-movement-modes
+
+  Config option: --disable-bt-movement-modes
+  Default: enabled
+ 
+  Disabled advanced movement modes such as spring, dodge, and evade
+  
+& bt-overspeeding
+
+  Compile option: --enable-bt-overspeeding
+  Default: disabled
+ 
+  Enables units to exceed than their max speed as they lose armor and
+  expend ammunition and thereby lose weight.
+  
+& bt-mw3stats
+
+  Compile option: --disable-mw3-stats
+  Default: enabled
+ 
+  Disables the use of a MUX implementation of MW3 stats
+  
+& bt-complexrepairs
+
+  Compile option: --enable-bt-complexrepairs
+  Default: disabled
+ 
+  Enables per-tonnage parts for units. For example, you'd need a
+  gyro built specifically for a 85 ton mech to replace an 85 ton
+  mech's gyro. This is the case for most of the parts with this
+  config directive enabled. You may need to rebuild your hcode.db
+  file after enabling/disabling this.
+  
+& hudinfo-support
+
+  Compile option: --disable-hudinfo-support
+  Default: enabled
+
+  Disables the HUDINFO protocol which supports clients using graphical
+  HUDs
+  
+& enhanced-logging
+
+  Compile option: --disable-enhanced-logging
+  Default: enabled
+ 
+  Disables support for arbitrary server logs
+  
+& bt-freetechtime
+
+  Compile option: --enable-bt-freetechtime
+  Default: disabled
+ 
+  Enables carrying out of repairs and tech activities virtually
+  instantly.
+  
+& --enable-sql-support
+
+  Compile option: --enable-sql-support
+  Default: disabled
+ 
+  Enables the MUX->SQL port. This functions in the form of starting
+  sqlslave processes alongside the main netmux to handle SQL queries
+  via @query. This is great if you want to integrate your game and
+  website together for things like player rankings. If you enable
+  this, you will need libdbi and one or more of the libdbi database
+  drivers installed.
+ 
+& comment
+
+  Syntax: @comment <object> = <text>
+  Attribute: comment
+ 
+  This attribute can only be set by wizards. It is used to contain any
+  comments about the player which the wizard may wish to set.
+ 
+& buildentrance
+
+  Attribute: buildentrance [x,y] [x,y] [x,y] [x,y]
+
+  This attribute is set on an object holding a sub-map and details
+  the coordinates on that map that a unit will be placed at when
+  entering.
+
+  The attribute is a space delimited list of the coordinates in the
+  order north, east, south, west
+
+  Example:
+  Given that #87 is a 10x10 hangar with entrances at the north (5,0),
+  east (9,5), south (5,9) and west (0,5).
+
+  >ex #87/buildentrance
+  Buildentrance: 5,0 9,5 5,9 0,5
+ 
+  A unit issuing the 'enterbase n' command would arrive on the hangar
+  map at 5,0
+
+
+  See Also: buildcoord, buildlinks, updatelinks.
+ 
+& buildcoord
+
+  Attribute: buildcoord X,Y
+
+  This attribute is set on an object holding a sub-map and details
+  the coordinates of the entrance to that map from the map it is
+  accessible from.
+ 
+  Example:
+  Given that #87 is a hangar with an entrance at 100,100 on #62 which
+  is the main RS map.
+ 
+  >ex #87/buildcoord
+  Buildcoord: 100,100
+ 
+ 
+  See Also: buildentrace, buildlinks, updatelinks.
+   
+& buildlinks
+ 
+  Attribute: buildlinks [num] [num] ...
+  
+  This attribute contains a space delimited list of the #dbrefs of 
+  objects holding submaps.
+  
+  Example:
+  Given that #62 is a map object with 3 submaps, the dbrefs of which 
+  are #75, #103, and #105.
+  
+  >ex #62/buildlinks
+  Buildlinks: 75 103 105
+  
+  See Also: buildcoord, buildentrace, updatelinks
+  
+& btarmorstatus_ref()
 
   Syntax: btarmorstatus_ref(<UnitRef>,<location|All>)
 
@@ -1771,7 +2436,7 @@ which they are a part).
   <current front armor>/<templated front armor>|
   <current internal>/<templated internal>|<current rear
   armor>/<templated rear armor>
-  
+
   Note: As this is a reference function, the return string will show
   no damage unless the unit was actually templated with damage.
 
@@ -1784,7 +2449,8 @@ which they are a part).
     * Any other errors will return #-1 ERROR
 
   Continued in btarmourstatus_ref()2
-  & btgetxcodevalue()
+ 
+& btgetxcodevalue()
 
   Syntax: btgetxcodevalue(<ObjectDB>,<xcodevalue>)
 
@@ -1801,6 +2467,7 @@ which they are a part).
 
   > think btgetxcodevalue(#62, mapvis)
   30
+
 & btweapstat()
 
   Syntax: btweapstat(<weaponname>,<stat>)
@@ -1829,6 +2496,7 @@ which they are a part).
   * <stat> = BV returns the Battle Value of the weapon
 
   Continued in btweapstat()2
+
 & btpartmatch()
 
   Syntax: btpartmatch(<PartName>)
@@ -1849,6 +2517,7 @@ which they are a part).
     #-1 PARTNAME TOO LONG
 
   Continued in btpartmatch()2
+
 & btloadmap()2
 
   Error Messages:
@@ -1866,6 +2535,7 @@ which they are a part).
   Shutting down Mech #1234 and restting map index to -1....
   Shutting down Mech #2345 and restting map index to -1....
   1
+
 & btdamagemech()
 
   Syntax:
@@ -1891,6 +2561,7 @@ which they are a part).
     * 19-21 = Random rear hitlocation
 
 Continued in btdamagemech()2
+
 & btloadmech()
 
   Syntax: btloadmech(<MechOBJ>,<mechref>)
@@ -1899,7 +2570,7 @@ Continued in btdamagemech()2
 
   The function returns 1 if successful.
 
-	Note: To be considered a 'valide mech object' the object must be 
+	Note: To be considered a 'valide mech object' the object must be
 	set with the XCODE flag and have the XTYPE:MECH attribute set
 	
 	Note: This function loads the appropriate xcode values for <mechref>
@@ -1919,6 +2590,7 @@ Continued in btdamagemech()2
 
   > think btloadmech(#1234,EXT-4D)
   1
+
 & bttechstatus()
 
   Syntax: bttechstatus(<UnitDB>)
@@ -1932,7 +2604,7 @@ Continued in btdamagemech()2
     * C3I_Tech            * C3MasterTech        * C3SlaveTech
     * CargoTech           * CL_AMS              * Clan
     * CompactEngine_Tech  * CritProof_Tech      * DoubleHS
-    * ECM                 * EndoSteel_Tech    
+    * ECM                 * EndoSteel_Tech  
     * FerroFibrous_Tech   * FlipArms            * ICEEngine_Tech
     * IS_AMS              * LightEngine_Tech    * Masc
     * OmniMech_Tech       * SalvageTech         * SearchLight
@@ -1945,7 +2617,8 @@ Continued in btdamagemech()2
   src/hcode/btech/template.c
 
   Continued in bttechstatus()2
- & btarmorstatus_ref()2
+ 
+& btarmorstatus_ref()2
 
   Example:
 
@@ -1955,6 +2628,7 @@ Continued in btdamagemech()2
   21/21|21/21|8/8
   > think btarmorstatus_ref(EXT-4D,all)
   168/168|104/104
+
 & btdamages()
 
   Syntax: btdamages(<UnitDB>)
@@ -1982,6 +2656,7 @@ Continued in btdamagemech()2
   * <typenum> 20 requires a replacesuit
 
 Continued in btdamages()2
+
 & btgetbv_ref()
 
   Syntax: btgetbv_ref(<UnitRef>)
@@ -2000,13 +2675,15 @@ Continued in btdamages()2
   > think btgetbv_ref(EXT-4D)
   925
 
-  See also: btgetbv& btgetxcodevalue_ref()
+  See also: btgetbv
+ 
+& btgetxcodevalue_ref()
 
   Syntax: btgetxcodevalue_ref(<UnitRef>,<xcodevalue>)
 
   This function returns the value stored in <xcodevalue> on the
   specified 'reference' unit - ie the default templated value.
- 
+
 	Note: Unlike btgetxcodevalue this function will only work on objects
 	which are set XTYPE:MECH
 
@@ -2021,8 +2698,10 @@ Continued in btdamages()2
 
   > think btgetxcodevalue_ref(THE-N, maxspeed)
   96.75
+
+  See Also: btgetxcodevalue()
  
-  See Also: btgetxcodevalue()& btunitfixable()
+& btunitfixable()
 
   Syntax: btunitfixable(<UnitDB>)
 
@@ -2043,6 +2722,7 @@ Continued in btdamages()2
   1
   > think btunitfixable(#2345)
   0
+
 & btweapstat()2
 
   Note: <type> will return 0 for energy weapons, 1 for missile
@@ -2060,6 +2740,7 @@ Continued in btdamages()2
 
   > think btweapstat(cl.erppc,bv)
   412
+
 & btpartmatch()2
 
   Example:
@@ -2077,7 +2758,9 @@ Continued in btdamages()2
   20, LRM-5.
 
 	Note: Placement position of wildcards is extremely critical. *LRM
-	does not equal LRM* or *LRM*& bttechlist()
+	does not equal LRM* or *LRM*
+	
+& bttechlist()
 
   Syntax: bttechlist(<UnitDB>)
 
@@ -2095,7 +2778,9 @@ Continued in btdamages()2
   > think bttechlist(#2299)
   DHS SS FUS MTOW
 
-  See Also: bttechlist_ref()& bttechlist_ref()
+  See Also: bttechlist_ref()
+ 
+& bttechlist_ref()
 
   Syntax: bttechlist_ref(<UnitREF>)
 
@@ -2115,7 +2800,8 @@ Continued in btdamages()2
   DHS ECM BAP SL ES LENG  CASE
 
   See also: bttechstatus(), bttechlist()
- & btarmorstatus()
+ 
+& btarmorstatus()
 
   Syntax: btarmorstatus(<UnitDB>,<location>)
 
@@ -2142,7 +2828,9 @@ Error Messages:
   > think btarmorstatus(#1234,lt)
   13/18|14/14|6/6
 
-  See Also: btarmorstatus_ref()& btmechfreqs()
+  See Also: btarmorstatus_ref()
+ 
+& btmechfreqs()
 
   Syntax: btmechfreqs(<UnitDB>)
 
@@ -2163,6 +2851,7 @@ Error Messages:
     INVALID TARGET
 
   Continued in btmechfreqs()2
+
 & btweaponstatus_ref()2
 
   Argument:
@@ -2193,8 +2882,9 @@ Error Messages:
 
  > think btweaponstatus_ref(#1234,la)
  0|MediumLaser|1|0|20|0|0|0,1|MediumLaser|1|0|20|0|0|0
+
 & btweaponstatus()2
- 
+
   * 0 = Beam Weapon
   * 1 = Missile Weapon
   * 2 = Artillery Weapon
@@ -2220,6 +2910,7 @@ Error Messages:
 
   > think btweaponstatus(#1234,la)
   0|MediumLaser|1|0|20|10|0|0,1|MediumLaser|1|0|20|0|0|0
+
 & btloadmap()
 
   Syntax: btloadmap(<MapOBJ>,<mapname>[,<clear>])
@@ -2240,8 +2931,9 @@ Error Messages:
 	Note: The argument for <mapname> is case sensitive.
 
   Continued in btloadmap()2
-  & btmakemechs()2
  
+& btmakemechs()2
+
   Error Messages:
 
   * If the number of arguments is < 2 the function returns #-1
@@ -2267,6 +2959,7 @@ Error Messages:
 
   > think btmakemechs(dc,500,1,60,10)
   CRD-3R DRG-1C DRG-1C DRG-1N DV-6M HBK-4J SHD-2K TBT-5J
+
 & btdamagemech()2
 
   Hit Locations
@@ -2296,6 +2989,7 @@ Error Messages:
   * 3 = Aft
   * 4 = Turret
   * 5 = Rotor
+
 & btdamagemech()3
 
   AttemptCrit arguments
@@ -2324,6 +3018,7 @@ Error Messages:
   The occupants of any units within LOS will see:
 
   unit name [ID] GETS BANGED
+
 & bttechtime()
 
   Syntax: bttechtime()
@@ -2335,8 +3030,9 @@ Error Messages:
   Given that #1234 is player who has 27 minutes and 14 seconds of
   techtime remaining
 
-  > think bttechtime(#1234)                                                        
+  > think bttechtime(#1234)                                                      
   00:27:14
+
 & btgetrealmaxspeed()
 
   Syntax: btgetrealmaxspeed(<UnitDB>)
@@ -2356,6 +3052,7 @@ Error Messages:
 
   > think btgetrealmaxspeed(#1234)
   86.000000
+
 & btsetcharvalue()
 
   Syntax: btsetcharvalue(<ObjectDB>,<skill/attribute>,<value>,<mode>)
@@ -2378,13 +3075,14 @@ Error Messages:
   * 2 - adds <value> to the XP amount of <skill/attribute>
 
   Continued in btsetcharvalue()2
+
 & btfasabasecost_ref()
 
   Syntax: btfasabasecost_ref(<UnitRef>)
 
   This function calculates the FASA cost for the reference unit
   <UnitRef> - ie the default templated unit.
- 
+
 	Note: The information returned by this function requires the bt-
 	advanced-econ compile-time directive.
 	
@@ -2403,7 +3101,9 @@ Error Messages:
   > think btfasabasecost_ref(ext-4d)
   15315135
 
-  See also: btgetpartcost(), btsetpartcost()& btcharlist()2
+  See also: btgetpartcost(), btsetpartcost()
+ 
+& btcharlist()2
 
   Example:
   Given that #dbref 1234 is a valid player
@@ -2420,7 +3120,8 @@ Error Messages:
   Title Toughness Wealth Well-Connected Well_Equipped Dodge_Maneuver
   Maneuvering_Ace Melee_Specialist Pain_Resistance Speed_Demon
   Tech_Aptitud
- & btengrate_ref()
+ 
+& btengrate_ref()
 
   Syntax: btengrate_ref(<UnitRef>)
 
@@ -2439,7 +3140,9 @@ Error Messages:
   > think btengrate_ref(EXT-4D)
   390 0
 
-  See Also: btengrate& btstores()
+  See Also: btengrate()
+ 
+& btstores()
 
   Syntax: btstores(<MapDB>[,<partname>])
 
@@ -2468,6 +3171,7 @@ Error Messages:
   Armor:5|Engine:5|IS.LargeLaser:2
   > think btstores(#62,Armor)
   5
+
 & btcritslot_ref()
 
   Syntax: btcritslot_ref(<UnitRef>,<location>,<critslot>,<typeflag>)
@@ -2475,7 +3179,7 @@ Error Messages:
   This function returns the details about the contents of the
   specified <critslot> in <location> on a reference unit ie the
   default templated value.
- 
+
 	Note: As this is a reference function, the return string will show
 	no damage unless the unit was actually templated with damage.
 
@@ -2494,6 +3198,7 @@ Error Messages:
   normal mode, the function returns a blank string
 
   Continued in btcritslot_ref()2
+
 & btlosm2m()
 
   Syntax: btlosm2m(<UnitDB>,<TargetUnitDB>)
@@ -2517,6 +3222,7 @@ Error Messages:
   1
   > think btlosm2m(#1234,#3456)
   0
+
 & btgetweight()
 
   Syntax: btgetweight(<partname>)
@@ -2533,8 +3239,10 @@ Error Messages:
 
   > think btgetweight(xxl_engine)
   1.000
+
+  See Also: btpartweight()
  
-  See Also: btpartweight()& btmakepilotroll()2
+& btmakepilotroll()2
 
   Error Messages:
 
@@ -2562,6 +3270,7 @@ Error Messages:
   <Further messages indicating damage to the unit>
 
   Continued in btmakepilotroll()3
+
 & btmakepilotroll()3
 
   In the event that the pilot fails the roll, and fails the damage
@@ -2576,6 +3285,7 @@ Error Messages:
   You attempt to keep consciousness!
   Retain Conciousness on: 3       Roll: 8
   <Further messages indicating damage to the unit>
+
 & bthexemit()
 
   Syntax: bthexemit(<MapDB>,<x>,<y>,<message>)
@@ -2603,6 +3313,7 @@ Error Messages:
   The occupants of any units within LOS will see:
 
   Fascinating emit
+
 & btaddstores()
 
   Syntax: btaddstores(<ObjectDB>,<partname>,<quantity>)
@@ -2628,6 +3339,7 @@ Error Messages:
 
   > think btaddstores(#62,armor,1000)
   2000
+
 & btpayload_ref()
 
   Syntax: btpayload_ref(<UnitRef>)
@@ -2652,6 +3364,7 @@ Error Messages:
   > think btpayload_ref(ext-4d)
   IS.MediumLaser:4|IS.LRM-10:1|IS.Anti-MissileSystem:1
   |IS.SmallLaser:1|Ammo_IS.Anti-MissileSystem:1|Ammo_IS.LRM-10:1
+
 & bttechstatus()2
 
   Error Messages:
@@ -2665,6 +3378,7 @@ Error Messages:
 
   > think bttechstatus(#1234)
   DoubleHS ECM BeagleProbe SearchLight EndoSteel_Tech LightEngine_Tech
+
 & btunderrepair()
 
   Syntax: btunderrepair(<UnitDB>)
@@ -2683,6 +3397,7 @@ Error Messages:
   1
   > think btunderrepair(#1024)
   0
+
 & btgetrange()
 
   Syntax: btgetrange(<MapOBJ>,<arg1>,<arg2>[,<arg3>[,<arg4>[,<arg5>
@@ -2702,29 +3417,31 @@ Error Messages:
   or implicitly with a unit.)
 
  Continued in btgetrange()2
+
 & btsetmaxspeed()
 
   Syntax: btsetmaxspeed(<UnitDB>,<speed>)
- 
+
   This function sets the running or flank speed for an RS unit to the
   valude specified. Consequently this sets the walk or cruise speed
   for the unit also.
- 
+
   Note - the speed specified is expressed in kph, not movement points.
- 
+
   Note - if <speed> is not a valid number the units max speed will be
   set to 0.
- 
+
   Error Messages:
   * if <UnitDB> is not a valid RS unit the function will return
     #-1 NOT A MECH
-   
+ 
   Example:
   Given that #1111 is a valid RS unit, and the desired speed is 222
   kph
 
   > think btsetmaxspeed(#1111,222)
   1
+
 & btsetcharvalue()2
 
   Error Messages:
@@ -2746,6 +3463,7 @@ Error Messages:
   Labrat's Medtech set to 5
   > think btsetcharvalue(#1234, medtech, 2, 2)
   Labrat gained 2 more Medtech XP.
+
 & btcritstatus_ref()2
 
   <crittype> returns a value indicating the type of item stored at
@@ -2773,6 +3491,7 @@ Error Messages:
   responsibility to ensure a correct argument
 
   Continued in btcritstatus_ref()3
+
 & btcritstatus_ref()3
 
   Example:
@@ -2784,6 +3503,7 @@ Error Messages:
   |HandOrFootActuator|0|3,5||MediumLaser|0|1,6||MediumLaser|0|1,7|
   |Empty|0|5,8||Empty|0|5,9||Empty|0|5,10||Empty|0|5,11||Empty|0|5,12|
   |Empty|0|5
+
 & btsetxy()
 
   Syntax: btsetxy(<UnitDB>,<MapDB>,<x>,<y>[,<z>])
@@ -2816,6 +3536,7 @@ Error Messages:
 
   > think btsetxy(#1234,#62,10,10,0)
   1
+
 & btweaponstatus_ref()
 
   Syntax: btweaponstatus_ref(<UnitRef>[,<location>])
@@ -2828,7 +3549,7 @@ Error Messages:
   <weapon number>|<weapon name>|<number of crits>|<part
   quality>|<weapon recycle time>|<recycle time left>|<weapon
   type>|<weapon status>
- 
+
 	Note: As this is a reference function, the return string will show
 	no damage unless the unit was actually templated with damage.
 	
@@ -2836,6 +3557,7 @@ Error Messages:
 	fired.
 
   Continued in btweaponstatus_ref()2
+
 & btcritstatus_ref()
 
   Syntax: btcritstatus_ref(<UnitRef>,<location>)
@@ -2857,27 +3579,30 @@ Error Messages:
   <operational> returns 0 if the <critslot> is functional, -1 if the
   part at <critslot> is destroyed
 
-  Continued in btcritstatus_ref()2& btlistblz()
+  Continued in btcritstatus_ref()2
  
+& btlistblz()
+
   Syntax: btlistblz(<MapDB>)
- 
-  This function lists those hexes on <MapDB> which are blocked landing 
+
+  This function lists those hexes on <MapDB> which are blocked landing
   zones.
- 
+
   The lists is formated <x> <y> <z> and delimited with the | character
 
   Error Messages:
- 
-  * if <MapDB> is not a valid Map the function will return 
-    #-1 INVALID MAP. 
- 
+
+  * if <MapDB> is not a valid Map the function will return
+    #-1 INVALID MAP.
+
   Example:
- 
-  Given that #1234 is a valid Map Object with 4 bases at 20 20, 
-  20 40, 40 20, and 40 40. 
+
+  Given that #1234 is a valid Map Object with 4 bases at 20 20,
+  20 40, 40 20, and 40 40.
 
   > think btlistblz(#1234)
   20 20 0|20 40 0|40 20 0|40 40 0
+
 & btremovestores()
 
   Syntax: btremovestores(<ObjectDB>,<partname>,<quantity>)
@@ -2903,6 +3628,7 @@ Error Messages:
 
   > think btremovestores(#62,armor,1000)
   1000
+
 & btcritstatus()
 
   Syntax: btcritstatus(<UnitDB>,<location>)
@@ -2934,8 +3660,9 @@ Error Messages:
   <crittype> will return 4, indicating a cargo crittype
 
  Continued in btcritstatus()2
- & btmapemit()
-   
+ 
+& btmapemit()
+ 
   Error Messages:
 
   * If <MapDB> is not valid the function returns #-1 INVALID MAP
@@ -2951,6 +3678,7 @@ Error Messages:
   The occupant(s) of any units on the map will see:
 
   Fascinating Message
+
 & btweaponstatus()
 
   Syntax: btweaponstatus(<UnitDB>[,<location>])
@@ -2971,6 +3699,7 @@ Error Messages:
   <Weapon Type> is listed as:
 
   Continued in btweaponstatus()2
+
 & bthexlos()
 
   Syntax: bthexlos(<UnitDB>,<x>,<y>)
@@ -2996,6 +3725,7 @@ Error Messages:
   1
   > think bthexlos(#1234,20,20)
   0
+
 & btthreshold()
 
   Syntax: btthreshold(<skill>)
@@ -3015,7 +3745,9 @@ Error Messages:
 
 	Note: The amount returned by btthreshold is NOT the only factor in
 	determining if a player will 'level up'. Further calculations
-	modify the required XP dynamically.& btgetcharvalue()
+	modify the required XP dynamically.
+ 
+& btgetcharvalue()
 
   Syntax: btgetcharvalue(<ObjectDB>,<skill/attribute>,<mode>)
 
@@ -3043,25 +3775,28 @@ INVALID VALUE
   6
   > think btgetcharvalue(#1234, perception, 2)
   16
+
 & btsetarmorstatus()
- 
+
   Syntax: btsetarmorstatus(<UnitDB>,<location>,<armortype>,<amount>)
- 
+
   This function sets the armor on <UnitDB>'s <location> to <amount>.
-  <armortype> determines which armor for the specified location is 
+  <armortype> determines which armor for the specified location is
   set:
     * 0 - Front armor
     * 1 - Internal armor
-    * 2 - Rear armor (where applicable) 
+    * 2 - Rear armor (where applicable)
 
   This function permits <amounts> in excess of the templated value
 	
-	Note: Esnure that <amount> is numeric. Using a non-numeric argument 
+	Note: Esnure that <amount> is numeric. Using a non-numeric argument
         will result in the armor value being set to 0
-	Note: This function only impacts on <UnitDB> and has no effect on 
+	Note: This function only impacts on <UnitDB> and has no effect on
 	      the template for a unit
 
-  Continued in btsetarmorstats()2& btpartweight()
+  Continued in btsetarmorstats()2
+ 
+& btpartweight()
 
   Syntax: btpartweight (<partname>)
 
@@ -3076,7 +3811,9 @@ INVALID VALUE
   Given that XXL_ENGINE is a valid part and weighs 1
 
   > think btgetweight(xxl_engine)
-  1.000& btmapunits()2
+  1.000
+ 
+& btmapunits()2
 
   Error Messages:
 
@@ -3099,6 +3836,7 @@ INVALID VALUE
   #1234 #2345
   think btmapunits(#62,0,0,0,14)
   #1234
+
 & btmakepilotroll()
 
   Syntax: btmakepilotroll(<UnitDB>,<roll modifier>,<damage modifer>)
@@ -3115,7 +3853,7 @@ INVALID VALUE
   then the <damage modifier> is added to the pilot-skill base to
   provide the base-to-hit of a roll to determine if the player will
   suffer damage.
- 
+
   If the pilot makes the damage roll, the unit is damaged but not the
   player, and the event is complete.
 
@@ -3130,6 +3868,7 @@ INVALID VALUE
     * If the pilot fails the initial roll the function returns 0.
 
   Continued in btmakpilotroll()2
+
 & btsetpartcost()
 
   Syntax: btsetpartcost(<partname>,<cost>)
@@ -3156,6 +3895,7 @@ INVALID VALUE
 
   > think btsetpartcost(vtol_fuel,500)
   500
+
 & btmapelev()
 
   Syntax: btmapelev(<MapDB>,<x>,<y>)
@@ -3180,6 +3920,7 @@ INVALID VALUE
   -3
   > think btmapelev(#62,27,61)
   ?
+
 & btcritslot()2
 
   Error Messages:
@@ -3211,6 +3952,7 @@ INVALID VALUE
   A
   > think btcritslot(#1234,lt,3,maxammo)
   15
+
 & btmapemit()
 
   Syntax: btmapemit(<MapDB>,[x, y, z, range,]<message>)
@@ -3229,10 +3971,11 @@ INVALID VALUE
     all units within <range> of <x>,<y>,<z>
 
 	Note: The function does not take the altitude of a unit into
-  consideration when ascertaining if it is within range UNLESS the 
+  consideration when ascertaining if it is within range UNLESS the
   third form is used (ie the <z> argument is included)
 
   Continued in btmapemit()2
+
 & btsetxcodevalue()
 
   Syntax: btsetxcodevalue(<ObjectDB>,<xcodevalue>,<value>)
@@ -3256,8 +3999,9 @@ INVALID VALUE
 
   > think btsetxcodevalue(#62, mapvis,20)
   1
+
 & btmechfreqs()2
- 
+
   Example: Given a unit #1234 with the following listchannels:
   # -- 	Mode -- 	Frequency -- 	Comtitle
   A 	DR-G 	123 	Title A
@@ -3272,6 +4016,7 @@ INVALID VALUE
   > think btmechfreqs(#1234)
   1|123|ac|G,2|234|-|-,3|345|ab|b,4|456|a|w,5|567|a|r,6|678|-|-
   ,7|789|a|y,8|0|-|-
+
 & btcritstatus()2
 
   Error Messages:
@@ -3297,6 +4042,7 @@ ensure a
   ||MediumLaser|0|1,6||MediumLaser|-
   1|1,7||Empty|0|5,8||Empty|0|5,9||Empty|0|5,10||Empty|0|5,
   11||Empty|0|5,12||Empty|0|5
+
 & btgetbv()
 
   Syntax: btgetbv(<UnitDB>)
@@ -3323,7 +4069,9 @@ ensure a
   > think btgetbv(#1234)
   866
 
-  See also: btgetbv_ref& btdamages()2
+  See also: btgetbv_ref
+ 
+& btdamages()2
 
 	Note: <typenum> complies with the damages defined in
 	src/hcode/btech/mech.tech.damages.h
@@ -3351,7 +4099,8 @@ ensure a
   * Other errores result in #-1 ERROR
 
 Continued in btdamgaes()3
- & btdamages()3
+ 
+& btdamages()3
 
   Example:
 
@@ -3362,11 +4111,12 @@ Continued in btdamgaes()3
   Actuator|0,6|LA|16|Lower Actuator|0,7|LA|16|Hand
   Actuator|0,8|LA|17|MediumLaser|0,9|RL|16|Hip|0,10|RL|16|Upper
   Actuator|0,11|RL|16|Lower Actuator|0,12|RL|16|Foot
-  Actuator|0,13|RL|16|HeatSink|0,14|RL|16|HeatSink|0,15|LL|16|Hip|  
+  Actuator|0,13|RL|16|HeatSink|0,14|RL|16|HeatSink|0,15|LL|16|Hip|
   0,16|LL|16|Upper Actuator|0,17|LL|16|Lower Actuator|0,18|LL|16|Foot
   Actuator|0,19|LL|16|HeatSink|0,20|LL|16|HeatSink|0,21|H|16|Life
   Support|0,22|H|16|Sensors|0,23|H|16|Cockpit|0,24|H|17|MediumLaser|
   0,25|H|16|Sensors|0,26|H|16|Life Support|0
+
 & btpartname()
 
   Syntax: btpartname(<PartNum>,<nametype>)
@@ -3399,7 +4149,9 @@ Continued in btdamgaes()3
   > think btpartname(16,VLong)
   Ammo_CL.StreakLRM-10
 
-  See Also: btpartmatch()& btengrate()
+  See Also: btpartmatch()
+ 
+& btengrate()
 
   Syntax: btengrate(<UnitDB>)
 
@@ -3417,7 +4169,9 @@ Continued in btdamgaes()3
   > think btengrate(#1234)
   390 0
 
-  See Also: btengrate_ref& btshowstatus_ref()
+  See Also: btengrate_ref()
+ 
+& btshowstatus_ref()
 
   Syntax: btshowstatus_ref(<UnitRef>,<targetplayer>,<location>)
 
@@ -3444,7 +4198,9 @@ Continued in btdamgaes()3
   1
 
   Player #99 will see the same output as if he/she had run the command
-  'critstatus ct' in an EXT-4D& btcritslot()
+  'critstatus ct' in an EXT-4D
+ 
+& btcritslot()
 
   Syntax: btcritslot(<UnitDB>,<location>,<critslot>,<typeflag>)
 
@@ -3467,7 +4223,8 @@ Continued in btdamgaes()3
   normal mode, the function returns a blank string
 
  Continued in btcritslot()2
- & btgetpartcost()
+ 
+& btgetpartcost()
 
   Syntax: btgetpartcost(<partname>)
 
@@ -3491,9 +4248,11 @@ Continued in btdamgaes()3
   > think btgetpartcost(vtol_fuel)
   500
 
-  See Also: btsetpartcost(), btfasabasecost_ref()& btcritslot_ref()2
+  See Also: btsetpartcost(), btfasabasecost_ref()
+ 
+& btcritslot_ref()2
 
-   
+ 
   Error Messages:
 
   * If <UnitRef> is not a valid reference the function returns
@@ -3516,10 +4275,11 @@ Continued in btdamgaes()3
   > think btcritslot_ref(CHP-1N,lt,1,data)
   0
   > think btcritslot_ref(CHP-1N,lt,1,mode)
-  
+
   > think btcritslot_ref(CHP-1N,lt,3,maxammo)
   15
- & btmakemechs()
+ 
+& btmakemechs()
 
   Syntax: btmakemechs(<faction>,<totaltons>,[<types>,[<opttonnage>,
           [<maxvariation>]]])
@@ -3550,6 +4310,7 @@ Continued in btdamgaes()3
   <maxvariation> is the maximum variation past <opttonnage>.
 
   Continued in btmakemechs()2
+
 &  btcharlist()
 
   Syntax:
@@ -3569,9 +4330,10 @@ Continued in btdamgaes()3
       attributes the function will return #-1 INVALID VALUE
     * If the optional argument specified is not a valid player name or
       #dbref the function returns #-1 INVALID TARGET
-  
+
   Continued in btcharlist()2
-  & btshowwspecs_ref()
+ 
+& btshowwspecs_ref()
 
   Syntax: btshowwspecs_ref(<UnitRef>,<targetplayer>)
 
@@ -3596,7 +4358,9 @@ Continued in btdamgaes()3
   1
 
   Player #99 will see the same output as if he/she had run the command
-  weaponspecs in an EXT-4D& btparttype()
+  weaponspecs in an EXT-4D
+ 
+& btparttype()
 
   Syntax: btparttype(<partname>)
 
@@ -3623,6 +4387,7 @@ Continued in btdamgaes()3
 
   > think btparttype(cl.erppc)
   WEAP
+
 & btgetrange()2
 
   Error Messages:
@@ -3651,6 +4416,7 @@ Continued in btdamgaes()3
   13.000007
    > think btgetrange(#62,14,1,10,10)
   9.643657
+
 & btmapterr()
 
   Syntax: btmapterr(<MapDB>,<x>,<y>)
@@ -3678,8 +4444,9 @@ Continued in btdamgaes()3
   #
   > think btmapterr(#62,10,60)
   ?
+
 & btmapunits()
- 
+
   Syntax: btmapunits(<MapOBJ>,[<x>,<y>,<z>,<range>])
 
   This function returns a space delimited list of the dbrefs of
@@ -3699,6 +4466,7 @@ Continued in btdamgaes()3
 	third form is used (ie the <z> argument is included)
 
   Continued in btmapunits()2
+
 & btnumrepjobs()
 
   Syntax: btnumrepjobs(<UnitDB>)
@@ -3715,7 +4483,9 @@ Continued in btdamgaes()3
   Right Arm
 
   > think btmumrepjobs(#1234)
- 2& btid2db()
+  2
+ 
+& btid2db()
 
   Syntax: btid2db(<UnitDB>,<target ID>)
 
@@ -3738,6 +4508,7 @@ Continued in btdamgaes()3
 
   > think btid2db(#1234,FL)
   #2345
+
 & bthexinblz()
 
   Syntax: bthexinblz(<MapOBJ>,<x>,<y>)
@@ -3759,6 +4530,7 @@ Continued in btdamgaes()3
 
   >think bthexinblz(#62,10,11)
   1
+
 & btdesignex()
 
   Syntax: btdesignex(<UnitRef>)
@@ -3770,11 +4542,12 @@ Continued in btdamgaes()3
 
   Example:
 
-  > think btdesignex(AS7-D)                                                        
+  > think btdesignex(AS7-D)                                                      
   1
   > think btdesignex(AS20-C)
   0
- & btlag()
+ 
+& btlag()
 
   Syntax: btlag()
 
@@ -3788,24 +4561,26 @@ Continued in btdamgaes()3
   0
   > think btlag()
   1
+
 & btsetarmorstatus()2
- 
+
   Error Messages:
-  * if <UnitDB> is not a valid RS unit the function will return 
+  * if <UnitDB> is not a valid RS unit the function will return
     #-1 NOT A MECH
-  * if <location> is not valid the function returns 
+  * if <location> is not valid the function returns
     #-1 INVALID SECTION
-  * if <armortype> is not valid the function returns 
+  * if <armortype> is not valid the function returns
     #-1 INVALID ARMORTYPE
-  * if <value> is not valid (eg a negative number) the function will 
+  * if <value> is not valid (eg a negative number) the function will
     return #-1 INVALID ARMORVALUE
-  * Any other errors will return #-1 ERROR 
+  * Any other errors will return #-1 ERROR
 
   Example:
   Given that #1234 is a valID RS Unit
-  
+
   > think btsetarmorstatus(#1234,ct,2,7)
   1
+
 & btshowcritstatus_ref()
 
   Syntax: btshowstatus_ref(<UnitRef>,<targetplayer>,<location>)
@@ -3820,7 +4595,7 @@ Continued in btdamgaes()3
 	to the mux.
 
   Error Messages:
- 
+
   * If <UnitRef> is not a valid unit the function returns #-1 NO
     SUCH MECH
   * If <targetplayer> is not a player the function returns #-1
@@ -3834,8 +4609,7 @@ Continued in btdamgaes()3
 
   Player #99 will see the same output as if he/she had run the command
   'critstatus ct' in an EXT-4D
- 
-& help
+ & help
  
   This is the MUX online help facility for wizard commands and topics.
   The information provided by this command is generally not useful for
@@ -3857,3 +4631,12 @@ Continued in btdamgaes()3
   If there are any errors in the help text, please notify a Wizard.
  
   See also: help
+
+& @comment
+
+  Syntax: @comment <object> = <text>
+  Attribute: comment
+
+  This attribute can only be set by wizards. It is used to contain any
+  comments about the player which the wizard may wish to set.
+ 
