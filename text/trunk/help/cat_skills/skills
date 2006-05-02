@@ -1,0 +1,18 @@
+
+& skills
+ 
+ >> Help: Skills
+ -----------------------------------------------------------------------------
+  For the sake of organization, we will break the skill listing up into
+  different categories for easier browsing. Please choose one of the
+  topics listed below to view the associated skills.
+ 
+  Skill Categories
+  ================
+   * Skills-Combat
+   * Skills-Econ
+   * Skills-Technician
+   * Skills-Misc
+ -----------------------------------------------------------------------------
+ To view a skill category, use 'help <topic>' without the <>'s.
+ 
