@@ -8,3 +8,4 @@
   set on an object, only that object will not relay its messages.
   
   See also: @set, @trigger
+
