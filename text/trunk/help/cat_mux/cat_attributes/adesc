@@ -2,7 +2,7 @@
 & adescribe
 
   Syntax: @adescribe <object> = <command-list>
-  Attribute: Adescribe
+  Attribute: Adesc
 
   Sets the actions to be taken when <object> is looked at.
 
