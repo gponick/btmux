@@ -1,15 +1,16 @@
+ 
 & fold()
  
   Syntax: fold([<obj>/]<attr>, <list>[, <base-case>[, <delim>])
  
-  This function iteratively processes a list through a function, 
-  feeding the result of one step into the next step as %0, passing in 
-  the next element from the list as %1. If a base case is provided, it 
-  is used as the initial %0. If not, the first list element is passed 
-  as %0 and the second is passed as %1, and subsequent iterations 
+  This function iteratively processes a list through a function,
+  feeding the result of one step into the next step as %0, passing in
+  the next element from the list as %1. If a base case is provided, it
+  is used as the initial %0. If not, the first list element is passed
+  as %0 and the second is passed as %1, and subsequent iterations
   proceed normally.
  
-  <delimiter> may be used to specify a delimiter other than space, but 
+  <delimiter> may be used to specify a delimiter other than space, but
   you must specify a base case in order to specify the delimiter.
  
   Example:
@@ -22,3 +23,4 @@
   You say "15"
  
   See Also: u(), iter(), map(), filter()
+ 

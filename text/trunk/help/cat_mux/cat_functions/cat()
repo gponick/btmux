@@ -1,9 +1,10 @@
+ 
 & cat()
  
   Syntax: cat(<string>[,<stringN>])
  
-  This function returns a string made up of the contents of <string1> 
-  through <stringN>, with each string separated from its neighbors by 
+  This function returns a string made up of the contents of <string1>
+  through <stringN>, with each string separated from its neighbors by
   a space.
  
   Example:
@@ -14,4 +15,4 @@
   You say "This is another test of the CAT function"
  
   See Also: setunion(), setdiff(), setinter().
-	
+ 

@@ -1,3 +1,4 @@
+ 
 & grepi()
  
   Syntax: grepi(<object>,<attrs>,<pattern>)
@@ -5,3 +6,4 @@
   This function works exactly like grep(), but is case-insensitive.
  
   See Also: grep()
+ 

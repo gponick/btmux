@@ -1,9 +1,10 @@
+ 
 & vmul()
  
   Syntax: vmul(<vector|number>,<vector|number>[,<delimiter>])
  
-  Returns the result of either multiplying a vector by a number, or 
-  the "dot product" (elementwise product) of two vectors. The dot 
+  Returns the result of either multiplying a vector by a number, or
+  the "dot product" (elementwise product) of two vectors. The dot
   product of a b c by w x z is aw bx cz
  
   Example:
@@ -13,4 +14,5 @@
   > think vmul(1 2 3,2 3 4)
   2 6 12
  
-	See Also: vmag(), vdim(), vadd(), vsub(), vunit()
+  See Also: vmag(), vdim(), vadd(), vsub(), vunit()
+ 

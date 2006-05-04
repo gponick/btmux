@@ -1,8 +1,8 @@
  
 & @malias
-
+ 
   Syntax: @malias
-
+ 
   This allows you to generate and maintain mailing lists with the mail
   system. All mail aliases start with '*', and are case-sensitive.
   (*dir is different than *Dir).  There are two kinds of mail
@@ -14,14 +14,14 @@
  
   Currently there is no limit to the number of people you can have on
   a mailing alias.
-
+ 
   To begin sending mail to a mailing list, use @mail *<alias>=subject.
-
+ 
   Usage:
-
+ 
   @malias                   Displays a list of all mail aliases.
   @malias *<alias>          Displays a list of people on that alias.
   @malias *<alias>=<list>   Creates that mailing list, using <list>.
-
+ 
   { 'help @malias2' for more}
-  
+ 

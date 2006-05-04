@@ -1,13 +1,14 @@
+ 
 & merge()
  
   Syntax: merge(<string1>,<string2>,<character>)
  
-  This function merges <string1> and <string2>, depending on 
-  <character>. If a character in <string1> is the same as <character>, 
-  it is replaced by the character in the corresponding position in 
+  This function merges <string1> and <string2>, depending on
+  <character>. If a character in <string1> is the same as <character>,
+  it is replaced by the character in the corresponding position in
   <string2>. The two strings must be of the same length.
  
-  Spaces need to be treated specially. A null character is considered 
+  Spaces need to be treated specially. A null character is considered
   to equal a space, for <character>.
  
   Example:
@@ -18,3 +19,4 @@
   You say, "ABcdEF"
  
   See Also: splice()
+ 

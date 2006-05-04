@@ -1,9 +1,10 @@
+ 
 & idle()
  
   Syntax: idle(<player>)
  
-  Returns the number of seconds that <player> has been idle. If 
-  <player> is not connected then -1 is returned. If <player> is 
+  Returns the number of seconds that <player> has been idle. If
+  <player> is not connected then -1 is returned. If <player> is
   connected more than once, the smallest idle time is returned.
  
   Example:
@@ -11,9 +12,9 @@
   > WHO
   Player Name          On For Idle  Doing
   Wizard                00:04   1m
-  Mortal                00:11   0s  
-  Evinar                00:12   6m  
-  frobozz               00:32   6s  
+  Mortal                00:11   0s 
+  Evinar                00:12   6m 
+  frobozz               00:32   6s 
   4 Players logged in.
   > say idle(wiz)
   You say "6"
@@ -22,4 +23,5 @@
   > say idle(frobozz)
   You say "-1"
  
-	See Also: WHO, conn(), lwho()
+  See Also: WHO, conn(), lwho()
+ 

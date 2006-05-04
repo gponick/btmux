@@ -1,8 +1,9 @@
+ 
 & lattr()
  
   Syntax: lattr(<object>[/<wild-pattern>])
  
-  Returns a list of the attributes set on <object>. If <wild-pattern> 
+  Returns a list of the attributes set on <object>. If <wild-pattern>
   is given, only attributes matching it are returned.
  
   Example:
@@ -22,3 +23,4 @@
   You say "VC VE VV"
  
   See Also: hasattr(), get(), u()
+ 

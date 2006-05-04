@@ -1,3 +1,4 @@
+ 
 & strlen()
  
   Syntax: strlen(<string>)
@@ -9,3 +10,4 @@
     You say "14"
     > say strlen(Would you like coffee, or perhaps tea)
     You say "37"
+   

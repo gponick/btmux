@@ -1,11 +1,12 @@
+ 
 & revwords()
  
   Syntax: revwords(<string>[, <delim>])
  
-  Reverses the order of the words of <string>. A word is considered to 
-  be any sequence of nonblank characters, separated by blanks, so 
-  punctuation characters that follow a word are considered part of 
-  the word. <delim> may be used to specify a delimiter other than a 
+  Reverses the order of the words of <string>. A word is considered to
+  be any sequence of nonblank characters, separated by blanks, so
+  punctuation characters that follow a word are considered part of
+  the word. <delim> may be used to specify a delimiter other than a
   space.
  
   Example:
@@ -15,4 +16,5 @@
   > say revwords(Was it a cat I saw?)
   You say "saw? I cat a it Was"
  
-	See Also: reverse()
+  See Also: reverse()
+ 

@@ -1,4 +1,4 @@
- 
+
 & @lock attribute
 
   ATTRIBUTE LOCKS:
@@ -22,3 +22,4 @@
   tested.
 
 { 'help @lock attribute2' for more}
+.

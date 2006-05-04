@@ -1,13 +1,14 @@
+ 
 & u()
  
   Syntax: u([<obj>/]<attr>[,<arg>]...)
  
-  The u function evaluates an attribute, either from the object 
-  performing the function or from another object you own, passing in 
+  The u function evaluates an attribute, either from the object
+  performing the function or from another object you own, passing in
   arguments and returning the result.
  
-  When evaluating the fetched attribute, %# refers to the original 
-  enactor and not the 'calling' object, and 'me' refers to the object 
+  When evaluating the fetched attribute, %# refers to the original
+  enactor and not the 'calling' object, and 'me' refers to the object
   that supplied the attribute.
  
   Example:
@@ -22,3 +23,4 @@
   You say "Word is u, arg2 is Foobar."
  
   See Also: s(), v(), get(), get_eval(), map()
+ 

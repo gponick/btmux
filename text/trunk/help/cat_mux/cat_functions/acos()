@@ -1,8 +1,9 @@
+ 
 & acos()
  
   Syntax: acos(<number>)
  
-  This function returns the arc-cosine of <number>, expressed in 
+  This function returns the arc-cosine of <number>, expressed in
   radians.
  
   Example:
@@ -17,3 +18,4 @@
   You say "0.5236"
  
   See also: asin(), atan(), cos(), pi(), sin(), tan().
+ 

@@ -1,9 +1,10 @@
+ 
 & parse()
  
   Syntax: parse(<list>,<eval>[,<delimiter>])
-
-  This function takes each element of <list>, evaluates <eval> after 
-  substituting it for ##, and constructs a space-separated list of the 
+ 
+  This function takes each element of <list>, evaluates <eval> after
+  substituting it for ##, and constructs a space-separated list of the
   results.
  
   Example:
@@ -13,4 +14,5 @@
   > say parse(This|is|a|string|length|test,strlen(##),|)
   You say "4 2 1 6 6 4"
  
-	See Also: @dolist, iter(), map()
+  See Also: @dolist, iter(), map()
+ 

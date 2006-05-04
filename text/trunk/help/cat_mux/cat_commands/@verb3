@@ -1,6 +1,6 @@
  
 & @verb3
-
+ 
   Examples:
     > &xtest test1=You just xtested test1.
     > &oxtest test1=just xtested test1.
@@ -19,6 +19,6 @@
     D,axtest,{a,b,de}}
     test1 just xtested test1.
     test1 says "I was xtested. Yikes. Arg1=a, Arg2=b, Arg3=de."
-
+ 
   See also: locate()
-  
+ 

@@ -1,3 +1,4 @@
+ 
 & vdim()
  
   Syntax: vdim(<vector>[,<delimiter>])
@@ -7,5 +8,6 @@
   Example:
   > think vdim(1 2 3 4)
   4
- 	
+   
   See Also: vmul(), vadd(), vsub(), vunit(), vmag()
+ 

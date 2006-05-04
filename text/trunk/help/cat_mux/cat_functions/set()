@@ -1,9 +1,11 @@
+ 
 & set()
  
   Syntax: set(<name>, <string>)
  
-  Works the same as @set, <name> and <string> are equivalent to what 
-  comes before and after the '=' sign. Returns nothing. This is a side 
+  Works the same as @set, <name> and <string> are equivalent to what
+  comes before and after the '=' sign. Returns nothing. This is a side
   effect function, and should only be used when necessary.
  
   See Also: @set
+ 

@@ -1,10 +1,11 @@
+ 
 & first()
  
   Syntax: first(<string>[, <delim>])
  
-  Returns the first word of a string, that is, everything to the left 
-  of the first space in the string, or the entire string if there are 
-  no spaces in the string. <delim> may be used to specify a word 
+  Returns the first word of a string, that is, everything to the left
+  of the first space in the string, or the entire string if there are
+  no spaces in the string. <delim> may be used to specify a word
   delimiter other than a space.
  
   Example:
@@ -16,4 +17,5 @@
   > say first(List&with&nonstandard&delimiters,&)
   You say "List"
  
-	See Also: rest(), last(), extract()
+  See Also: rest(), last(), extract()
+ 

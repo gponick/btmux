@@ -1,8 +1,9 @@
+ 
 & round()
  
   Syntax: round(<number>,<places>)
  
-  Rounds <number> to <places> decimal places. <number> may be a 
+  Rounds <number> to <places> decimal places. <number> may be a
   floating point number, and an integer result is returned.
  
   Example:
@@ -18,4 +19,5 @@
   > say round(-5.5,0)
   You say "-6"
  
-	See Also: div(), floor(), mod(), trunc()
+  See Also: div(), floor(), mod(), trunc()
+ 

@@ -1,3 +1,4 @@
+ 
 & div()
 
   Syntax: div(<number1>,<number2>)
@@ -17,7 +18,8 @@
     You say "6"
     > say div(-17,3)
     You say -5
-   
-  This function may also be called as idiv().
  
+  This function may also be called as idiv().
+
   See also: add(), fdiv(), mod(), mul(), round(), sub(), trunc().
+ 

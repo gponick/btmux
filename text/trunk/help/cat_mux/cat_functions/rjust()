@@ -1,10 +1,11 @@
+ 
 & rjust()
  
   Syntax: rjust(<string>, <length>[, <fill>])
  
-  This function pads a string with leading <fill> characters, or with 
-  spaces if no fill character is given) ("right-justifies") so it is 
-  <length> long. If <string> is longer than <length>, the <string> is 
+  This function pads a string with leading <fill> characters, or with
+  spaces if no fill character is given) ("right-justifies") so it is
+  <length> long. If <string> is longer than <length>, the <string> is
   returned; it is not truncated.
  
   Example:
@@ -18,4 +19,5 @@
   > say =[rjust(bar,5,.)]=
   You say "=..bar="
  
-	See Also: ljust()
+  See Also: ljust()
+ 

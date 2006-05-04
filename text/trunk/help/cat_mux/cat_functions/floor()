@@ -1,8 +1,9 @@
+ 
 & floor()
  
   Syntax: floor(<number>)
  
-  Returns the largest integer less than or equal to <number>. <number> 
+  Returns the largest integer less than or equal to <number>. <number>
   may be a floating point number, and an integer result is returned.
  
   Example:
@@ -18,4 +19,5 @@
   > say floor(-5.2)
   You say "-6"
  
-	See Also: ceil(), div(), mod(), round(), trunc()
+  See Also: ceil(), div(), mod(), round(), trunc()
+ 

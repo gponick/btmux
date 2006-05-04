@@ -1,6 +1,6 @@
  
 & @chzone
-
+ 
   Syntax: @chzone <object>=<zone object>.
  
   Changes the zone of <object> to <zone object>. If <zone object> is
@@ -17,4 +17,4 @@
   non-player objects.
  
   See also: ZONE OBJECTS
-  
+ 

@@ -1,3 +1,4 @@
+ 
 & asin()
  
   Syntax: asin(<number>)
@@ -12,7 +13,8 @@
   You say "1.570796"
   > say asin(0.707101)
   You say "0.78539"
-  > say asin(0.5)  
+  > say asin(0.5)
   You say "0.523599"
  
   See Also: acos(), atan(), cos(), pi(), sin(), tan().
+ 

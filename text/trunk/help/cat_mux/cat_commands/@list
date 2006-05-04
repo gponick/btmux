@@ -1,8 +1,8 @@
  
 & @list
-
+ 
   Syntax: @list [<option>]
-
+ 
   Lists information from internal databases.  Information is available
   about the following options:
     attributes      - Valid object attributes.
@@ -21,6 +21,6 @@
                       switches that they do support.
   The information provided by the @list command is definitive, as it
   reads the internal tables to produce the information it displays.
-
+ 
   Specifying @list with no argument lists the options you may use.
-  
+ 

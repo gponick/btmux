@@ -1,12 +1,13 @@
+ 
 & after()
  
   Syntax: after(<string1>, <string2>)
  
   This function returns the portion of <string1> that occurs after <
-  string2>. If <string2> does not occur in <string1>, a null string is 
-  returned. 
-  
-  If you want to return the portion of the string after the first 
+  string2>. If <string2> does not occur in <string1>, a null string is
+  returned.
+ 
+  If you want to return the portion of the string after the first
   space, use the rest() function instead.
  
   Example:
@@ -19,4 +20,4 @@
   You say ""
  
   See also: before(), first(), rest().
-  
+ 

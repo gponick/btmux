@@ -1,3 +1,4 @@
+ 
 & atan()
  
   Syntax: atan(<number>)
@@ -12,6 +13,6 @@
   You say "0.785398"
   > say atan(1.557408)
   You say "1"
- 	
-  See Also: acos(), asin(), cos(), pi(), sin(), tan().
   
+  See Also: acos(), asin(), cos(), pi(), sin(), tan().
+ 

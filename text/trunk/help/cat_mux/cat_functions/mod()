@@ -1,8 +1,9 @@
+ 
 & mod()
  
   Syntax: mod(<integer1>,<integer2>)
  
-  Returns the integer remainder from dividing <integer1> by 
+  Returns the integer remainder from dividing <integer1> by
   <integer2>.
  
   Example:
@@ -16,4 +17,5 @@
   > say mod(18,3)
   You say "0"
  
-	See Also: add(), fdiv(), div(), mul(), round(), sub(), trunc()
+  See Also: add(), fdiv(), div(), mul(), round(), sub(), trunc()
+ 

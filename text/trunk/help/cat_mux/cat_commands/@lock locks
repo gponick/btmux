@@ -1,4 +1,4 @@
- 
+
 & @lock locks
 
   You can set the following locks:
@@ -18,7 +18,7 @@
                                    determines control of that zone.
      GiveLock:     Players/Things: controls who may give the object.
      LeaveLock:    Players/Things: controls who may LEAVE the object.
-    
+ 
      LinkLock:     All but Exits:  controls who may link to the
                                    location if the location is LINK_OK
                                    (for linking exits or setting drop-
@@ -29,3 +29,4 @@
      ReceiveLock:  Players/Things: controls who may give things to the
                                    object.
 { 'help @lock locks2' for more}
+ 

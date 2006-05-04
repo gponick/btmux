@@ -1,14 +1,14 @@
  
 & @prefix
-
+ 
   Syntax: @prefix <object> = <prefix text>
   Attribute: Prefix
-
+ 
   This attribute, when set, will be used as a prefix for all text
   forwarded by the 'audible' flag on an object or exit.  The default
   if this attribute is not set is 'From <object name>,' for objects,
   and 'From a distance,' for exits.
-
+ 
   Example:
     > @fo test=out
     > @set #378=puppet
@@ -21,6 +21,6 @@
     > :does something even sillier.
     Wizard does something even sillier.
     test> From some strange place Wizard does something even sillier.
-
+ 
   See also: AUDIBLE, @filter, @forwardlist, @infilter, @inprefix
-  
+ 

@@ -1,10 +1,11 @@
+ 
 & room()
  
   Syntax: room(obj)
  
-  Returns the number of the room that <obj> is in, or would be in if 
-  it executed leave commands until it got to a room. You can find out 
-  the containing room of objects you own, nearby objects, and 
+  Returns the number of the room that <obj> is in, or would be in if
+  it executed leave commands until it got to a room. You can find out
+  the containing room of objects you own, nearby objects, and
   findable players.
  
   Example:
@@ -18,9 +19,10 @@
   A bare room with nothing in it but a bed and a chair.
   > say I am in [room(me)], the cat is in room [room(cat)].
   You say "I am in #367, the cat is in room #367."
-  > @fo hat=get cat 
+  > @fo hat=get cat
   cat has left.
   > say The cat is in [loc(#325)] within room [room(#325)].
   You say "The cat is in #368 within room #367."
  
-	See Also: loc(), UNFINDABLE
+  See Also: loc(), UNFINDABLE
+ 

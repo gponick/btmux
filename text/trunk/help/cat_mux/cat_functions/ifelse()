@@ -1,16 +1,17 @@
+ 
 & ifelse()
  
   Syntax: ifelse(<expression>,<true string>,<false string>)
  
-  This function returns <true string> if <expression> is true (greater 
-  than 0), <false string> otherwise. Much more efficient than an 
-  equivalent switch(). It can also return different messages based on 
+  This function returns <true string> if <expression> is true (greater
+  than 0), <false string> otherwise. Much more efficient than an
+  equivalent switch(). It can also return different messages based on
   whether <expression> is nothing or contains text.
  
   Example:
  
   > &TEST me=1
-  >&TEST.F me=ifelse(hasattr(me,TEST),Test exists!,Test doesn't 
+  >&TEST.F me=ifelse(hasattr(me,TEST),Test exists!,Test doesn't
   exist.)
   > say [u(TEST.F)]
   You say "Test exists!"
@@ -19,6 +20,7 @@
   You say "Test exists!"
   > @wipe me/TEST
   > say [u(TEST.F)]
-  You say "Test doesn't exist!" 
+  You say "Test doesn't exist!"
  
-	See Also: switch()
+  See Also: switch()
+ 

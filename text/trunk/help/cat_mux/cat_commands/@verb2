@@ -1,6 +1,6 @@
  
 & @verb2
-
+ 
   Here is a description of the arguments to @verb:
     victim - The object that is searched for attributes, and which
              runs the <awhat> attribute if it is found.
@@ -19,12 +19,13 @@
              have an <owhat> attribute, or it cannot be read.
     awhat  - The name of the attribute that is to be executed by the
              victim.
-            
+         
     args   - The comma-separated arguments to be passed for
              substitution (%0-%9).  If there is more than one
               argument,
-             enclose all the arguments within curly  braces. 
+             enclose all the arguments within curly  braces.
              Any argument that contains an embedded comma needs to be
              enclosed in curly braces as well.
-
+ 
 { 'help @verb3' for more}
+ 

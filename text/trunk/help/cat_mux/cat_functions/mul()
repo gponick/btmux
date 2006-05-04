@@ -1,9 +1,10 @@
+ 
 & mul()
  
    Syntax: mul(<number1>,<number2>[,<numberN>]...)
  
-  Returns the result of multiplying its arguments together. <numberN> 
-  may be a floating point number, and a floating point result is 
+  Returns the result of multiplying its arguments together. <numberN>
+  may be a floating point number, and a floating point result is
   returned.
  
   Example:
@@ -13,4 +14,5 @@
   > say mul(3,5,-2)
   You say "-30"
  
-	See Also: add(), div(), fdiv(), mod(), round(), sub(), trunc()
+  See Also: add(), div(), fdiv(), mod(), round(), sub(), trunc()
+ 

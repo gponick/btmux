@@ -1,3 +1,4 @@
+ 
 & zfun()
  
   Syntax: zfun(<attrib>, <arg0>[, <arg1>[, ...]])
@@ -5,3 +6,4 @@
   Evaluates <attrib> on the enactor's zone object with parameters.
  
   See Also: zone(), zplayers(), zwho()
+ 

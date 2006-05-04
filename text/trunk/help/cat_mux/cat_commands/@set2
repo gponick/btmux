@@ -1,6 +1,6 @@
  
 & @set2
-
+ 
   The following flags may be set using the fourth form of the @set
   command:
      no_command - Prevent $-commands and ^-patterns defined in the
@@ -16,9 +16,9 @@
                   regular expression rather than a wildcard glob
                   pattern.
      wizard     - The attribute may only be changed by wizards.
-
+ 
   The @set command takes the following switch:
      quiet      - Inhibit 'Set.' acknowledgement messages.
-
+ 
   See also: @lock, @lock, examine, FLAGS,&
-  
+ 
