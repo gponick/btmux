@@ -1,12 +1,12 @@
 
 & lrs
 
-  Command: LRS <M|T|E|L|S|H|C> [<BEARING> <RANGE> | <TARGET-ID>]
- 
+  RS Command: LRS <M|T|E|L|S|H|C> [<BEARING> <RANGE> | <TARGET-ID>]
+
   Displays a long range map.
- 
+
   Arguments:
- 
+
   * M - MECH - displays RS units
   * T - TERRAIN - displays terrain features (buildings, trees, water,
         etc)
@@ -17,6 +17,6 @@
   * C - COMBINED - displays a the elevation of a hex (including 0) and
         colors the value depending on the terrain type (light green
         for light forrest, dark green for heavy forrest, etc)
-  
-   Continued in lrs2    
+ 
+   Continued in lrs2   
  
