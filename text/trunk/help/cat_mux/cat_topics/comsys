@@ -11,8 +11,7 @@
   The "Guests" channel for guests is aliases to "g".
  
   Aliases are the most common way to manipulate channels, and may be
-used in
-  2 different ways:
+  used in 2 different ways:
         <alias> <who|on|off>
         <alias> <message>
  
