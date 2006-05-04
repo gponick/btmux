@@ -1,3 +1,4 @@
+ 
 & home()
  
   Syntax: home(<object>)
@@ -17,4 +18,5 @@
   > say home(me)
   You say "#367"
  
-	See Also: @link
+  See Also: @link
+ 

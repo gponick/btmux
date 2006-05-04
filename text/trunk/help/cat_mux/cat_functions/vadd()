@@ -1,8 +1,9 @@
+ 
 & vadd()
  
   Syntax: vadd(<vector>,<vector>[,<delimiter>])
  
-  Returns the sum of two vectors. A vector is a list of numbers 
+  Returns the sum of two vectors. A vector is a list of numbers
   separated by spaces or a delimiter, and may be up to 20-dimensional.
  
   Example:
@@ -12,4 +13,5 @@
   > think vadd(0|0|0,1|2|3,|)
   1|2|3
  
-	See Also: vmul(), vdim(), vsub(), vunit(), vmag()
+  See Also: vmul(), vdim(), vsub(), vunit(), vmag()
+ 

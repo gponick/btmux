@@ -1,8 +1,9 @@
+ 
 & words()
  
   Syntax: words(<string>[, <delim>])
  
-  Returns the number of words in <string>. <delim> may be used to 
+  Returns the number of words in <string>. <delim> may be used to
   specify a delimiter other than a space.
  
   Example:
@@ -13,3 +14,4 @@
   > You say "7"
   say words(This:is:a:colon:separated:list,:)
   > You say "6"
+ 

@@ -1,3 +1,4 @@
+ 
 & lnum()
  
   Syntax: lnum(<number>)
@@ -6,5 +7,5 @@
  
   Example:
  
-  > say lnum(5) 
+  > say lnum(5)
  You say "0 1 2 3 4"

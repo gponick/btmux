@@ -1,9 +1,10 @@
+ 
 & abs()
  
   Syntax: abs(<number>)
  
-  This function returns the absolute value of its argument. 
-  The <number> may be a floating point number, as well as return a 
+  This function returns the absolute value of its argument.
+  The <number> may be a floating point number, as well as return a
   floating point number.
  
   Example:
@@ -14,3 +15,4 @@
   You say "4"
   > say abs(0)
   You say "0"
+ 

@@ -1,9 +1,9 @@
-
+ 
 & listen
-
+ 
   Syntax: @listen <object> = <string>
   Attribute: Listen
-
+ 
   This attribute contains a wildcard pattern that the object listens
   for. Anything spoken, posed, emitted, or whispered in the room
   that <object> is in, as well as messages resulting from using
@@ -17,15 +17,15 @@
   hear the message and have a chance to match it.  Objects whose
   Listen attribute is set to anything will be listed when a @sweep
   command is run by someone in the same room.
-
+ 
   If the @listen pattern is matched, then the object's contents will
   hear the message also, prefixed by the text in @inprefix if it is
   set.  Any  text that matches any pattern specified in @infilter
   will not be sent to the contents.
-
+ 
   Example:
       @listen camera = * has arrived.
       @ahear camera = @va me = %va %0
-
+ 
   See also: @aahear, @ahear, @amhear, @sweep, @inprefix, @infilter
  

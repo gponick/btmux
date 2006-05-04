@@ -1,10 +1,10 @@
  
 & @wait
-
+ 
   Syntax: @wait <seconds>=<command>
            @wait <object>[/<seconds>]=<command>
            @wait <object>/<attribute>=<command>
-
+ 
   The first form of @wait executes <command> after <seconds> seconds.
   The second form increments the semaphore count for <object> and
   executes <command> after <object> is notified with the @notify
@@ -19,9 +19,9 @@
   The third form allows for blocking multiple sets of commands on
   the same object, using seperate attributes to keep track of the
   semaphore.
-
+ 
   This command charges a deposit of 10 coins, which is refunded when
   <command> is executed.
-
+ 
   See also: @drain, @notify, @ps, SEMAPHORES
-  
+ 

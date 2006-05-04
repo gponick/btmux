@@ -1,3 +1,4 @@
+ 
 & num()
  
   Syntax: num(<object>)
@@ -5,3 +6,4 @@
   Returns the dbref number of <object>.
  
   See Also: locate()
+ 

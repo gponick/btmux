@@ -1,11 +1,12 @@
+ 
 & trim()
  
   Syntax: trim(<string> [,<trim style> [,<trim character>]])
  
-  This function will trim trailing and/or lead characters on the string
-  that you specify.  <trim character> specifies the character to trim (default
-  is space), and <trim style> tells the kind of trimming to perform (default
-  is trim both sides of the string).
+  This function will trim trailing and/or lead characters on the
+  string that you specify.  <trim character> specifies the character 
+  to trim (default is space), and <trim style> tells the kind of 
+  trimming to perform (default is trim both sides of the string).
  
   The following values for <trim style> are recognized:
       'b' :   Trim both ends of the string (default)
@@ -22,3 +23,4 @@
     You say "Trim Rules!---"
  
   See also: center(), ljust(), rjust().
+ 

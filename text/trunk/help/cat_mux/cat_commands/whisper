@@ -1,4 +1,4 @@
- 
+
 & whisper
 
   Syntax: whisper <player>=<message>
@@ -13,4 +13,4 @@
   the message in normal whisper format (this is the default).
 
   See also: page, pose, say, :, ;,"
-  
+ 

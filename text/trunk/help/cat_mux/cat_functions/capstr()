@@ -1,9 +1,10 @@
+ 
 & capstr()
  
   Syntax: capstr(<string>)
  
-  Returns <string> with the first character capitalized. If the first 
-  character is not a letter, this function returns the string 
+  Returns <string> with the first character capitalized. If the first
+  character is not a letter, this function returns the string
   unmodified.
  
   Example:
@@ -12,4 +13,4 @@
   You say "This is a string I want capitalized"
  
   See Also: lcstr(), ucstr().
-	
+ 

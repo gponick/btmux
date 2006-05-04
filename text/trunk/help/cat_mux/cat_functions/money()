@@ -1,9 +1,10 @@
+ 
 & money()
  
   Syntax: money(<object>)
  
-  Returns an integer equal to the amount of money <object> has (if it 
-  is a player). If the specified object isn't a player, the value of 
+  Returns an integer equal to the amount of money <object> has (if it
+  is a player). If the specified object isn't a player, the value of
   the target is returned.
  
   Example:
@@ -20,3 +21,4 @@
   Location: The Town Square
   > say money(sac test)
   You say "20"
+ 

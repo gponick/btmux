@@ -1,8 +1,9 @@
+ 
 & zwho()
  
   Syntax: zwho(<object>)
  
-  Returns a list of players who are in the zone defined by <object>. 
+  Returns a list of players who are in the zone defined by <object>.
   Currently a WIZARD/ROYALTY only function.
  
   Example:
@@ -10,4 +11,5 @@
   think zwho(#18)
   #20 #32 #18
  
-	See Also: zone(), zfun(), zplayers()
+  See Also: zone(), zfun(), zplayers()
+ 

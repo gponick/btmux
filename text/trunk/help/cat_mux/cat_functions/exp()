@@ -1,9 +1,10 @@
+ 
 & exp()
  
   Syntax: exp(<power>)
  
-  Returns the result of raising the numeric constant e to <power>. 
-  <power> may be a floating point number, and a floating point result 
+  Returns the result of raising the numeric constant e to <power>.
+  <power> may be a floating point number, and a floating point result
   is returned.
  
   Example:
@@ -15,4 +16,5 @@
   > say exp(2)
   You say "7.389056"
  
-	See Also: e(), log(), ln(), power()
+  See Also: e(), log(), ln(), power()
+ 

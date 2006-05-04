@@ -1,9 +1,10 @@
+ 
 & sqrt()
  
   Syntax: sqrt(<number>)
  
-  Returns the square root of <number>. <number> may be a floating 
-  point number, and a floating point result is returned. <number> may 
+  Returns the square root of <number>. <number> may be a floating
+  point number, and a floating point result is returned. <number> may
   not be negative.
  
   Example:
@@ -16,4 +17,5 @@
   > say sqrt(-1)
   You say "#-1 SQUARE ROOT OF NEGATIVE"
  
-	See Also: power()
+  See Also: power()
+ 

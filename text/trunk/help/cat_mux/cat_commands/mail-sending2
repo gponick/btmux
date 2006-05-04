@@ -1,17 +1,17 @@
-
+ 
 & mail-sending2
-
+ 
   @mail/proof
 	This shows you the message that is currently in progress, as
 	it would be read by whomever received it.
-
+ 
   @mail/edit <old text> = <new text>
-	Like @edit, but edits the message in process.
-
+  Like @edit, but edits the message in process.
+ 
   @mail/abort
-	This aborts the message currently in progress, allowing you
-	to start a new one.
-
+  This aborts the message currently in progress, allowing you
+  to start a new one.
+ 
   @mail/fwd <msg> = <player-list>
         This sends a copy of <msg> to all the players in
         <player-list>.
@@ -21,7 +21,7 @@
         your mail buffer, where you can edit it with @mail/edit, add
         text with '-', or prepend text with '~'. You have to
         use '--' or @mail/send to send the message.
-
+ 
   @mail/quick <player-list>/<subject> = <message>
-	Sends <message> to the list of players.
+  Sends <message> to the list of players.
  

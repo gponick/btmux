@@ -1,8 +1,9 @@
+ 
 & pi()
  
   Syntax: pi()
  
-  Returns the value of the trigonometric constant pi to nine decimal 
+  Returns the value of the trigonometric constant pi to nine decimal
   places.
  
   Example:
@@ -10,4 +11,5 @@
   > say pi()
   You say "3.141562654"
  
-	See Also: acos(), asin(), atan(), cos(), sin(), tan()
+  See Also: acos(), asin(), atan(), cos(), sin(), tan()
+ 

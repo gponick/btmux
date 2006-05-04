@@ -1,3 +1,4 @@
+ 
 & e()
  
   Syntax: e()
@@ -9,4 +10,5 @@
   > say e()
   You say "2.718281828"
  
-	See Also: exp(), ln(), log(), power()
+  See Also: exp(), ln(), log(), power()
+ 

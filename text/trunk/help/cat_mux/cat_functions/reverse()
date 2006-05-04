@@ -1,3 +1,4 @@
+ 
 & reverse()
  
   Syntax: reverse(<string>)
@@ -13,4 +14,5 @@
   > say reverse(A man, a plan, a canal -- Panama!)
   You say "!amanaP -- lanac a ,nalp a ,nam A"
  
-	See Also: revwords()
+  See Also: revwords()
+ 

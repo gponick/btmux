@@ -1,8 +1,9 @@
+ 
 & zone()
-
+ 
   Syntax: zone(<object>)
  
-  Returns the object's 'zone'. This is the dbref of the master object 
+  Returns the object's 'zone'. This is the dbref of the master object
   which defines the zone.
  
   Example:
@@ -10,4 +11,5 @@
   think zone(#12)
   #8
  
-	See Also: zfun(), zplayers(), zwho()
+  See Also: zfun(), zplayers(), zwho()
+ 

@@ -1,9 +1,10 @@
+ 
 & extract()
  
   Syntax: extract(<string>, <first>, <length>[, <delim>])
  
-  Extract returns a string of length words, starting with the first 
-  word. Unlike letters, the first word in a string is number 1, 
+  Extract returns a string of length words, starting with the first
+  word. Unlike letters, the first word in a string is number 1,
   instead of 0.
  
   Example:
@@ -13,5 +14,6 @@
   > say extract(Another@funky@test@for@extract, 3, 3)
   You say "test@for@extract"
  
-	See Also: index(), insert(), ldelete(), replace(), first(), last(), 
-	rest()
+  See Also: index(), insert(), ldelete(), replace(), first(), last(),
+  rest()
+ 

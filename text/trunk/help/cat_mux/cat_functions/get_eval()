@@ -1,13 +1,14 @@
+ 
 * get_eval()
  
   Syntax: get(<object>/<attribute>)
  
-  This function returns the value of <attribute> on <object>, in 
-  similar fashion to get(). However get_eval() performs function 
-  references and $-substitutions. In function references, 'me' refers 
-  to the object being looked at, and -substitutions that refer to the 
-  enactor (such as %n, %#, etc) refer to the object making the 
-  get_eval call. If the attribute is not present on <object>, its 
+  This function returns the value of <attribute> on <object>, in
+  similar fashion to get(). However get_eval() performs function
+  references and $-substitutions. In function references, 'me' refers
+  to the object being looked at, and -substitutions that refer to the
+  enactor (such as %n, %#, etc) refer to the object making the
+  get_eval call. If the attribute is not present on <object>, its
   parent is searched for the attribute.
  
   Example:
@@ -20,4 +21,5 @@
   > say get_eval(test/va)
   You say "This is a get_eval test on Foobar. The vb is VB from test"
  
-	See Also: get(), u(), edefault(), udefault(), xget()
+  See Also: get(), u(), edefault(), udefault(), xget()
+ 

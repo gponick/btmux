@@ -1,8 +1,8 @@
  
 & @decompile
-
+ 
   Syntax: @decompile[/dbref] <thing>[/attr] [=<newname>]
-
+ 
   Dumps the sequence of commands you would have to type to clone
   <thing>. This is handy for saving your objects in a text file in
   case the MUX dies a horrible death, or for moving your pride-and-
@@ -15,6 +15,6 @@
   If you specify <thing>/<attr>, <attr> accepts wildcards.
   If you specify the /dbref switch, you will get output using the
   dbref number instead of the object name.
-
+ 
   See also: examine, look.
-  
+ 

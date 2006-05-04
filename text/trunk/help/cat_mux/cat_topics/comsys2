@@ -1,5 +1,6 @@
+ 
 & comsys2
-  
+ 
   For example:
   > pub off
   [Public] Foobar has left this channel.
@@ -15,7 +16,8 @@
   -- Objects --
   -- Public --
  
-  > pub Hello world!  
+  > pub Hello world! 
   [Public] Foobar says, "Hello world!"
  
-  { 'help comsys commands' for more }
+  { 'help comsys commands' for more}
+ 

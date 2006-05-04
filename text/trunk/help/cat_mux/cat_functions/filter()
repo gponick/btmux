@@ -1,12 +1,13 @@
+ 
 & filter()
  
   Syntax: filter([<obj>/]<attr>, <list>[, <delim>])
  
-  This function evaluates the contents of <attr> for each element of 
-  <list>, passing it in as %0. A <delimiter>-separated list is 
-  returned of those elements for which the evaluation returns the 
+  This function evaluates the contents of <attr> for each element of
+  <list>, passing it in as %0. A <delimiter>-separated list is
+  returned of those elements for which the evaluation returns the
   value 1.
-  
+ 
   <delimiter> may be used to specify a delimiter other than space.
  
   Example:
@@ -15,7 +16,7 @@
   > say filter(object/is_odd,1 2 3 4 5)
   You say "1 3 5"
  
-  Note: You can pass a %q0-9 register to a function indirectly as 
+  Note: You can pass a %q0-9 register to a function indirectly as
   long as you don't over-write it in your filter() function.
  
   > &EXAMPLE.F object=[[setq(0,2)][filter(EXAMPLE.FIL,1 0 2 3 5 2)]
@@ -24,3 +25,4 @@
   You say "2 2"
  
   See Also: u(), map(), fold()
+ 

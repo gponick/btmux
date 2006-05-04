@@ -1,9 +1,10 @@
+ 
 & ln()
  
   Syntax: ln(<number>)
  
-  Returns the result of taking the natural logarithm (base e) of 
-  <number>. <number> may be a floating point number, and a floating 
+  Returns the result of taking the natural logarithm (base e) of
+  <number>. <number> may be a floating point number, and a floating
   point result is returned.
  
   Example:
@@ -17,4 +18,5 @@
   > say ln(10)
   You say "2.302585"
  
-	See Also: e(), exp(), log(), power()
+  See Also: e(), exp(), log(), power()
+ 

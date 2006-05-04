@@ -1,3 +1,4 @@
+ 
 & rand()
  
   Syntax: rand(<num>)
@@ -16,3 +17,4 @@
   You say "9"
   > say rand(10)
   You say "1"
+ 

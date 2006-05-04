@@ -1,14 +1,15 @@
+ 
 & search()
  
   Syntax: search([<player>] [<class>=<restriction>[,<low>[,<high>]]])
  
-  This function returns a list of objects that match the search 
-  criteria, which are the same as with the @search command. This 
-  function costs as much as the @search command, so repeated use is 
+  This function returns a list of objects that match the search
+  criteria, which are the same as with the @search command. This
+  function costs as much as the @search command, so repeated use is
   expensive.
-  
-	Warning: if you use the [ and ] characters in an Eval selection you 
-	will need to escape them.
+ 
+  Warning: if you use the [ and ] characters in an Eval selection you
+  will need to escape them.
  
   Example:
   > say search()
@@ -21,3 +22,4 @@
   You say "#1"
  
   See Also: @search, SEARCH CLASSES
+ 

@@ -7,7 +7,7 @@
   including of your Reject attribute if they try.  If someone pages
   you while you are not connected, they are sent a message including
   your Away attribute.
-
+ 
   You can also page many players at one time, where all the players
 you page
   will see the message.
@@ -17,15 +17,13 @@ you page
   You paged (Darkenelf Lauren) with 'Hi'.
  
   To (Darkenelf Lauren), Dreamline pages: Hi
-
+ 
   You only need to type the player-list once, then the next time you
-page that
-  player or set of players, you can abbreviate it with:
-  "p :waves."  or,
-  "p I'm back."
-
-  This will work until you page another player or list of players. 
-
-  See also: pose, say, whisper, :, ;, ", @pemit, @away, @idle, 
+  page that player or set of players, you can abbreviate it with:
+  "p :waves."  or, "p I'm back."
+ 
+  This will work until you page another player or list of players.
+ 
+  See also: pose, say, whisper, :, ;, ", @pemit, @away, @idle,
   @reject.
-  
+ 

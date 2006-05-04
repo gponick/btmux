@@ -1,11 +1,12 @@
+ 
 & locate()2
  
-  If nothing matches, the value #-1 is returned. If more than one 
-  thing of the preferred type matches, but nothing matches exactly, 
-  the value #-2 is returned, except if the X qualifier was specified 
-  in which case one is chosen at random. If more than one thing 
-  exactly matches, one is chosen at random. If you specify more than 
-  one type preference (E, P, R, or T), then the last one entered is 
+  If nothing matches, the value #-1 is returned. If more than one
+  thing of the preferred type matches, but nothing matches exactly,
+  the value #-2 is returned, except if the X qualifier was specified
+  in which case one is chosen at random. If more than one thing
+  exactly matches, one is chosen at random. If you specify more than
+  one type preference (E, P, R, or T), then the last one entered is
   the one that is obeyed. The default is for no type to be preferred.
  
   Example:
@@ -27,3 +28,4 @@
   You say "#382"                         You say "#250"
  
   See Also: num(), PARENT OBJECTS
+ 

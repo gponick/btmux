@@ -1,8 +1,9 @@
+ 
 & ldelete()
  
   Syntax: ldelete(<list>, <pos>[, <sep>])
  
-  This function removes a word from <list> by position. <delim> may be 
+  This function removes a word from <list> by position. <delim> may be
   used to specify a delimiter other than a space.
  
   Example:
@@ -12,4 +13,5 @@
   > say ldelete(Yet@Another@Mundane@List, 3, @)
   You say "Yet@Another@List"
  
-	See Also: remove(), delete(), extract(), insert(), replace()
+  See Also: remove(), delete(), extract(), insert(), replace()
+ 
