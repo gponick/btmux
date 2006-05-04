@@ -1,0 +1,18 @@
+ 
+& currency
+ 
+ >> Help: Currency (Economy)
+ -----------------------------------------------------------------------------
+ The Frontier currently has a number of different currencies for different
+ things. A list of them is below. To see how many you have of each of these,
+ use the 'stats' command.
+ 
+ Currency Categories
+ ===================
+  * XP (Experience Points)
+  * AP (Advancement Points)
+  * C-Bills
+  * DP (Donation Points)
+ -----------------------------------------------------------------------------
+ To view a currency category, use 'help <category>' without the <>'s.
+ 
