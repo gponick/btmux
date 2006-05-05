@@ -2,17 +2,17 @@
 & contacts2
 
   The string returned is comprised of the following:
-  
+ 
   * Sensor Flags:
      P - 'visible' to primary sensors
      S - 'visible' to secondary sensors
      * - located in front arc
      v - located in rear arc
      l - located in left arc
-     r - located in right arc 
+     r - located in right arc
   * UnitID
   * Unit Type:
-     B - Biped 
+     B - Biped
      F - Aerospace (including Dropships)
      H - Hover
      N - None
@@ -20,7 +20,7 @@
      T - Tracked
      V - VTOL
      W - Wheeled
-  * Unit name 
+  * Unit name
     (normally the first 2 characters of this are the faction ID)
   * X coordinate
   * Y coordinate
@@ -36,6 +36,7 @@
      T - Being towed
      f - standing
      s - starting up
-     
+     H - unit is hulldown
+     h - unit is raising or lowering
     See Also: report, view, scan, brief
  
