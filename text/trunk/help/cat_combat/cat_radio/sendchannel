@@ -1,0 +1,7 @@
+ 
+& sendchannel
+ 
+  RS Command: sendchannel <channel>=<message>
+ 
+  Transmits <message> over <channel>
+ 
