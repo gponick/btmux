@@ -10,7 +10,7 @@
   internal>/<templated internal>|<current rear armor>/<templated rear
   armor>
 
-Error Messages:
+  Error Messages:
 
   * if <UnitDB> is not a valid RS unit the function will return #-1
     NOT A MECH

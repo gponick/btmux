@@ -3,6 +3,10 @@
 #----------------------------------------------------------------------------
 # Script to compile monolithic help .txt files from individual, categorized
 # files. Run with no args to see details on usage.
+#
+# This script is very inefficient. If you know of a better, iterative
+# way to do it, please be my guest.
+#
 # - Greg
 #----------------------------------------------------------------------------
 
@@ -12,28 +16,60 @@ from stat import *
 # Routine for recursing the directories and subdirectories of the build
 # target. Theoretically can be of unlimited depth at the expense of
 # host machine resources.
+#
+# Copies each file to the 'build' directory for assembly by assemble_files.
 #----------------------------------------------------------------------------
-def recurse_dir(dir, targetfile):
+def recurse_dir(dir, fixdos=0):
 	if not os.path.isdir(dir):
 		print 'Not a directory!'
 
-	contents = glob.glob(dir + "/*")
+	textdir_contents = glob.glob(dir + "/*")
 
-	for file in contents:
+	for file in textdir_contents:
 		if os.path.isdir(file):
-# --------------------> We're dealing with a directory, recurse it.
-			recurse_dir(file, targetfile)
+			# We're dealing with a directory, recurse it.
+			recurse_dir(file, fixdos)
 		else:
-# --------------------> We've got a file, cat it into our final .txt.
-			os.popen('cat "' + file + '" >> ' + targetfile)
+			# We've got a file, move to build dir.
+			if fixdos:
+				os.system('fromdos "' + file + '"')
+			else:
+				os.system('cp "' + file + '" build')
+
+# Assembles the target file from the contents of the build dir.
+#----------------------------------------------------------------------------
+def assemble_files(targetfile):
+	entry_list = glob.glob('build/*') 
+	entry_list.sort()
+
+	for file in entry_list:
+		# We've got a file, cat it into our final .txt.
+		os.popen('cat "' + file + '" >> ' + targetfile)
+
+# Clean up our build dir.
+#----------------------------------------------------------------------------
+def clean_builddir():
+	os.system('rm -rf build/*')
 
 # Top level function that calls recurse_dir() on the build target.
 #----------------------------------------------------------------------------
 def build_help(build_targ):
+	# build_targ is without the .txt, IE: 'wizhelp', 'help', etc. Tack
+	# the .txt on the end and this is our target file.
         buildfile = build_targ + '.txt'
-        os.popen('rm ' + buildfile)
+
+	# Clean up the build target file and build dir.
+        os.system('rm -rf ' + buildfile)
+	clean_builddir()
+
         print 'Building ' + buildfile + '...'
-        recurse_dir(build_targ, buildfile)
+	# Transfers our help files into the build dir.
+        recurse_dir(build_targ)
+	# Assemble our build target from the contents of build dir.
+	assemble_files(buildfile)
+
+	clean_builddir()
+
         print 'Finished building ' + buildfile + '.'
 
 # Calls mkindx assuming it's in ../bin/mkindx. We may need to adjust this
@@ -61,6 +97,7 @@ if len(sys.argv) < 2:
 	for target in valid_targets:
 		print '  ' + target
 	print '  all (Builds all of the above targets)'
+	print '  fixdos (Fixes Windows-polluted files, requires frodo)'
 	print '-'*78
 	print ' NOTE: You will need @readcache if your game is running.'
 	print '-'*78
@@ -84,6 +121,10 @@ elif build_targ in valid_targets:
 	build_help(build_targ)
 	build_mkindx(build_targ)
 	print mkindx_note
+elif build_targ == 'fixdos':
+# ----> Fix the stupid DOS/Windows linebreaks.
+	for buildfile in valid_targets:
+		recurse_dir(buildfile,1)
 else:
 # ----> Invalid argument.
 	print 'Invalid build target! Issue the command with no arguments for syntax.'
