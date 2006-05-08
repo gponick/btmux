@@ -4,3 +4,4 @@
   Config parameter: alias <new> <old>
 
   Defines the command <new> to be an alias of the command <old>.
+
