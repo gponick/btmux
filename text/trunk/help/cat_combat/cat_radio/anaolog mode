@@ -10,7 +10,8 @@
   Analog mode is indicated by parentheses (ie '()') around the channel
   and bearing indicator.
   
-  Example: Given that UnitID [TT] (calltitle MechJock) is within range
+  Example: 
+  Given that UnitID [TT] (calltitle MechJock) is within range
   and transmitting on channel A in anaolog mode
  
   (A:054) <MechJock> Can you guys hear me?
