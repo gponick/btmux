@@ -38,5 +38,7 @@
      s - starting up
      H - unit is hulldown
      h - unit is raising or lowering
+     L - unit's spotlight is on
+     l - unit is lit by a spotlight
     See Also: report, view, scan, brief
  
