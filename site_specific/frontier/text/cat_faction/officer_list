@@ -1,0 +1,14 @@
+& officer/list
+ 
+ >> Help: Officer/List (Factional Command)
+ -----------------------------------------------------------------------------
+ Syntax: Officer/List
+ 
+ Displays a list of your faction's current officers. Officers are set by the
+ factional commander and have special priviledges such as setting hotzones
+ and rally points.
+ 
+ Related Topics (type 'help <topic>' to view any of the following):
+ ------------------------------
+ commanders, officers, ofc
+ 

@@ -1,0 +1,25 @@
+
+& relays
+ 
+ >> Help: Relays (Gameplay Information)
+ -----------------------------------------------------------------------------
+ Function: Relays serve multiple purposes:
+ * extend faction's radio range (through the AI channel, your faction can talk
+   to a mat on the other side if relay towers are positioned well enough)
+ * help defend territory as they have some defense capabilities
+ * notifies the faction of incoming enemies within a 30 hex radius
+ 
+ Claiming: (similar to generators) Simply destroy the relay. Relays are armed
+ much than generators. If you part of a group of friendlies, and you do not
+ fire the final shot, you must be within 15 hexes to receive any claim reward.
+ 
+ Inactivity: After being destroyed, the relay is transferred to your faction's
+ ownership and remains destroyed for a period of 15-30 minutes. After or
+ during this period of time, if there are no enemies within 15 hexes, the
+ relay will automatically repair itself and restart at full health.
+ 
+ For a detailed look at relays, see our online documentation:
+ http://docs.btmux.com/index.php/Site_Frontier:Relays
+  
+ See also: relaylist
+ 
