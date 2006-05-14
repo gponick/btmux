@@ -1,19 +1,30 @@
+
 & communication 
  
  >> Help: Communication
  -----------------------------------------------------------------------------
- There are several different levels of communication on the Frontier:
- * say - The most basic way to communicate is by talking to those that are
-   in the same room as you. You may see who is present by typing 'look'.
-   To use say, type 'Say <message>', replacing <message> with what you want
-   to say. Remember that only people in the same room can hear you.
+ There are several different levels of communication on the Frontier. Be sure
+ to replace <message> with what you want to broadcast in the room/on channels.
  
- * fa - To talk to the people in your faction (type 'census' to see who is
-   currently online in your faction), type 'fa <message>'.
+ * say <message>
+     The most basic way to communicate is by talking to those that are in the
+     same room as you. You may see who is present by typing 'look'. Remember
+     that only people in the same room can hear you.
  
- * pub - To talk over the general chatter channel for the game, type
-   'pub <message>'. This is not a faction-specific channel, everyone who is
-   on the channel can hear you.
+ * fa <message>
+     This channel is used to talk to the people in your faction (type 'census'
+     to see who is currently online in your faction).
  
- * faq - To ask questions, type 'faq <message>'. 
+ * pub <message>
+     The Public channel is where all the general conversations for this game
+     take place. This is not a faction-specific channel, so everyone on the
+     channel can hear you (including your faction's enemies).
  
+ * faq <message>
+     The FAQ channel is where you can ask game-related questions.
+ 
+ * page <playername>=<message>
+     Sometimes it is important to speak to a player individually and privately
+     (ex: a staff member, see also 'staff'). By paging the player, the
+     message will only be seen by you and the player you are paging.
+

@@ -1,15 +1,25 @@
+
 & warps 
  
  >> Help: Warps
  -----------------------------------------------------------------------------
  Warp Gates are strange structures of unknown origin scattered about the map
- that have the ability to instantly teleport anything that passes through
- them to a corresponding gate on the other end. One must simply pass through
- a warp hex to end up on the other side.
+ that have the ability to instantly teleport anything that passes through them
+ to a corresponding gate on the other end. One must simply pass through a warp
+ hex to end up on the other side.
  
- * Type 'warplist' to see a list of warp pairs. You may enter from either
-   side and end up on the opposite.
+ Recovery Period: After each warp, there is a period of 2 minutes where you
+ may not warp again. A timer is shown on your unit's internal description
+ showing how long you have until you can warp again. Type 'look' to see this.
+ 
+ Troubleshooting: To trigger the teleport function of a warp gate, you must
+ walk onto the hex. However, certain circumstances (ex: overwhelming number
+ of enemy mechs on the other side of the warp) require that you can't move on
+ and off the hex. Once the 2 minute timer has run down, you can manually
+ activate the teleport function by typing 'trigger'.
  
  For a detailed look at warp gates, see our online documentation:
  http://docs.btmux.com/index.php/Site_Frontier:Warp_Gates
   
+ See also: warplist
+ 

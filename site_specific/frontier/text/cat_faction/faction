@@ -1,11 +1,14 @@
+
 & faction
  
- >> Help: Faction (Faction Commands)
+ >> Help: Faction (Factional Commands)
  -----------------------------------------------------------------------------
- Census                 Ranklist                Officer/List
- Orders                 Factions
+ Census			Officer/List		Factions
+ Orders			Rankings		Ranklist
  ---<Rank-Locked Commands (Require Officer/Commander Status)>-----------------
- Facroster              Ofc
+ Facroster		OFC
+ ---<General Factional Information>-------------------------------------------
+ Commanders		Officers
  -----------------------------------------------------------------------------
- To view specifics about each command, use 'help <topic>' without the <>'s.
+ To view specifics about each command, use 'help <command>' without the <>'s.
  

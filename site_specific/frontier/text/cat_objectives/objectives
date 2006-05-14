@@ -1,0 +1,11 @@
+
+& objectives
+ 
+ >> Help: Objectives
+ -----------------------------------------------------------------------------
+ Bases		Generators	Relays		Couriers	Undergrounds
+ ---<Objective Informational Commands>----------------------------------------
+ Baselist	Genlist		Relaylist	Courier		Underground
+ -----------------------------------------------------------------------------
+ To view specifics about each command, use 'help <topic>' without the <>'s.
+ 

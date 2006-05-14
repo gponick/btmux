@@ -1,19 +1,16 @@
+
 & census
  
  >> Help: Census (Factional Command)
  -----------------------------------------------------------------------------
- Syntax: Census
- Syntax: Census/Spawn
- Syntax: Census/Squad
+ Syntax: Census ('.cs' if you have the default macro set)
+ Syntax: Census/Spawn ('.css' if you have the default macro set)
  
- The 'Census' command displays all currently connected members of your
- faction along with their ranks and current mechs.
+ The 'Census' command in its various forms displays certain information
+ about your factionmates
  
- The second form, 'Census/Spawn' shows where each pilot that is currently out
- in RS was last spawned from. Please keep in mind the pilot may have moved
- far from what is listed.
- 
- The third form is similar to the first but shows people in your squad. All
- members are shown whether they're connected or not, but those who aren't
- appear in dark gray and have a dark red DC in their 'RS' field.
- 
+ - The first form displays all currently connected members of your faction
+   along with their ranks and current mechs.
+ - The second form shows where each pilot that is currently in RS last spawned
+   from. Please keep in mind the pilot may have moved far from what is listed.
+

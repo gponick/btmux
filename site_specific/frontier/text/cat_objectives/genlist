@@ -1,0 +1,19 @@
+
+& genlist 
+ 
+ >> Help: Genlist (Commands)
+ -----------------------------------------------------------------------------
+ Syntax: Genlist ('.gen' using the '.add 0' macro)
+ Syntax: Genlist/Map ('.genl' using the '.add 0' macro)
+ 
+ The 'Genlist' command in its various forms gives you different versions of
+ information you need to know about the generators on the Frontier:
+ 
+ - The first form shows you what each generator's energy payout, location,
+   range from you, owner, and condition is.
+ - The second form shows you a rough sketch of the map outline and the
+   location of each generator on the map. The abbreviation for each generator
+   will be in the faction owner's color.
+  
+ See also: generators
+  

@@ -1,3 +1,4 @@
+
 & orders
  
  >> Help: Orders (Factional Command)
@@ -5,6 +6,10 @@
  Syntax: Orders
  
  This command shows you the current orders that your faction's high command
- has sent. If it's been a long time since an order has been given in a
- particular field, 'None' is shown since the old order is likely outdated.
+ has sent. Double-check with your high command if the orders are outdated. You
+ can see the time the individual order was last set by reading the time.
+ 
+ Related Topics (type 'help <topic>' to view any of the following):
+ ------------------------------
+ commanders, officers, officer/list, ofc
  
