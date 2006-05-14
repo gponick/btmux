@@ -1,15 +1,24 @@
+
 & generators 
  
  >> Help: Generators
  -----------------------------------------------------------------------------
- Generators are similar to relays in appearance and identical as far as
- claiming them goes except for one thing: Generators are capable of providing
- fuel for your faction's bases. Every 15-30 minutes, for each generator your
- faction has, a certain amount of fuel is deposited in each of your bases.
+ Function: Generators provide fuel (or energy) for your faction's bases. Every
+ 15-30 minutes, for each generator your faction owns, a certain amount of fuel
+ is deposited in each of your bases.
  
- * You may see what each generator's payout, location, owner, and condition
-   is via the 'genlist' command.
+ Claiming: (similar to relays) Simply destroy the generator. Generators are
+ armed much more heavily than relays, since they have more potential to turn
+ the tide in battle. If you part of a group of friendlies, and you do not fire
+ the final shot, you must be within 15 hexes to receive any claim reward.
+ 
+ Inactivity: After being destroyed, the generator is transferred to your
+ faction's ownership and remains destroyed for a period of 15-30 minutes.
+ After or during this period of time, if there are no enemies within 15 hexes,
+ the generator will automatically repair itself and restart at full health.
  
  For a detailed look at bases, see our online documentation:
  http://docs.btmux.com/index.php/Site_Frontier:Generators
   
+ See also: genlist
+ 
