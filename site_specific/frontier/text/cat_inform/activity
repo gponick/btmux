@@ -1,12 +1,13 @@
+
 & activity
  
  >> Help: Activity (Informational Command)
  -----------------------------------------------------------------------------
- Syntax: Activity
- Syntax: Activity/Max
- Syntax: Activity/Con
+ Syntax: activity ('.act' if you have the default macro set)
+ Syntax: activity/max ('.actm' if you have the default macro set)
+ Syntax: activity/con ('.actc' if you have the default macro set)
  
- The 'Activity' command in its various forms shows statistical information
+ The 'activity' command in its various forms shows statistical information
  about the MUX's activity.
  
  - The first form shows a per-hour graph of average people connected.

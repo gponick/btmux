@@ -1,9 +1,12 @@
-& warplist
+
+& warplist 
  
  >> Help: Warplist (Informational Command)
  -----------------------------------------------------------------------------
- Syntax: Warplist
+ Syntax: warplist ('.wl' if you have the default macro set)
  
- The 'Warplist' command lists all of the warp gates and their destinations.
- You may use any of them by simply walking in to the listed hex.
+ The 'warplist' command gives a list of paired hexes and the ranges to each
+ hex. These pairs of hexes are the entrance/exit points of the warp gate.
+  
+ See also: warps
  

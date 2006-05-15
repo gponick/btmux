@@ -1,15 +1,19 @@
+
 & relaylist
  
  >> Help: Relaylist (Informational Command)
  -----------------------------------------------------------------------------
- Syntax: Relaylist
- Syntax: Relaylist/map
+ Syntax: relaylist ('.rel' if you have the default macro set)
+ Syntax: relaylist/map ('.relm' if you have the default macro set)
  
- The 'Relaylist' command lists all of the radio tower relays on the map
- along with some basic information about each. Refer to the documentation
- on the website for information on how they work.
+ The 'relaylist' command in its various forms gives you different versions of
+ information you need to know about the relays on the Frontier:
  
- The second form of this command shows a graphical representation of the map
- with color-coded letters displaying the current owners of the generators.
- Any relays under attack are italicized.
+ - The first form shows you what each relay's location, owner, range from you,
+   and condition is.
+ - The second form shows you a rough sketch of the map outline and the
+   location of each relay on the map. The abbreviations for each relay will be
+   in the faction owner's color.
+  
+ See also: relays
  
