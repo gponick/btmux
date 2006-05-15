@@ -1,15 +1,20 @@
+
 & baselist
  
  >> Help: Baselist (Informational Command)
  -----------------------------------------------------------------------------
- Syntax: Baselist
- Syntax: Baselist/map
+ Syntax: baselist ('.bl' if you have the default macro set)
+ Syntax: baselist/map ('.blm' if you have the default macro set)
  
- The 'Baselist' command lists all of the bases on the map along with other
- basic information about each. Note that only bases you own or are nearby will
- display the amount of energy they have.
+ The 'baselist' command in its various forms gives you different versions of
+ information you need to know about the generators on the Frontier:
  
- The second form of this command shows the map and the bases arranged on it
- along with who owns it. Bases being claimed will appear lower case and
- flashing. The text-based map was contributed by Martlet.
+ - The first form shows you what each generator's energy payout, location,
+   range from you, owner, and condition is.
+ - The second form shows you a rough sketch of the map outline and the
+   location of each generator on the map. All bases have the owner's color
+   associated with each base. If a base is in the process of being claimed,
+   the abbreviation will flash in the claiming faction's color.
   
+ See also: bases
+ 
