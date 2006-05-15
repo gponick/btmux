@@ -1,0 +1,16 @@
+
+& officers
+ 
+ >> Help: Officers (Factional Information)
+ -----------------------------------------------------------------------------
+ Officers are appointed by your faction's Commander, and help the Commander
+ to organize the faction's activities. Officers are denoted by a green 'O'
+ next to their name on 'census'.
+ 
+ Commands shared between Commanders and Officers are listed when you type
+ 'ofc' (if you have Commander or Officer status).
+ 
+ Related Topics (type 'help <topic>' to view any of the following):
+ ------------------------------
+ commanders, ofc, facroster
+

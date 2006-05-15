@@ -3,9 +3,9 @@
  
  >> Help: Warplist
  -----------------------------------------------------------------------------
- Syntax: Warplist ('.wl' if you have the default macro set)
+ Syntax: warplist ('.wl' if you have the default macro set)
  
- The 'Warplist' command gives a list of paired hexes and the ranges to each
+ The 'warplist' command gives a list of paired hexes and the ranges to each
  hex. These pairs of hexes are the entrance/exit points of the warp gate.
   
  See also: warps
