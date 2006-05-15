@@ -1,0 +1,25 @@
+
+& commanders
+ 
+ >> Help: Commanders (Factional Information)
+ -----------------------------------------------------------------------------
+ During every refaction, 24-hour elections are held to elect your faction's
+ Commander. To vote, simply go to your Re-Spawner room during the time of
+ election and look at the new console for details.
+ 
+ To appoint Offciers, Commanders must go to their faction's embassy in the
+ spaceport's diplomatic district and use the 'Commander Interface' located in
+ the Commander's Quarters.
+ 
+ A Commander is the same as an Officer, only he/she can set and remove
+ officers, and has access to the 'facroster' command and the HighCommand
+ channel for all faction Commanders. Commanders are denoted by a cyan 'C' next
+ to their name when you type 'census'.
+ 
+ Other commands shared between Commanders and Officers are listed when you
+ type 'ofc' (if you have Commander or Officer status).
+ 
+ Related Topics (type 'help <topic>' to view any of the following):
+ ------------------------------
+ officers, ofc, facroster
+

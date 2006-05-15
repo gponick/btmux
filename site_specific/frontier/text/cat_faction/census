@@ -3,10 +3,10 @@
  
  >> Help: Census (Factional Command)
  -----------------------------------------------------------------------------
- Syntax: Census ('.cs' if you have the default macro set)
- Syntax: Census/Spawn ('.css' if you have the default macro set)
+ Syntax: census ('.cs' if you have the default macro set)
+ Syntax: census/spawn ('.css' if you have the default macro set)
  
- The 'Census' command in its various forms displays certain information
+ The 'census' command in its various forms displays certain information
  about your factionmates
  
  - The first form displays all currently connected members of your faction

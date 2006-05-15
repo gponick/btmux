@@ -3,18 +3,18 @@
  
  >> Help: OFC (Factional Command)
  -----------------------------------------------------------------------------
- Syntax: OFC
- Syntax: OFC/SetCF <ID>
- Syntax: OFC/Sethotbase <Base#>
- Syntax: OFC/Setobj <ObjText
- Syntax: OFC/Setrally <x> <y>
+ Syntax: ofc
+ Syntax: ofc/setcf <ID>
+ Syntax: ofc/sethotbase <Base#>
+ Syntax: ofc/setobj <ObjText
+ Syntax: ofc/setrally <x> <y>
  
- The 'OFC' command in its various forms is the front-end to the commander (or
+ The 'ofc' command in its various forms is the front-end to the commander (or
  officer) order system.
  
  NOTE: These commands require commander or officer status.
  
- - The first form displays all the various sub-commands of 'OFC'.
+ - The first form displays all the various sub-commands of 'ofc'.
  - The second form sets a factional CF ('concentrated fire', or primary
    target) to a specific ID. This command has nothing to do with auto-locking
    the enemy.
