@@ -4,13 +4,11 @@
   Syntax: @cemit[/<switches>] <channel>=<message>
  
   Sends <message> over <channel> prefixed by the channel's name. You
-must
-  own or control the channel to do this.
+  must own or control the channel to do this.
  
   The following switches are available:
      /noheader - Sends the message to everyone on <channel>, without
-the
-                 channel's name prefixed.
+                 the channel's name prefixed.
  
   See also: cemit()
  
