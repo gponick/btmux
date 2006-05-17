@@ -8,6 +8,7 @@
   The command sets the 'mechmovetype' xcode value on the unit.
   
   Arguments:
+  * B - biped - mechs and bsuits
   * FL - fly - aero and dropships
   * FO - foil
   * HO - hover
