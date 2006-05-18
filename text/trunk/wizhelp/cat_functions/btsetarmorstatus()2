@@ -1,6 +1,6 @@
-
+ 
 & btsetarmorstatus()2
-
+ 
   Error Messages:
   * if <UnitDB> is not a valid RS unit the function will return
     #-1 NOT A MECH
@@ -11,9 +11,10 @@
   * if <value> is not valid (eg a negative number) the function will
     return #-1 INVALID ARMORVALUE
   * Any other errors will return #-1 ERROR
-
+ 
   Example:
   Given that #1234 is a valID RS Unit
-
+ 
   > think btsetarmorstatus(#1234,ct,2,7)
   1
+ 
