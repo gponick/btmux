@@ -1,6 +1,6 @@
-
+ 
 & btgetrange()2
-
+ 
   Error Messages:
   * If insufficient arguments are provided the function will return #
     -1 FUNCTION (BTGETRANGE) EXPECTS BETWEEN 3 AND 7 ARGUMENTS
@@ -17,7 +17,7 @@
   * If one xy[z] set specifies the z argument, but the other does
     not the function will return #-1 INVALID ARGUMENTS
   * Any other error will return #-1 GENERAL ERROR
-
+ 
   Example:
   Given that #1234 and #2345 are valid units. Given that both units
   are on MapObj #62, located at 0,0 and 10,10.
@@ -27,3 +27,4 @@
   13.000007
    > think btgetrange(#62,14,1,10,10)
   9.643657
+ 

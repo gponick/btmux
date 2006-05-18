@@ -1,8 +1,8 @@
-
+ 
 & btmakemechs()2
-
+ 
   Error Messages:
-
+ 
   * If the number of arguments is < 2 the function returns #-1
     Insufficient arguments!
   * If the number of arguments is > 5 the function returns #-1 Too
@@ -19,10 +19,11 @@
     tonnage!
   * if <maxvariation> is < 5 the function returns #-1 Invalid
     MaxDifference!
-
+ 
   Example:
   Given that Draconis Combine is a valid faction with a short name of
   DC
-
+ 
   > think btmakemechs(dc,500,1,60,10)
   CRD-3R DRG-1C DRG-1C DRG-1N DV-6M HBK-4J SHD-2K TBT-5J
+ 

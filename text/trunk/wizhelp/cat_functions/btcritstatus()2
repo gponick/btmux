@@ -1,18 +1,16 @@
-
+ 
 & btcritstatus()2
-
+ 
   Error Messages:
-
+ 
   * If <UnitDB> is not a valid unit the function returns #-1 NO SUCH
     MECH
   * If <location> is a null string or very invalid the function
     returns #-1 INVALID SECTION
-
-	Note: <location> is not checked extensively - eg a 'location' of l
-will pass
-	error checking. Therefore it is the programmers responsibility to
-ensure a
-	correct argument
+ 
+  Note: <location> is not checked extensively - eg a 'location' of l
+  will pass error checking. Therefore it is the programmers 
+  responsibility to ensure a   correct argument
 
   Example:
   Given that #1234 is an EXT-4D with a destroyed Upper Actuator and
@@ -24,3 +22,4 @@ ensure a
   ||MediumLaser|0|1,6||MediumLaser|-
   1|1,7||Empty|0|5,8||Empty|0|5,9||Empty|0|5,10||Empty|0|5,
   11||Empty|0|5,12||Empty|0|5
+ 

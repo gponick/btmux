@@ -1,8 +1,8 @@
-
+ 
 & btcritslot_ref()2
   
   Error Messages:
-
+ 
   * If <UnitRef> is not a valid reference the function returns
     #1-NOT A MECH
   * if <location> is not valid the function returns
@@ -26,4 +26,5 @@
  
   > think btcritslot_ref(CHP-1N,lt,3,maxammo)
   15
+ 
  
