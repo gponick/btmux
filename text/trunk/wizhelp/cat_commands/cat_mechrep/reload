@@ -3,7 +3,7 @@
  
   Mechrep Command: reload <name> <loc> <critslot> [ammoflag]
   
-  This command eloads the ammobin in <loc> at <critslot>
+  This command reloads the ammobin in <loc> at <critslot>
   
   Arguments:
   * name - the name of the weapon drawing on that ammobin
