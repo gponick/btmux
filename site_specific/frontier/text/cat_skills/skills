@@ -3,8 +3,18 @@
  
  >> Help: Skills
  -----------------------------------------------------------------------------
+ Skills are what define your character's ability to perform various actions,
+ be it firing at that pesky enemy mech or fixing the units your pilot buddies
+ manage to smash up all too often. You can then become better in those skills,
+ set out to learn new ones, or both.
+ 
+ You can view your skills by typing 'stats' or '@pl'.
+ 
+ Skills:
+ -------
  Comm-Conventional			Computer			Perception
  Gunnery-Skills				Medtech				Piloting-Skills
+ -------
  
  To view specifics about each skill, use 'help <skill>' without the <>'s.
  
