@@ -1,0 +1,16 @@
+
+& dodge_maneuver
+ 
+ >> Help: Dodge Maneuver (Advantage)
+ -----------------------------------------------------------------------------
+ Type 'dodge' to toggle this advantage on and off.
+ 
+ +2 BTH to your enemy's melee attack rolls.
+ You cannot perform melee attacks while this advantage is engaged.
+ 
+ Result: It is harder for an enemy to hit you with melee attacks, and you
+ can only use weapons while in combat.
+ 
+ For a detailed look at this advantage, see our online documentation:
+ docs.btmux.com/index.php/Skills%2C_Stats%2C_Attributes%2C_and_Advantages
+ 

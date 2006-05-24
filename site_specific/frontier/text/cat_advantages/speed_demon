@@ -1,0 +1,15 @@
+
+& speed_demon
+ 
+ >> Help: Speed Demon (Advantage)
+ -----------------------------------------------------------------------------
+ While sprinting, you get +1 movement to your walk/run speed.
+ Negates slower turn-rates that normally apply to sprinting.
+ 
+ Result: You go faster while sprinting than those without this advantage, and
+ you turn at normal rates, instead of the slower sprinting rate. To see more
+ about how sprinting works, type 'help sprint'.
+ 
+ For a detailed look at this advantage, see our online documentation:
+ docs.btmux.com/index.php/Skills%2C_Stats%2C_Attributes%2C_and_Advantages
+ 
