@@ -5,4 +5,6 @@
   
   This command lists the parts and commodities and their amounts in 
   the factory/tower/bay/etc.
+  
+  See Also: loadcargo, unloadcargo, manifest
  

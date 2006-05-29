@@ -1,9 +1,11 @@
  
 & @cstatus
  
-  Syntax: @cstatus <channel>
+  Syntax: @cstatus[/full] <channel>
   
   Returns status details of the specified channel.
+  
+  With the /full switch it will display the various statistics.
   
   Example
   >@cstatus Public
