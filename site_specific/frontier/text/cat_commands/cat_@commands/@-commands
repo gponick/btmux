@@ -1,0 +1,32 @@
+
+& @-commands
+ 
+ >> Help: @-Commands (Commands)
+ -----------------------------------------------------------------------------
+ @@					@cwho				@link				@query
+ @addcommand		@dbck				@list				@quitprogram
+ @admin				@dbclean			@list_file			@quota
+ @alias				@decompile			@listcommands		@readcache
+ @attribute			@delcommand			@listmotd			@remit
+ @boot				@destroy			@log				@restart
+ @cboot				@dig				@mail				@robot
+ @ccharge			@disable			@malias				@search
+ @cchown			@doing				@motd				@set
+ @ccreate			@dolist				@mvattr				@shutdown
+ @cdestroy			@drain				@name				@stats
+ @cemit				@dump				@newpassword		@sweep
+ @chown				@edit				@notify				@switch
+ @chownall			@emit				@npemit				@teleport
+ @chzone			@enable				@oemit				@timewarp
+ @clist				@femit				@open				@toad
+ @clone				@find				@parent				@trigger
+ @coflags			@fixdb				@password			@unlink
+ @cpattr			@force				@pcreate			@unlock
+ @cpflags			@fpose				@pemit				@verb
+ @create			@fsay				@poor				@viewxcode
+ @cset				@function			@power				@wait
+ @cstatus			@halt				@program			@wall
+ @cut				@last				@ps					@wipe
+ 
+{ 'help @-commands2' for more }
+

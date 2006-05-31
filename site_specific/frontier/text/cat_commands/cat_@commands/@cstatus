@@ -1,0 +1,10 @@
+
+& @cstatus
+ 
+ Syntax: @cstatus <channel name>
+ 
+ Displays information about the specified channel. Equivalent to just one line
+ out of @clist.
+ 
+ See also: @clist, @cwho
+

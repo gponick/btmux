@@ -1,0 +1,13 @@
+
+& @delcommand
+ 
+ Syntax: @delcommand <name>[=<thing>/<attribute>]
+ 
+ Deletes a command added by @addcommand. With only <name> specified, deletes
+ all added commands under <name>. When you specify <thing> and <attribute>, it
+ only deletes that specific entry. If the command or commands you are deleting
+ had replaced a built-in command, the built-in command and all aliases are
+ restored to their normal names and actions.
+ 
+ See also: @addcommand, @listcommands
+

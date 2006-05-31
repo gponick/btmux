@@ -1,0 +1,10 @@
+
+& @admin
+ 
+ Syntax: @admin <param>=<value>
+ 
+ Sets a TinyMUX configuration parameter to the indicated value. See the Config
+ Directive page for a complete list of config params.
+ 
+ See also: Config Directives
+
