@@ -29,16 +29,33 @@
   * Speed of the unit
   * Heading of the unit
   * Unit status flags:
-     D - Destroyed
-     F - Fallen or prone
-     J - Jumping
-     S - Shutdown
-     T - Being towed
-     f - standing
-     s - starting up
-     H - unit is hulldown
-     h - unit is raising or lowering
-     L - unit's spotlight is on
-     l - unit is lit by a spotlight
+** D - Destroyed
+** F - Fallen or prone
+** f - standing
+** J - Jumping
+** S - Shutdown
+** s - starting up
+** T - Being towed
+** t - Towing a unit
+** H - unit is hulldown
+** h - unit is raising or lowering
+** L - unit's spotlight is on
+** l - unit is lit by a spotlight
+** E - Unit's ECM is active
+** e - Unit is effected by ECM
+** P - Unit's ECCM is active
+** p - Unit is eccm protected
+** + - Unit is Overheating
+** M - Unit is using Special Movment - sprint
+** m - Unit is using Special Movement - evade
+** W - Battlesuits' with this flag are Mounted on another unit
+** C - Unit is carrying a club
+** O - Unit is OODing
+** X - Unit is spinning
+** I - Unit is infernoed
+** B - Unit is burning
+** G - Unit is staggered
+** N - Unit is narc'ed
+  
     See Also: report, view, scan, brief
  
