@@ -1,0 +1,11 @@
+
+& @listcommands
+ 
+ Syntax: @listcommands [<name>]
+ 
+ Lists commands added by @addcommand. With <name> specified, lists all
+ commands added under that particular command name. Without <name>,
+ @listcommands lists all added commands.
+ 
+ See Also: @addcommand
+

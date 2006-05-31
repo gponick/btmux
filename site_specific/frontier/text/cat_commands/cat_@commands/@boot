@@ -1,0 +1,17 @@
+
+& @boot
+ 
+ Syntax: @boot[/<switches>] <player>
+ 
+ Severs the named player's connection to the game. The player is given a
+ notice that they have been booted. If the player is connected to the game
+ more than once, then all connections to that player are severed.
+ 
+ The following switches are available: 
+   /quiet - Don't give the booted player any special notice.
+   /port  - Disconnects only a specific port (port numbers may be obtained
+            from the 'session' command). In this case <player> must be a
+			number.
+ 
+ See also: @destroy, @toad, SESSION
+

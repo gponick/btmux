@@ -1,0 +1,16 @@
+
+& @addcommand2
+ 
+ You can specify more than one attribute to go with <name>. When you type
+ 'look' or 'look sofa', the game will execute all attributes that match what
+ you have typed in. Aliases like 'l' are expanded to 'look' so you don't have
+ to worry about those when you take command matching into consideration. If
+ none of the attributes attached match (the attribute must begin with $<name>
+ in order to match at all!), no output will be generated.
+ 
+ Another use is to speed up use of a particular global command. Just use
+ @addcommand to add it to the built-in list, and it will be looked up much
+ faster.
+ 
+ See also: @delcommand, @listcommands
+

@@ -1,0 +1,24 @@
+
+& @query
+ 
+ Syntax: @query/sql
+           <dbslot>/<obj>/<attr>/<preserve>[/<columnDelim>][/<resultDelim>]
+		   =<query>
+ 
+ SQL queries are done via the @query command. Queries are sent to the sqlslave
+ process and come back into the MUX, triggering the object/attribute
+ combination you specify, passing the results as %0 registers.
+ 
+ Argument Breakdown:
+  <dbslot>         - Can be letters A-E as defined in the netmux.conf file.
+  <obj> and <attr> - The object/attribute combination that are to be triggered
+                     when the results arrive.
+  <preserve>       - Any data you'd like to 'come back' with the query. It's
+                     like using setr() from within the command.
+  [<columnDelim>]  - (Optional) The delimiter that seperates columns within
+                     result sets. Defaults to ':' if nothing is supplied.
+  [<resultDelim>]  - (Optional) The delimiter that is used to seperate
+                     results. Defaults to '|' if nothing is supplied.
+
+{ 'help @query2' for more }
+
