@@ -1,0 +1,25 @@
+
+& unit_purchasing
+ 
+ >> Help: Unit Purchasing (Economy)
+ -----------------------------------------------------------------------------
+ One of the main goals in Frontiers, if not the Main Goal, is to advance by
+ buying bigger and better mechs. You do this by buying and selling permanent
+ units.
+ 
+ To purchase permanent mechs, you will need to earn XP ('help currency') and
+ use the commands shown when you type 'unit'.
+ 
+ NOTE: You must be in the re-spawner room to use 'unit' and its commands. To
+       see information on these commands without being in the re-spawner, type
+	   'help unit_purchase'.
+	   
+ You can purchase other units besides the permanent ones--specifically,
+ limited availability units. These can be purchased a number of different
+ ways. Refer to 'help limited_units' for more details.
+ 
+ All this information was taken from this site:
+ http://docs.btmux.com/index.php/Site_Frontier:Buying_and_Selling_Units
+ 
+ Some also: unit_purchase, limited_units, currency
+ 
