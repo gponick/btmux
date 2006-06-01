@@ -3,7 +3,8 @@
  
  >> Help: Objectives
  -----------------------------------------------------------------------------
- Bases		Generators	Relays		Couriers	Undergrounds
+ Bases					Generators				Underground_Event
+ Couriers				Relays
  -----------------------------------------------------------------------------
- To view specifics about each command, use 'help <topic>' without the <>'s.
+ To view specifics about each topic, use 'help <topic>' without the <>'s.
  

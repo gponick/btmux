@@ -3,7 +3,7 @@
  
  >> Help: Finger (Informational Command)
  -----------------------------------------------------------------------------
- Syntax: Finger <player>
+ Syntax: finger <player>
  
  Shows some information about the target player. If you're not in the
  player's faction you won't be able to see some of the fields (Unknown).

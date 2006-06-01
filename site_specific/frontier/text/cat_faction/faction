@@ -2,13 +2,28 @@
 & faction
  
  >> Help: Faction
- ---<Factional Commands>------------------------------------------------------
- Census			Officer/List		Factions
- Orders			Rankings		Ranklist
- ---<Rank-Locked Commands (Require Officer/Commander Status)>-----------------
- Facroster		OFC
- ---<General Factional Information>-------------------------------------------
- Commanders		Officers
  -----------------------------------------------------------------------------
- To view specifics about each command, use 'help <command>' without the <>'s.
+ Factions are the large powers battling for dominance on the Frontier Lands.
+ They are more or less 'teams' for our purpose. Factions are typically
+ comprised of a number of outfits ('help outfits') and independent players.
+ Every once in a while, there will be a refaction that will randomly re-
+ distribute the outfits and players into different teams to keep the game
+ dynamic and interesting. On the Frontier Lands, there are three teams:
  
+  Capellan Confederation
+  Lyran Commonwealth
+  Draconis Combine
+  
+ To get around in your faction, you will have to know certain commands and
+ information. Related topics are listed below, and all the factional commands
+ can be seen by typing 'help faction-commands'. The main gear behind a faction
+ is its commanders and officers (see 'help commanders' or 'help officers').
+ 
+ Here is some immediate information to help you out:
+ * To talk to people in your faction, type 'fa <message>'.
+ * To see who is currently connected, type 'census'.
+ * To see a list of factions, type 'factions'.
+ 
+ Related Topics (Type 'help <topic>' to view any of the following):
+ --------------
+ commanders, officers, faction-commands, outfits, communication

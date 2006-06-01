@@ -1,7 +1,7 @@
 
 & ofc
  
- >> Help: OFC (Factional Command)
+ >> Help: OFC (Faction Commands)
  -----------------------------------------------------------------------------
  Syntax: ofc
  Syntax: ofc/setcf <ID>
@@ -24,10 +24,7 @@
    objectives.
  - The fifth form makes a rally hex at hex x, y for all faction mates to group
    together.
- 
  To view all the information your commander/officer has set, type 'orders'.
  
- Related Topics (type 'help <topic>' to view any of the following):
- ------------------------------
- commanders, officers, orders
+ See also: commanders, officers, orders
 

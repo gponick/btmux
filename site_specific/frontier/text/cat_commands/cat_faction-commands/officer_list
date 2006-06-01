@@ -1,7 +1,7 @@
 
-& officer/list
+& officer_list
  
- >> Help: Officer/List (Factional Command)
+ >> Help: Officer List (Faction Command)
  -----------------------------------------------------------------------------
  Syntax: officer/list
  
@@ -9,7 +9,5 @@
  factional commander and have special priviledges such as setting hotzones
  and rally points.
  
- Related Topics (type 'help <topic>' to view any of the following):
- ------------------------------
- commanders, officers, ofc
+ See also: commanders, officers, ofc
  

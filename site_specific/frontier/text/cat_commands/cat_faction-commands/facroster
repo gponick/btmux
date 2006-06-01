@@ -1,7 +1,7 @@
 
 & facroster
  
- >> Help: Facroster (Factional Command)
+ >> Help: Facroster (Faction Command)
  -----------------------------------------------------------------------------
  Syntax: facroster
  
@@ -9,7 +9,5 @@
  
  NOTE: This commands requires commander status.
  
- Related Topics (type 'help <topic>' to view any of the following):
- ------------------------------
- commanders, officers
+ See also: commanders, officers
 

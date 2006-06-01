@@ -1,7 +1,7 @@
 
 & rankings
  
- >> Help: Rankings (Faction Command)
+ >> Help: Rankings (Informational Command)
  ----------------------------------------------------------------------------
  Syntax: rankings <totalxp|recentxp|kills|baseclaims|objclaims|opoints>
  Syntax: rankings <referrals|dpoints>
@@ -12,5 +12,5 @@
 
  NOTE: recentxp is the total XP earned over the last 7 days.
  
- See also: ranklist
+ See also: rank, ranklist
  

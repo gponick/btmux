@@ -3,23 +3,13 @@
  
  >> Help: Commands
  -----------------------------------------------------------------------------
- Here is a category-list of all the commands available. Certain commands have
- restrictions depending on the permissions given to your character.
+ Here is a category-list of all the commands available specifically for
+ The Frontier.
  
- Commands:
- ---------
- @-commands				a-commands				b-commands
- c-commands				d-commands				e-commands
- f-commands				h-commands				i-commands
- j-commands				l-commands				m-commands
- n-commands				o-commands				p-commands
- q-commands				r-commands				s-commands
- t-commands				u-commands				v-commands
- w-commands
- ---------
+ Categories:
+ -----------
+ Economy-Commands			Faction-Commands			RS-Commands
+ Objective-Commands			Outfit
  
  To view each category, use 'help <category>' without the <>'s.
- 
- For a detailed look at these commands, see our online documentation:
- http://docs.btmux.com/index.php/Category:Commands
  

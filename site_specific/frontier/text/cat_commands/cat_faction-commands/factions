@@ -1,0 +1,13 @@
+
+& factions 
+ 
+ >> Help: Factions (Faction Command)
+ -----------------------------------------------------------------------------
+ Syntax: factions
+ 
+ The 'factions' command lists general information about each team, such as
+ the faction's code, the commanding officer, and the number of members in the
+ faction.
+ 
+ See also: faction
+ 

@@ -7,22 +7,20 @@
  Commander. To vote, simply go to your Re-Spawner room during the time of
  election and look at the new console for details.
  
- To appoint Offciers, Commanders must go to their faction's embassy in the
+ To appoint Officers, Commanders must go to their faction's embassy in the
  spaceport's diplomatic district and use the 'Commander Interface' located in
  the Commander's Quarters.
  
- A Commander is the same as an Officer, only he/she can set and remove
- officers, and has access to the 'facroster' command and the HighCommand
- channel for all faction Commanders. Commanders are denoted by a cyan 'C' next
- to their name when you type 'census'.
+ A Commander is the same as an Officer, except that only he/she can set and
+ remove officers, and has access to the 'facroster' command and the
+ HighCommand channel for all faction Commanders. Commanders are denoted by a
+ cyan 'C' next to their name when you type 'census'.
  
  Other commands shared between Commanders and Officers are listed when you
  type 'ofc' (if you have Commander or Officer status).
  
- For a detailed look at bases, see our online documentation:
+ For a detailed look at commanders, see our online documentation:
  http://docs.btmux.com/index.php/Site_Frontier:Commanders_and_Officers
  
- Related Topics (type 'help <topic>' to view any of the following):
- ------------------------------
- officers, ofc, facroster
+ See also: officers, faction-commands (ofc, census)
 

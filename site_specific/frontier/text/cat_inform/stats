@@ -3,7 +3,7 @@
  
  >> Help: Stats (Informational Command)
  -----------------------------------------------------------------------------
- Syntax: stats
+ Syntax: stats (or @pl)
  
  The 'stats' command shows basic information about your character. Things such
  as your personal injury level and your mech listing are on here, along with

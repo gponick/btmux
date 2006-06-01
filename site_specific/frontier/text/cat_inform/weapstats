@@ -1,8 +1,9 @@
+
 & weapstats
  
  >> help: Weapstats (Informational Command)
  ----------------------------------------------------------------------------
- Syntax: Weapstats <weapon>
+ Syntax: weapstats <weapon>
  
  This command displays a bunch of various information about the specified
  weapon. To name a few:
