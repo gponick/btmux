@@ -1,0 +1,18 @@
+
+& faction-commands
+ 
+ >> Help: Faction Commands
+ -----------------------------------------------------------------------------
+ To read descriptions of the aspects of the factions on The Frontier,
+ type 'help faction'. The following topics will show you the commands used
+ within the faction.
+ 
+ Commands:
+ ---------
+ census				facroster			factions			ofc
+ officer_list		orders
+ 
+ To view each command, use 'help <command>' without the <>'s.
+ 
+ See also: faction
+ 

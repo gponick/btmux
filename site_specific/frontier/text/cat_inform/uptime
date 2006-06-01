@@ -1,8 +1,9 @@
+
 & uptime
  
  >> Help: Uptime (Informational command)
  -----------------------------------------------------------------------------
- Syntax: Uptime
+ Syntax: uptime
  
  The 'Uptime' command shows not only the amount of time the MUX has been up
  since the last restart, it also shows some other interesting statistics such

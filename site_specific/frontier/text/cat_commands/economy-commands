@@ -1,0 +1,18 @@
+
+& economy-commands
+ 
+ >> Help: Economy Commands
+ -----------------------------------------------------------------------------
+ To read descriptions of the aspects of the economy on The Frontier,
+ type 'help economy'. The following topics will show you the commands used
+ within the economy.
+ 
+ Topics:
+ -------
+ Unit_Purchase				Rental_Interface			Advantage_Purchasing
+ Lottery_Terminal			Salvage						Skill_Purchasing
+ Placing_Bounties
+ 
+ To view each topic or command, use 'help <topic>' or 'help <command>'
+ without the <>'s.
+ 

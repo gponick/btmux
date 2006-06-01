@@ -3,7 +3,7 @@
  
  >> Help: Lastdeaths (Informational Command)
  -----------------------------------------------------------------------------
- Syntax: Lastdeaths
+ Syntax: lastdeaths
  
  This command shows the last few people who killed you, what unit they were
  in, and what unit you were in.
