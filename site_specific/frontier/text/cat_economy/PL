@@ -1,0 +1,15 @@
+
+& PL
+ 
+ >> Help: Purchase List (PL) (Economy)
+ -----------------------------------------------------------------------------
+ NOTE: You can be anywhere to access this list by typing 'unitpl'.
+ 
+ The Purchase List is the list of permanent mechs that you can purchase, sell
+ back for a percent of the price, or sell to other players. In order to do any
+ of these functions, you will need to be in your faction's re-spawner room,
+ and use the command 'unit' (or 'help unit_purchase' if you are not in the
+ re-spawner).
+ 
+ Some also: unit_purchasing, unit_purchase
+ 

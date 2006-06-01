@@ -1,0 +1,24 @@
+
+& data_caches
+ 
+ >> Help: Data Caches
+ -----------------------------------------------------------------------------
+ Data caches are randomly dispersed throughout the map, waiting for vigilant
+ individuals to discover them and unlock their secrets. These caches contain
+ things such as XP, C-Bills, or rental units.
+ 
+ Data caches are found by running around and checking your contacts list via
+ the contacts command, ( .c if you have the default macro set set). Although
+ they appear as hostile on your contact list, they will not fire at you and
+ can't be destroyed.
+ 
+ To retrieve the data cache, simply be speed 0 in the same hex as the cache,
+ and type 'pickup <ID>'.
+ 
+ NOTE: You have to have a unit that has Hand Actuators or Salvge Tech under
+       the Special Technology section after typing 'viewref/specs <mech_ref>'
+	   in order to retrieve data caches.
+ 
+ All this information was taken from the following site:
+ http://docs.btmux.com/index.php/Site_Frontier:Data_Caches
+ 

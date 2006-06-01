@@ -1,0 +1,20 @@
+
+& economy
+ 
+ >> Help: Economy
+ -----------------------------------------------------------------------------
+ The Frontier has a special economy that you need to know in order to excel
+ your character with firepower, skills, and other important gameplay
+ information.
+ 
+ Categories:
+ -----------
+ Buy_Skills_Advantages		Unit_Purchasing			Limted_Units
+ Placing_Bounties			Currency				PL (Purchase List)
+ Playing_Lottery
+ 
+ To see economy-related commands, type 'help economy-commands'.
+ 
+ For a detailed look at these categories, see our online documentation:
+ http://docs.btmux.com/index.php/Site_Frontier
+ 
