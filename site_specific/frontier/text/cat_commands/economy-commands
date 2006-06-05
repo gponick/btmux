@@ -9,8 +9,8 @@
  
  Topics:
  -------
- Unit_Purchase				Rental_Interface			Advantage_Purchasing
- Lottery_Terminal			Salvage						Skill_Purchasing
+ Unit_Purchase           Rental_Interface        Advantage_Purchasing
+ Lottery_Terminal        Salvage                 Skill_Purchasing
  Placing_Bounties
  
  To view each topic or command, use 'help <topic>' or 'help <command>'
