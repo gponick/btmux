@@ -1,0 +1,26 @@
+
+& rental_interface
+ 
+ >> Help: Rental Interface (Economy Commands)
+ -----------------------------------------------------------------------------
+ Limited Availability Units can be obtained at the Rent-A-Mech room in the
+ Commercial District of the Spaceport. Once you are in Rent-A-Mech, you type
+ 'look interface' to see all the units available to purchase with C-bills. The
+ commands you need to know to use the interface are listed at the bottom of
+ the unit listing, or here:
+ 
+ Syntax: rent <unit>
+ Syntax: return <unit>
+ 
+ - The first command allows you to rent any unit on the interface unit listing
+   and the unit reference is case sensitive.
+ - The second command allows you to return all charges of a limited
+   availability unit that you own.
+ 
+ NOTE: These commands must be done from within Rent-A-Mech in the Spaceport.
+ 
+ All this information was taken from this site:
+ http://docs.btmux.com/index.php/Site_Frontier:Limited_Availability_Units
+ 
+ See also: currency
+ 
