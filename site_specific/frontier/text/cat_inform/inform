@@ -3,11 +3,11 @@
  
  >> Help: Inform
  -----------------------------------------------------------------------------
- Time				Uptime				Weather				Couriers
- Stats				Activity			Finger				Staff
- Lastkills			Lastdeaths			Topkillers			Outfits
- Baselist			Genlist				Relaylist			Warplist
- Underground		Weapstats			Weaplist			Viewref
+ Time              Uptime           Weather          Couriers
+ Stats             Activity         Finger           Staff
+ Lastkills         Lastdeaths       Topkillers       Outfits
+ Baselist          Genlist          Relaylist        Warplist
+ Underground       Weapstats        Weaplist         Viewref
  -----------------------------------------------------------------------------
  To view specifics about each command, use 'help <topic>' without the <>'s.
  

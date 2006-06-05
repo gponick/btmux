@@ -3,8 +3,8 @@
  
  >> Help: Piloting-Skills (Skills)
  -----------------------------------------------------------------------------
- Biped				BSuit			Hover				Tracked
- Wheeled			Quad			Aerospace			Naval
+ Biped              BSuit            Hover                Tracked
+ Wheeled            Quad             Aerospace            Naval
  
  To view specifics about each piloting skill, use 'help piloting-<skill>'
  without the <>'s. (Example: help piloting-biped)

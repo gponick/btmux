@@ -3,8 +3,8 @@
  
  >> Help: Gunnery-Skills (Skills)
  -----------------------------------------------------------------------------
- Artillery					Ballistic					Flamer
- Missile					Spotting					Laser
+ Artillery        Ballistic         Flamer
+ Missile          Spotting          Laser
  
  To view specifics about each gunnery skill, use 'help gunnery-<skill>'
  without the <>'s. (Example: help gunnery-artillery)
