@@ -17,7 +17,7 @@
  
  NOTE: You have to have a unit that has Hand Actuators or Salvge Tech under
        the Special Technology section after typing 'viewref/specs <mech_ref>'
-	   in order to retrieve data caches.
+       in order to retrieve data caches.
  
  All this information was taken from the following site:
  http://docs.btmux.com/index.php/Site_Frontier:Data_Caches

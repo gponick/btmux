@@ -15,9 +15,10 @@
  Dodge_Maneuver           Maneuvering_Ace             Speed_Demon
  Melee_Specialist
  -----------
- 
  To view specifics about each advantage, use 'help <advantage>'
  without the <>'s.
+ 
+ To see how to purchase advantages, see 'help buy_skills_advantages'.
  
  For a detailed look at the advantages, see our online documentation:
  docs.btmux.com/index.php/Skills%2C_Stats%2C_Attributes%2C_and_Advantages

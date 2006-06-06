@@ -1,0 +1,20 @@
+
+& skill_purchase2
+ 
+ In order to raise a skill, you must have first purchased all the previous
+ levels with APs. You cannot, for example, purchase 3+ Gunnery-Laser when you
+ have only purchased 5+ Gunnery-Laser. You must first purchase
+ 4+ Gunnery-Laser before you can raise the skill to 3+.
+ 
+ If you have the proper amount of APs, you can use 'train <skill>' to raise
+ the skill level. Or, if you wish to lower the level of one skill to receive
+ enough APs to raise another, you can use 'forget <skill>' and receive an
+ immediate reimbursement of APs equal to the list price of the skill.
+ 
+ NOTE: These commands must be done from within Ye Olde Augmentation Shoppe.
+ 
+ All this information was taken from this site:
+ http://docs.btmux.com/index.php/Site_Frontier:Buying_Skills_and_Advantages
+ 
+ See also: skills, advantage_purchase, advantages, currency
+ 

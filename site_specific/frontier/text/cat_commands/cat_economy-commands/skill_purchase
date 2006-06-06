@@ -1,0 +1,21 @@
+
+& skill_purchase
+ 
+ >> Help: Skill Purchase (Economy Commands)
+ -----------------------------------------------------------------------------
+ Syntax: train <skill>
+ Syntax: forget <skill>
+ 
+ Once you have located Ye Olde Augmentation Shoppe in the Spaceport, you use
+ the commands 'stats' and 'look training' to view which skills you already
+ have and a list of all the skills you can buy with their AP purchase cost
+ (see 'help AP').
+ 
+ When you 'look training' you'll notice a matrix of numbers that are both red
+ and green.
+  * green - Skills you have yet to purchase
+  * red   - Skills you have already purchased and can 'forget' to reimburse
+            your APs
+	    
+{ 'help skill_purchase2' for more }
+

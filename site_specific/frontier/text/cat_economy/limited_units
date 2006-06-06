@@ -11,7 +11,7 @@
  following the name of the LAU in ()'s.
  
  There are several ways to come obtain LAUs:
-  * Using the rental interface ('help rental_interface') to rent LAUs with
+  * Using the rental interface ('help renting_units') to rent LAUs with
     C-Bills ('help currency').
   * Obtaining LAUs by discovering data caches ('help data_caches').
   * Salvaging LAUs off the map ('help salvage').

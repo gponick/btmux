@@ -1,0 +1,32 @@
+
+& playing_lottery
+ 
+ >> Help: Playing the Lottery (Economy)
+ -----------------------------------------------------------------------------
+ You can purchase permanent mechs with C-Bills if luck is on your side at the
+ Lottery Terminal, which is located at the Lottery House in the Entertainment
+ District of the Spaceport (from your Re-Spawner Room: go-sp, ed, lh). Once
+ you are in the Lottery House, type 'look terminal' to see which mechs are
+ being raffled away in the lotteries, the cost of a ticket, how many tickets
+ have been bought, and how much longer the lottery will last. To purchase
+ tickets, you can use the command listed at the bottom of the terminal, or use
+ the command shown here:
+ 
+   * buyticket <Lottery#> <#Tickets>
+       Example: buyticket 1 50
+        This buys 50 tickets for lottery 1.
+   
+ Some notes about playing the lottery:
+   * You can only buy a maximum number of tickets, designated on the terminal.
+   * The command above must be done from within the Loterry House.
+   
+ How the Drawings are Done:
+   On the ending date and time, a winner is randomly selected from the number
+   of tickets bought. The winner is announced on The Frontier Times bulletin
+   board in-game ('help bulletin_board'). If you are lucky, and the mech
+   becomes yours, you can do whatever you wish with it, as if it were your own
+   permanent mech (play with it, trade it, or sell it for XP).
+   
+ All this information was taken from this site:
+ http://docs.btmux.com/index.php/Site_Frontier:Lottery
+ 

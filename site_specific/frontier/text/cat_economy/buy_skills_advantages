@@ -1,0 +1,23 @@
+
+& buy_skills_advantages
+ 
+ >> Help: Buying Skills and Advantages (Economy)
+ -----------------------------------------------------------------------------
+ In order to advance your skills and purchase advantages, you must have
+ acquired Advancement Points (APs; see 'help AP'). Purchasing skills and
+ advantages must be done from Ye Olde Augmentation Shoppe in the Commercial
+ District in the Spaceport (from your Re-Spawner Room: go-sp, cd, yo).
+ 
+ In order to view the following categories, type 'help <category>'
+ without the <>'s:
+ -----------------
+  * Skills             - List of The Frontier skills, and where you can get
+                         descriptions of each.
+  * Advantages         - List of The Frontier advantages, and where you can
+                         get descriptions of each.
+  * Skill_Purchase     - How to purchase skills.
+  * Advantage_Purchase - How to purchase advantages.
+ 
+ For a detailed look at skills and advantages, see our online documentation:
+ docs.btmux.com/index.php/Skills%2C_Stats%2C_Attributes%2C_and_Advantages
+ 
