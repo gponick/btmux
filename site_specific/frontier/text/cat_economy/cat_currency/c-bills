@@ -1,0 +1,22 @@
+
+& c-bills
+ 
+ >> Help: C-Bills (Currency)
+ -----------------------------------------------------------------------------
+ C-Bills are the secondary currency in our economy. They serve the purpose of
+ handling day to day expenses, such as orbital requests, renting units,
+ playing the lottery, placing bounties, and certain Squad uses
+ (not currently available).
+ 
+ How do I earn C-Bills?
+ ----------------------
+  * Picking up data caches ('help data_caches')
+  * Fueling bases ('help fueling')
+  * Claiming objectives either by holding the claim, or simply destroying them
+    ('help objectives').
+ 
+ All this information was taken from this site:
+ http://docs.btmux.com/index.php/Site_Frontier:Currencies
+ 
+ See also: currency, objectives
+ 

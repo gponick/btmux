@@ -1,0 +1,17 @@
+
+& currency
+ 
+ >> Help: Currency (Economy)
+ -----------------------------------------------------------------------------
+ In order to work within the economy of The Frontier, you will have to know
+ its currency system.
+ 
+ There are four components to The Frontier's currency system:
+ -------------------------
+ XP        C-Bills          AP             DP
+ -------------------------
+ To view a specific component, type 'help <component>' without the <>'s.
+ 
+ For a detailed look at the currency system, see our online documentation:
+ http://docs.btmux.com/index.php/Site_Frontier:Currencies
+ 

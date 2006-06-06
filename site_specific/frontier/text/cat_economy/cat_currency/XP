@@ -1,0 +1,27 @@
+
+& XP
+ 
+ >> Help: XP (Experience Points) (Currency)
+ -----------------------------------------------------------------------------
+ Experience Points (XP) are the primay unit of currency in our economy. You
+ can use XP to buy new units, gain rank and advancement points, skills, and
+ advantages. XP can't be lost and it can't be converted to or from C-Bills.
+ 
+ There are two forms of XP:
+   * spendable XP - used to purchase units off your purchase list
+   * total XP     - calculates your rank, gives you advancement points
+                    accordingly, and then you can buy skills/advantages
+		    
+ How do I earn XP?
+ -----------------
+  * Engage in combat against enemy mechs
+  * Pilot the map and make successful piloting skill checks ('help skills')
+  * Picking up data caches ('help data_caches')
+  * Claiming objectives either by holding the claim, or simply destroying them
+    ('help objectives').
+ 
+ All this information was taken from this site:
+ http://docs.btmux.com/index.php/Site_Frontier:Currencies
+ 
+ See also: AP, currency, objectives
+ 

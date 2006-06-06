@@ -8,11 +8,13 @@
  units.
  
  To purchase permanent mechs, you will need to earn XP ('help currency') and
- use the commands shown when you type 'unit'.
+ use the commands listed on 'help unit_purchase'. Additionally, if luck is on
+ your side, you can gamble for permanent mechs by playing the lottery
+ ('help playing_lottery') where you use C-Bills to purchase lottery tickets.
  
  NOTE: You must be in the re-spawner room to use 'unit' and its commands. To
        see information on these commands without being in the re-spawner, type
-	   'help unit_purchase'.
+       'help unit_purchase'.
 	   
  You can purchase other units besides the permanent ones--specifically,
  limited availability units. These can be purchased a number of different
@@ -21,5 +23,5 @@
  All this information was taken from this site:
  http://docs.btmux.com/index.php/Site_Frontier:Buying_and_Selling_Units
  
- Some also: unit_purchase, limited_units, currency
+ Some also: unit_purchase, playing_lottery, limited_units, currency
  

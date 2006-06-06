@@ -9,10 +9,10 @@
  
  Categories:
  -----------
- Buy_Skills_Advantages          Unit_Purchasing         Limted_Units
- Placing_Bounties               Currency                PL (Purchase List)
- Playing_Lottery
- 
+ Buy_Skills_Advantages        Unit_Purchasing         Limted_Units
+ Placing_Bounties             Currency                PL (Purchase List)
+ Playing_Lottery              Renting_Units           Salvaging_Units
+ -----------
  To see economy-related commands, type 'help economy-commands'.
  
  For a detailed look at these categories, see our online documentation:
