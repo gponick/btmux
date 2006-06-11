@@ -15,5 +15,5 @@
   * if <name> is not a valid value for a xcode object the command 
     returns "Error: No xcode values for this type of object found."
   
-  See Also: btsetxcodevalue
+  See Also: btsetxcodevalue()
  
