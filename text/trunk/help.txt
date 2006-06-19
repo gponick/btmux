@@ -519,13 +519,11 @@
   Syntax: @cemit[/<switches>] <channel>=<message>
  
   Sends <message> over <channel> prefixed by the channel's name. You
-must
-  own or control the channel to do this.
+  must own or control the channel to do this.
  
   The following switches are available:
      /noheader - Sends the message to everyone on <channel>, without
-the
-                 channel's name prefixed.
+                 the channel's name prefixed.
  
   See also: cemit()
   
@@ -754,6 +752,21 @@ the
  
   See help channel object for more.
   
+& @cstatus
+ 
+  Syntax: @cstatus[/full] <channel>
+  
+  Returns status details of the specified channel.
+  
+  With the /full switch it will display the various statistics.
+  
+  Example
+  >@cstatus Public
+  ** Channel       Owner           Description
+  P- Public        World           General discussion
+  -- End of list of Channels --
+  
+  See Also: comsys 
 & @cwho
  
   Syntax: @cwho <channel>[/all]
@@ -1243,6 +1256,17 @@ the
                the message (ie, send '<name><message>').
  
   See also: @femit, @fsay, pose, :, ;, INHERIT
+  
+& @fsay
+ 
+  Syntax: @fsay <object>=<message>
+ 
+  Forces <object> to say <message>.  This command is similar to the command
+  '@force <object> = say <message>', except that it will work so long as you
+  own the object, whereas @force may fail if the object has its INHERIT flag
+  set and the object performing the @force does not.
+ 
+  See Also: @femit, @fpose, INHERIT, say.
   
 & @gfail
  
@@ -2528,15 +2552,6 @@ location.
  
   See also: @otport, @oxtport, @tport, @teleport
   
-& @power
- 
-  Syntax: @power <object>=[!]<power>
- 
-  This is a command that allows the granting of special powers to
-  objects of any type.
- 
-  See also: POWERS LIST
-  
 & @prefix
  
   Syntax: @prefix <object> = <prefix text>
@@ -3360,6 +3375,52 @@ Flag: ABODE (A)
  
   See also: delcom, comlist, alias, comtitle.
   
+& addtic
+ 
+  RS Command: addtic  <num> <weapnum [,weapnum] | lownum-highnum >
+ 
+  This command adds a weapon or weapons to the specified tic.
+  
+  Arguments:
+  
+  * num - valid TIC's are 0 through 3
+  * weapnum - this is the number for the weapon as shown in by the 
+              status command. More that one weapon can be specified by 
+              separating the weapnums with commas.
+  * lownum-highnum - this adds weapons from lownum to highnum 
+                     inclusive.
+                     
+  
+  Continued in addtic2
+ 
+  See Also: deltic, listic, cleartic
+  
+& addtic2
+ 
+  Example:
+  Given an EXT-4D there are 3 ways to add the 4 mediumlasers to one 
+  TIC.
+  
+  Individually:
+  >addtic 0 0
+  Weapon #0 added to TIC 0!
+  >addtic 0 1
+  Weapon #1 added to TIC 0!
+  <etc>
+  
+  Individually in one command:
+  >addtic 0 0,1,2,3
+  Weapon #0 added to TIC 0!
+  Weapon #1 added to TIC 0!
+  Weapon #2 added to TIC 0!
+  Weapon #3 added to TIC 0!
+  
+  Inclusively:
+  >addtic 0 0-3
+  Weapons #0 - #3 added to TIC 0!
+  
+  See Also: deltic, listic, cleartic
+  
 & adescribe
  
   Syntax: @adescribe <object> = <command-list>
@@ -3723,6 +3784,13 @@ Flag: ABODE (A)
  
   See also: @set
   
+& ams
+ 
+  RS Command: ams <weapnum>
+  
+  The command toggles the state of the  anti-missile system on and 
+  off.
+  
 & analog mode
  
   setchannelmode: Analog mode:
@@ -3734,7 +3802,8 @@ Flag: ABODE (A)
   Analog mode is indicated by parentheses (ie '()') around the channel
   and bearing indicator.
   
-  Example: Given that UnitID [TT] (calltitle MechJock) is within range
+  Example: 
+  Given that UnitID [TT] (calltitle MechJock) is within range
   and transmitting on channel A in anaolog mode
  
   (A:054) <MechJock> Can you guys hear me?
@@ -3773,6 +3842,25 @@ Flag: ABODE (A)
  
   See Also: orflags(), hasflag(), flags().
   
+& angeleccm
+ 
+  RS Command: angeleccm
+  
+  The command puts your ECM suite into ECCM mode, which enables it 
+  to counteract enemy ECM.
+  
+  
+   
+& angelecm
+ 
+  RS Command: angelecm
+  
+  This command toggles the ECM status of your Angel ECM suite.
+  
+  ECM interferes with the communications and certain sensors of enemy 
+  units within ranage of your 'ECM Umbrella'.
+  
+  See Also: angeleccm 
 & ANSI
  
   Flag: ANSI (X)
@@ -3846,6 +3934,15 @@ Flag: ABODE (A)
  
   See Also: secure(), stripansi(), ansi().
   
+& ap
+ 
+  RS Command: ap <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  Armor Piercing ammunition or normal ammunition.
+  
+  AP ammo is available for AutoCannons only.
+  
 & apay
  
   Syntax: @apay <object> = <command-list>
@@ -3900,6 +3997,16 @@ Flag: ABODE (A)
   whether or not <string> begins with a vowel.
  
   See also: apos().
+  
+& artemis
+ 
+  RS Command: artemis <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  ArtemisIV ammunition or normal ammunition 
+  
+  Artemis ammo is only used for missile launchers and requires an 
+  ArtemisIV fire control system be installed on the RS Unit.
   
 & asin()
  
@@ -3994,6 +4101,35 @@ Flag: ABODE (A)
  
   See also: @otport, @oxtport, @tport, @teleport
   
+& attachcables
+ 
+  RS Command: attachcables <tow-UnitID> <towed-UnitID>
+  
+  This command permits an RS Unit without hands to tow another RS 
+  Unit.
+  
+  NOTE - To use this command you must exit the RS Unit and execute the 
+  command from the RS map.
+  
+  Example:
+  Given that UnitID: OE is the unit you wish to tow with UnitID: DD
+  
+  >shutdown
+  Mech has been shutdown!
+  >disembark
+  MechWarrior - Fred
+  You climb out of the unit.
+  attachcables DD OE
+  You attach Exterminator [DD]'s tow lines to Falcon [OE].
+  >embark
+  You climb into Exterminator [DD].
+  startup
+  
+  Once the RS Unit has started up, you are ready to tow the attached 
+  unit.
+ 
+  See Also: pickup, dropoff, detachcables
+  
 & AUDIBLE
  
   Flag: AUDIBLE (a)
@@ -4051,6 +4187,18 @@ Flag: ABODE (A)
   @ause grenade = :EXPLODES; kill %n=100; @destroy me
  
   See also: use, @ouse, @use
+  
+& autoturret
+ 
+  RS Command: autoturret
+  
+  This command toggles the status of the Turret Auto-Turn system.
+  
+  When engaged, the turret will automatically turn to face the 
+  currently locked target. When disengaged the turret responds to 
+  manual control.
+  
+  See Also: turret, lock
  
 & available
  
@@ -4082,6 +4230,26 @@ Flag: ABODE (A)
  
   See also: @idle, @reject, page
   
+& axe
+ 
+  RS Command: axe [R|L|B] [ID]
+  
+  This command causes your 'Mech to attack another RS Unit with an 
+  axe. Naturally, this requires that your unit be equipped with an 
+  axe.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - if a target is locked, attempt to attack that target
+  * R - attempt to use the axe equipped on your Right arm
+  * L - attempt to use the axe equipped on your Left arm
+  * B - 
+  * ID - specify a unit to trip
+  
+  See Also: charge, chop, club, grabclub, kick, mace, punch, saw,   
+            trip 
  & bearing
  
   RS Command: bearing [x y] [x y]
@@ -4144,6 +4312,34 @@ Flag: ABODE (A)
   Arguments:
   r - right
   l - left
+  
+  A pilot skill roll is required to successfully carry out this 
+  command.
+  
+& brief
+ 
+  RS Command: brief [a <0-6> | c <0-3>]
+  
+  This command sets what is displayed for the 'contacts' command and 
+  what is displayed when your RS Unit gets a contact.
+  
+  Arguments:
+  none - displays the current settings
+  * a - set autocontact option:
+      0 - See enemies and friends, long text, color.
+      1 - See enemies and friends, short text, color.
+      2 - See enemies only, long text, color.
+      3 - See enemies only, short text, color.
+      4 - See enemies and friends, short text, no color.
+      5 - See enemies only, short text, no color.
+      6 - Disabled.
+  * c - set contact option
+       0 - Very verbose.
+       1 - Short form, the usual one.
+       2 - Short form, the usual one, but do not see buildings.
+       3 - Shorter form.
+  
+  See Also: contacts
  
 & btmuxcredits
  
@@ -4165,6 +4361,70 @@ Flag: ABODE (A)
  * Scotty@Frontier - Documentation
   
  
+& c3
+
+  RS Command: c3 [ID|-]
+
+  This command initialises or terminates connection to a C3 network.
+  
+  Arguments:
+  
+  * ID - Connects you to the C3 network of which ID is a part.
+  * '-' - Disconnects you from a C3 network.
+  
+& c3i
+
+  RS Command: c3i [ID|-]
+  
+  This command initialises or terminates connection to a C3i network.
+  
+  Arguments:
+  
+  * ID - Connects you to the C3i network of which ID is a part.
+  * '-' - Disconnects you from a C3i network.
+  
+& c3imessage
+
+  RS Command: c3imessage <message>
+  
+  This command sends a message to all others in your C3i network. The 
+  communication cannot be scanned or intercepted.
+. 
+& c3inetwork
+ 
+  RS Command: c3inetwork
+  
+  This command displays details of the units which share a C3i network 
+  with you.
+  
+& c3itargets
+ 
+  RS Command: c3itargets
+  
+  This command displays targetting information on all units 'viewable' 
+  by the sensors of all the units within the C3i Network.
+  
+& c3message
+
+  RS Command: c3message <message>
+  
+  This command sends a message to all others in your C3 network. The 
+  communication cannot be scanned or intercepted.
+. 
+& c3network
+ 
+  RS Command: c3network
+  
+  This command displays details of the units which share a C3 network 
+  with you.
+  
+& c3targets
+ 
+  RS Command: c3targets
+  
+  This command displays targetting information on all units 'viewable' 
+  by the sensors of all the units within the C3 Network.
+  
 & capstr()
  
   Syntax: capstr(<string>)
@@ -4190,6 +4450,15 @@ using *).
 faster.
  
   See also: @switch, match(), ifelse(), switch()
+  
+& caseless
+ 
+  RS Command: caseless <weaponum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  Caseless ammunition or normal ammunition.
+  
+  Caseless ammo is available for AutoCannons only.
   
 & cat()
  
@@ -4306,6 +4575,22 @@ faster.
   object.
   The description of a channel is the @desc of the channel object.
   
+& charge
+ 
+  RS Command: charge [ID | -]
+  
+  This command attampts to crash your unit into another unit.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - attempt to charge your locked target
+  * ID - attempt to charge the specified unit
+  * - - abort a charge
+  
+  See Also: axe, chop, club, grabclub, kick, mace, punch, saw, trip
+  
 & charges
  
   Syntax: @charges <object> = <count>
@@ -4322,6 +4607,13 @@ faster.
  
   See also: @runout
   
+& checkstatus
+ 
+  RS Command: checkstatus
+  
+  This command checks the RS unit and ascertains the amount of time 
+  before repairs currently underway (if any) will be complete.
+  
 & children()
  
   Syntax: children(<object>)
@@ -4331,6 +4623,26 @@ faster.
  
   See Also: parent().
   
+& chop
+ 
+  RS Command: axe [R|L|B] [ID]
+  
+  This command causes your 'Mech to attack another RS Unit with an 
+  sword. Naturally, this requires that your unit be equipped with an 
+  sword.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - if a target is locked, attempt to attack that target
+  * R - attempt to use the sword equipped on your Right arm
+  * L - attempt to use the sword equipped on your Left arm
+  * B - 
+  * ID - specify a unit to trip
+  
+  See Also: axe, charge, club, grabclub, kick, mace, punch, saw,   
+            trip 
 & CHOWN_OK
  
   Flag: CHOWN_OK (C)
@@ -4353,6 +4665,28 @@ faster.
  
   See also: addcom, delcom
   
+& cleartic
+ 
+  RS Command: cleartic <num>
+  
+  This command removes all weapons from the specified TIC.
+  
+  See Also: addtic, deltic, listtic
+  
+& climb
+ 
+  RS Command: climb [angle]
+  
+  This command controls the angle of climb for Aero type RS Units.
+  
+  Arguments:
+  none - displays the current climb angle
+  angle - sets the climb angle
+  
+  NOTE - Aero units are currently non-functional within the codebase.
+  
+  See Also: thrust, dive
+  
 & clist()
  
   Syntax: Clist(<channel>)
@@ -4361,6 +4695,23 @@ faster.
   Limited to WIZARDs only.
  
   See Also: cwho(), cobj(), cemit().
+  
+& club
+ 
+  RS Command: club [ID]
+  
+  This command attempts to attack an RS Unit with your club. Naturally 
+  this requires that your 'Mech have a club. A club can be obtained 
+  using the grabclub command.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - attempt to club your locked target
+  * ID - attempt to club the unit specified
+  
+  See Also: axe, charge, chop, grabclub, kick, mace, punch, saw, trip
   
 & cobj()
  
@@ -4667,6 +5018,12 @@ carried
  
   >say connrecord()
   You say "85"
+  
+& contactoptions
+ 
+  Attribute: contactoptions
+  
+  Depreciated. To be eliminated.
  
 & contacts
 
@@ -4717,15 +5074,34 @@ carried
   * Speed of the unit
   * Heading of the unit
   * Unit status flags:
-     D - Destroyed
-     F - Fallen or prone
-     J - Jumping
-     S - Shutdown
-     T - Being towed
-     f - standing
-     s - starting up
-     H - unit is hulldown
-     h - unit is raising or lowering
+** D - Destroyed
+** F - Fallen or prone
+** f - standing
+** J - Jumping
+** S - Shutdown
+** s - starting up
+** T - Being towed
+** t - Towing a unit
+** H - unit is hulldown
+** h - unit is raising or lowering
+** L - unit's spotlight is on
+** l - unit is lit by a spotlight
+** E - Unit's ECM is active
+** e - Unit is effected by ECM
+** P - Unit's ECCM is active
+** p - Unit is eccm protected
+** + - Unit is Overheating
+** M - Unit is using Special Movment - sprint
+** m - Unit is using Special Movement - evade
+** W - Battlesuits' with this flag are Mounted on another unit
+** C - Unit is carrying a club
+** O - Unit is OODing
+** X - Unit is spinning
+** I - Unit is infernoed
+** B - Unit is burning
+** G - Unit is staggered
+** N - Unit is narc'ed
+  
     See Also: report, view, scan, brief
   
 & CONTROL_OK
@@ -4866,24 +5242,85 @@ necessary.
 
   See Also: @create.
   
-& currency
+& critstatus
  
- >> Help: Currency (Economy)
- -----------------------------------------------------------------------------
- The Frontier currently has a number of different currencies for different
- things. A list of them is below. To see how many you have of each of these,
- use the 'stats' command.
+  RS Command: critstatus <loc>
+  
+  This command displays the items installed in the specified <loc> and 
+  the status of those items.
+  
+  Example:
+  >critstatus lt
+------------------------------------------------------------------------------
+                             Left Torso Criticals                             
+------------------------------------------------------------------------------
+ 1 Engine                               7 ERLargeLaser                        
+ 2 Engine                               8 ERLargeLaser                        
+ 3 Engine                               9 StreakSRM-6                         
+ 4 HeatSink                            10 StreakSRM-6                         
+ 5 HeatSink                            11 StreakSRM-6 Ammo (15)               
+ 6 HeatSink (Destroyed)                12 Case                                
+------------------------------------------------------------------------------
+  
+  Continued in critstatus2
+  
+& critstatus2
  
- Currency Categories
- ===================
-  * XP (Experience Points)
-  * AP (Advancement Points)
-  * C-Bills
-  * DP (Donation Points)
- -----------------------------------------------------------------------------
- To view a currency category, use 'help <category>' without the <>'s.
- 
- 
+  Locations:
+  
+  Biped Mech:
+  * LA - Left Arm
+  * RA - Right Arm
+  * LT - Left Torso
+  * RT - Right Torso
+  * CT - Center Torso
+  * LL - Left Leg
+  * RL - Right Leg
+  * H - Head
+  
+  Quad Mech:
+  * FLL - Front Left Leg
+  * FRL - Front Right Leg
+  * LT - Left Torso
+  * RT - Right Torso
+  * CT - Center Torso
+  * RLL - Rear Left Leg
+  * RRL - Rear Right Leg
+  
+  Battle Suit:
+  * S1 - Suit 1
+  <to>
+  * Sn - Suit n ... where n is the number of the last suit
+  
+  Vehicle:
+  * LS - Left Side
+  * RS - Right Side
+  * FS - Front Side
+  * AS - Aft Side
+  * TU - Turret
+  * R - Rotor
+  
+  Aerospace:
+  * N - Nose
+  * LW - Left Wing
+  * RW - Right Wing
+  * AS - Aft Side
+  
+  Aerodyne Dropship:
+  * N - Nose
+  * RW - Right Wing
+  * LW - Left Wing
+  * LRW - Left Rear Wing
+  * RRW - Right Rear Wing
+  * A - Aft
+  
+  Spheriod Dropship:
+  * N - Nose
+  * FRS - Front Right Side
+  * FLS - Front Left Side
+  * RLS - Rear Left Side
+  * RRS - Rear Right Side
+  * A - Aft 
 & cwho()
  
   Syntax: cwho(<channel>)
@@ -4908,6 +5345,36 @@ necessary.
   This attribute is automatically triggered once per day. No
   guarantees are made as to what time it will execute.
   
+& damages
+ 
+  RS Command: damages
+  
+  This command displays a report listing any damaged components on an RS Unit.
+  
+  As with all tech commands, this command requires a 'techbit'.
+  
+  Example:
+  Given an undamaged unit:
+  
+  >damages
+  The 'mech is in pristine condition!
+  
+  Given a damaged unit:
+  >damages
+  --------------------------------------------------------------------
+                     Damage for Exterminator [SZ]                     
+----------------------------------------------------------------------
+1 :CT Repairs on armor (6 points)                                     
+2 :CT Repairs on Engine                                               
+3 :CT Repairs on Gyro                                                 
+4 :RT Reload of Ammo Anti-MissileSystem (12 rounds)                   
+5 :RA Repairs on armor (1 points)                                     
+6 :RA Repairs on Lower Actuator                                       
+7 :RL Repairs on Foot Actuator                                        
+----------------------------------------------------------------------
+(*) / Green = Job already done. Yellow = To be done.                  
+ 
+  See Also: fix 
 & DARK
  
   Flag: DARK (D)
@@ -4989,6 +5456,54 @@ necessary.
     > say delete(Would you like coffee or perhaps tea?, 15, 18)
     You say "Would you like tea?"
   
+& deltic
+ 
+  RS Command: deltic <num> [<weapnum [,weapnum] | lownum-highnum >]
+  
+  This command deletes a weapon or weapons from a TIC.
+  
+  Arguments:
+  
+  * num - valid TIC's are 0 through 3
+  * weapnum arguments:
+    none - if no weapnum is specified the TIC is cleared of all 
+           weapons.
+    * weapnum - this is the number for the weapon as shown in by the
+                status command. More that one weapon can be specified
+                by separating the weapnums with commas.
+    * lownum-highnum - this removess weapons from lownum to highnum 
+                       inclusive.
+                     
+  Contined in deltic2
+  
+    See Also: addtic, listic, cleartic
+  
+& deltic2
+ 
+  Example:
+  Given an EXT-4D there are 3 ways to remove the 4 mediumlasers to one 
+  TIC.
+  
+  Individually:
+  >deltic 0 0
+  Weapon #0 removed from TIC 0!
+  >deltic 0 1
+  Weapon #1 removed from TIC 0!
+  <etc>
+  
+  Individually in one command:
+  >deltic 0 0,1,2,3
+  Weapon #0 removed from TIC 0!
+  Weapon #1 removed from TIC 0!
+  Weapon #2 removed from TIC 0!
+  Weapon #3 removed from TIC 0!
+  
+  Inclusively:
+  >deltic 0 0-3
+  Weapons #0 - #3 removed from TIC 0!
+  
+  See Also: addtic, listic, cleartic
+  
 & @describe
  
   Syntax: @describe <object> = <description>
@@ -5024,6 +5539,18 @@ necessary.
   owner of that object, that object can be destroyed immediately.
  
   See also: @destroy, SAFE
+  
+& detachcables
+ 
+  RS Command: detachables <UnitID>
+  
+  This command disconnects the towing cables attached to <UnitID>
+  <UnitID> must be the unit which is towing.
+  
+  NOTE - To use this command you must exit the RS Unit and execute 
+  the command from the RS map.
+  
+  See Also: pickup, dropoff, attachcables
   
 & dfail
  
@@ -5062,6 +5589,19 @@ necessary.
   The above would roll "2d6" - two six-sided dice, generating a
   result in the range 2-12.
   
+& dig
+ 
+  RS Command: dig
+  
+  This command causes a vehicle to dig a hole to provide additional 
+  cover. Only tracked and wheeled vehicles can dig in.
+  
+  NOTE - Once dug-in only turret mounted weapons will be useable.
+  
+  To exit the hole you must move (eg speed <num> 
+  
+  See Also: hulldown, speed 
+  
 & digital mode
  
   setchannelmode: Digital mode:
@@ -5079,6 +5619,22 @@ necessary.
   transmitting on channel A in digital mode
   
   [A:054] <MechJock> Can you guys hear me?
+  
+& disable
+ 
+  RS Command: disable <weapnum>
+  
+  This command disables the specified weapon.
+  
+  The command only works on gauss rifles.
+  
+& disembark
+ 
+  RS Command: disembark
+  
+  This command causes you to exit the RS Unit you are in. 
+  
+  disembark only work on an RS Map ... not in a repair bay, etc.
   
 & dist2d()
  
@@ -5129,6 +5685,31 @@ necessary.
   This function may also be called as idiv().
 
   See also: add(), fdiv(), mod(), mul(), round(), sub(), trunc().
+  
+& dive
+ 
+  RS Command: dive [angle]
+  
+  This command controls the angle of dive for Aero type RS Units.
+  
+  Arguments:
+  none - displays the current dive angle
+  angle - sets the dive angle
+  
+  NOTE - Aero units are currently non-functional within the codebase.
+  
+  See Also: thrust, climb
+  
+ & dodge
+ 
+  RS Command: dodge
+  
+  This command toggles dodge mode. This adds +2 to enemy physical 
+  attack BTH.
+  
+  To use this command you must have the dodge_maneuver advantage.
+  
+  See Also: dodge_maneuver
   
 & dodge_maneuver
  
@@ -5185,6 +5766,33 @@ necessary.
  
   See also: get, @adrop, @drop, @odrop, DROP-TO, STICKY
   
+& dropoff
+ 
+  RS Command: dropoff
+  
+  This command releases a unit which you are towing.
+  
+  See Also: pickup, attachcables, detachcables
+  
+& dump
+ 
+  RS Command: dump <weapnum|section|<loc> <pos>|all|stop> 
+
+  This command causes the RS Unit to dump the ammunition specified.
+  
+  Arguments:
+  * weapnum - dumps the ammunition suppy for the weapon. The number  
+              used is the number ash shown in the status command.
+  
+  * section - dumps all ammunition in a section (eg LT, RA)
+  
+  * <loc> <pos> - dumps the ammunition stored in the ammo bin at 
+                  <loc> <pos>
+  
+  * all - dumps all ammunition on the RS Unit.
+  
+  * stop - ceases all dumping.
+  
 & e()
  
   Syntax: e()
@@ -5224,16 +5832,24 @@ necessary.
  
   See also: @lalias, enter, leave
   
-& economy
+& eccm
  
- >> Help: Economy
- -----------------------------------------------------------------------------
- Currency		Units			Lottery
- Boutnies		Skills_Attributes
- -----------------------------------------------------------------------------
- To view specifics about each topic, use 'help <topic>' without the <>'s.
+  RS Command: eccm
+  
+  The command puts your ECM suite into ECCM mode, which enables it to 
+  counteract enemy ECM.
  
+  See Also: ecm 
+& ecm
  
+  RS Command: ecm
+  
+  This command toggles the status of your ECM suite. 
+  
+  ECM interferes with the communications and certain sensors of enemy 
+  units within ranage of your 'ECM Umbrella'.
+  
+  See Also: eccm 
 & edefault()
  
   Syntax: edefault(<obj>/<attr>,<default case>)
@@ -5324,6 +5940,15 @@ necessary.
   Checks if <victim> would pass the named lock on <object>. Only the
   object's owner may test locks other than the default lock.
   
+& embark
+ 
+  RS Command: embark <UnitID>
+  
+  This command causes your RS Unit to climb into a carrier unit.
+  
+  Upon entering the carrier your unit will be shutdown.
+  
+  See Also: udisembark 
 & empty()
  
   Syntax: empty([<object>])
@@ -5396,6 +6021,8 @@ necessary.
   e - east
   w - west
   
+  See Also: enterbay
+  
 & enterbay
  
   RS Command: enterbay [ID]
@@ -5407,6 +6034,8 @@ necessary.
   [ID] - specifies the target ID of the unit which bay you wish to 
          enter. Normally this is optional, unless there are multiple 
          enterable objects in the hex
+  
+  See Also; enterbase
   
 & eq()
  
@@ -5467,6 +6096,14 @@ necessary.
  
   The hex argument may be omitted if the unit is locked to the target
   hex.
+  
+ & evade
+ 
+  RS Command: evade
+  
+  This command toggles evade mode.
+  
+  While evading the RS Unit is harder to hit, but cannot attack.
   
 & eval()
  
@@ -5557,6 +6194,35 @@ necessary.
   You say "7.389056"
  
   See Also: e(), log(), ln(), power()
+  
+& explode
+ 
+  RS Command: explode <ammo|reactor|stop>
+  
+  Arguments:
+  
+  * ammo - causes all the ammunition stored on your unit to be detonated.
+  
+  * reactor - causes the reactor to self destruct
+  
+  * stop - aborts the countdown (Disabled by default)
+   
+& explosive
+ 
+  RS Command: explosive <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  Explosive pods or normal homing pods.
+  
+  Explosive pods can only be used with NARC an iNARC launchers
+  
+& extinguish
+ 
+  RS Command: extinguish
+  
+  This command permits you to put out the fires on your vehicle.
+  
+  Note - the unit must be shutdown before you can use this command.
   
 & extract()
  
@@ -5740,6 +6406,63 @@ necessary.
  EMail       - &FINGER_EMAIL me=<email address>
  
  
+& fire
+ 
+  RS Command: fire <weapnum> [<target-id> | <x> <y>]
+  
+  This command fires the specified weapon.
+  
+  Arguments:
+  none - if no argument is specified the weapon will fire at the 
+         locked target if there is one.
+  * ID - fires the weapon at the specified RS object.
+  * x y - fires the weapon at the specified hex.
+  
+& firecluster
+ 
+  RS Command: firecluster <weapnum>
+  
+  This command toggles artillery weapons between firing cluster rounds 
+  and normal ammunition.
+  
+& firemine
+ 
+  RS Command: firemine <weapnum>
+  
+  This command toggles artillery weapons between firing mine rounds 
+  and normal ammuntion.
+  
+& firesmoke
+ 
+  RS Command: firesmoke <weapnum>
+  
+  This command toggles artillery weapons between firing smoke rounds 
+  and normal ammunition.
+  
+& fireswarm
+ 
+  RS Command: fireswarm <weapnum>
+  
+  This command toggles <weapnum> between firing swarm ammunition and 
+  firing normal ammunition.
+  
+  Swarm ammunition can be fired by LRM weapons only.
+  
+& fireswarm1
+ 
+  RS Command: fireswarm1 <weapnum>
+  
+  This command toggles <weapnum> between firing swarm1 ammunition and 
+  firing normal ammunition.
+  
+  Swarm1 ammunition can be fired by LRM weapons only.
+  
+& firetic
+ 
+  RS Command: firetic <num> [<target> or <x y>]
+  
+  This command instructs the weapons in the specified TIC to fire.
+  
 & first()
  
   Syntax: first(<string>[, <delim>])
@@ -5760,6 +6483,83 @@ necessary.
  
   See Also: rest(), last(), extract()
   
+& fix
+ 
+  RS Command: fix [<num> | <low-high>]
+  
+  This command enables repair of any damage without the complexity 
+  of using the correct command and specifying the location.
+  
+  Arguments:
+  
+  * <num> - starts repair of item <num> from the damages list
+  * <low-high> - starts repair of numbers <low> through <high> from 
+                 the damages list.
+  
+  Continued in fix2
+  
+& fix2
+ 
+  Example:
+  
+  >damages
+  --------------------------------------------------------------------
+                         Damage for  [WH]                             
+  --------------------------------------------------------------------
+  1 :LA Repairs on armor (2 points)                                   
+  2 :RT Repairs on armor (3 points)                                   
+  3 :RA Repairs on armor (8 points)                                   
+  4 :LT Repairs on armor (4 points)                                   
+  --------------------------------------------------------------------
+  (*) / Green = Job already done. Yellow = To be done.                
+  --------------------------------------------------------------------
+  
+  >fix 1-3
+  You start fixing the armor..
+  Tech - BTH: 5(Base:4, Mod:1) Roll: 9
+  You have 6 minutes of repairs pending and you're ready to do at 
+  least 594 more minutes of work.
+  You start fixing the armor..
+  Tech - BTH: 5(Base:4, Mod:1) Roll: 7
+  You have 15 minutes of repairs pending and you're ready to do at 
+  least 585 more minutes of work.
+  You start fixing the armor..
+  Tech - BTH: 5(Base:4, Mod:1) Roll: 9
+  You have 39 minutes of repairs pending and you're ready to do at 
+  least 561 more minutes of work.
+  
+  > fix 4
+  You start replacing the part..
+  Tech - BTH: 6(Base:4, Mod:2) Roll: 10
+  You have 45 minutes of repairs pending and you're ready to do at 
+  least 555 more minutes of work.
+  
+& fixarmor
+ 
+  RS Command: fixarmor <loc>
+  
+  This command repairs the armor on <loc>
+  
+  As with all tech commands, this command requires a 'techbit'.
+  
+  Example
+  Given that you are inside a damaged RS Unit in a repairbay
+  
+  >damages
+  --------------------------------------------------------------------
+                      Damage for Exterminator [SZ]                    
+  --------------------------------------------------------------------
+  1 :RT Repairs on armor (2 points)                                   
+  --------------------------------------------------------------------
+  
+  >fixarmor rt
+  
+  You start fixing the armor..
+  BTH: 4 Roll: 7
+  You have 6 minutes of repairs pending and you're ready to do at least 594 more minutes of work.
+  
+  See Also: fix, damages
+  
 & FIXED
  
   Flag: FIXED (f)
@@ -5769,6 +6569,18 @@ necessary.
   nor any of their objects may teleport or go home.
  
   See also: @teleport, home
+  
+& fixinternal
+ 
+  RS Command: fixinternal <loc>
+  
+  This command repairs internal structure in <loc>
+  
+& fixturret
+ 
+  RS Command: fixturret
+  
+  This command permits you to fix a jammed turret.
   
 & flags()
  
@@ -5783,6 +6595,32 @@ necessary.
   You say "PXP?IWXfces#"
  
   See Also: hasflag(), orflags(), andflags()
+  
+& flechette
+ 
+  RS Command: flechette <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  Flechette ammunition or normal ammuntion.
+  
+  Flechette ammo is available for AutoCannons only.
+  
+& fliparms
+ 
+  RS Command: fliparms
+  
+  The command toggles the position of the arms on a mech equipped 
+  with fliparms.
+  
+  When 'flipped' the arms point to the rear arc.
+  
+  Example:
+  Given that you are in a mech with fliparms
+  
+  >fliparms
+  Arms have been flipped to BACKWARD position
+  >fliparms
+  Arms have been flipped to FORWARD position
   
 & FLOATING
  
@@ -5892,6 +6730,15 @@ necessary.
   When a player is set GAGGED, they cannot speak or pose under any
   circumstances.  This flag has no meaning for objects, exits, or
   rooms.
+. 
+& gattling
+ 
+  RS Command: gattling <weapnum>
+  
+  This command toggles the weapon specified between gattling 
+  (radipdfire mode) and normal mode.
+  
+  Only machineguns can use gattling mode.
 . 
 & get
  
@@ -6053,6 +6900,23 @@ necessary.
   You say "Airlock:#58"
  
   See Also: LISTS, match(), member()
+  
+& grabclub
+ 
+  RS Command: grabclub [R|L|-]
+  
+  This command causes your unit to pick up a tree and wield it as a 
+  club.
+  
+  To grab a club you must be in a forest hex, and your 'Mech must be 
+  equipped with hand actuators.
+  
+  Arguments:
+  * R - grab the club with your right hand
+  * L - grab the club with your left hand
+  * - - drop the club
+  
+  See Also: axe, charge, chop, club, kick, mace, punch, saw, trip
   
 & grep()
  
@@ -6298,6 +7162,23 @@ necessary.
   Your current heading is 12.
   >heading
   Your current heading is 0.
+  
+& heat
+ 
+  RS Command: heat <weapnum>
+ 
+  This command toggles a flamer between heat and damage modes.
+  
+  In heat mode the flamer adds heat to the unit it strikes, 
+  whereas in damage mode the weapon burns the unit it strikes causing 
+  damage to the unit.
+  
+& heatcutoff
+ 
+  RS Command: heatcutoff
+  
+  This command sets the heat dissipation of your mech to maintain 
+  sufficient heat to activate TSM.
  
 & help
  
@@ -6318,6 +7199,20 @@ necessary.
  BTMUXCREDITS   - The authors of BTMux. 
 
  
+& hide
+ 
+  RS Command: hide
+  
+  This command attempts to hide a team of battlesuits.
+  
+  To hide your team must be on a hex which has the following terrain 
+  features:
+  * forrest - may be either heavy or light
+  * rough 
+  * building
+  
+  NOTE - You cannot hide whislt in LOS of an enemy unit.
+  
 & home()
  
   Syntax: home(<object>)
@@ -6338,6 +7233,16 @@ necessary.
   You say "#367"
  
   See Also: @link
+  
+& hotload
+ 
+  RS Command: hotload <weapnum>
+  
+  This command toggles the state of an lrm launcher between hotload 
+  and normal use.
+  
+  Hotloading missiles removes the short range penalties, however 
+  there is an increased chance of jamming.
   
 & HTML
  
@@ -6488,6 +7393,19 @@ necessary.
   Also, units generally have to be set IC for players to be able to
   gain XP by shooting them.
   
+& inarc
+ 
+  RS Command: inarc <weapnum> <-|x|y|e>
+  
+  This command sets the type of pods to be fired by an INARC launcher.
+  
+  Arguments:
+  * - - use standard (homing beacon) ammunition
+  * e - use ECM ammunition
+  * y - use 'haywire' ammunition
+  * x - use explosive ammunition
+  * z - use nemesis ammunition
+  
 & inc()
  
   Syntax: inc(<number>)
@@ -6496,6 +7414,15 @@ necessary.
   add(<number>,1).
  
   See Also: add(), sub(), dec()
+  
+& incendiary
+ 
+  RS Command: incendiary <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  Incendiary ammunition or normal ammunition.
+  
+  Incendiary ammo is available for AutoCannons only.
   
 & index()
  
@@ -6514,6 +7441,15 @@ necessary.
   You say, "Mug of Beer"
  
   See Also: extract()
+  
+& inferno
+ 
+  RS Command: inferno <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  Inferno ammunition or normal ammunition.
+  
+  Inferno ammo is only used for missile launchers.
   
 & infilter
  
@@ -6739,6 +7675,12 @@ necessary.
  
   See Also: @dolist, list(), parse()
   
+& jettison
+ 
+  RS Command: jettison
+  
+  This command causes a Battlesuit squad to jettison their backpacks.
+  
 & jump
  
   RS Command: jump [<TARGET-ID> | <bearing> <range>]
@@ -6767,6 +7709,23 @@ necessary.
   When set on an object prevents puppets from picking it up.
  
   See also: puppets
+  
+& kick
+ 
+  RS Command: kick [R|L} [ID]
+  
+  This command causes your 'Mech to kick another RS Unit.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - if a target is locked, attempt to kick that target
+  * R - attempt to kick with the Right leg
+  * L - attempt to kick with the Left leg
+  * ID - specify a unit to kick
+  
+  See Also: axe, charge, chop, club, grabclub, mace, punch, saw, trip
   
 & kill
  
@@ -6802,6 +7761,15 @@ necessary.
   Example: @lalias car = get out;climb out;out;open door;outside
  
   See also: @ealias, enter, leave
+  
+& land
+ 
+  RS Command: land
+  
+  This command will cause your VTOL, Aero or dropship to land, if it 
+  meets the required conditions (eg height, speed, etc).
+  
+  See Also: takeoff, vertical
   
 & last
  
@@ -6854,6 +7822,30 @@ necessary.
   rr - rear right
   - - disable lateral movement
   
+& lateral2
+ 
+  '''Effective Headings:'''<br>
+  Given that the mech is represented by the * and has a heading of 0
+  * A represents the actual direction of movement resulting from 
+    'lateral fl'
+  * B represents the actual direction of movement resulting from 
+    'lateral fr'
+  * C represents the actual direction of movement resulting from 
+    'lateral rl'
+  * D represents the actual direction of movement resulting from 
+    'lateral rr'
+ 
+ 
+     A     0     B
+       300 ^  60  
+         \ | /   
+          \|/    
+  270 <----*----> 90
+          /|\   
+         / | \  
+       240 v 120
+      C   180   D
+  
 & lattr()
  
   Syntax: lattr(<object>[/<wild-pattern>])
@@ -6878,6 +7870,15 @@ necessary.
   You say "VC VE VV"
  
   See Also: hasattr(), get(), u()
+  
+& lbx
+ 
+  RS Command: lbx <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  LBX ammunition or normal ammuntion.
+  
+  LBX ammo is available for LBX-AutoCannons only.
   
 & lcon()
  
@@ -7032,7 +8033,8 @@ necessary.
   This command displays the frequencies, channel mode, and comtitles
   set on an RS Unit.
  
-  See Also: setchannelfreq, setchanneltitle, setchannelmode
+  See Also: setchannelfreq, setchanneltitle, setchannelmode, 
+            sendchannel
   
 & listen
  
@@ -7096,6 +8098,14 @@ necessary.
  See also: listeras, viewref
  
  
+& listtic
+ 
+  RS Command: listtic <num>
+  
+  This command lists the weapons in the specified TIC.
+ 
+    See Also: addtic, cleartic, deltic
+  
 & lit()
  
   Syntax: lit(<string>)
@@ -7177,6 +8187,8 @@ necessary.
   
   This command loads <amount> of <name> into the RS Unit.
   
+  See Also: unloadcargo, manifest, stores
+  
 & loc()
  
   Syntax: loc(<object>)
@@ -7205,7 +8217,8 @@ necessary.
   You say "#367"
  
   See Also: rloc(), room(), where()
- & locate()
+  
+& locate()
 
   Syntax: locate(<looker>,<string>,<where>)
 
@@ -7271,6 +8284,27 @@ Continued in locate()2
  
   See Also: num(), PARENT OBJECTS
   
+& lock
+ 
+  RS Command: lock [<ID> | <x> <y> [<b|h|i|c>] | -]
+  
+  This command sets the targetting system of your RS Unit to the 
+  specified target. Targets can be another RS Unit, a hex, or an 
+  object within a hex.
+  
+  Arguments:
+  * - - clears the current lock
+  * ID - sets <ID> as the target. ID must be in line of sight. If ID 
+         leaves line of sight the target lock will be lost.
+  * x y - targets any units in the the hex designated by x y. Objects 
+          in a hex can be specified using the following flags:
+    * b - locks the building in the specified hex
+    * h - locks the hex rather than any units in it
+    * i - locks the hex for the purposes of setting it on fire
+    * c - locks the hex for the purposes of clearing it
+  
+  Continued in lock2
+  
 & lock()
  
   Syntax: lock(<object>[/<whichlock>])
@@ -7279,6 +8313,26 @@ Continued in locate()2
   get, the default lock is returned. You must control <object>.
  
   See Also: eloc()
+  
+& lock2
+ 
+  Example:
+  To lock UnitID zz:
+  > lock zz
+  Target set to T1 Zorya [zz].
+  The sensors acquire a stable lock on T1 Zorya [om].
+  
+  To lock a hex for igniting:
+  >lock 10 15 i
+  Target coordinates set to igniting hex at (X,Y) 10, 15
+  
+  To lock a building within a hex:
+  >lock 15 9 b
+  Target coordinates set to building at (X,Y) 15, 9
+  
+  To lock a hex (and therefore any units within that hex)
+  >lock 0 0
+  The sensors acquire a stable lock on (0,0).
   
 & log()
  
@@ -7475,6 +8529,23 @@ Continued in locate()2
   You say "#226 #271 #1"
  
   See Also: WHO, conn(), idle()
+  
+& mace
+ 
+  RS Command: mace [ID]
+  
+  This command causes your 'Mech to attack another RS Unit with a 
+  mace. Naturally, this requires that your unit be equipped with an 
+  mace.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - if a target is locked, attempt to attack that target
+  * ID - specify a unit to attack
+  
+  See Also: axe, charge, chop, club, grabclub, kick, punch, saw, trip
   
 & mail()
  
@@ -7731,6 +8802,8 @@ Continued in locate()2
   This command lists the parts and commodities and their amounts in 
   the RS Unit.
   
+  See Also: stores, loadcargo, unloadcargo
+  
 & map()
  
   Syntax: map([<obj>/]<attr>, <list>[, <delim>])
@@ -7749,6 +8822,12 @@ Continued in locate()2
   You say "2 3 4 5 6"
  
   See Also: filter(), fold(), iter(), parse(), u()
+  
+& masc
+ 
+  RS Command: masc
+  
+  This command toggles the state of your Mechs MASC system.
   
 & match()
  
@@ -7832,6 +8911,51 @@ Continued in locate()2
   That target has no markings.
 
   See also: view
+  
+& mechprefs
+ 
+  RS Command mechprefs [<setting>] [<on|off>]
+  
+  This command controls and displays the mechprefs for the RS Unit.
+  
+  If no argument is specified the command show the state of all 
+  mechprefs.
+  
+  Arguments:
+  * setting - if you specify a setting the command will toggle 
+              the state of that setting.
+  * on - turns the setting on
+  * off - turns the setting off
+  
+  Continued in mechprefs2
+  
+& mechprefs2
+ 
+  Settings:
+  
+  * MWSafety - determines if the unit will fire on a Mechwarrior on 
+               the map. When set ON the unit will NOT fire on a 
+               mechwarrior.
+  
+  * SLWarn - determine if the unit will warn you when it is lit by a 
+             spotlight. When set ON the unit will warn when lit.
+  
+  * AutoFall - determines if the unit will attempt to avoid running 
+               off  cliffs. When set ON the unit will NOT attempt to 
+               avoid cliffing. 
+  
+  * ArmorWarn - determines if the unit will warn when a section has 
+                low armor. When set ON the unit will report low armor.
+  
+  * AmmoWarn - determines if the unit will warn when running low on 
+               ammunition. When set ON the unit will warn of low ammo.
+  
+  * AutoconShutdown - determines if the unit will report contacts on 
+                      units which are shutdown. When set ON the unit 
+                      will report on contacts which are shutdown.
+  
+  * FFSafety - determines if the unit will fire on friendly units. 
+               When set ON the unit will NOT fire on friendly units.
   
 & melee_specialist
  
@@ -8153,6 +9277,15 @@ Continued in locate()2
  
   See Also: fullname()
   
+& narc
+ 
+  RS Command: narc <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire NARC 
+  compatible ammunition or normal ammunition.
+  
+  NARC applies only to missile type ammuntion.
+  
 & navigate
  
   RS Command: navigate
@@ -8256,6 +9389,13 @@ Continued in locate()2
   to false(0), it returns a 1.
  
   See Also: BOOLEAN VALUES, and(), or(), xor()
+  
+& nss
+ 
+  RS Command: nss
+  
+  This command toggles the status of the Null Signature System for 
+  those units so equipped.
   
 & num()
  
@@ -9063,6 +10203,28 @@ round(%0,0)),3))],[strtrunc(round(%0,0),[sub(strlen(round(%0,0)),6)])]
  Used for noticing units that appear within your line of sight (LOS)
  
  
+& pereccm
+ 
+  RS Command: pereccm
+  
+  The command puts your personal ECM suite into ECCM mode, which 
+  enables it to counteract enemy ECM.
+  
+  This command is only available to units equipped with 
+  InfiltatrorII_Stealth_Tech
+  
+& perecm
+
+  RS Command:
+  
+  This command puts your personal ECM suite into ECM mode
+
+  ECM interferes with the communications and certain sensors of enemy 
+  units within ranage of your 'ECM Umbrella'.
+
+  This command is only available to units equipped with 
+  InfiltatrorII_Stealth_Tech
+  
 & pi()
  
   Syntax: pi()
@@ -9076,6 +10238,15 @@ round(%0,0)),3))],[strtrunc(round(%0,0),[sub(strlen(round(%0,0)),6)])]
   You say "3.141562654"
  
   See Also: acos(), asin(), atan(), cos(), sin(), tan()
+  
+& pickup
+ 
+  RS Command: pickup <UnitID>
+  
+  This command permits a mech with hands to start towing the specified 
+  unit.
+  
+  See Also: dropoff, attachcables, detachcables
   
 & piloting-aerospace
  
@@ -9170,6 +10341,25 @@ round(%0,0)),3))],[strtrunc(round(%0,0),[sub(strlen(round(%0,0)),6)])]
   player dbref #, pmatch() will return #-1.
  
   See Also: num(), locate()
+  
+& pods
+ 
+  RS Command: pods
+  
+  This command lists the location and type of NARC and iNARC pods 
+  attached to your RS Unit.
+  
+  Example:
+=========================Attached NARC and iNARC Pods========================
+-- Location ---||- NARC -||- iHoming -||- iHaywire -||- iECM -||- iNemesis --
+ Left Arm      ||........||...........||............||........||.............
+ Right Arm     ||........||...........||............||........||.............
+ Left Torso    ||........||...........||............||........||.............
+ Right Torso   ||........||...........||............||........||.............
+ Center Torso  ||........||...........||............||........||.............
+ Left Leg      ||........||.....X.....||............||........||.............
+ Right Leg     ||........||...........||............||........||.............
+ Head          ||........||...........||............||........||.............
   
 & poll()
  
@@ -9336,6 +10526,15 @@ and a
  
   See also: @power
   
+& precision
+ 
+  RS Command: precision <weapnum>
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  Precision ammunition or normal ammunition.
+  
+  Precision ammo is available for AutoCannons only.
+  
 & prefix
  
   Syntax: @prefix <object> = <prefix text>
@@ -9379,6 +10578,23 @@ and a
   @pemit/html and @emit/html allow outputting unescaped HTML strings.
   Please see http://www.chaco.com/pueblo/doc/enhancing.html for more
   details.
+  
+& punch
+ 
+  RS Command: punch [R|L} [ID]
+  
+  This command causes your 'Mech to punch another RS Unit.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - if a target is locked, attempt to punch that target
+  * R - attempt to punch with the Right leg
+  * L - attempt to punch with the Left leg
+  * ID - specify a unit to punch
+  
+  See Also: axe, charge, chop, club, grabclub, kick, mace, saw, trip
   
 & PUPPET
  
@@ -9445,6 +10661,21 @@ second
  
   See Also: setq(), setr()
   
+& rac
+ 
+  RS Command: rac <weapnum> <-/2/4/6>
+  
+  This command sets the specified Rotary AutoCannon to fire the 
+  specified number of shots each time it fires.
+  
+  Example:
+  
+  >rac 0 6
+  Weapon 0 set to fire six shots at a time.
+  
+  >rac 0 -
+  Weapon 0 set to fire one shot at a time.
+  
 & radio
  
   RS Command: radio <id>=<message>
@@ -9510,6 +10741,15 @@ second
  names, along with how much XP is needed to reach each of these ranks.
  
  
+& rapidfire
+ 
+  RS Command: rapidfire <weapnum>
+  
+  This command toggles the specified weapon between rapidfire mode 
+  and normal mode.
+  
+  Only Standard and Light Autocannons can use rapidfire mode. 
+  
 & read
  
   Syntax: read [<object>]
@@ -9527,6 +10767,17 @@ second
   work).
  
   NOTE: 'look' is the same as 'read'.
+  
+& reattach
+ 
+  RS Command: reattach <loc>
+  
+  This command attaches a new limb to replace a head, leg or arm which 
+  has  been destroyed. 
+  
+  A reattachment replaces the limb but does not install components, 
+  weapons or armor on the limb. These repairs must be carried out once 
+  the limb reattachment is complete.
   
 & regmatch()
  
@@ -9582,6 +10833,45 @@ second
   
   You will see nothing to indicate if you are relaying or not.
   
+& reload
+ 
+  RS Command: reload <loc> <pos>[<type>]
+  
+  This command loads ammunition into the specified ammo bin.
+  
+  The ammo <type> can be specified also, if a non-standard type is 
+  required.
+  
+  Continued in reload2
+  
+  See Also: unload, ammo types 
+& reload2
+ 
+  Example:
+  Given a Pinto VTOL with no LRM ammo left
+  
+  >critstatus fs 
+  
+  
+  --------------------------------------------------------------------
+                     Front Side Criticals                             
+  --------------------------------------------------------------------
+  1 MediumLaser                          7 BeagleProbe                
+  2 MediumLaser                          8 Empty                      
+  3 MediumLaser                          9 Empty                      
+  4 LRM-5                               10 Empty                      
+  5 ArtemisIV                           11 Empty                      
+  6 LRM-5 Artemis IV Ammo (0)           12 Empty                      
+-  -------------------------------------------------------------------
+  
+  >reload fs 6
+  
+  You start reloading the ammo compartment..
+  BTH: 5 Roll: 3
+  You fumble around, wasting the ammo in the progress.
+  You have 15 minutes of repairs pending and you're ready to do at 
+  least 585 more minutes of work.
+  
 & remove()
  
   Syntax: remove(<list>, <word>[, <delim>])
@@ -9602,6 +10892,142 @@ second
   You say "Hout an o-separated list"
  
   See Also: delete(), ldelete()
+  
+& removegun
+ 
+  RS Command: removegun <num>
+  
+  This command removes a weapon from an RS Unit.
+  
+  The <num> specified refers to the number of the weapon in the status 
+  command.
+  
+  Continued in removegun2
+  
+removegun2
+ 
+  Example:
+  
+  >status w
+  Vehicle Name:                  ID:[FV]   Vehicle Reference: Pinto
+  Tonnage:    30      FlankSpeed: 161       Movement Type: VTOL
+  Pilot: NONE
+  SHUTDOWN
+  AdvSensors: BeagleProbe
+  
+==================WEAPON SYSTEMS===========================AMMUNITION========
+------ Weapon --------- [##] Location ---- Status ||--- Ammo Type ---- Rounds
+ MediumLaser            [ 0] Front Side    Ready  || LRM-5            A   24
+ MediumLaser            [ 1] Front Side    Ready  ||    
+ MediumLaser            [ 2] Front Side    Ready  ||    
+ LRM-5                  [ 3] Front Side    Ready  ||    
+  
+  >removegun 0
+  BTH: 5 Roll: 7
+  You start removing the gun..
+  You have 40 minutes of repairs pending and you're ready to do at 
+  least 560 more minutes of work.
+   
+& removepart
+ 
+  RS Command: removepart <loc> <pos>
+  
+  This command removes the component which is at <loc> <pos>
+  
+  The critstatus command is use to identify <loc> and <Pos>
+  
+  Continued in removepart2
+  
+& removepart2
+ 
+  Example:
+  Given an EXT-4D in for scrapping
+  
+  >critstatus lt
+  -------------------------------------------------------------------
+                          Left Torso Criticals                       
+  -------------------------------------------------------------------
+   1 Engine                               7 LRM-10                   
+   2 Engine                               8 LRM-10                   
+   3 Engine                               9 Empty                    
+   4 JumpJet (Destroyed)                 10 Empty                    
+   5 JumpJet                             11 Empty                    
+   6 JumpJet                             12 Empty                    
+  -------------------------------------------------------------------
+  
+  >removepart lt 5
+  You start removing the part..
+  Tech - BTH: 4(Base:4, Mod:0) Roll: 9
+  You have 40 minutes of repairs pending and you're ready to do at 
+  least 560 more minutes of work.
+  
+& removepod
+ 
+  RS Command: removepod <loc> <type>
+  
+  This command attempts to removes am iNARC pod from an RS 
+  Unit.
+  
+  Arguments:
+  * <loc> - specifies the location of the pod to attempt to remove.
+  * <type> - specifies the type of the pod. 
+  
+    Pod Types:
+    * E - ECM pod
+    * H - Homing pod
+    * Y - Haywire pod
+  
+  Example:
+  Given a homing pod attached to your left leg:
+  
+  >removepod ll h
+  You try to swat at the iNarc pods attached to your Left Leg with 
+  your Left Arm.  
+  BTH:  8,      Roll:  8
+  You knock a Homing pod off your Left Leg!
+  
+& removesection
+ 
+  RS Command: removesection <loc>
+  
+  This command removes a section (eg LT, RL) from an RS Unit which is 
+  being scrapped.
+  
+  NOTE - this command will remove a section even if there are parts 
+  still on it which can be salvaged. In that case, those parts will be 
+  lost.
+  
+& repairgun
+ 
+  RS Command: repairgun [<num> | <loc> <pos>}]
+  
+  This command a repairs damaged weapon in <loc> <pos> or displayed as 
+  <num> in the damages command.
+  
+  Use critstatus to determine the <pos> for the weapon.
+  
+  Example:
+  Given a Pinto which has a damaged medium laser
+      You can use either:
+      repairgun 0
+      OR
+      repairgun fs 1
+  
+& repairpart
+ 
+  RS Command: repairpart <loc> <pos>
+  
+  This command a repairs damaged part in <loc> <pos>.
+  
+  Use critstatus to determine the <pos> for the part.
+  
+& repairs
+ 
+  RS Command: repairs
+  
+  This command displays the repairs which are currently being 
+  carried out on an RS Unit.
+  
   
 & repeat()
  
@@ -9636,6 +11062,83 @@ second
   You say "Yet@Another@Funky@List"
  
   See Also: extract(), insert(), ldelete()
+  
+& replacegun
+ 
+  RS Command: replacegun [<num> | <loc> <pos>}] [<name>]
+  
+  This command installs a new weapon in <loc> <pos> or displayed 
+  as <num> in the damages command.
+  
+  THe agument allows you to install a specific brand of that weapon, 
+  if brands are enabled on the MUX.
+  
+  Use critstatus to determine the <pos> for the weapon.
+  
+  Continued in replacegun2 
+& replacegun2
+ 
+  Example:
+  Given a Pinto which has a destroyed medium laser
+  
+  status w
+Vehicle Name:                  ID:[FV]   Vehicle Reference: Pinto
+Tonnage:    30      FlankSpeed: 161       Movement Type: VTOL
+Pilot: NONE
+SHUTDOWN
+AdvSensors: BeagleProbe
+==================WEAPON SYSTEMS===========================AMMUNITION========
+------ Weapon --------- [##] Location ---- Status ||--- Ammo Type ---- Rounds
+ MediumLaser            [ 0] Front Side    *****  || LRM-5            A   24
+ MediumLaser            [ 1] Front Side    Ready  ||    
+ MediumLaser            [ 2] Front Side    Ready  ||    
+ LRM-5                  [ 3] Front Side    Ready  ||    
+ 
+      You can use either:
+      replacegun 0
+      OR
+      replacegun fs 1
+      to install the new weapon.
+  
+& replacepart
+ 
+  RS Command: replacepart <loc> <pos>
+  
+  This command installs a new part in <loc> <pos> 
+  
+  Use critstatus to determine the <pos> for the part.
+  
+& replacesuit
+ 
+  RS Command: replacesuit <suitnum>
+  
+  This command replaces a destroyed battlesuit.
+  
+  Arguments:
+  * suitnum - this uses the same argument as critstatus does for 
+              battlesuits:  eg S1, S2, etc
+  
+& report
+ 
+  RS Command: report [<UnitID>|<x> <y>]
+  
+  This command provides the same information provided by the 
+  'scan <object> i' command.
+  
+  The report command can operate over greater distances than the scan 
+  command, however there is a corresponding decrease in accuracy of 
+  the information provided for objects which are more distant.
+  
+  See Also: scan
+  
+& reseal
+ 
+  RS Command: reseal <loc>
+  
+  This command repairs flooded sections of an RS Unit.
+  
+  Note - the command does not repair other damage in the section, only 
+  the flooding itself.
   
 & rest()
  
@@ -9804,6 +11307,18 @@ second
  
   See Also: loc(), UNFINDABLE
   
+& rottorso
+ 
+  RS Commmand: <l|c|r>
+  
+  This command rotates the torso on a bidped mech in the direction 
+  specified.
+  
+  Arguments:
+  l - rotate the torso left
+  c - center the torso
+  r - rotate the torso right
+  
 & round()
  
   Syntax: round(<number>,<places>)
@@ -9891,6 +11406,35 @@ second
  
   See also: @destroy, DESTROY_OK
   
+& safety
+ 
+  RS Command: saftey <on|off>
+  
+  This command controls the ability of your unit to fire on 
+  Mechwarriors on the map.
+  
+  Arguments:
+  * on - enables firing on Mechwarriors
+  * off - disable firing on Mechwarriors
+  
+  See Also: mechprefs 
+& saw
+ 
+  RS Command: saw [ID]
+  
+  This command causes your 'Mech to attack another RS Unit with a 
+  saw. Naturally, this requires that your unit be equipped with a 
+  saw.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - if a target is locked, attempt to attack that target
+  * ID - specify a unit to attack
+  
+  See Also: axe, charge, chop, club, grabclub, kick, mace, punch, trip
+  
 & say
  
   Syntax: say <message>
@@ -9899,6 +11443,27 @@ second
   also use '"<message>'.
  
   See also: page, pose, whisper, :, ;,"
+  
+& scan
+ 
+  RS Command: scan [<UnitID> [a|i|w]|<x> <y>| <x> <y> <b|h>]
+  
+  This command scans the specified object displaying various 
+  information about it.
+  
+  Arguments:
+  none - scans the locked target
+  * UnitID - scans the specified unit
+   *UnitID arguments:
+    none - displays the full detail for the specified unit
+    * a - displays the armor for the specified unit
+    * i - displays the info for the specified unit
+    * w - displays the weapons for the specified unit
+  * x y - scans the specified hex
+   * x y arguments:
+    none - scans the hex for units
+    * b - scans the building in the specified hex
+    * h - scans the specified hex for mines
   
 & scan mode
  
@@ -9918,6 +11483,13 @@ second
   You notice a unknown transmission your scanner ....
   Your systems manage to zero on it exactly on channel A.
    
+& scharge
+ 
+  RS Command:
+  
+  This command toggles the status (ie on or off) of your units 
+  supercharger, if it is so equipped.
+  
 & score
  
   Syntax: score
@@ -10046,6 +11618,70 @@ second
  
   Transmits <message> over <channel>
   
+  See Also: setchannelmode, setchannelfreq, setchanneltitle 
+            listchannels 
+& sensor
+ 
+  RS Command: sensor [<pri> <sec>]
+  
+  This command displays the currently selected sensors or sets sensors 
+  to those specified.
+  
+  Arguments:
+   none - displays the current sensors
+   one argument - displays a detailed report on the current sensors
+   two arguments - set your primaary and secondary sensors
+    * b - beagle active probe
+    * e - electromagnetic
+    * h - bloodhound active probe
+    * i - infrared
+    * l - light amplification
+    * r - radar
+    * s - seismic
+    * v - visual 
+ 
+  Continued in sensor2
+  
+& sensor2
+ 
+  Example:
+  
+  To display the brief report showing your current sensors:
+  >sensor
+  Sensors
+  -------
+  Primary:   Electromagnetic (R:16-24)
+  Secondary: Infrared (R:15)
+  
+  To display the details report showing your current sensors:
+  >sensor long
+  Sensors
+  -------
+  Primary:   Electromagnetic 
+          Range:      16-24
+          Blocked by: Mountains/Obstacles, 8 pt woods
+          Notes:      Easy to hit heavies, good in forests (BTH), 
+          overall unreliable (chances of detection/BTH)
+  Secondary: Infrared 
+          Range:      15
+          Blocked by: Fire/Obstacles, 6 pt woods
+          Notes:      Easy to hit 'hot' targets, not very efficient in 
+          forests (BTH)
+  
+  Continued in sensor3
+  
+& sensor3
+ 
+  Example:
+  To set the sensors to Primary:Electro Magnetic and Secondary: 
+  Infrared:
+  
+  >sensor e i
+  Sensors
+  -------
+  Primary:   Electromagnetic (R:16-24)
+  Secondary: Infrared (R:15)
+  
 & SESSION
  
   Syntax: SESSION
@@ -10088,14 +11724,16 @@ second
 & setchannelfreq
  
   RS Command: setchannelfreq <channel>=<frequency>
-  
+ 
   This command sets the frequency assigned to <channel>
-  
+ 
   Example:
   >setchannelfreq a=9343
-   
+ 
+  See Also: sendchannel, setchannelmode, setchanneltitle,  
+            listchannels 
 & setchannelmode
-
+ 
   RS Command: setchannelmode <channel>=<mode>
  
   This command sets the characteristics of your use of <channel>.
@@ -10110,8 +11748,25 @@ second
  
   Additionally you can supply color codes.
  
-  See also: analog mode, digital mode, relay mode, info mode, 
-            scan mode, mute mode, radio colors 
+  See also: sendchannel, setchanneltitle, setchannelfreq, analog mode, 
+            digital mode, relay mode, info mode, scan mode, mute mode, 
+            radio colors 
+& setchanneltitle
+ 
+  RS Command: setchanneltitle <channel>=<title>
+  
+  This command sets the string which is prefixed to your transmissions 
+  on <channel>
+  
+  Example
+  
+  setchanneltitle a=Mechjock
+  
+  senchannel a=Can anyone hear me?
+  [A:180] <Mechjock> Can anyone hear me?
+ 
+  See Also: sendchannel, setchannelmode, setchannelfreq, listchannels
+  
 & setdiff()
  
   Syntax: setdiff(<list1>, <list2>[, <delim>])
@@ -10257,6 +11912,31 @@ second
   You say "baz foo gleep bar"
  
   See Also: scramble()
+  
+& shutdown
+ 
+  RS Command: shutdown
+  
+  This command causes the RS Unit to shutdown.
+  
+& sight
+ 
+  RS Command: sight <weapnum> [<target-id> | <x> <y>]
+  
+  This command displays the base-to-hit for the specified weapon 
+  against the specified target.
+  
+  Arguments:
+  none - if no argument is given the command calculates the BTH for 
+         the locked target, if any.
+  * ID -  calculates the BTH for the specified RS Object.
+  * x y - calculates the BTH for the specified hex.
+  
+  NOTE - the BTH returned by the sight command applies ONLY to the 
+  weapon specified and at the time of the calculation. The BTH may 
+  well be different by the time you fire the weapon.
+ 
+  See Also: lock
   
 & sign()
  
@@ -10435,6 +12115,13 @@ second
   restrict additional commands.  This flag may only be set or 
   cleared by wizards.
   
+& slite
+ 
+  RS Command: slite
+  
+  This command toggles the status (ie on or off) of your searchlight 
+  if your unit is so equipped.
+  
 & sort()
  
   Syntax: sort(<list>[, <sort type>[, <delim>]])
@@ -10578,6 +12265,17 @@ second
  
   See Also: merge()
   
+& spot
+ 
+  RS Command: spot <UnitID|OwnID|->
+  
+  This command controls the assignment of a spotter unit.
+  
+  Arguments:
+  * UnitID - Causes your unit to use <UnitID> as a spotter
+  * OwnID - Causes your unit to be available as a spotter
+  * '-' - Causes your unit to cease acting as a spotter
+  
 & sqrt()
  
   Syntax: sqrt(<number>)
@@ -10707,6 +12405,25 @@ second
  
   See Also: @stats
   
+& status
+ 
+  RS Command: status [a|i|w]
+  
+  This command displays the status of the RS Unit.
+  
+  Arguments:
+  No argument returns the full status report
+  * a - displays the armor status only
+  * i - displays info such as navigation status, heat status, etc.
+  * w - displays the weapon status only
+  
+& stealth
+ 
+  RS Command: stealth
+  
+  This command toggles the status of Stealth Armor for those units 
+  which are so equipped.
+  
 & STICKY
  
   Flag: STICKY (S)
@@ -10716,6 +12433,15 @@ second
   flag is only meaningful for things and rooms.
  
   See also: HOMES, DROP-TOS
+  
+& stinger
+ 
+  RS Command: stinger <weaponum
+  
+  This command toggles the state of <weapnum>, causing it to fire 
+  Stinger ammunition or normal ammunition.
+  
+  Stinger ammo is only used for missile launchers.
  
 & stores
 
@@ -10723,6 +12449,8 @@ second
   
   This command lists the parts and commodities and their amounts in 
   the factory/tower/bay/etc.
+  
+  See Also: loadcargo, unloadcargo, manifest
   
 & strcat()
  
@@ -10857,6 +12585,23 @@ second
   suspected.
  
  
+& swarm
+ 
+  RS Command: swarm [ID | -]
+  
+  This command causes your Battlesuit squad to attempt to mount an 
+  enemy unit. This reduces your BTH for weapon attacks, and the 
+  swarmed unit cannot use it's weapons on you.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - attack the locked unit
+  * ID - attack the specified unit
+  
+  See Also: attackleg
+  
 & swimming
  
  >> Help: Swimming (Skills-Combat, Misc.)
@@ -10915,6 +12660,27 @@ second
   you can view the tactical map centered on that unit.
   
    
+& tag
+ 
+  RS Command: tag [id|-]
+  
+  This command enables and disables the targetting of an enemy RS Unit 
+  with the Target Acquisition Gear. 
+  
+  Arguments:
+  * ID - The ID of the RS Unit you wish to light up with the TAG.
+  * - - Disables TAG
+  
+  Example:
+  
+  >tag IY
+  You light up T2 Exterminator [IY] with your TAG.
+  ...
+  Your TAG system has achieved a stable lock.
+  
+  >tag - 
+  Your TAG connection has been broken.
+  
 & take
  
   Syntax: take[/<switch>] <object>
@@ -10953,6 +12719,15 @@ second
   See also: drop, @afail, @asucc, @fail, @ofail, @osucc, @succ,
   ENTER_OK, FAILURE, SUCCESS.
   
+& takeoff
+ 
+  RS Command: takeoff
+  
+  This command is used in a VTOL or Aero unit to get the unit into 
+  the air.
+  
+  See Also: land, vetical,
+  
 & tan()
  
   Syntax: tan(<number>)
@@ -10968,6 +12743,32 @@ second
     You say "1"
   
   See also: acos(), asin(), atan(), cos(), pi(), sin().
+  
+& target
+ 
+  RS Command: target <section | ->
+  
+  This command permits you to target a specific part of the unit you 
+  you have locked.
+  
+  Arguments:
+  * - disable targetting
+  * section - sets the section of the RS Unit to aim at.
+  
+  Example:
+  >lock ia
+  Target set to T1 Mercury [ia].
+  The sensors acquire a stable lock on T1 Mercury [ia].
+  
+  >target h
+  Head targetted.
+  >target ct
+  Center Torso targetted.
+  
+  >target -
+  Targetting disabled.
+  
+  See Also: lock
   
 & tel()
  
@@ -11066,6 +12867,20 @@ second
   NOTE: 'drop' is the same as 'throw'.
  
   See also: get, @adrop, @drop, @odrop, DROP-TO, STICKY.
+  
+& thrust
+ 
+  RS Command: thrust [num]
+  
+  This command controls the thrust for Aero type RS Units.
+  
+  Arguments:
+  none - displays the current thrust
+  num - sets the thrust
+  
+  NOTE - Aero units are currently non-functional within the codebase.
+  
+  See Also: dive, climb
  
 & time
  
@@ -11112,6 +12927,16 @@ second
   out.
  
   See also: @teleport, @atofail, @otofail, @lock
+  
+& toggletype
+ 
+  RS Command: toggletype <loc> <pos> <type>
+  
+  This command sets the ammunition for ammobin in <loc> <pos> to 
+  <type>.
+  
+  To set the ammobin to use the 'normal' ammunition use '-' as the 
+  argument.
  & topics
  
   Help available on the following Topics:
@@ -11217,6 +13042,23 @@ second
  
   See also: center(), ljust(), rjust().
   
+& trip
+ 
+  RS Command: trip [R|L} [ID]
+  
+  This command causes your 'Mech to trip another RS Unit.
+  
+  As with all physical attacks you must be within the same hex as the 
+  unit you are attacking.
+  
+  Arguments:
+  none - if a target is locked, attempt to trip that target
+  * R - attempt to trip with the Right leg
+  * L - attempt to trip with the Left leg
+  * ID - specify a unit to trip
+  
+  See Also: charge, chop, club, grabclub, kick, mace, punch, saw
+  
 & trunc()
  
   Syntax: trunc(<number>)
@@ -11239,6 +13081,34 @@ second
   You say "-5"
  
   See Also: div(), floor(), mod(), round()
+  
+& turnmode
+ 
+  RS Command: turnmode <tight|normal>
+  
+  This command permits selection of the desired turning rate.
+  
+  NOTE - This command is available to characters with the Maneuvering 
+  Ace advantage only.
+  
+  Arguments:
+  * normal - as per normal
+  * tight - enables sharper turns, however there is a greater cost in 
+            speed lost to achieve the turn.
+  
+& turret
+ 
+  RS Command: turret <degrees>
+  
+  This command sets the direction in which the turret on a vehcile
+  faces.
+  
+  Note - The turret is not locked in that direction. Changing the 
+  heading of the unit will rotate the entire unit, including the 
+  turret which consequently will change the direction the turret is 
+  facing.
+  
+  See Also: autoturret
   
 & type()
  
@@ -11318,6 +13188,32 @@ second
  
   See Also: get(), get_eval(), u(), default(), edefault()
   
+& udisembark
+ 
+  RS Command: udisembark
+  
+  This command causes your RS Unit to exit the carrier in which is it 
+  being transported.
+  
+  Upon exit your RS Unit will be immediately started up and you will 
+  be able to move, however no weapons will be available until the unit 
+  is fully reset.
+  
+  Example:
+  
+  >udisembark
+  You emerge from the unit loading ramp.
+  
+  Your Left Arm has finished its previous action.
+  Your Right Arm has finished its previous action.
+  Your Left Torso has finished its previous action.
+  Your Right Torso has finished its previous action.
+  Your Center Torso has finished its previous action.
+  Your Left Leg has finished its previous action.
+  Your Right Leg has finished its previous action.
+  Your Head has finished its previous action.
+ 
+  See Also: embark 
 & ufail
  
   Syntax: @ufail <object> = <message>
@@ -11380,6 +13276,16 @@ delicious!"
  
   See Also: u(), setq(), r()
   
+& ultra
+ 
+  RS Command: ultra <weapnum>
+  
+  This command toggles the state of <weapnum> causing it to cycle 
+  between Ultra mode and normal mode. In Ultra mode 2 shots are fired 
+  instead of 1. 
+  
+  Only the Ultra AutoCannon can use Ultra mode.
+  
 & UNFINDABLE
  
   Flags: UNFINDABLE (U)
@@ -11399,12 +13305,46 @@ inside
   This flag is typically set on rooms that need to be
   inspected for good building practices. This flag may only be set by
   wizards and royalty.
+  
+& unjam
+ 
+  RS Command: unjam <weapnum>
+ 
+  This command permits the pilot to fix fixes ammo loader jams.
+  
+  Example:
+  
+  The ammo loader mechanism jams on your RotaryAC/2!
+  
+  >status w
+=========================WEAPON SYSTEMS STATUS=========================
+[##] -------- Weapon Name -------- || Location -------- || Status -----
+[ 0] RotaryAC/2                    || Right Arm         || AMMOJAM
+[ 1] StreakSRM-6                   || Left Torso        || OPERATIONAL
+[ 2] ERMediumLaser                 || Head              || OPERATIONAL
+  
+  >unjam 0
+  You begin to shake the jammed ammo loose on weapon #0
+  You make a roll to unjam the weapon!
+  Modified Gunnery Skill: BTH 5   Roll: 9
+  You manage to clear the jam on your RotaryAC/2!
+  
+& unload
+ 
+  RS Command: unload <loc> <pos>
+  
+  This command unloads the ammunition stored in the ammobin at 
+  <loc> <pos>.
+  
+  Use the critstatus command to identify the <pos>
  
 & unloadcargo
 
   RS Command: unloadcargo <name> <amount>
  
   This command unloads <amount> of <name> from the RS Unit.
+  
+  See Also: loadcargo, stores, manifest
  
 & uptime
  
@@ -11427,6 +13367,19 @@ inside
   result in a picture being taken.
  
   See also: @ause, @ouse, @use
+  
+& usebin
+ 
+  RS Command: usebin <weapnum> <location>
+  
+  The command specifies the ammobin which <weapnum> will draw 
+  ammunition from first.
+  
+  Example:
+  Given that the unit is an AGS-2D
+  
+  >usebin 0 lt 7
+  Prefered ammo source set to Left Torso for weapon #0
   
 & v()
  
@@ -11545,7 +13498,19 @@ inside
  
   > version
   You say "TinyMUX Beta 1.6+HUD+HAG+ALG #7 with BtOnline-BTechMux 0.5"
+  
+& vertical
  
+  RS Command: vertical [num]
+  
+  This command controls the vertical speed of VTOL type RS Units.
+  
+  Arguments:
+  none - displays the current vertical speed
+  num - sets the vertical speed to num
+  
+  See Also: land, takeoff
+  
 & view
 
   RS Command: view <UnitID>
@@ -11680,7 +13645,45 @@ inside
  source. The entries are color coded based on type, the legend for the types
  is on the bottom of the display.
  
+ 
+& weaponspecs
+ 
+  RS Command: weaponspecs
+  
+  This command displays the specifications for the weapons in the RS 
+  Unit.
+  
+  Example:
+                  Weapons statistics for Exterminator: EXT-4D                 
+Weapon Name             Heat  Damage  Range: Min  Short  Med  Long  VRT       
+------------------------------------------------------------------------------
+IS.MediumLaser            3      5            0     3      6    9   25        
+IS.LRM-10                 4      1            6     7     14   21   15        
+IS.Anti-MissileSystem     1      2            0     1      1    1   60        
+IS.SmallLaser             1      3            0     1      2    3   15        
+------------------------------------------------------------------------------
+  
+& weaponstatus
+ 
+  RS Command: weaponstatus
+  
+  This command displays the status of all the weapons in the RS Unit, 
+  indicating if each weapon is DESTROYED, DISABLED, JAMMED, SHORTED, 
+  EMPTY, DUD, AMMOJAM, DAMAGED, or OPERATIONAL.
+  
+  Example:
+=========================WEAPON SYSTEMS STATUS=========================
+[##] -------- Weapon Name -------- || Location -------- || Status -----
+[ 0] MediumLaser                   || Left Arm          || OPERATIONAL
+[ 1] MediumLaser                   || Left Arm          || OPERATIONAL
+[ 2] MediumLaser                   || Right Arm         || OPERATIONAL
+[ 3] MediumLaser                   || Right Arm         || OPERATIONAL
+[ 4] LRM-10                        || Left Torso        || OPERATIONAL
+[ 5] Anti-MissileSystem            || Right Torso       || OPERATIONAL
+[ 6] SmallLaser                    || Head              || OPERATIONAL
 
+  See Also: status, weaponspecs
+ 
 & weapstats
  
  >> help: Weapstats (Informational Command)
@@ -11825,22 +13828,6 @@ great
  
   See Also: BOOLEAN VALUES, and(), not(), or()
   
-& xp
- 
- >> Help: XP - Experience Points (Economy, Currency)
- -----------------------------------------------------------------------------
- XP, or 'Experience Points', is the basic unit of currency in our economy.
- It is most commonly used to buy units. XP can't be lost and it can't be
- converted to or from C-Bills (see 'help C-Bills').
- 
- You can gain XP a number of different ways:
-  * Engaging in combat out on the RS map
-  * Picking up Data Caches
-  * Destroying Relays
-  * Destroying Generators 
-  * Claiming Bases
- 
- 
 & zfun()
  
   Syntax: zfun(<attrib>, <arg0>[, <arg1>[, ...]])
