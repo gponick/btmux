@@ -1,6 +1,6 @@
 +X992001
 +S1857
-+N77946
++N78001
 -R85
 +A76546
 "1:A.0001.D"
@@ -4666,12 +4666,54 @@
 "1:COMMANDS.DESC"
 +A77577
 "1:COMMODS.L"
++A77971
+"1:COMP.1"
++A77980
+"1:COMP.10"
++A77981
+"1:COMP.11"
++A77982
+"1:COMP.12"
++A77983
+"1:COMP.13"
++A77984
+"1:COMP.14"
++A77972
+"1:COMP.2"
++A77973
+"1:COMP.3"
++A77974
+"1:COMP.4"
++A77975
+"1:COMP.5"
++A77976
+"1:COMP.6"
++A77977
+"1:COMP.7"
++A77978
+"1:COMP.8"
++A77979
+"1:COMP.9"
++A77986
+"1:COMP.D"
++A77947
+"1:COMPCOST.L"
 +A52444
 "1:COMPL_CHECK"
 +A52443
 "1:COMPL_CLAI"
 +A76843
 "1:COMPLETE.T"
++A77990
+"1:COMPLRS.F"
++A77994
+"1:COMPNAME.F"
++A77992
+"1:COMPQUALITY.F"
++A77991
+"1:COMPSCAN.F"
++A77999
+"1:COMPUTER.F"
 +A725
 "1:COMPUTER.STAT"
 +A77350
@@ -45440,6 +45482,8 @@
 "1:LRM_CARRIER-58.INF"
 +A3582
 "1:LRM_CARRIER.INF"
++A77997
+"1:LRSRANGE.F"
 +A2759
 "1:LRSRANGE.MAX"
 +A2758
@@ -46282,6 +46326,8 @@
 "1:MOD_SQUADXP.T"
 +A77580
 "1:MODCSPACE.T"
++A77988
+"1:MODEMOD.F"
 +A1148
 "1:MODENERGY.T"
 +A43788
@@ -50476,14 +50522,70 @@
 "1:QUICKVOTE/SET.C"
 +A76369
 "1:R.CMD"
++A77948
+"1:RADIO.1"
++A77958
+"1:RADIO.10"
++A77959
+"1:RADIO.11"
++A77960
+"1:RADIO.12"
++A77961
+"1:RADIO.13"
++A77962
+"1:RADIO.14"
++A77963
+"1:RADIO.15"
++A77964
+"1:RADIO.16"
++A77965
+"1:RADIO.17"
++A77966
+"1:RADIO.18"
++A77967
+"1:RADIO.19"
++A77949
+"1:RADIO.2"
++A77968
+"1:RADIO.20"
++A77969
+"1:RADIO.21"
++A77970
+"1:RADIO.22"
++A77950
+"1:RADIO.3"
++A77951
+"1:RADIO.4"
++A77953
+"1:RADIO.5"
++A77954
+"1:RADIO.6"
++A77955
+"1:RADIO.7"
++A77956
+"1:RADIO.8"
++A77957
+"1:RADIO.9"
++A77985
+"1:RADIO.D"
++A77996
+"1:RADIO.F"
 +A46660
 "1:RADIO.MON"
 +A1299
 "1:RADIOCHANS.F"
++A77946
+"1:RADIOCOST.L"
 +A1297
 "1:RADIOFLAGS.F"
 +A57389
 "1:RADIOLOOP.T"
++A77993
+"1:RADIONAME.F"
++A77989
+"1:RADIOQUALITY.F"
++A77995
+"1:RADIORANGE.F"
 +A2760
 "1:RADIORANGE.MAX"
 +A2761
@@ -50508,6 +50610,8 @@
 "1:RADIOSTART.T"
 +A2676
 "1:RADIOTOWER.INF"
++A77987
+"1:RADIOTYPE.F"
 +A54611
 "1:RADIOUPDATE1.T"
 +A54612
@@ -53208,6 +53312,8 @@
 "1:SCANMECH.T"
 +A39304
 "1:SCANMODE"
++A77998
+"1:SCANRANGE.F"
 +A2757
 "1:SCANRANGE.MAX"
 +A2756
@@ -53566,6 +53672,8 @@
 "1:SET_PLR.T"
 +A2650
 "1:SET_RADIO.T"
++A78000
+"1:SET_RADIO_COMP.T"
 +A3016
 "1:SET_RADIOBYRANK.F"
 +A17570
@@ -63202,7 +63310,7 @@
 >19
 "@dolist/delim | [v(ATTRIB_ACCESS.L)]={@attribute/access [first(##,:)]=[after(##,:)]};@dolist [lattr(setr(0,v(GLOBAL_FUNCTIONS.DB))/*.F)]=@function/preserve [before(##,.F)]=%q0/##;@dolist [lattr(me/COMMAND_*)]={@tri me/##}"
 >30
-"Sun Jun 18 14:03:38 2006"
+"Mon Jun 19 21:12:06 2006"
 >38
 "276"
 >49
@@ -63214,7 +63322,7 @@
 >72
 "BOO!"
 >84
-"#298;192.168.1.100;Sun Jun 18 14:03:38 2006;192.168.1.100;Fri Jun 16 22:57:06 2006;130-127-134-74.wireless.clemson.edu;Mon Apr 17 14:11:23 2006;130.127.66.32;Fri Oct 28 11:31:31 2005;0;25;82.94.251.206;Tue Sep 27 01:58:12 2005;130.127.18.38;Tue May  3 15:44:07 2005;130.127.18.38;Fri Apr 29 03:13:55 2005;"
+"#299;192.168.1.100;Mon Jun 19 21:12:06 2006;192.168.1.100;Sun Jun 18 14:03:38 2006;192.168.1.100;Fri Jun 16 22:57:06 2006;130-127-134-74.wireless.clemson.edu;Mon Apr 17 14:11:23 2006;0;25;82.94.251.206;Tue Sep 27 01:58:12 2005;130.127.18.38;Tue May  3 15:44:07 2005;130.127.18.38;Fri Apr 29 03:13:55 2005;"
 >88
 "192.168.1.100"
 >205
@@ -63268,7 +63376,7 @@
 >5
 "XX7DbTAaRPsgU"
 >30
-"Sun Jun 18 14:03:22 2006"
+"Mon Jun 19 21:11:59 2006"
 >38
 "-211"
 >49
@@ -63280,7 +63388,7 @@
 >62
 "(#2)"
 >84
-"#1096;192.168.1.100;Sun Jun 18 14:03:22 2006;192.168.1.100;Fri Jun 16 21:50:03 2006;130.127.131.30;Wed Apr 26 17:09:32 2006;localhost;Wed Apr 26 11:13:55 2006;0;20;130.127.44.164;Fri Oct 21 21:45:24 2005;130.127.66.32;Mon Sep 26 12:10:55 2005;130.127.136.5;Wed May  4 19:56:44 2005;"
+"#1097;192.168.1.100;Mon Jun 19 21:11:59 2006;192.168.1.100;Sun Jun 18 14:03:22 2006;192.168.1.100;Fri Jun 16 21:50:03 2006;130.127.131.30;Wed Apr 26 17:09:32 2006;0;20;130.127.44.164;Fri Oct 21 21:45:24 2005;130.127.66.32;Mon Sep 26 12:10:55 2005;130.127.136.5;Wed May  4 19:56:44 2005;"
 >88
 "192.168.1.100"
 >200
@@ -63338,7 +63446,7 @@
 >77488
 "17:0:#30"
 >77860
-"#30 1150661520"
+"17:0:#30"
 <
 !3
 "[31mSYSTEM: [0mGarbage Compactor"
@@ -63482,7 +63590,7 @@
 >77927
 "1"
 >77928
-"[ifelse(strmatch(RADIO,%0),extract(v(RADIO_COST.L),%1,1),extract(v(COMP_COST.L),%1,1))]"
+"[extract(v(%0COST.L),%1,1,|)]"
 >77929
 "$bay:@pemit %#=%r[u(#98/HEADER.F,Bay Commands)][iter(lattr(#4/*.CDESC),%r%b%ch%cg[ljust(before(v(##),|),28)]%cn %cb|%cn [after(v(##),|)])]%r[u(#98/FOOTER.F)]"
 >77930
@@ -63517,6 +63625,10 @@
 "bay/listbays|Lists the bays linked to yours."
 >77945
 "bay/transfer <Unit>=<Bay>|Transfers a unit to a bay."
+>77946
+"1 Electric:1 Computers:1 Gold|3 Electric:3 Computers:3 Gold|7 Electric:7 Computers:7 Gold|14 Electric:14 Computers:14 Gold"
+>77947
+"1 Sillicon:1 Computers:1 Gold:1 Electric|2 Sillicon:4 Computers:4 Gold:4 Electric|4 Sillicon:8 Computers:8 Gold:8 Electric|8 Sillicon:16 Computers:16 Gold:16 Electric"
 <
 !5
 "Limbo;o"
@@ -63642,9 +63754,9 @@ Faction:Admin
 >1155
 "2:256:1117159876"
 >1156
-"17:256:Sun Jun 18 17:21:53 2006"
+"17:256:Mon Jun 19 21:11:02 2006"
 >38538
-"1150686413"
+"1150859462"
 >50191
 "2:0:@dol [lattr(%0/*.F)] [lattr(%0/*.D)] [lattr(%0/*.L)]={@set %0/##=NO_COMMAND}"
 <
@@ -64331,10 +64443,12 @@ Faction:Admin
 "MCY-98"
 >230
 "2:0:Admin"
->77860
-"2:0:#2 1150661520"
+>239
+"#2"
 >77887
 "2:0:HIGH"
+>77985
+"2:0:2"
 <
 !31
 "[1m[33mPARENT:[0m Sim Pod Room"
@@ -64988,11 +65102,11 @@ Faction:Admin
 >246
 "@fo me={FIXMAP};@tri me/SAVEMAP.T"
 >2292
-"Sun Jun 18 03:11:31 2006"
+"Tue Jun 20 03:11:02 2006"
 >2293
-"6"
+"1"
 >2294
-"2"
+"3"
 >2299
 "Clear0"
 >2303
@@ -65094,7 +65208,7 @@ Faction:Admin
 >32
 "[ansi(hb,repeat(-,78))]%r[u(GENERIC.DESC)]%r[u(SYSINFO.DESC)][u(CALTIME.DESC)][u(COMMANDS.DESC)][u(NOTES.DESC)]"
 >35
-"@switch 1=[ismech(%#)],{think [btsetxcodevalue(%#,stall,1)]},[and(hasattr(%!,MECH_ASSIGN.D),strmatch(%#,first(setr(0,v(MECH_ASSIGN.D)))),eq(0,u(#98/CALTIME_REMAINING.F,first(%q0))))],{@tri me/FINISH_CAL.T=%#;@pemit %#=Your calibration has finished.}"
+"@switch 1=[ismech(%#)],{think [btsetxcodevalue(%#,stall,1)]},[and(hasattr(%!,MECH_ASSIGN.D),strmatch(%#,first(setr(0,v(MECH_ASSIGN.D)))),eq(0,u(#98/CALTIME_REMAINING.F,first(%q0))))],{@tri me/FINISH_CAL.T=%#;@pemit %#=Your calibration has finished.};@tri me/SET_RADIO_COMP.T"
 >36
 "@switch [and(hastype(%#,PLAYER),strmatch(%#,v(PILOT)),or(mech_destroyed(%!),hasflag(%!,GOING)))]=1,{@tri %!/Amechdest=%!}"
 >47
@@ -65155,8 +65269,6 @@ Faction:Admin
 "[filter(ISNEARBY.FIL,sort(iter(lcon(%0),ifelse(lte(dist3d(%1,%2,div(%3,3),mech_x(##),mech_y(##),div(mech_z(##),3)),%4),##,))))]"
 >2625
 "[and(ismech(%0),not(ulocal(vdb(MECH_INFO.DB)/IS_DROPSHIP.FIL,get(%0/Mechtype))),not(match(v(WONTBLOCK.L),get(%0/Mechtype))),strmatch(parent(%0),vdb(MECH_PARENT.DB)),hasflag(%0,IN_CHARACTER),not(mech_destroyed(%0)))]"
->2650
-"think [setq(0,[strtrunc(v(MECHTYPE),8)]|[ifelse(hastype(v(Pilot),PLAYER),ifelse(hasattr(%!,Pilot),strtrunc(get(v(Pilot)/alias),7),None),lcstr(mech_id(%!)))])][setq(1,ifelse(ulocal(MECH_HASRELAY.F,%!),deG,dG))];@fo %!={setchannelmode a=%q1;setchanneltitle a=%q0;setchannelfreq a=[get(v(FACTION)/FREQ.D)]}"
 >2659
 "@faction %!=%0;think [setq(0,%ch%crWARNING:%cn %ch[after(stripansi(name(%!)),:%b)]%cn %(%ch[mech_x(%!)]%cn%,%ch[mech_y(%!)]%cn%) has been claimed by %ch%cy[name(%0)]%cn!)];@tri [loc(%!)]/MAPEMIT.T=[loc(%!)],%q0;@tri [vdb(GLOBAL_TRIGGERS.DB)]/ECONEMIT.T=%q0;@tri %!/RESTOREOBJ.T"
 >2663
@@ -65239,6 +65351,102 @@ Faction:Admin
 "[ifelse(hasattr(%!,NOTES.D),%r%b%ch%crNotes:%cw [v(NOTES.D)]%cn,)]"
 >77921
 "[default(fobj(v(FACTION))/TEAM.NUM,0)]"
+>77948
+"GenericScan v1 | 1 | 50 | 5 | N | 0"
+>77949
+"GenericScan v2 | 2 | 75 | 8 | NR | 0"
+>77950
+"GenericScan v3 | 3 | 100 | 11 | NRS | 0"
+>77951
+"GenericScan v4 | 5 | 125 | 15 | NRSI | 0"
+>77953
+"VCMultiScan 001 | 1 | 40 | 10 | N | 0"
+>77954
+"VCMultiScan 002 | 2 | 60 | 10 | N | 0"
+>77955
+"VCMultiScan 003 | 3 | 80 | 10 | N | 0"
+>77956
+"VCMultiScan 101 | 4 | 70 | 15 | NR | 0"
+>77957
+"VCMultiScan 102 | 4 | 85 | 15 | NR | 0"
+>77958
+"VCMultiScan 103 | 4 | 100 | 15 | NR | 0"
+>77959
+"FannenFluxScan r1.1 | 1 | 40 | 4 | NRSI | 0"
+>77960
+"FannenFluxScan r1.2 | 1 | 65 | 4 | NRSI | 0"
+>77961
+"FannenFluxScan r1.3 | 1 | 90 | 4 | NRSI | 0"
+>77962
+"FannenFluxScan r2.1 | 3 | 100 | 9 | NRSI | 0"
+>77963
+"FannenFluxScan r2.2 | 3 | 150 | 9 | NRSI | 0"
+>77964
+"FannenFluxScan r2.3 | 3 | 175 | 9 | NRSI | 0"
+>77965
+"FannenFluxScan r3.1 | 5 | 150 | 15 | NRSI | 0"
+>77966
+"FannenFluxScan r3.2 | 5 | 175 | 15 | NRSI | 0"
+>77967
+"FannenFluxScan r3.3 | 5 | 300 | 15 | NRSI | 0"
+>77968
+"OptiScan A | 1 | 150 | 2 | N | 0"
+>77969
+"OptiScan B | 1 | 200 | 2 | N | 0"
+>77970
+"OptiScan C | 1 | 250 | 2 | N | 0"
+>77971
+"GenericTrack v1 | 1 | 20 | 30 | 20 | 0"
+>77972
+"GenericTrack v2 | 2 | 30 | 50 | 30 | 0"
+>77973
+"GenericTrack v3 | 3 | 40 | 70 | 40 | 0"
+>77974
+"GenericTrack v4 | 3 | 50 | 100 | 50 | 0"
+>77975
+"CrysComp 01A | 3 | 30 | 30 | 30 | 0"
+>77976
+"CrysComp 01B | 3 | 40 | 40 | 40 | 0"
+>77977
+"CrysComp 01C | 3 | 50 | 50 | 50 | 0"
+>77978
+"DataSync Model 1 | 2 | 10 | 80 | 15 | 0"
+>77979
+"DataSync Model 2 | 2 | 15 | 100 | 20 | 0"
+>77980
+"DataSync Model 3 | 2 | 20 | 120 | 25 | 0"
+>77981
+"VCTekIHS X1 | 2 | 10 | 20 | 40 | 0"
+>77982
+"VCTekIHS X2 | 2 | 20 | 40 | 50 | 0"
+>77983
+"VCTekIHS X3 | 3 | 30 | 80 | 75 | 0"
+>77984
+"NullZone Aero Track| 3 | 110 | 110 | 110 | 0"
+>77985
+"1"
+>77986
+"1"
+>77987
+"[add(extract(v(RADIO.%0),4,1,|),u(MODEMOD.F,extract(v(RADIO.%0),5,1,|)))]"
+>77988
+"[switch([ifelse(isnum(pos(N,%0)),N,)][ifelse(isnum(pos(R,%0)),R,)][ifelse(isnum(pos(S,%0)),S,)][ifelse(isnum(pos(I,%0)),I,)],NR,16,NI,32,NRI,48,NS,64,NRS,80,NSI,96,NRSI,112,0)]"
+>77993
+"[extract(v(RADIO.%0),1,1,|)]"
+>77994
+"[extract(v(COMP.%0),1,1,|)]"
+>77995
+"[extract(v(RADIO.%0),3,1,|)]"
+>77996
+"[extract(v(RADIO.%0),2,1,|)]"
+>77997
+"[extract(v(COMP.%0),4,1,|)]"
+>77998
+"[extract(v(COMP.%0),5,1,|)]"
+>77999
+"[extract(v(COMP.%0),2,1,|)]"
+>78000
+"think [setq(0,v(RADIO.D))][setq(1,v(COMP.D))][iter(RADIORANGE.F RADIOTYPE.F RADIO.F,btsetxcodevalue(%!,before(##,.F),u(##,%q0)))][iter(LRSRANGE.F SCANRANGE.F COMPUTER.F,btsetxcodevalue(%!,before(##,.F),u(##,%q1)))]"
 <
 !69
 "[1m[33mPARENT:[0m Autopilot Object Parent"
@@ -70732,9 +70940,9 @@ This game is under construction! Tell the staff to update the MOTD on #182.
 >263
 "2:0:%tWelcome to the public sims. Here you may practice with any mech on%r'listrefs' on a number of different maps. Try to be courteous in doing so,%rtwinks will be hit with a wet trout."
 >2292
-"2:0:Sun Jun 18 03:11:31 2006"
+"2:0:Tue Jun 20 03:11:02 2006"
 >2293
-"2:0:3"
+"2:0:4"
 >2294
 "2:0:1"
 >2299
@@ -74149,7 +74357,7 @@ Faction:Admin
 >55423
 "2:0:@dol/delimit | [v(MIN_[extract(extract(time(),4,1),2,1,:)])]={@tri [loc(me)]/##.T}"
 >55425
-"1150687140"
+"1150861260"
 <
 !1171
 "Randis IV Game Center"
