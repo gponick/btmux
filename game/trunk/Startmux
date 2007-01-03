@@ -17,14 +17,25 @@ if [ "$?" -ne 1 ]; then
     echo "Check ps ax"
 	exit 0
 fi
+
 #
 #	Make sure the indexes are up-to-date.
 #
-$BIN/mkindx $TEXT/news.txt $TEXT/news.indx
-$BIN/mkindx $TEXT/help.txt $TEXT/help.indx
-$BIN/mkindx $TEXT/wizhelp.txt $TEXT/wizhelp.indx
-$BIN/mkindx $TEXT/plushelp.txt $TEXT/plushelp.indx
-$BIN/mkindx $TEXT/wiznews.txt $TEXT/wiznews.indx
+if [ -x $BIN/mkindx.debug ]; then
+	MKINDX=$BIN/mkindx.debug
+elif [ -x $BIN/mkindx ]; then
+	MKINDX=$BIN/mkindx
+else
+	echo "No mkindx or mkindx.debug. Did you forget to make install ?"
+	exit 1
+fi
+
+$MKINDX $TEXT/news.txt $TEXT/news.indx
+$MKINDX $TEXT/help.txt $TEXT/help.indx
+$MKINDX $TEXT/wizhelp.txt $TEXT/wizhelp.indx
+$MKINDX $TEXT/plushelp.txt $TEXT/plushelp.indx
+$MKINDX $TEXT/wiznews.txt $TEXT/wiznews.indx
+
 #
 #	Save a copy of the previous input database and log.
 #
@@ -61,5 +72,15 @@ fi
 #	Kick off MUX
 #
 ulimit -c unlimited
-(nohup $BIN/netmux $GAMENAME.conf >$LOGNAME 2>&1 &)
+if [ -x $BIN/netmux.debug ]; then
+	echo Starting debug binary.
+	(nohup $BIN/netmux.debug $GAMENAME.conf >$LOGNAME 2>&1 &)
+elif [ -x $BIN/netmux ]; then
+	echo Starting release binary.
+	(nohup $BIN/netmux $GAMENAME.conf >$LOGNAME 2>&1 &)
+else
+	echo No binary found!
+	exit 1
+fi
+	
 
