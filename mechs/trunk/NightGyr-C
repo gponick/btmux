@@ -3,10 +3,16 @@ Reference        { NightGyr-C }
 Type             { Mech }
 Move_Type        { Biped }
 Tons             { 75 }
+Comment          { Saved by: Captain QB(#198) at Tue Nov 15 14:42:29 2005 }
+Computer         { 5 }
+Radio            { 5 }
 Heat_Sinks       { 36 }
+Mech_BV          { 0 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
 Max_Speed        { 64.50 }
 Jump_Speed       { 43.00 }
-Specials         { Clan FlipArms }
+Specials         { Clan FlipArms LaserHS_Tech }
 Left_Arm
   Armor            { 24 }
   Internals        { 12 }

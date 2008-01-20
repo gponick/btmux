@@ -3,9 +3,11 @@ Reference        { Bandit }
 Type             { Vehicle }
 Move_Type        { Hover }
 Tons             { 50 }
-Comment          { Saved by: Charlemagne(#4624) at Sun Mar  5 02:04:43 2000 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Fri Nov  4 10:43:41 2005 }
 Mech_BV          { 566 }
-Cargo_Space      { 4096 }
+Cargo_Space      { 400 }
+Max_Ton          { 10 }
+Max_Suits        { 0 }
 Max_Speed        { 150.50 }
 Specials         { CargoTech }
 Left_Side
@@ -17,10 +19,10 @@ Right_Side
 Front_Side
   Armor            { 42 }
   Internals        { 5 }
-    CRIT_1		  { IS.MachineGun - - 3 }
-    CRIT_2		  { IS.SRM-2 - - 3 }
-    CRIT_3		  { Ammo_IS.MachineGun 100 Hotload - }
-    CRIT_4		  { IS.SRM-2 - - 3 }
+    CRIT_1		  { IS.MachineGun - - }
+    CRIT_2		  { IS.SRM-2 - - }
+    CRIT_3		  { Ammo_IS.MachineGun 100 Hotload Halfton - }
+    CRIT_4		  { IS.SRM-2 - - }
     CRIT_5		  { Ammo_IS.SRM-2 50 - - }
 Aft_Side
   Armor            { 32 }
@@ -28,6 +30,6 @@ Aft_Side
 Turret
   Armor            { 22 }
   Internals        { 5 }
-    CRIT_1		  { IS.MediumLaser - - 3 }
-    CRIT_2		  { IS.MediumLaser - - 3 }
-    CRIT_3		  { IS.MediumLaser - - 3 }
+    CRIT_1		  { IS.MediumLaser - - }
+    CRIT_2		  { IS.MediumLaser - - }
+    CRIT_3		  { IS.MediumLaser - - }

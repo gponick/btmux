@@ -3,11 +3,13 @@ Reference        { Karnov }
 Type             { VTOL }
 Move_Type        { VTOL }
 Tons             { 30 }
-Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:53:18 2000 }
-Mech_BV          { 18 }
-Cargo_Space      { 6144 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Fri Jan  6 14:54:19 2006 }
+Mech_BV          { 37 }
+Cargo_Space      { 600 }
+Max_Ton          { 1 }
+Max_Suits        { 0 }
 Max_Speed        { 182.75 }
-Specials         { CargoTech ICEEngine_Tech }
+Specials         { ICEEngine_Tech }
 Left_Side
   Armor            { 5 }
   Internals        { 3 }

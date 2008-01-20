@@ -3,8 +3,11 @@ Reference        { BNC-3M }
 Type             { Mech }
 Move_Type        { Biped }
 Tons             { 95 }
-Mech_BV          { 1267 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Thu Apr  6 21:17:33 2006 }
 Heat_Sinks       { 16 }
+Mech_BV          { 1151 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
 Max_Speed        { 64.50 }
 Left_Arm
   Armor            { 21 }

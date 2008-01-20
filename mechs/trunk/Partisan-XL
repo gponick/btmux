@@ -3,32 +3,35 @@ Reference        { Partisan-XL }
 Type             { Vehicle }
 Move_Type        { Track }
 Tons             { 80 }
-Comment          { Saved by: Tantrum(#4394) at Wed Feb 16 20:14:50 2000 }
-Mech_BV          { 861 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Fri Nov  4 10:41:25 2005 }
+Heat_Sinks       { 9 }
+Mech_BV          { 1514 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
 Max_Speed        { 53.75 }
 Specials         { AntiAircraft XLEngine_Tech }
 Left_Side
-  Armor            { 40 }
+  Armor            { 26 }
   Internals        { 8 }
-    CRIT_6-12		  { FerroFibrous - - 3 }
+    CRIT_6-12		  { FerroFibrous - - }
 Right_Side
-  Armor            { 40 }
+  Armor            { 26 }
   Internals        { 8 }
-    CRIT_6-12		  { FerroFibrous - - 3 }
+    CRIT_6-12		  { FerroFibrous - - }
 Front_Side
-  Armor            { 50 }
+  Armor            { 35 }
   Internals        { 8 }
 Aft_Side
-  Armor            { 35 }
+  Armor            { 21 }
   Internals        { 8 }
     CRIT_1-2		  { Ammo_IS.LB10-XAC 10 - - }
     CRIT_3		  { Ammo_IS.LB10-XAC 10 LBX/Cluster - }
-    CRIT_4-7		  { Ammo_IS.UltraAC/5 20 - - }
+    CRIT_4-6		  { Ammo_IS.UltraAC/5 20 - - }
 Turret
-  Armor            { 50 }
+  Armor            { 35 }
   Internals        { 8 }
-    CRIT_1		  { IS.LB10-XAC - - 3 }
-    CRIT_2		  { IS.LB10-XAC - - 3 }
-    CRIT_3		  { IS.UltraAC/5 - - 3 }
-    CRIT_4		  { IS.UltraAC/5 - - 3 }
-    CRIT_5		  { C3Slave - - 0 }
+    CRIT_1		  { IS.LB10-XAC - - }
+    CRIT_2		  { IS.LB10-XAC - - }
+    CRIT_3		  { IS.UltraAC/5 - - }
+    CRIT_4		  { IS.UltraAC/5 - - }
+    CRIT_5		  { C3Slave - - }

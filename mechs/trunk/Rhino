@@ -3,10 +3,12 @@ Reference        { Rhino }
 Type             { Vehicle }
 Move_Type        { Track }
 Tons             { 80 }
-Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:42:40 2000 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Sun Dec 31 21:15:23 2006 }
 Computer         { 3 }
 Mech_BV          { 904 }
-Cargo_Space      { 256 }
+Cargo_Space      { 0 }
+Max_Ton          { 1 }
+Max_Suits        { 0 }
 Max_Speed        { 53.75 }
 Specials         { CargoTech }
 Left_Side
@@ -18,7 +20,7 @@ Right_Side
 Front_Side
   Armor            { 64 }
   Internals        { 8 }
-    CRIT_1		  { IS.LRM-10 - - 3 }
+    CRIT_1		  { IS.LRM-10 - - }
     CRIT_2		  { Ammo_IS.LRM-10 12 - - }
 Aft_Side
   Armor            { 40 }
@@ -26,8 +28,8 @@ Aft_Side
 Turret
   Armor            { 60 }
   Internals        { 8 }
-    CRIT_1		  { IS.LRM-20 - - 3 }
-    CRIT_2		  { IS.LRM-20 - - 3 }
+    CRIT_1		  { IS.LRM-20 - - }
+    CRIT_2		  { IS.LRM-20 - - }
     CRIT_3-5		  { Ammo_IS.LRM-20 6 - - }
-    CRIT_6		  { IS.MediumLaser - - 3 }
-    CRIT_7		  { IS.MediumLaser - - 3 }
+    CRIT_6		  { IS.MediumLaser - - }
+    CRIT_7		  { IS.MediumLaser - - }

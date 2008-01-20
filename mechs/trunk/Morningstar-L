@@ -3,11 +3,12 @@ Reference        { Morningstar-L }
 Type             { Vehicle }
 Move_Type        { Wheel }
 Tons             { 60 }
-Comment          { Saved by: Spectre(#4628) at Thu Jul 11 08:11:38 2002 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Wed Nov 16 12:51:41 2005 }
 Computer         { 4 }
 Radio            { 4 }
 Mech_BV          { 601 }
-Cargo_Space      { 0 }
+Cargo_Space      { 2500 }
+Max_Ton          { 5 }
 Max_Suits        { 0 }
 Max_Speed        { 86.00 }
 Specials         { XLEngine_Tech }
@@ -20,13 +21,13 @@ Right_Side
 Front_Side
   Armor            { 43 }
   Internals        { 6 }
-    CRIT_1		  { IS.LargeLaser - - 3 }
+    CRIT_1		  { IS.LargeLaser - OnTC }
 Aft_Side
   Armor            { 19 }
   Internals        { 6 }
     CRIT_1-2		  { Ammo_IS.AC/10 10 - - }
-    CRIT_3		  { TargetingComputer - - 0 }
+    CRIT_3		  { TargetingComputer - - }
 Turret
   Armor            { 24 }
   Internals        { 6 }
-    CRIT_1		  { IS.AC/10 - - 3 }
+    CRIT_1		  { IS.AC/10 - OnTC }

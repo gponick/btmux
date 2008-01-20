@@ -1,10 +1,13 @@
-Name             { Hunchback }
+Name             { Swayback }
 Reference        { HBK-4P }
 Type             { Mech }
 Move_Type        { Biped }
 Tons             { 50 }
-Mech_BV          { 960 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Sun Apr 30 23:49:07 2006 }
 Heat_Sinks       { 23 }
+Mech_BV          { 960 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
 Max_Speed        { 64.50 }
 Left_Arm
   Armor            { 16 }

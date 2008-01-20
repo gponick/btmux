@@ -3,7 +3,7 @@ Reference        { ARC-5R }
 Type             { Mech }
 Move_Type        { Biped }
 Tons             { 70 }
-Comment          { Saved by: Spectre(#4628) at Mon Jan 14 09:37:55 2002 }
+Comment          { Saved by: Captain QB(#198) at Wed Nov 23 13:21:00 2005 }
 Computer         { 4 }
 Radio            { 4 }
 Heat_Sinks       { 24 }
@@ -15,66 +15,68 @@ Specials         { DoubleHS }
 Left_Arm
   Armor            { 20 }
   Internals        { 11 }
-    CRIT_1		  { ShoulderOrHip - - 3 }
-    CRIT_2		  { UpperActuator - - 3 }
-    CRIT_3		  { LowerActuator - - 3 }
-    CRIT_4		  { HandOrFootActuator - - 3 }
-    CRIT_5-6		  { IS.ERLargeLaser - - 3 }
-    CRIT_7-8		  { EndoSteel - - 3 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { IS.ERLargeLaser - - }
+    CRIT_7-8		  { EndoSteel - - }
 Right_Arm
   Armor            { 20 }
   Internals        { 11 }
-    CRIT_1		  { ShoulderOrHip - - 3 }
-    CRIT_2		  { UpperActuator - - 3 }
-    CRIT_3		  { LowerActuator - - 3 }
-    CRIT_4		  { HandOrFootActuator - - 3 }
-    CRIT_5-6		  { IS.ERLargeLaser - - 3 }
-    CRIT_7-9		  { HeatSink - - 3 }
-    CRIT_10-11		  { EndoSteel - - 3 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { IS.ERLargeLaser - - }
+    CRIT_7-9		  { HeatSink - - }
+    CRIT_10-11		  { EndoSteel - - }
 Left_Torso
   Armor            { 22 }
   Internals        { 15 }
   Rear             { 5 }
-    CRIT_1-3		  { IS.LRM-15 - - 3 }
-    CRIT_4		  { ArtemisIV - - 3 }
+    CRIT_1		  { IS.LRM-15 - Artemis/Mine }
+    CRIT_2-3		  { IS.LRM-15 - - }
+    CRIT_4		  { ArtemisIV - - }
     CRIT_5-6		  { Ammo_IS.LRM-15 8 Artemis/Mine - }
-    CRIT_7-11		  { EndoSteel - - 3 }
-    CRIT_12		  { Case - - 3 }
+    CRIT_7-11		  { EndoSteel - - }
+    CRIT_12		  { Case - - }
 Right_Torso
   Armor            { 22 }
   Internals        { 15 }
   Rear             { 5 }
-    CRIT_1-3		  { IS.LRM-15 - - 3 }
-    CRIT_4		  { ArtemisIV - - 3 }
+    CRIT_1		  { IS.LRM-15 - Artemis/Mine }
+    CRIT_2-3		  { IS.LRM-15 - - }
+    CRIT_4		  { ArtemisIV - - }
     CRIT_5-6		  { Ammo_IS.LRM-15 8 Artemis/Mine - }
-    CRIT_7-11		  { EndoSteel - - 3 }
-    CRIT_12		  { Case - - 3 }
+    CRIT_7-11		  { EndoSteel - - }
+    CRIT_12		  { Case - - }
 Center_Torso
   Armor            { 29 }
   Internals        { 22 }
   Rear             { 8 }
-    CRIT_1-3		  { Engine - - 3 }
-    CRIT_4-7		  { Gyro - - 3 }
-    CRIT_8-10		  { Engine - - 3 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-7		  { Gyro - - }
+    CRIT_8-10		  { Engine - - }
 Left_Leg
   Armor            { 22 }
   Internals        { 15 }
-    CRIT_1		  { ShoulderOrHip - - 3 }
-    CRIT_2		  { UpperActuator - - 3 }
-    CRIT_3		  { LowerActuator - - 3 }
-    CRIT_4		  { HandOrFootActuator - - 3 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
 Right_Leg
   Armor            { 22 }
   Internals        { 15 }
-    CRIT_1		  { ShoulderOrHip - - 3 }
-    CRIT_2		  { UpperActuator - - 3 }
-    CRIT_3		  { LowerActuator - - 3 }
-    CRIT_4		  { HandOrFootActuator - - 3 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
 Head
   Armor            { 9 }
   Internals        { 3 }
-    CRIT_1		  { LifeSupport - - 3 }
-    CRIT_2		  { Sensors - - 3 }
-    CRIT_3		  { Cockpit - - 3 }
-    CRIT_5		  { Sensors - - 3 }
-    CRIT_6		  { LifeSupport - - 3 }
+    CRIT_1		  { LifeSupport - - }
+    CRIT_2		  { Sensors - - }
+    CRIT_3		  { Cockpit - - }
+    CRIT_5		  { Sensors - - }
+    CRIT_6		  { LifeSupport - - }

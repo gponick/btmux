@@ -1,9 +1,13 @@
-Name		 { Maultier } 
+Name             { Maultier }
 Reference        { Maultier }
 Type             { Vehicle }
 Move_Type        { Hover }
 Tons             { 15 }
-Mech_BV          { 115 }
+Comment          { Saved by: Kelvin McCorvin(#2) at Sun Dec 23 02:29:40 2007 }
+Mech_BV          { 209 }
+Cargo_Space      { 300 }
+Max_Ton          { 3 }
+Max_Suits        { 0 }
 Max_Speed        { 150.50 }
 Specials         { CargoTech ICEEngine_Tech }
 Left_Side

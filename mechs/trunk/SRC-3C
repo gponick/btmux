@@ -18,7 +18,7 @@ Front_Left_Leg
     CRIT_3		  { LowerActuator - - 5 }
     CRIT_4		  { HandOrFootActuator - - 5 }
     CRIT_5		  { IS.ERMediumLaser - - 5 }
-    CRIT_6		  { CL.A-Pod - - 5 }
+    CRIT_6		  { IS.A-Pod - - 5 }
 Front_Right_Leg
   Armor            { 40 }
   Internals        { 20 }
@@ -27,7 +27,7 @@ Front_Right_Leg
     CRIT_3		  { LowerActuator - - 5 }
     CRIT_4		  { HandOrFootActuator - - 5 }
     CRIT_5		  { IS.ERMediumLaser - - 5 }
-    CRIT_6		  { CL.A-Pod - - 5 }
+    CRIT_6		  { IS.A-Pod - - 5 }
 Left_Torso
   Armor            { 25 }
   Internals        { 20 }
