@@ -1,10 +1,13 @@
-Name             { Hunchback }
+Name             { Swayback }
 Reference        { HBK-4SP }
 Type             { Mech }
 Move_Type        { Biped }
 Tons             { 50 }
-Mech_BV          { 854 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Sun Apr 30 23:49:36 2006 }
 Heat_Sinks       { 19 }
+Mech_BV          { 854 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
 Max_Speed        { 64.50 }
 Left_Arm
   Armor            { 16 }
@@ -43,7 +46,7 @@ Center_Torso
     CRIT_1-3		  { Engine - - }
     CRIT_4-7		  { Gyro - - }
     CRIT_8-10		  { Engine - - }
-    CRIT_11-12		  { Ammo_IS.SRM-6 15 - }
+    CRIT_11-12		  { Ammo_IS.SRM-6 15 - - }
 Left_Leg
   Armor            { 20 }
   Internals        { 12 }

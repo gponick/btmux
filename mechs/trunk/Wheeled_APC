@@ -3,12 +3,14 @@ Reference        { Wheeled_APC }
 Type             { Vehicle }
 Move_Type        { Wheel }
 Tons             { 10 }
-Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:51:25 2000 }
+Comment          { Saved by: Christmas QB(#198) at Wed Dec 21 16:19:49 2005 }
 Computer         { 3 }
-Mech_BV          { 62 }
-Cargo_Space      { 1024 }
+Mech_BV          { 103 }
+Cargo_Space      { 500 }
+Max_Ton          { 4 }
+Max_Suits        { 0 }
 Max_Speed        { 96.75 }
-Specials         { CargoTech ICEEngine_Tech }
+Specials         { ICEEngine_Tech }
 Left_Side
   Armor            { 10 }
   Internals        { 1 }
@@ -24,6 +26,6 @@ Aft_Side
 Turret
   Armor            { 6 }
   Internals        { 1 }
-    CRIT_1		  { IS.MachineGun - - 3 }
-    CRIT_2		  { IS.MachineGun - - 3 }
+    CRIT_1		  { IS.MachineGun - - }
+    CRIT_2		  { IS.MachineGun - - }
     CRIT_3		  { Ammo_IS.MachineGun 200 - - }

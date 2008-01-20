@@ -3,7 +3,7 @@ Reference        { Glory-LGR }
 Type             { Vehicle }
 Move_Type        { Track }
 Tons             { 85 }
-Comment          { Saved by: Spectre(#4628) at Thu Jul 11 07:36:20 2002 }
+Comment          { Saved by: Captain QB(#198) at Sun Dec 18 22:46:30 2005 }
 Computer         { 4 }
 Radio            { 4 }
 Mech_BV          { 915 }
@@ -24,13 +24,13 @@ Aft_Side
   Internals        { 9 }
     CRIT_1-2		  { Ammo_IS.LightGaussRifle 16 - - }
     CRIT_3-6		  { Ammo_IS.LRM-15 8 Artemis/Mine - }
-    CRIT_7		  { Ecm - - 3 }
-    CRIT_12		  { FerroFibrous - - 3 }
+    CRIT_7		  { Ecm - - }
+    CRIT_12		  { FerroFibrous - - }
 Turret
   Armor            { 60 }
   Internals        { 9 }
-    CRIT_1		  { IS.LightGaussRifle - - 3 }
-    CRIT_2		  { IS.LRM-15 - - 3 }
-    CRIT_3		  { ArtemisIV - - 3 }
-    CRIT_4		  { IS.LRM-15 - - 3 }
-    CRIT_5		  { ArtemisIV - - 3 }
+    CRIT_1		  { IS.LightGaussRifle - - }
+    CRIT_2		  { IS.LRM-15 - Artemis/Mine }
+    CRIT_3		  { ArtemisIV - - }
+    CRIT_4		  { IS.LRM-15 - Artemis/Mine }
+    CRIT_5		  { ArtemisIV - - }

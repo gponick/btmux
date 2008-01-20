@@ -3,10 +3,13 @@ Reference        { FLS-8K }
 Type             { Mech }
 Move_Type        { Biped }
 Tons             { 75 }
-Mech_BV          { 1423 }
+Comment          { Saved by: Mad Tom(#2531) at Mon Nov 26 21:36:41 2007 }
 Computer         { 4 }
 Radio            { 4 }
 Heat_Sinks       { 30 }
+Mech_BV          { 1165 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
 Max_Speed        { 86.00 }
 Specials         { DoubleHS }
 Left_Arm
@@ -29,17 +32,17 @@ Left_Torso
   Armor            { 22 }
   Internals        { 16 }
   Rear             { 10 }
-    CRIT_1		  { IS.MediumLaser - - }
-    CRIT_2		  { IS.MediumLaser - RearMount }
-    CRIT_3-5		  { Engine - - }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4		  { IS.MediumLaser - - }
+    CRIT_5		  { IS.MediumLaser - RearMount }
 Right_Torso
   Armor            { 22 }
   Internals        { 16 }
   Rear             { 10 }
-    CRIT_1		  { IS.MediumLaser - - }
-    CRIT_2		  { IS.Anti-MissileSystem - - }
-    CRIT_3		  { Ammo_IS.Anti-MissileSystem 12 - }
-    CRIT_4-6		  { Engine - - }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4		  { IS.MediumLaser - - }
+    CRIT_5		  { IS.Anti-MissileSystem - - }
+    CRIT_6		  { Ammo_IS.Anti-MissileSystem 12 - - }
 Center_Torso
   Armor            { 25 }
   Internals        { 23 }

@@ -3,16 +3,19 @@ Reference        { CHP-1N }
 Type             { Mech }
 Move_Type        { Biped }
 Tons             { 60 }
-Mech_BV          { 942 }
+Comment          { Saved by: Stringfellow Hawke(#988) at Mon Jun  5 08:46:07 2006 }
 Computer         { 4 }
 Radio            { 4 }
+Mech_BV          { 942 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
 Max_Speed        { 86.00 }
-Specials         { ArtemisIV FlipArms }
+Specials         { FlipArms }
 Left_Arm
   Armor            { 12 }
   Internals        { 10 }
     CRIT_1		  { ShoulderOrHip - - }
-    CRIT_2                { UpperActuator - - }
+    CRIT_2		  { UpperActuator - - }
 Right_Arm
   Armor            { 12 }
   Internals        { 10 }
@@ -22,8 +25,9 @@ Left_Torso
   Armor            { 18 }
   Internals        { 14 }
   Rear             { 6 }
-    CRIT_1-2		  { IS.SRM-6 - - }
-    CRIT_3		  { Ammo_IS.SRM-6 15 Artemis/Mine }
+    CRIT_1		  { IS.SRM-6 - Artemis/Mine }
+    CRIT_2		  { IS.SRM-6 - - }
+    CRIT_3		  { Ammo_IS.SRM-6 15 Artemis/Mine - }
     CRIT_4		  { ArtemisIV - - }
     CRIT_5		  { IS.MediumLaser - - }
     CRIT_6		  { IS.MediumLaser - - }
@@ -33,8 +37,8 @@ Right_Torso
   Internals        { 14 }
   Rear             { 6 }
     CRIT_1-6		  { IS.LB10-XAC - - }
-    CRIT_7		  { Ammo_IS.LB10-XAC 10 - }
-    CRIT_8		  { Ammo_IS.LB10-XAC 10 LBX/Cluster }
+    CRIT_7		  { Ammo_IS.LB10-XAC 10 - - }
+    CRIT_8		  { Ammo_IS.LB10-XAC 10 LBX/Cluster - }
     CRIT_9-12		  { FerroFibrous - - }
 Center_Torso
   Armor            { 24 }

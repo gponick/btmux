@@ -3,10 +3,12 @@ Reference        { Pegasus }
 Type             { Vehicle }
 Move_Type        { Hover }
 Tons             { 35 }
-Comment          { Saved by: Charlemagne(#4624) at Wed Feb 16 07:59:11 2000 }
+Comment          { Saved by: GreaseMonkey(#1094) at Mon Jul 16 23:17:10 2007 }
 Computer         { 4 }
-Heat_Sinks       { 11 }
+Heat_Sinks       { 3 }
 Mech_BV          { 419 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
 Max_Speed        { 129.00 }
 Specials         { SearchLight ICEEngine_Tech }
 Left_Side
@@ -18,13 +20,13 @@ Right_Side
 Front_Side
   Armor            { 26 }
   Internals        { 4 }
-    CRIT_1		  { IS.MediumLaser - - 3 }
+    CRIT_1		  { IS.MediumLaser - - }
 Aft_Side
   Armor            { 19 }
   Internals        { 4 }
 Turret
   Armor            { 21 }
   Internals        { 4 }
-    CRIT_1		  { IS.SRM-6 - - 3 }
-    CRIT_2		  { IS.SRM-6 - - 3 }
+    CRIT_1		  { IS.SRM-6 - - }
+    CRIT_2		  { IS.SRM-6 - - }
     CRIT_3		  { Ammo_IS.SRM-6 15 - - }
