@@ -1,0 +1,5 @@
+To-Do List that will probably never get done
+--------------------------------------------
+* Terrain generation with perlin noise and fractals
+* Imaging of maps with hexagonal hexes instead of one pixel per hex.
+* Documentation (le' sigh)
