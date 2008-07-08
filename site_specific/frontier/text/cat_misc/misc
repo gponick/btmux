@@ -1,8 +1,0 @@
-& misc
- 
- >> Help: Misc (Misc Commands)
- -----------------------------------------------------------------------------
- Selfboot       Loadset         Available       Config
- -----------------------------------------------------------------------------
- To view specifics about each command, use 'help <topic>' without the <>'s.
- 
