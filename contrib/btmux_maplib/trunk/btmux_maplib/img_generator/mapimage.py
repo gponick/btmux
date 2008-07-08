@@ -20,7 +20,7 @@
 Map image generation classes.
 """
 import Image
-import rgb_vals
+from btmux_maplib.img_generator import rgb_vals
 
 class MuxMapImage(object):
     """
