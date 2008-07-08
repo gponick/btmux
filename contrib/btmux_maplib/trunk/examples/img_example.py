@@ -20,11 +20,11 @@
 This is an example of how to open a map file, return a MuxMap object, and
 get a few values.
 """
-from class_map import MuxMap
-from img_generator.mapimage import PixelHexMapImage 
-from map_parsers.parser_stream import MapStreamParser
+from btmux_maplib.class_map import MuxMap
+from btmux_maplib.img_generator.mapimage import PixelHexMapImage 
+from btmux_maplib.map_parsers.parser_stream import MapStreamParser
 
-parser = MapStreamParser(open('sample_data/large.map', 'r'))
+parser = MapStreamParser(open('../sample_data/large.map', 'r'))
 # This is our new MuxMap object.
 newmap = parser.get_muxmap()
 # Set up an image generator pointing to the map object.

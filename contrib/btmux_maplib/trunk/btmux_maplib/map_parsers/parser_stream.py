@@ -15,7 +15,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-from .class_map import MuxMap
+from btmux_maplib.class_map import MuxMap
 
 class MapStreamParser(object):
     """
