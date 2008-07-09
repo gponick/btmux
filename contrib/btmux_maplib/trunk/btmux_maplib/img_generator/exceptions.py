@@ -15,24 +15,18 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-
-"""
-This is an example of how to open a map file, return a MuxMap object, and
-get a few values.
-"""
-from btmux_maplib.map import MuxMap
-from btmux_maplib.img_generator.mapimage import PixelHexMapImage 
-from btmux_maplib.map_parsers.fileobj import MapFileObjParser
-
-parser = MapFileObjParser(open('../sample_data/large.map', 'r'))
-# This is our new MuxMap object.
-the_map = parser.get_muxmap()
-# Set up an image generator pointing to the map object.
-img_gen = PixelHexMapImage(the_map)
-img_gen.set_mode("elevmap2")
-# Generate the PIL Image.
-img_gen.generate_map(max_dimension=400)
-# Open with image viewer.
-img_gen.show()
-# Save the image to a file.
-#img.save_image("currmap.png", "PNG")
+class BasicImagingException(Exception):
+    """
+    Basic exception for others to inherit or use.
+    """
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return repr(self.value)
+    
+class InvalidImageMode(BasicImagingException):
+    """
+    Raised when someone tries to set an invalid map imaging mode.
+    """
+    def __str__(self):
+        return repr("Invalid imaging mode: %s" % self.value)
