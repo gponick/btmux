@@ -29,6 +29,33 @@ class MuxMap(object):
     terrain_list = []
     # List of hex elevations [y][x]
     elevation_list = []
+    
+    def __init__(self, dimensions=None):
+        """
+        Args:
+        * size: (tuple) A tuple in the form of (width, height). If specified,
+                initializes a map of this size that is all level 0 clear hexes.
+                If none specified, you'll need to populate the map's data
+                structures by another means (a map parser).
+        """
+        self.clear_map()
+        if dimensions:
+            self.dimensions = dimensions
+            
+            for y in range(0, self.get_map_height()):
+                self.terrain_list.append([])
+                self.elevation_list.append([])
+                for x in range(0, self.get_map_width()):
+                    self.terrain_list[y].append('.')
+                    self.elevation_list[y].append('0')
+
+    def clear_map(self):
+        """
+        Re-sets the map to its original, empty state.
+        """
+        self.dimensions = None
+        self.terrain_list = []
+        self.elevation_list = []
                   
     def get_map_dimensions(self):
         """

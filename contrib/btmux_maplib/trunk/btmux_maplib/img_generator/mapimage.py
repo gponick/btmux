@@ -92,7 +92,6 @@ class MuxMapImage(object):
             # Anti-aliasing looks best when scaling down.
             resize_filter = Image.ANTIALIAS
             resize_mul = float(max_dimension) / largest_dim
-            print resize_mul
             if self.debug:
                 print 'Over-sized, re-size needed: (%d/%d) = %f' % (max_dimension,
                                                                     largest_dim,
