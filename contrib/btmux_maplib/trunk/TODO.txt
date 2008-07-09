@@ -1,5 +1,6 @@
 To-Do List that will probably never get done
 --------------------------------------------
 * Terrain generation with perlin noise and fractals
+  * Tie in an A* pathfinding algorithm to make roads.
 * Imaging of maps with hexagonal hexes instead of one pixel per hex.
 * Documentation (le' sigh)
