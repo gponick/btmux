@@ -77,12 +77,57 @@ class MuxMap(object):
             return self.dimensions[1]
         except TypeError:
             raise MapDimsNotSet
+        
+    def is_terrain_list_ready(self):
+        """
+        Returns True if the terrain list appears to be ready.
+        """
+        return len(self.terrain_list) > 0
+    
+    def is_elevation_list_ready(self):
+        """
+        Returns True if the elevation list appears to be ready.
+        """
+        return len(self.elevation_list) > 0
+        
+    def set_hex_terrain(self, x, y, terrain_char):
+        """
+        Sets a hex's terrain character.
+        """
+        if not self.is_terrain_list_ready():
+            raise TerrainListNotSet
+        
+        try:
+            self.terrain_list[y][x] = terrain_char
+            return terrain_char
+        except IndexError:
+            raise InvalidHex(x, y)
+        
+    def set_hex_elevation(self, x, y, elevation):
+        """
+        Sets a hex's elevation.
+        """
+        if not self.is_elevation_list_ready():
+            raise ElevationListNotSet
+        
+        try:
+            self.elevation_list[y][x] = elevation
+            return elevation
+        except IndexError:
+            raise InvalidHex(x, y)
+        
+    def set_hex(self, x, y, terrain, elevation):
+        """
+        Sets a hex's terrain and elevation at the same time.
+        """
+        self.set_hex_terrain(x, y, terrain)
+        self.set_hex_elevation(x, y, elevation)
     
     def get_hex_terrain(self, x, y):
         """
         Returns a hex's terrain character given an X and Y value.
         """
-        if len(self.terrain_list) == 0:
+        if not self.is_terrain_list_ready():
             raise TerrainListNotSet
         
         try:
@@ -94,7 +139,7 @@ class MuxMap(object):
         """
         Returns a hex's elevation given an X and Y value.
         """
-        if len(self.elevation_list) == 0:
+        if not self.is_elevation_list_ready():
             raise ElevationListNotSet
         
         try:
