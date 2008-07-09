@@ -34,7 +34,7 @@ parser.debug = True
 the_map = parser.get_muxmap()
 # Pass the map and a file-like object to be written to. This doesn't have
 # to be done with file(), it can be something else like StringIO().
-exporter = MuxMapExporter(the_map, open('../sample_data/sample2.map', 'w'))
+exporter = MuxMapExporter(the_map, open('sample2.map', 'w'))
 # Show some verbose output.
 exporter.debug = True
 exporter.write()
