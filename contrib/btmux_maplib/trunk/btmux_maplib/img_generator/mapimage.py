@@ -21,6 +21,7 @@ Map image generation classes.
 """
 import Image
 from btmux_maplib.img_generator import rgb_vals
+from btmux_maplib.img_generator.exceptions import InvalidImageMode
 
 class MuxMapImage(object):
     """
@@ -30,9 +31,21 @@ class MuxMapImage(object):
     
     DO NOT USE THIS CLASS DIRECTLY!
     """
+    # Reference to the MuxMap object to image.
     map = None
+    # The PIL Image object.
     map_img = None
+    # Imaging mode, see set_mode().
+    mode = "color"
+    # Show some debug information.
     debug = True
+    
+    """
+    A lowercase list of valid imaging modes.
+     color: Standard color terrain/elevation map.
+     elevmap: Elevation only, looks grayscaled aside from water.
+    """
+    VALID_MODES = ["color", "elevmap"]
     
     def __init__(self, map):
         """
@@ -42,6 +55,15 @@ class MuxMapImage(object):
         * map: (MuxMap) The map object to create an image of.
         """
         self.map = map
+        
+    def set_mode(self, mode):
+        mode_lower = mode.lower()
+        if mode_lower not in self.VALID_MODES:
+            raise InvalidImageMode(mode_lower)
+        else:
+            self.mode = mode_lower
+            if self.debug:
+                print "Imaging mode set to: %s" % self.mode
    
     def handle_resizing(self, min_dimension, max_dimension):
         """
@@ -124,6 +146,16 @@ class MuxMapImage(object):
             
         if self.debug:
             print 'Image generation complete.'
+
+    def get_terrain_rgb(self, terrain, elev):
+        """
+        Looks up the correct RGB value tuple for a given terrain and elevation.
+        """
+        if self.mode == "elevmap" and terrain != "~":
+            return rgb_vals.cmap["."][elev]
+        
+        return rgb_vals.cmap[terrain][elev]
+                
             
     def show(self):
         """
@@ -158,5 +190,5 @@ class PixelHexMapImage(MuxMapImage):
             for x in range(0, map_width):
                 terrain = self.map.get_hex_terrain(x, y)
                 elev = self.map.get_hex_elevation(x, y)
-                # Look up the RGB value from the tables and set the pixel/hex.
-                self.map_img.putpixel((x,y), rgb_vals.cmap[terrain][elev])
+                self.map_img.putpixel((x,y), 
+                        self.get_terrain_rgb(terrain, elev))
