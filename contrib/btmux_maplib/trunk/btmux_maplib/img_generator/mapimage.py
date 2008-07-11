@@ -154,7 +154,6 @@ class MuxMapImage(object):
             return rgb_vals.cmap["."][elev]
         
         return rgb_vals.cmap[terrain][elev]
-                
             
     def show(self):
         """

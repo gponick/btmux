@@ -111,6 +111,11 @@ class MuxMap(object):
             raise ElevationListNotSet
         
         try:
+            if elevation < 0:
+                elevation = abs(elevation)
+                self.set_hex_terrain(x, y, '~')
+            if elevation > 9:
+                elevation = 9
             self.elevation_list[y][x] = elevation
             return elevation
         except IndexError:
@@ -146,3 +151,10 @@ class MuxMap(object):
             return int(self.elevation_list[y][x])
         except IndexError:
             raise InvalidHex(x, y)
+        
+    def get_hex(self, x, y):
+        """
+        Returns a (terrain, elevation) tuple.
+        """
+        return (self.get_hex_terrain(x,y),
+                self.get_hex_elevation(x,y))
