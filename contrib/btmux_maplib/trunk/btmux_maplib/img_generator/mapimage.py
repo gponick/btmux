@@ -19,7 +19,8 @@
 """
 Map image generation classes.
 """
-import Image
+import math
+import Image, ImageDraw
 from btmux_maplib.img_generator import rgb_vals
 from btmux_maplib.img_generator.exceptions import InvalidImageMode
 
@@ -180,6 +181,9 @@ class PixelHexMapImage(MuxMapImage):
         Over-rides the MuxMapImage stub routine to do our one pixel per hex
         rendering.
         """
+        if self.debug:
+            print "Rendering hexes..."
+        
         # Shortcuts for readability.
         map_width = self.map.get_map_width()
         map_height = self.map.get_map_height()
@@ -190,3 +194,142 @@ class PixelHexMapImage(MuxMapImage):
                 elev = self.map.get_hex_elevation(x, y)
                 self.map_img.putpixel((x,y), 
                         self.get_terrain_rgb(terrain, elev))
+                
+        if self.debug:
+            print "Hex rendering completed."
+                
+class HexMapImage(MuxMapImage):
+    """
+    Renders the map's hexes as hexes. This is a lot more computationally
+    expensive than PixelHexMapImage, but will produce more accurate results
+    when you're zoomed in.
+    """
+    # Lower and upper hex line length. Everything else is calculated based
+    # on this number. This is best an even number.
+    hex_s = 10
+    # Distance between left edge and beginning of hex_s.
+    hex_h = int(round(math.sin(math.radians(30)) * hex_s))
+    # Distance between bounding box corners and the left and right middle bend
+    # points on the hex.
+    hex_r = int(round(math.cos(math.radians(30)) * hex_s))
+    # Total width of the hex
+    rect_b = hex_s + 2 * hex_h
+    # Total height of the hex
+    rect_a = 2 * hex_r
+    # Color to paint the lines
+    line_color = (255,255,255)
+    # These are populated by methods and are best left alone here.
+    img_width = None
+    img_height = None
+    draw = None
+    
+    def __init__(self, map):
+        """
+        Default init routine.
+        
+        Args:
+        * map: (MuxMap) The map object to create an image of.
+        """
+        self.map = map
+        # Calculate how much image area is needed to render all of the hexes.
+        self.img_width = self.map.get_map_width() * (self.rect_b - self.hex_h)
+        self.img_height = (self.map.get_map_height() - 1) * self.rect_a 
+    
+    def generate_map(self, min_dimension=None, max_dimension=None):
+        """
+        Generates a image from a map file, populates the object's map_img 
+        attribute with a PIL Image.
+        
+        min and max dimensions will scale the image if either the height or the
+        width goes above the max or under the min size in pixels. You may
+        specify one or both.
+        """
+        self.map_img = Image.new("RGB", (self.img_width, self.img_height))
+        if self.debug:
+            print "Image created with dimensions: %dx%d" % (self.map_img.size[0],
+                                                            self.map_img.size[1])
+        self.draw = ImageDraw.Draw(self.map_img)
+        self.render_hexes()
+        
+        # Do any re-sizing needed.
+        if min_dimension or max_dimension:
+            self.handle_resizing(min_dimension, max_dimension)
+            
+        if self.debug:
+            print 'Image generation complete.'
+            
+    def calc_upper_left_pixel(self, x, y):
+        """
+        Calculates the upper left pixel of the box used to render a hex.
+        All of the hex's points are based on offsets of this point.
+        """
+        # If this is an odd numbered hex, off-set it by half a hex height.
+        if x % 2 == 0:
+            # Even numbered row
+            y_pixel = (y * self.rect_a)
+        else:
+            # Odd numbered row
+            y_pixel = (y * self.rect_a - int(round(0.5 * self.rect_a)))
+            
+        # The x-coordinate remains constaint regardless of odd or even.
+        x_pixel = x * (self.rect_b - self.hex_h)
+        
+        #print "%d,%x -> %f,%f" % (x, y, x_pixel, y_pixel)
+        return (x_pixel, y_pixel)
+            
+    def draw_hex(self, x, y, terrain, elev):
+        """
+        Draw the hex polgygon.
+        """
+        # The upper left pixel from which the hex is based on
+        upper_left = self.calc_upper_left_pixel(x, y)
+        
+        # Upper and Lower left X coordinate
+        hex_s_start_x = upper_left[0] + self.hex_h
+        # Upper and Lower right X coordinate
+        hex_s_end_x = upper_left[0] + self.rect_b - self.hex_h
+        # Lower Y coordinate
+        hex_s_lower_y = upper_left[1] - self.rect_a
+        
+        # X,Y tuples for top right and left points on the hex.
+        hex_uleft_xy = (hex_s_start_x, upper_left[1])
+        hex_uright_xy = (hex_s_end_x, upper_left[1]) 
+
+        # X,Y tuples for bottom right and left points on the hex.
+        hex_lleft_xy = (hex_s_start_x, hex_s_lower_y) 
+        hex_lright_xy = (hex_s_end_x, hex_s_lower_y) 
+        
+        # X,Y tuple for the left and right middle bend points on the hex.
+        hex_left_bend_xy = (upper_left[0], upper_left[1] - self.hex_r)
+        hex_right_bend_xy = (upper_left[0] + self.rect_b, upper_left[1] - self.hex_r)
+        
+        hex_point_list = [hex_uleft_xy, hex_uright_xy, 
+                          hex_right_bend_xy, 
+                          hex_lright_xy, hex_lleft_xy,
+                          hex_left_bend_xy]
+        #print hex_point_list
+        
+        # Draw the filled hex polgyon.
+        self.draw.polygon(hex_point_list,
+                  outline=self.line_color,
+                  fill=self.get_terrain_rgb(terrain, elev))
+    
+    def render_hexes(self):
+        """
+        Over-rides the MuxMapImage stub routine to do our one pixel per hex
+        rendering.
+        """
+        if self.debug:
+            print "Rendering hexes..."
+            
+        # Shortcuts for readability.
+        map_width = self.map.get_map_width()
+        map_height = self.map.get_map_height()
+        
+        for y in range(0, self.map.get_map_width()):
+            for x in range(0, self.map.get_map_height()):
+                terrain = self.map.get_hex_terrain(x, y)
+                elev = self.map.get_hex_elevation(x, y)
+                self.draw_hex(x, y, terrain, elev)
+        if self.debug:
+            print "Hex rendering completed."
