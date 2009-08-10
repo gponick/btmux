@@ -10,76 +10,42 @@
 # - Greg
 #----------------------------------------------------------------------------
 
-import os, glob, sys
-from stat import *
+import os, fnmatch, sys, shutil, fileinput
 
-# Routine for recursing the directories and subdirectories of the build
-# target. Theoretically can be of unlimited depth at the expense of
-# host machine resources.
-#
-# Copies each file to the 'build' directory for assembly by assemble_files.
+# Code from ActiveState Recipe 499305: Locating files throughout a directory tree
+# http://code.activestate.com/recipes/499305/
 #----------------------------------------------------------------------------
-def recurse_dir(dir, fixdos=0):
-	if not os.path.isdir(dir):
-		print 'Not a directory!'
+def locate(pattern, root=os.curdir):
+    '''Locate all files matching supplied filename pattern in and below
+    supplied root directory.'''
+    for path, dirs, files in os.walk(os.path.abspath(root)):
+        for filename in fnmatch.filter(files, pattern):
+        	if ".svn" not in path: # modified from recipe - exclude .svn directories 
+        		yield os.path.join(path, filename)
 
-	textdir_contents = glob.glob(dir + "/*")
-
-	for file in textdir_contents:
-		if os.path.isdir(file):
-			# We're dealing with a directory, recurse it.
-			recurse_dir(file, fixdos)
-		else:
-			# We've got a file, move to build dir.
-			if fixdos:
-				os.system('fromdos "' + file + '"')
-			else:
-				os.system('cp "' + file + '" build')
-
-# Assembles the target file from the contents of the build dir.
-#----------------------------------------------------------------------------
-def assemble_files(targetfile):
-	entry_list = glob.glob('build/*') 
-	entry_list.sort()
-
-	for file in entry_list:
-		# We've got a file, cat it into our final .txt.
-		os.popen('cat "' + file + '" >> ' + targetfile)
-
-# Clean up our build dir.
-#----------------------------------------------------------------------------
-def clean_builddir():
-	os.system('rm -rf build/*')
 
 # Top level function that calls recurse_dir() on the build target.
 #----------------------------------------------------------------------------
 def build_help(build_targ):
 	# build_targ is without the .txt, IE: 'wizhelp', 'help', etc. Tack
 	# the .txt on the end and this is our target file.
-        buildfile = build_targ + '.txt'
+	buildfile = build_targ + '.txt'
 
 	# Clean up the build target file and build dir.
-        os.system('rm -rf ' + buildfile)
-	clean_builddir()
-
-        print 'Building ' + buildfile + '...'
-	# Transfers our help files into the build dir.
-        recurse_dir(build_targ)
-	# Assemble our build target from the contents of build dir.
-	assemble_files(buildfile)
-
-	clean_builddir()
-
-        print 'Finished building ' + buildfile + '.'
-
-# Calls mkindx assuming it's in ../bin/mkindx. We may need to adjust this
-# once we start packaging BTMux. Right now this is called every time we
-# build a help file.
-#----------------------------------------------------------------------------
-def build_mkindx(buildfile):
-	print 'mkindx target ' + buildfile + '.txt'
-	os.popen('../bin/mkindx ' + buildfile + '.txt ' + buildfile + '.indx')
-
+	try:
+		os.remove(buildfile)
+	except OSError:
+		pass
+	
+	print 'Building ' + buildfile + '...'
+	f = open(buildfile, 'w')
+	for line in fileinput.input(locate('*', build_targ)):	
+		if line[-2:] == "\r\n": # if we have a windows line ending...
+			line = line[:-2] + "\n" # fix it 
+		f.write(line)
+	f.close()
+	print 'Finished building ' + buildfile + '.'
+	
 #----------------------------------------------------------------------------
 # Begin Main Program Logic
 #----------------------------------------------------------------------------
@@ -97,7 +63,6 @@ if len(sys.argv) < 2:
 	for target in valid_targets:
 		print '  ' + target
 	print '  all (Builds all of the above targets)'
-	print '  fixdos (Fixes Windows-polluted files, requires frodo)'
 	print '-'*78
 	print ' NOTE: You will need @readcache if your game is running.'
 	print '-'*78
@@ -110,22 +75,13 @@ if build_targ == 'all':
 # ----> Build everything from valid_targets.
 	for buildfile in valid_targets:
 		build_help(buildfile)
-elif build_targ == 'mkindx':
-# ----> Call mkindx on everything.
-	mkindx_list = valid_targets + other_files
-	for buildfile in mkindx_list:
-		build_mkindx(buildfile)
 	print mkindx_note
 elif build_targ in valid_targets:
 # ----> Build only the specified target.
 	build_help(build_targ)
-	build_mkindx(build_targ)
 	print mkindx_note
-elif build_targ == 'fixdos':
-# ----> Fix the stupid DOS/Windows linebreaks.
-	for buildfile in valid_targets:
-		recurse_dir(buildfile,1)
 else:
 # ----> Invalid argument.
 	print 'Invalid build target! Issue the command with no arguments for syntax.'
 	sys.exit(2)
+
