@@ -15,5 +15,5 @@
   > say lcon(me)
   You say "#366 #223 #188"
  
-  See Also: lexits(), @dolist
+  See Also: lexits(), lplayers(), lvplayers(), @dolist
  
