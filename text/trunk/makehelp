@@ -21,7 +21,7 @@ def locate(pattern, root=os.curdir):
     for path, dirs, files in os.walk(os.path.abspath(root)):
         for filename in fnmatch.filter(files, pattern):
         	if ".svn" not in path: # modified from recipe - exclude .svn directories 
-        		yield os.path.join(path, filename)
+        		yield [path, filename]
 
 
 # Top level function that calls recurse_dir() on the build target.
@@ -38,13 +38,30 @@ def build_help(build_targ):
 		pass
 	
 	print 'Building ' + buildfile + '...'
+	
 	f = open(buildfile, 'w')
-	for line in fileinput.input(locate('*', build_targ)):	
+	
+	files = list(locate('*', build_targ))	
+	files.sort(lambda x,y:cmp(x[1],y[1])) # sort list by filename independent of path
+	
+	# transform file list back into a regular list
+	file_list = list()
+	for file in files:
+		file_list.append(os.path.join(file[0], file[1]))
+		
+	for line in fileinput.input(file_list):	
 		if line[-2:] == "\r\n": # if we have a windows line ending...
 			line = line[:-2] + "\n" # fix it 
 		f.write(line)
+    
 	f.close()
+	
 	print 'Finished building ' + buildfile + '.'
+
+# Run mkindx on whatever we just built.
+#----------------------------------------------------------------------------
+def mkindx(targ):
+	os.popen('../bin/mkindx ' + targ + '.txt ' + targ + '.indx')
 	
 #----------------------------------------------------------------------------
 # Begin Main Program Logic
@@ -75,10 +92,12 @@ if build_targ == 'all':
 # ----> Build everything from valid_targets.
 	for buildfile in valid_targets:
 		build_help(buildfile)
+		mkindx(buildfile)
 	print mkindx_note
 elif build_targ in valid_targets:
 # ----> Build only the specified target.
 	build_help(build_targ)
+	mkindx(build_targ)
 	print mkindx_note
 else:
 # ----> Invalid argument.
