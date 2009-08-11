@@ -1,5 +1,5 @@
  
-& rest()
+& replace()
  
   Syntax: replace(<list>, <pos>, <word>[, <sep>])
  
