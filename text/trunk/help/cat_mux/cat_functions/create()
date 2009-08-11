@@ -13,8 +13,5 @@
 
   If no <type> is specified, then a thing will be created by default.
 
-  This is a side effect function, and should only be used when
-necessary.
-
   See Also: @create.
  
