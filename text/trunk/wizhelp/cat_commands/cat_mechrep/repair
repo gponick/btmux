@@ -2,16 +2,15 @@
 & repair
  
   Mechrep Command: repair <loc> <type> <[val | subsect]>
- 
-  
-  
   
   Arguments:
-  * type -  the type of repair to carry out. Valid arguments are:
+  loc - Location on which to perform the repair.
+  type -  the type of repair to carry out. Valid arguments are:
        * A - armor
        * C - crit
        * I - internal
-       * R - rear
+       * R - rear armor
+       * S - section reattach
    val - where the repair is to armor (ie type = A, I, or R) this 
          argument details the amount of armor to repair. 
    subsect - Where the repair is to a crit (ie type = C) this argument 
