@@ -6583,8 +6583,9 @@ Avg weight: 45.00 Total tons: 990
     * p - AC precision ammo
     * u - AC caseless ammo
   
-  See Also: settarget
-  
+  See Also: settarget, restock
+ 
+ 
 & removestuff
  
   RS Command: removestuff <name> <num>
@@ -6672,6 +6673,28 @@ Avg weight: 45.00 Total tons: 990
   engines and gyros on mech.
   
   See Also: settarget 
+& restock
+ 
+  Mechrep Command: restock <loc> <critslot>
+  
+  This command reloads the ammobin in <loc> at <critslot>.
+  Unlike the 'RELOAD' command, it does not alter the type
+  of the ammo bin. Thus, it is useful for tech systems
+  that simply want to reload an ammo bin without changing
+  the template.
+  
+  Arguments:
+  * name - the name of the weapon drawing on that ammobin
+  * loc - the location of the ammobin (eg CT, LA)
+  
+  Example:
+  
+  >reload LA 10
+  Weapon restocked!
+  
+  See Also: reload
+ 
+ 
 & restore
  
   Mechrep Command: restore
