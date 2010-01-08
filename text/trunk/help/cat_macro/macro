@@ -1,3 +1,4 @@
+
 & macro
  
   This is the help for the MUX macro system. Note that all macros must be
@@ -11,7 +12,7 @@
   .add         .chmod       .clear       .create      .del
   .chslot        .ex          .gex         .list        .name .glist      .undef
 
-  For general macro usage see 'help macro general'.
+  For general macro usage see 'help macro-general'.
 
 & .add
 
@@ -100,7 +101,7 @@
 
   Deletes a macro in the current slot.
 
-& macro general
+& macro-general
 
   The macro system serves the function of most macro systems, it allows
   aliases for commands, or for a series of commands.  All MUX macros and
