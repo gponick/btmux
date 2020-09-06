@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  bt3065:
+    build: .
+    ports:
+      - 3065:3065
+    volumes:
+      - /home/btmux/3065/docker-bt3065:/opt/btmux/mounted-bt
+    command: >
+      sh -c "cp /opt/btmux/game.run/bin/* /opt/btmux/mounted-bt/bin/ && cp /opt/btmux/game.run/lib/* /opt/btmux/mounted-bt/lib/ && cd /opt/btmux/mounted-bt/ && bin/netmux bt3065.conf"
+  bt3055:
+    build: .
+    ports:
+      - 5555:5555
+    volumes:
+      - /home/btmux/frontier/docker-frontier:/opt/btmux/mounted-bt
+    command: >
+      sh -c "cp /opt/btmux/game.run/bin/* /opt/btmux/mounted-bt/bin/ && cp /opt/btmux/game.run/lib/* /opt/btmux/mounted-bt/lib/ && cd /opt/btmux/mounted-bt/ && bin/netmux frontier.conf"
