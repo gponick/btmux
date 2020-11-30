@@ -1,0 +1,60 @@
+# temporarily files, editor backups
+*~
+.*.swp
+*.lo
+*.la
+*.o
+game/**
+game.run
+libtool
+.deps/
+.libs/
+
+# cscope
+cscope.in.out
+cscope.out
+cscope.po.out
+
+# build products
+btmux/src/mkindx
+btmux/src/netmux
+
+# versioning
+btmux/src/version.h
+btmux/buildnum.data
+
+# autotools detritus
+Makefile
+btmux/autom4te.cache
+btmux/autoscan.log
+btmux/autoscan-*.log
+btmux/aclocal.m4
+btmux/autoconf.h
+btmux/config.guess
+btmux/config.h.in
+btmux/config.log
+btmux/config.status
+btmux/config.sub
+btmux/configure
+btmux/configure.scan
+btmux/depcomp
+btmux/install-sh
+btmux/missing
+btmux/stamp-h1
+btmux/btech/autom4te.cache
+btmux/btech/autoscan.log
+btmux/btech/autoscan-*.log
+btmux/btech/aclocal.m4
+btmux/btech/autoconf.h
+btmux/btech/config.guess
+btmux/btech/config.h.in
+btmux/btech/config.log
+btmux/btech/config.status
+btmux/btech/config.sub
+btmux/btech/configure
+btmux/btech/configure.scan
+btmux/btech/depcomp
+btmux/btech/install-sh
+btmux/btech/missing
+btmux/btech/stamp-h1
+
