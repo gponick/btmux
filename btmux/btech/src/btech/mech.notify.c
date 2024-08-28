@@ -640,7 +640,7 @@ const char radio_colorstr[] = "xrgybmcwXRGYBMCW";
 static char *ccode(MECH * m, int i, int obs, int team)
 {
 	int t = m->freqmodes[i] / FREQ_REST;
-	static char buf[6];
+	static char buf[7];
 	int ii;
 
 	if(!obs) {
@@ -652,7 +652,7 @@ static char *ccode(MECH * m, int i, int obs, int team)
 			sprintf(buf, "%%c%c", radio_colorstr[t - 1]);
 			return buf;
 		}
-		sprintf(buf, "%%ch%%c%c", ToLower(radio_colorstr[t - 1]));
+		snprintf(buf, 7, "%%ch%%c%c", ToLower(radio_colorstr[t - 1]));
 	} else {
 		if (team > 15)
 			team = team % 15;
