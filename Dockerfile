@@ -13,7 +13,18 @@ RUN mkdir -p /opt/btmux/
 
 COPY btmux /opt/btmux/
 
+COPY game /opt/btmux/game
+COPY maps /opt/btmux/game/maps
+COPY text /opt/btmux/game/text
+COPY mechs /opt/btmux/game/mechs
+
 WORKDIR /opt/btmux/
 
-RUN ./configure --enable-sql-support && make && make install 
+RUN ./configure --enable-sql-support && make -j 4 && make install 
+
+EXPOSE 5555
+
+WORKDIR /opt/btmux/game.run/
+
+CMD ["/bin/bash","-c", "/opt/btmux/game.run/Startmux-docker"]
 
