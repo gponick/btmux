@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM i386/ubuntu:latest
 
 
 RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
@@ -7,7 +7,7 @@ ENV LANG en_US.utf8
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y gcc libevent-dev libevent-2.1-7 libdbi-dev make g++
+RUN apt-get install -y gcc libevent-dev libevent-2.1-6 libdbi-dev make g++
 
 RUN mkdir -p /opt/btmux/
 
